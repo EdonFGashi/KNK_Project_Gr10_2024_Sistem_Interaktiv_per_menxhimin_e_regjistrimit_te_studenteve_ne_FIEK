@@ -2,7 +2,9 @@ module com.example.knk_project_gr10_2024 {
     requires javafx.controls;
     requires javafx.fxml;
 
-    opens app to javafx.graphics;
+    opens app to javafx.fxml;
+
+    exports app;
 
  //   opens com.example.knk_project_gr10_2024 to javafx.fxml;
 
