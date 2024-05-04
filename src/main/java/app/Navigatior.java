@@ -1,12 +1,15 @@
 package app;
 
+import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -16,10 +19,10 @@ public class Navigatior {
 
 
     public final static String ADMIN_RIBBON = "admin-ribbon.fxml";
-
     public final static String ADMIN_STUDENTMENU = "admin-studentMenu.fxml";
-
     public final static String ADMIN_STUDENTMENU_ADDSTUDENT = "admin-studentMenu-addStudent.fxml";
+    public final static String ADMIN_PROFILE = "admin-profile.fxml";
+
 
     public static void navigate(Event event, String form){
         Node eventNode = (Node) event.getSource();
@@ -31,16 +34,22 @@ public class Navigatior {
         Pane formPane = loadPane(form);
         Scene newScene = new Scene(formPane);
         stage.setScene(newScene);
-        stage.show();
         stage.setMaximized(true);
+        stage.show();
     }
 
     //Per kur klokohet ribboni, qe me e qu pane jo stringun
     public static void navigate(Stage stage, Pane mainPane){
-        Scene newScene = new Scene(mainPane);
+        Scene newScene = new Scene(mainPane,1920,900);
         stage.setScene(newScene);
+
+       stage.setMaximized(true);
+        Screen screen = Screen.getPrimary();
+        Rectangle2D bounds = screen.getVisualBounds();
+
+        stage.setWidth(bounds.getWidth());
+        stage.setHeight(bounds.getHeight());
         stage.show();
-        stage.setMaximized(true);
     }
 
     //Shton Pane brenda panit aktual - BLENDI
@@ -73,17 +82,12 @@ public class Navigatior {
         }
     }
 
-    public static Pane getRibbonWithSection(String ribbon, String section){
-        Pane mainPane = new VBox();
-        Pane ribbonPane = loadPane(ribbon);
-        mainPane.getChildren().add(ribbonPane);
-        return  addPane(mainPane,section);
-    }
-
     //kur navigojmeNeMenu qojme Pane
     public static Pane getRibbonWithSection(String ribbon, Pane section){
         Pane mainPane = new VBox();
+
         Pane ribbonPane = loadPane(ribbon);
+
         mainPane.getChildren().add(ribbonPane);
         if(mainPane.getChildren().size() > 1) {
             mainPane.getChildren().remove(mainPane.getChildren().size() - 1);
@@ -96,7 +100,8 @@ public class Navigatior {
     public static void navigateRibbon(Event event, String ribbon, String section){
         Node eventNode = (Node) event.getSource();
         Stage stage = (Stage) eventNode.getScene().getWindow();
-        navigate(stage, getRibbonWithSection(ribbon, section));
+        Pane sectionPane = loadPane(section);
+        navigate(stage, getRibbonWithSection(ribbon, sectionPane));
     }
 
 
@@ -106,9 +111,13 @@ public class Navigatior {
         Stage stage = (Stage) eventNode.getScene().getWindow();
 
         Pane menuAndSection = new HBox();
-        menuAndSection.getChildren().add(loadPane(menu));
-        menuAndSection = addPane(menuAndSection, section);
 
-        navigate(stage,getRibbonWithSection(ribbon, menuAndSection));
+        //Menu ne Hbox
+        menuAndSection.getChildren().add(loadPane(menu));
+        //Menu dhe section ne ribbon
+        Pane mainPane = getRibbonWithSection(ribbon,addPane(menuAndSection, section));
+
+        navigate(stage,mainPane);
+
     }
 }

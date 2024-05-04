@@ -1,9 +1,9 @@
-package controller;
+package controller.Admin;
 
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 
-public class AdminStudentMenuController {
+public class StudentMenuController {
     @FXML
     private void handleStatisticsClick(MouseEvent me){
 

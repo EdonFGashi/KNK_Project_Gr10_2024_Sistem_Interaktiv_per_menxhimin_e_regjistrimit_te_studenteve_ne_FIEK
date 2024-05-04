@@ -4,8 +4,9 @@ module com.example.knk_project_gr10_2024 {
 
     opens app to javafx.fxml;
     exports app;
-    opens controller to javafx.fxml;
- //   opens com.example.knk_project_gr10_2024 to javafx.fxml;
+
+    opens controller.Admin to javafx.fxml;
+    //   opens com.example.knk_project_gr10_2024 to javafx.fxml;
 
 //    exports com.example.knk_project_gr10_2024;
 }
