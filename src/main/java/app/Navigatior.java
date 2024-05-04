@@ -97,7 +97,14 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
             return loader.load();
         }catch (IOException ioe){
             System.out.println("Error ne load");
-            return null;
+            try {
+               return (new FXMLLoader(Navigatior.class.getResource(Navigatior.ERROR404))).load();
+
+            }catch(Exception e){
+                System.out.println("Nuk u gjet pane Error 404");
+                return null;
+            }
+
         }
     }
 
