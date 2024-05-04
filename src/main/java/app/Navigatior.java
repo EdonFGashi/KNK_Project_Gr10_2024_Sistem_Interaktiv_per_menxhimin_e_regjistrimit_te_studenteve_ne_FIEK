@@ -1,5 +1,16 @@
 package app;
 
+/* KOMENTIM I NAVIGATORIT
+
+Per me hap ni nderfaqe te re veq navigate(eventi, Navigator.emri),emri -> i ruajtur ne interface.
+Per me hap ni nderfaqe te re me ribbon navigate(eventi, ribboni, emri)(sugjerohet qe ribboni i formatit njejt me Admin Ribbon)
+Per me hap ribbon me menu me file ne ta navigate(eventi, ribboni, menu, emri).
+
+Metodat jane te bera Overload,
+ per shtim te file te ri Shtohet ne interface (Skan rol logjik veq organizim ma i leht i kodit)
+
+ */
+
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -13,17 +24,20 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Navigatior {
-    public final static String LOGIN_PAGE = "login_form.fxml";
-
-
-
-    //Admin Pages
+interface AdminPages{
     public final static String ADMIN_RIBBON = "admin-ribbon.fxml";
     public final static String ADMIN_STUDENTMENU = "admin-studentMenu.fxml";
     public final static String ADMIN_STUDENTMENU_ADDSTUDENT = "admin-studentMenu-addStudent.fxml";
     public final static String ADMIN_PROFILE = "admin-profile.fxml";
+}
+interface StudentPages{
 
+}
+interface SupervisorPages{
+
+}
+
+public class Navigatior implements AdminPages, StudentPages, SupervisorPages{
 
     public static void navigate(Event event, String form){
         Node eventNode = (Node) event.getSource();
@@ -108,8 +122,6 @@ public class Navigatior {
         navigate(stage, getRibbonWithSection(ribbon, sectionPane));
     }
 
-
-
     //Navigon Menu(Ka edhe ribbon)
     public static void navigate(Event event, String ribbon, String menu, String section){
         Node eventNode = (Node) event.getSource();
@@ -125,3 +137,4 @@ public class Navigatior {
 
     }
 }
+
