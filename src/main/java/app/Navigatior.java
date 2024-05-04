@@ -73,20 +73,35 @@ public class Navigatior {
         }
     }
 
-    public static Pane getRibbonWithSection(String section){
+    public static Pane getRibbonWithSection(String ribbon, String section){
         Pane mainPane = new VBox();
-        Pane ribbonPane = loadPane(ADMIN_RIBBON);
+        Pane ribbonPane = loadPane(ribbon);
         mainPane.getChildren().add(ribbonPane);
-       return  addPane(mainPane,section);
+        return  addPane(mainPane,section);
     }
 
-    public static void navigateRibbon(Event event, String section){
+    //kur navigojmeNeMenu qojme Pane
+    public static Pane getRibbonWithSection(String ribbon, Pane section){
+        Pane mainPane = new VBox();
+        Pane ribbonPane = loadPane(ribbon);
+        mainPane.getChildren().add(ribbonPane);
+        if(mainPane.getChildren().size() > 1) {
+            mainPane.getChildren().remove(mainPane.getChildren().size() - 1);
+        }
+        mainPane.getChildren().add(section);
+        return mainPane;
+    }
+
+    //Navigon veq Ribbon
+    public static void navigateRibbon(Event event, String ribbon, String section){
         Node eventNode = (Node) event.getSource();
         Stage stage = (Stage) eventNode.getScene().getWindow();
-        navigate(stage, getRibbonWithSection(section));
+        navigate(stage, getRibbonWithSection(ribbon, section));
     }
 
-    public static void navigateMenu(Event event, String menu, String section){
+
+    //Navigon Menu
+    public static void navigateMenu(Event event,String ribbon, String menu, String section){
         Node eventNode = (Node) event.getSource();
         Stage stage = (Stage) eventNode.getScene().getWindow();
 
@@ -94,8 +109,6 @@ public class Navigatior {
         menuAndSection.getChildren().add(loadPane(menu));
         menuAndSection = addPane(menuAndSection, section);
 
-        //mainPane = getRibbonWithSection()
-
+        navigate(stage,getRibbonWithSection(ribbon, menuAndSection));
     }
-
 }

@@ -11,7 +11,7 @@ public class AdminRibbonController {
     }
     @FXML
     private void handleStudentMenagmentClick(MouseEvent me){
-        Navigatior.navigateRibbon(me, Navigatior.ADMIN_STUDENTMENU);
+        Navigatior.navigateMenu(me,Navigatior.ADMIN_RIBBON, Navigatior.ADMIN_STUDENTMENU,Navigatior.ADMIN_STUDENTMENU_ADDSTUDENT);
     }
     @FXML
     private void handleInboxClick(MouseEvent me){
