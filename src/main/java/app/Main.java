@@ -11,7 +11,7 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-
-        Navigatior.navigate(stage,Navigatior.ADMIN_RIBBON);
+        stage.setMaximized(true);
+        Navigatior.navigate(stage,Navigatior.ADMIN_RIBBON,Navigatior.ADMIN_PROFILE);
     }
 }

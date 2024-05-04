@@ -1,6 +1,5 @@
 package app;
 
-import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -18,6 +17,8 @@ public class Navigatior {
     public final static String LOGIN_PAGE = "login_form.fxml";
 
 
+
+    //Admin Pages
     public final static String ADMIN_RIBBON = "admin-ribbon.fxml";
     public final static String ADMIN_STUDENTMENU = "admin-studentMenu.fxml";
     public final static String ADMIN_STUDENTMENU_ADDSTUDENT = "admin-studentMenu-addStudent.fxml";
@@ -26,29 +27,26 @@ public class Navigatior {
 
     public static void navigate(Event event, String form){
         Node eventNode = (Node) event.getSource();
+
         Stage stage = (Stage) eventNode.getScene().getWindow();
         navigate(stage, form);
     }
 
     public static void navigate(Stage stage, String form){
         Pane formPane = loadPane(form);
+        stage.setWidth(stage.getWidth());
+        stage.setHeight(stage.getHeight());
         Scene newScene = new Scene(formPane);
         stage.setScene(newScene);
-        stage.setMaximized(true);
         stage.show();
     }
 
     //Per kur klokohet ribboni, qe me e qu pane jo stringun
     public static void navigate(Stage stage, Pane mainPane){
-        Scene newScene = new Scene(mainPane,1920,900);
+        stage.setWidth(stage.getWidth());
+        stage.setHeight(stage.getHeight());
+        Scene newScene = new Scene(mainPane);
         stage.setScene(newScene);
-
-       stage.setMaximized(true);
-        Screen screen = Screen.getPrimary();
-        Rectangle2D bounds = screen.getVisualBounds();
-
-        stage.setWidth(bounds.getWidth());
-        stage.setHeight(bounds.getHeight());
         stage.show();
     }
 
@@ -87,6 +85,8 @@ public class Navigatior {
         Pane mainPane = new VBox();
 
         Pane ribbonPane = loadPane(ribbon);
+        ribbonPane.setMaxHeight(80);
+        ribbonPane.setMinHeight(80);
 
         mainPane.getChildren().add(ribbonPane);
         if(mainPane.getChildren().size() > 1) {
@@ -97,21 +97,25 @@ public class Navigatior {
     }
 
     //Navigon veq Ribbon
-    public static void navigateRibbon(Event event, String ribbon, String section){
+    public static void navigate(Event event, String ribbon, String section){
         Node eventNode = (Node) event.getSource();
         Stage stage = (Stage) eventNode.getScene().getWindow();
         Pane sectionPane = loadPane(section);
         navigate(stage, getRibbonWithSection(ribbon, sectionPane));
     }
+    public static void navigate(Stage stage, String ribbon, String section){
+        Pane sectionPane = loadPane(section);
+        navigate(stage, getRibbonWithSection(ribbon, sectionPane));
+    }
 
 
-    //Navigon Menu
-    public static void navigateMenu(Event event,String ribbon, String menu, String section){
+
+    //Navigon Menu(Ka edhe ribbon)
+    public static void navigate(Event event, String ribbon, String menu, String section){
         Node eventNode = (Node) event.getSource();
         Stage stage = (Stage) eventNode.getScene().getWindow();
 
         Pane menuAndSection = new HBox();
-
         //Menu ne Hbox
         menuAndSection.getChildren().add(loadPane(menu));
         //Menu dhe section ne ribbon

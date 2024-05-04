@@ -16,10 +16,16 @@ public class ProfileController {
     @FXML
     private TextField txtPhone;
     @FXML
-    private PasswordField pxdPassword;
+    private PasswordField pwdPassword;
 
     @FXML
     private void handleEdit(ActionEvent ae){
+        this.txtName.setDisable(false);
+        this.txtSurname.setDisable(false);
+        this.txtEmail.setDisable(false);
+        this.txtPhone.setDisable(false);
+        this.pwdPassword.setDisable(false);
+
 
     }
     @FXML

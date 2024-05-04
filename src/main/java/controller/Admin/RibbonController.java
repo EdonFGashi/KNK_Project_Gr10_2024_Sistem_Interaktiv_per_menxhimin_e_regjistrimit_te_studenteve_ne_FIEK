@@ -11,7 +11,7 @@ public class RibbonController {
     }
     @FXML
     private void handleStudentMenagmentClick(MouseEvent me){
-        Navigatior.navigateMenu(me,Navigatior.ADMIN_RIBBON, Navigatior.ADMIN_STUDENTMENU, Navigatior.ADMIN_STUDENTMENU_ADDSTUDENT);
+        Navigatior.navigate(me,Navigatior.ADMIN_RIBBON, Navigatior.ADMIN_STUDENTMENU, Navigatior.ADMIN_STUDENTMENU_ADDSTUDENT);
     }
     @FXML
     private void handleInboxClick(MouseEvent me){
@@ -19,6 +19,6 @@ public class RibbonController {
     }
     @FXML
     private void handleProfileClick(MouseEvent me){
-        Navigatior.navigateRibbon(me,Navigatior.ADMIN_RIBBON,Navigatior.ADMIN_PROFILE);
+        Navigatior.navigate(me,Navigatior.ADMIN_RIBBON,Navigatior.ADMIN_PROFILE);
     }
 }
