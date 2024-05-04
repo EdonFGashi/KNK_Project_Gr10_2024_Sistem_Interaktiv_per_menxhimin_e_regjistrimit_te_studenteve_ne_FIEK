@@ -2,6 +2,7 @@ package app;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -24,28 +25,19 @@ public class FirstApp extends Application {
     public void start(Stage stage){
 
         FXMLLoader ribbon = new FXMLLoader(
-                this.getClass().getResource("ribon-test.fxml")
+                this.getClass().getResource("overall-error404.fxml")
         );
-
-        FXMLLoader manu = new FXMLLoader(
-                this.getClass().getResource("menu.fxml")
-        );
-
 
 
         try{
-
-           VBox mainPane = new VBox();
-           mainPane.getChildren().add(ribbon.load());
-
-        //   AdminMenuNavigator.navigateOnMenu(mainPane,stage,"menu Test.fxml");
-
-
+            Scene scene = new Scene(ribbon.load());
+            stage.setScene(scene);
+            stage.show();
         }catch(IOException e){
-            System.out.println("Gabim");
+            e.printStackTrace();
         }
 
-        stage.show();
+
 
     }
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Overall.Error404Controller">
+   <children>
+      <VBox alignment="CENTER" prefHeight="846.0" prefWidth="1920.0">
+         <children>
+            <ImageView fx:id="imgError404" fitHeight="169.0" fitWidth="211.0" pickOnBounds="true" preserveRatio="true" />
+            <Label text="ERROR 404" textFill="#615f5f">
+               <font>
+                  <Font name="Arial" size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="870.0" layoutY="412.0">
+               <font>
+                  <Font name="Arial" size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="870.0" layoutY="433.0" text="Page Not Found" textFill="#7e7d7d">
+               <font>
+                  <Font name="Arial" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

@@ -36,8 +36,15 @@ interface StudentPages{
 interface SupervisorPages{
 
 }
+interface OverallPages{
+    public static String DASHBOARD = "";
+    public static String ERROR404 = "overall-error404.fxml";
+}
 
-public class Navigatior implements AdminPages, StudentPages, SupervisorPages{
+
+
+
+public class Navigatior implements AdminPages, StudentPages, SupervisorPages, OverallPages{
 
     public static void navigate(Event event, String form){
         Node eventNode = (Node) event.getSource();
@@ -118,7 +125,11 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages{
         navigate(stage, getRibbonWithSection(ribbon, sectionPane));
     }
     public static void navigate(Stage stage, String ribbon, String section){
+
         Pane sectionPane = loadPane(section);
+        if(sectionPane == null){
+            sectionPane = loadPane(Navigatior.ERROR404);
+        }
         navigate(stage, getRibbonWithSection(ribbon, sectionPane));
     }
 
