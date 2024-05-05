@@ -16,6 +16,7 @@ public class Error404Controller {
     public void initialize() {
         try {
             FileInputStream inputStream = new FileInputStream("Images/Error404.png");
+
             Image image = new Image(inputStream);
             imgError404.setImage(image);
             System.out.println("Image set successfully.");
