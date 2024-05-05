@@ -3,10 +3,13 @@ package controller.Admin;
 import app.Navigatior;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -20,6 +23,9 @@ public class StudentMenuController {
     private HBox hboxAddStudent;
     @FXML
     private HBox hboxGenerateCredentials;
+    @FXML
+    private StackPane addPane;
+
 
     private static int activeSection;
 
@@ -41,27 +47,33 @@ public class StudentMenuController {
 
     @FXML
     private void handleShowStudentsClick(MouseEvent me){
-        setActiveSection(1);
-        Navigatior.navigate(me, Navigatior.ADMIN_RIBBON, Navigatior.ADMIN_STUDENTMENU,Navigatior.ADMIN_PROFILE);
+        Navigatior.addPane(this.addPane, Navigatior.ADMIN_PROFILE);
+        refreshActiveSection();
+        hboxShowStudents.setStyle("-fx-background-color: #A5CEF2; -fx-background-radius:10px;");
     }
 
     @FXML
     private void handleAddStudentClick(MouseEvent me){
-        setActiveSection(2);
-        Navigatior.navigate(me, Navigatior.ADMIN_RIBBON, Navigatior.ADMIN_STUDENTMENU,"");
+        Navigatior.addPane(this.addPane, Navigatior.ADMIN_PROFILE);
+        refreshActiveSection();
+        hboxAddStudent.setStyle("-fx-background-color: #A5CEF2; -fx-background-radius:10px;");
     }
 
     @FXML
     private void handleEditStudentClick(MouseEvent me){
-        setActiveSection(3);
-        Navigatior.navigate(me, Navigatior.ADMIN_RIBBON, Navigatior.ADMIN_STUDENTMENU,"");
+        Navigatior.addPane(this.addPane, Navigatior.ADMIN_PROFILE);
+        refreshActiveSection();
+        hboxEditStudent.setStyle("-fx-background-color: #A5CEF2; -fx-background-radius:10px;");
     }
 
     @FXML
     private void handleGenerateCredentialsClick(MouseEvent me){
-        setActiveSection(4);
-        Navigatior.navigate(me, Navigatior.ADMIN_RIBBON, Navigatior.ADMIN_STUDENTMENU,"");
+        Navigatior.addPane(this.addPane, Navigatior.ADMIN_PROFILE);
+        refreshActiveSection();
+        hboxGenerateCredentials.setStyle("-fx-background-color: #A5CEF2; -fx-background-radius:10px;");
     }
+
+
 
     private void setActiveSection(int num) {
         activeSection = num;
@@ -69,10 +81,10 @@ public class StudentMenuController {
     }
 
     private void refreshActiveSection(){
-        hboxShowStudents.setStyle("-fx-background-color: white;");
-        hboxEditStudent.setStyle("-fx-background-color: white;");
-        hboxAddStudent.setStyle("-fx-background-color: white;");
-        hboxGenerateCredentials.setStyle("-fx-background-color: white;");
+        hboxShowStudents.setStyle("");
+        hboxEditStudent.setStyle("");
+        hboxAddStudent.setStyle("");
+        hboxGenerateCredentials.setStyle("");
     }
 
 }

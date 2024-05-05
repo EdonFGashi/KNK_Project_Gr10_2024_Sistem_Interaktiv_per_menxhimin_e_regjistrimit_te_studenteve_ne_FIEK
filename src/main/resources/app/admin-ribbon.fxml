@@ -4,47 +4,54 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="67.0" prefWidth="1920.0" spacing="60.0" style="-fx-background-color: #0A84FF; -fx-background-radius: 0.5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.RibbonController">
-   <padding>
-      <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
-   </padding>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.RibbonController">
    <children>
-      <Label onMouseClicked="#handleProfileClick" prefHeight="18.0" prefWidth="73.0" style="-fx-font-weight: bold;" text="PROFILE" textAlignment="CENTER" textFill="WHITE">
+      <HBox alignment="CENTER_LEFT" minHeight="70.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="67.0" prefWidth="1920.0" spacing="60.0" style="-fx-background-color: #0A84FF; -fx-background-radius: 0.5;">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+         </padding>
+         <children>
+            <Label onMouseClicked="#handleProfileClick" prefHeight="18.0" prefWidth="73.0" style="-fx-font-weight: bold;" text="PROFILE" textAlignment="CENTER" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="23.0" onMouseClicked="#handleInboxClick" prefHeight="18.0" prefWidth="60.0" style="-fx-font-weight: bold;" text="INBOX" textAlignment="CENTER" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+            <Label onMouseClicked="#handleStudentMenagmentClick" prefHeight="30.0" prefWidth="109.0" style="-fx-font-weight: bold;" text="STUDENT &#10;MENAGMENT" textAlignment="CENTER" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="147.0" layoutY="20.0" onMouseClicked="#handleSupervisorMenagmentClick" prefHeight="30.0" prefWidth="116.0" style="-fx-font-weight: bold;" text="SUPERVISOR&#10;MENAGMENT" textAlignment="CENTER" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+         </children>
          <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="DEFAULT" />
          </cursor>
-         <font>
-            <Font name="Arial" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="20.0" layoutY="23.0" onMouseClicked="#handleInboxClick" prefHeight="18.0" prefWidth="60.0" style="-fx-font-weight: bold;" text="INBOX" textAlignment="CENTER" textFill="WHITE">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="Arial" size="13.0" />
-         </font>
-      </Label>
-      <Label onMouseClicked="#handleStudentMenagmentClick" prefHeight="30.0" prefWidth="109.0" style="-fx-font-weight: bold;" text="STUDENT &#10;MENAGMENT" textAlignment="CENTER" textFill="WHITE">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="Arial" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="147.0" layoutY="20.0" onMouseClicked="#handleSupervisorMenagmentClick" prefHeight="30.0" prefWidth="116.0" style="-fx-font-weight: bold;" text="SUPERVISOR&#10;MENAGMENT" textAlignment="CENTER" textFill="WHITE">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="Arial" size="13.0" />
-         </font>
-      </Label>
+      </HBox>
+      <HBox fx:id="addPane" minHeight="70.0" prefHeight="860.0" prefWidth="1920.0" />
    </children>
-   <cursor>
-      <Cursor fx:constant="DEFAULT" />
-   </cursor>
-</HBox>
+</VBox>

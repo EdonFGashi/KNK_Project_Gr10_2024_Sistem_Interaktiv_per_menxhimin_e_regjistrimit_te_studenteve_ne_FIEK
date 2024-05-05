@@ -2,12 +2,10 @@ package app;
 
 /* KOMENTIM I NAVIGATORIT
 
-Per me hap ni nderfaqe te re veq navigate(eventi, Navigator.emri),emri -> i ruajtur ne interface.
-Per me hap ni nderfaqe te re me ribbon navigate(eventi, ribboni, emri)(sugjerohet qe ribboni i formatit njejt me Admin Ribbon)
-Per me hap ribbon me menu me file ne ta navigate(eventi, ribboni, menu, emri).
+Kontrolleri i ribbonit edhe i menus duhet me pas ni pane qe me e mbush masane,
+Navigatior.navigate(pane qe mbushet, edhe pane qe vjen) -> shembulli tek Admini qysh e kum ba
 
-Metodat jane te bera Overload,
- per shtim te file te ri Shtohet ne interface (Skan rol logjik veq organizim ma i leht i kodit)
+Metodat niher spi fshij amo besoj e ndreqi ni menyr qysh me u en kahmos.
 
  */
 
@@ -110,6 +108,16 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
 
         }
     }
+
+    public static void navigateNewStage(String page){
+       Scene scene = new Scene(loadPane(page));
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setMaximized(true);
+        stage.show();
+    }
+
+
 
     //kur navigojmeNeMenu qojme Pane
     public static Pane getRibbonWithSection(String ribbon, Pane section){

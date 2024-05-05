@@ -12,6 +12,6 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         stage.setMaximized(true);
-        Navigatior.navigate(stage,Navigatior.ADMIN_RIBBON,Navigatior.ADMIN_PROFILE);
+        Navigatior.navigate(stage,Navigatior.ADMIN_RIBBON);
     }
 }

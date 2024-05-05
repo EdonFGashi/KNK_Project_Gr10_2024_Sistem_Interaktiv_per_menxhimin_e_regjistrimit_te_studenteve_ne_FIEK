@@ -1,24 +1,35 @@
 package controller.Admin;
 
 import app.Navigatior;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 public class RibbonController {
+
+    @FXML
+    private HBox addPane;
+    @FXML
+    private void initialize(){
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_STUDENTMENU);
+    }
     @FXML
     private void handleSupervisorMenagmentClick(MouseEvent me){
-        Navigatior.navigate(me,Navigatior.ADMIN_RIBBON,"");
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_STUDENTMENU);
     }
     @FXML
     private void handleStudentMenagmentClick(MouseEvent me){
-        Navigatior.navigate(me,Navigatior.ADMIN_RIBBON, Navigatior.ADMIN_STUDENTMENU, Navigatior.ADMIN_STUDENTMENU_ADDSTUDENT);
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_STUDENTMENU);
     }
     @FXML
     private void handleInboxClick(MouseEvent me){
-        Navigatior.navigate(me,Navigatior.ADMIN_RIBBON,"");
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_STUDENTMENU);
     }
     @FXML
     private void handleProfileClick(MouseEvent me){
-        Navigatior.navigate(me,Navigatior.ADMIN_RIBBON,Navigatior.ADMIN_PROFILE);
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_PROFILE);
     }
 }
