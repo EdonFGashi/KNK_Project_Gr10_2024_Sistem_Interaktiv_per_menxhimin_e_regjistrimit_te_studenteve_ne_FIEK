@@ -6,6 +6,7 @@ module com.example.knk_project_gr10_2024 {
 
     opens controller.Admin to javafx.fxml;
     opens controller.Overall to javafx.fxml;
+    opens controller.Supervisor to javafx.fxml;
 
     opens app to javafx.fxml;
     exports app;
