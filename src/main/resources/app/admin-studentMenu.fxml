@@ -5,13 +5,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 
-<HBox prefHeight="1188.0" prefWidth="1068.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.StudentMenuController">
+<HBox prefHeight="1154.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.StudentMenuController">
    <children>
       <HBox prefHeight="1172.0" prefWidth="268.0">
          <children>
@@ -133,6 +132,6 @@
             </Line>
          </children>
       </HBox>
-      <StackPane fx:id="addPane" />
+      <HBox fx:id="addPane" alignment="CENTER" prefHeight="1184.0" prefWidth="1654.0" />
    </children>
 </HBox>

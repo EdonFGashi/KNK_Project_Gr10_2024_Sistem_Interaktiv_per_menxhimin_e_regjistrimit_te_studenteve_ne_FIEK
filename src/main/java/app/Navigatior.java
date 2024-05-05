@@ -109,6 +109,9 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         }
     }
 
+
+
+
     public static void navigateNewStage(String page){
        Scene scene = new Scene(loadPane(page));
         Stage stage = new Stage();
