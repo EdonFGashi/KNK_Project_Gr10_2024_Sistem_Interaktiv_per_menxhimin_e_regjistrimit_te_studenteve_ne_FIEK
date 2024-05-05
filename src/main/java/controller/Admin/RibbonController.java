@@ -7,7 +7,7 @@ import javafx.scene.input.MouseEvent;
 public class RibbonController {
     @FXML
     private void handleSupervisorMenagmentClick(MouseEvent me){
-
+        Navigatior.navigate(me,Navigatior.ADMIN_RIBBON,"");
     }
     @FXML
     private void handleStudentMenagmentClick(MouseEvent me){
@@ -15,7 +15,7 @@ public class RibbonController {
     }
     @FXML
     private void handleInboxClick(MouseEvent me){
-
+        Navigatior.navigate(me,Navigatior.ADMIN_RIBBON,"");
     }
     @FXML
     private void handleProfileClick(MouseEvent me){

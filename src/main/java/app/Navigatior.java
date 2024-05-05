@@ -18,6 +18,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -98,7 +99,9 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         }catch (IOException ioe){
             System.out.println("Error ne load");
             try {
-               return (new FXMLLoader(Navigatior.class.getResource(Navigatior.ERROR404))).load();
+                StackPane pane = (new FXMLLoader(Navigatior.class.getResource(Navigatior.ERROR404))).load();
+                pane.setMaxHeight(650);
+                return pane;
 
             }catch(Exception e){
                 System.out.println("Nuk u gjet pane Error 404");

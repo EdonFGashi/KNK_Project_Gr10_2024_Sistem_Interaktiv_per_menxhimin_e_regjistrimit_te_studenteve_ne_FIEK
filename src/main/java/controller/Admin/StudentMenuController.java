@@ -25,6 +25,7 @@ public class StudentMenuController {
 
     @FXML
     private void initialize(){
+        //Varesisht se qka u kliku e fundit kjo e tregon
         if(activeSection == 1) {
             hboxShowStudents.setStyle("-fx-background-color: #A5CEF2; -fx-background-radius:10px;");
         } else if (activeSection == 2) {
@@ -33,8 +34,9 @@ public class StudentMenuController {
             hboxEditStudent.setStyle("-fx-background-color: #A5CEF2; -fx-background-radius:10px;");
         } else if (activeSection ==4) {
             hboxGenerateCredentials.setStyle("-fx-background-color: #A5CEF2; -fx-background-radius:10px;");
+        }else{
+            hboxShowStudents.setStyle("-fx-background-color: #A5CEF2; -fx-background-radius:10px;");
         }
-
     }
 
     @FXML
