@@ -23,6 +23,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
+
+interface OverallPages{
+    public static String DASHBOARD = "";
+    public static String ERROR404 = "overall-error404.fxml";
+}
+
 interface AdminPages{
     public final static String ADMIN_RIBBON = "admin-ribbon.fxml";
     public final static String ADMIN_STUDENTMENU = "admin-studentMenu.fxml";
@@ -35,11 +42,6 @@ interface StudentPages{
 interface SupervisorPages{
 
 }
-interface OverallPages{
-    public static String DASHBOARD = "";
-    public static String ERROR404 = "overall-error404.fxml";
-}
-
 
 
 
