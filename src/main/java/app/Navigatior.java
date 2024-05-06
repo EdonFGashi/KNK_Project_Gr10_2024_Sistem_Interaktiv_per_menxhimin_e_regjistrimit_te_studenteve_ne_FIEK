@@ -37,6 +37,8 @@ interface AdminPages{
 
     public final static String ADMIN_STUDENTMENU_EDITSTUDENT = "admin-studentMenu-editStudent.fxml";
     public final static String ADMIN_PROFILE = "admin-profile.fxml";
+
+
 }
 interface StudentPages{
 
@@ -45,6 +47,9 @@ interface SupervisorPages{
     public final static String SUPERVISOR_RIBBON = "supervisor-ribbon.fxml";
     public final static String SUPERVISOR_MENU = "supervisor-menu.fxml";
     public final static String SUPERVISOR_PROFILE = "supervisor-profile.fxml";
+    public final static String ADMIN_SUPERVISORMENU = "admin-supervisorMenu.fxml";
+    public final static String ADMIN_SUPERVISORMENU_ADDSUPERVISOR = "admin-supervisorMenu-addSupervisor.fxml";
+    public final static String ADMIN_SUPERVISORMENU_EDITSUPERVISOR = "admin-supervisorMenu-editSupervisor.fxml";
 
 }
 
