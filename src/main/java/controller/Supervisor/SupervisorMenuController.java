@@ -16,13 +16,13 @@ import java.io.FileNotFoundException;
 
 public class SupervisorMenuController {
     @FXML
-    private HBox hboxShowStudents;
+    private HBox hboxShowSupervisors;
     @FXML
-    private HBox hboxEditStudent;
+    private HBox hboxEditSupervisors;
     @FXML
-    private HBox hboxAddStudent;
+    private HBox hboxAddSupervisor;
     @FXML
-    private HBox hboxGenerateCredentials;
+    private HBox hboxAproveSupervisor;
     @FXML
     private HBox addPane;
 
@@ -33,43 +33,43 @@ public class SupervisorMenuController {
     private void initialize(){
         //Varesisht se qka u kliku e fundit kjo e tregon
         Navigatior.navigate(this.addPane, Navigatior.SUPERVISOR_PROFILE);
-        hboxShowStudents.setStyle(cssForActiveSection);
+        hboxShowSupervisors.setStyle(cssForActiveSection);
     }
 
     @FXML
-    private void handleShowStudentsClick(MouseEvent me){
+    private void handleShowSupervisorsClick(MouseEvent me){
         Navigatior.navigate(this.addPane, Navigatior.SUPERVISOR_PROFILE);
         refreshActiveSection();
-        hboxShowStudents.setStyle(cssForActiveSection);
+        hboxShowSupervisors.setStyle(cssForActiveSection);
     }
 
     @FXML
-    private void handleAddStudentClick(MouseEvent me){
-        Navigatior.navigate(this.addPane, Navigatior.SUPERVISOR_PROFILE);
+    private void handleAddSupervisorClick(MouseEvent me){
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_SUPERVISORMENU_ADDSUPERVISOR);
         refreshActiveSection();
-        hboxAddStudent.setStyle(cssForActiveSection);
+        hboxAddSupervisor.setStyle(cssForActiveSection);
     }
 
     @FXML
-    private void handleEditStudentClick(MouseEvent me){
-        Navigatior.navigate(this.addPane, Navigatior.SUPERVISOR_PROFILE);
+    private void handleEditSupervisorsClick(MouseEvent me){
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_SUPERVISORMENU_EDITSUPERVISOR);
         refreshActiveSection();
-        hboxEditStudent.setStyle(cssForActiveSection);
+        hboxEditSupervisors.setStyle(cssForActiveSection);
     }
 
     @FXML
-    private void handleGenerateCredentialsClick(MouseEvent me){
+    private void handleApproveSupervisorClick(MouseEvent me){
         Navigatior.navigate(this.addPane, "");
         refreshActiveSection();
-        hboxGenerateCredentials.setStyle(cssForActiveSection);
+        hboxAproveSupervisor.setStyle(cssForActiveSection);
     }
 
 
     private void refreshActiveSection(){
-        hboxShowStudents.setStyle("");
-        hboxEditStudent.setStyle("");
-        hboxAddStudent.setStyle("");
-        hboxGenerateCredentials.setStyle("");
+        hboxShowSupervisors.setStyle("");
+        hboxEditSupervisors.setStyle("");
+        hboxAddSupervisor.setStyle("");
+        hboxAproveSupervisor.setStyle("");
     }
 
 }
