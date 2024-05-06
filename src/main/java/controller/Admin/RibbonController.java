@@ -57,7 +57,7 @@ public class RibbonController {
 
     @FXML
     private void handleSupervisorMenagmentClick(MouseEvent me){
-        Navigatior.navigate(this.addPane, "");
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_SUPERVISORMENU);
     }
     @FXML
     private void handleStudentMenagmentClick(MouseEvent me){
