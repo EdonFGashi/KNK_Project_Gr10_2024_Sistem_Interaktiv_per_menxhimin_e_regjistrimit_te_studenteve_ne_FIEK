@@ -47,6 +47,7 @@ public class RibbonController {
     @FXML
     private void handleUpLogoClick(MouseEvent ae){
         //Navigu ne Dashboard
+        Navigatior.navigate(this.addPane, "");
     }
 
     @FXML

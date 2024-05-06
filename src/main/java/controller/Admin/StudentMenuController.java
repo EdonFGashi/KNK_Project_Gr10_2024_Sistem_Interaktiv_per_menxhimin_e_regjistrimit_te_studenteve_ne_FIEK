@@ -26,7 +26,6 @@ public class StudentMenuController {
     @FXML
     private HBox addPane;
 
-
     private final String cssForActiveSection = "-fx-background-color: #A5CEF2; -fx-background-radius:10px;";
 
     @FXML
@@ -52,7 +51,7 @@ public class StudentMenuController {
 
     @FXML
     private void handleEditStudentClick(MouseEvent me){
-        Navigatior.navigate(this.addPane, Navigatior.ADMIN_PROFILE);
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_STUDENTMENU_EDITSTUDENT);
         refreshActiveSection();
         hboxEditStudent.setStyle(cssForActiveSection);
     }

@@ -34,6 +34,8 @@ interface AdminPages{
     public final static String ADMIN_RIBBON = "admin-ribbon.fxml";
     public final static String ADMIN_STUDENTMENU = "admin-studentMenu.fxml";
     public final static String ADMIN_STUDENTMENU_ADDSTUDENT = "admin-studentMenu-addStudent.fxml";
+
+    public final static String ADMIN_STUDENTMENU_EDITSTUDENT = "admin-studentMenu-editStudent.fxml";
     public final static String ADMIN_PROFILE = "admin-profile.fxml";
 }
 interface StudentPages{
