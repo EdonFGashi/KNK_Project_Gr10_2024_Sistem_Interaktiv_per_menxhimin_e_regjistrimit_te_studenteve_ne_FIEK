@@ -30,6 +30,7 @@ interface OverallPages{
     public static String ERROR404 = "overall-error404.fxml";
 
     public static final String cssForActiveSection = "-fx-background-color: #A5CEF2; -fx-background-radius:10px;";
+    public static String LOGIN = "overall-login.fxml";
 }
 
 interface AdminPages{
@@ -99,7 +100,7 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         return pane;
     }
 
-    public static Pane loadPane(String page){
+    private static Pane loadPane(String page){
         FXMLLoader loader = new FXMLLoader(
                 Navigatior.class.getResource(page)
         );
