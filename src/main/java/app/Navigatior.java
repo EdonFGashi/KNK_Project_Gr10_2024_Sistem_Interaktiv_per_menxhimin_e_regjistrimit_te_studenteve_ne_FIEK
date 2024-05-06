@@ -42,6 +42,7 @@ interface StudentPages{
 interface SupervisorPages{
     public final static String SUPERVISOR_RIBBON = "supervisor-ribbon.fxml";
     public final static String SUPERVISOR_MENU = "supervisor-menu.fxml";
+    public final static String SUPERVISOR_PROFILE = "supervisor-profile.fxml";
 
 }
 

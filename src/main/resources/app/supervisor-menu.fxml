@@ -3,60 +3,134 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="368.0" prefWidth="115.0" spacing="12.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Supervisor.SupervisorMenuController">
+<HBox prefHeight="1154.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Supervisor.SupervisorMenuController">
     <children>
-        <Label prefHeight="15.0" prefWidth="36.0">
-            <VBox.margin>
-                <Insets />
-            </VBox.margin>
-            <font>
-                <Font name="Arial" size="12.0" />
-            </font>
-        </Label>
-        <Label layoutX="30.0" layoutY="30.0" prefHeight="15.0" prefWidth="61.0" text="Overall">
-            <font>
-                <Font name="Arial" size="12.0" />
-            </font>
-        </Label>
-        <Line endX="-8.707082748413086" endY="6.115436463005608E-6" startX="82.5858383178711" startY="1.2195110684842803E-5" stroke="#4cc2ff" />
-        <Label  prefHeight="15.0" prefWidth="61.0" text="Statistics">
-            <font>
-                <Font name="Arial" size="12.0" />
-            </font>
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-        </Label>
-        <Label layoutX="20.0" layoutY="78.0" prefHeight="15.0" prefWidth="61.0">
-            <font>
-                <Font name="Arial" size="12.0" />
-            </font>
-        </Label>
-        <Label layoutX="20.0" layoutY="105.0" prefHeight="15.0" prefWidth="61.0" text="Individual">
-            <font>
-                <Font name="Arial" size="12.0" />
-            </font>
-        </Label>
-        <Line endX="-8.707082748413086" endY="6.115436463005608E-6" layoutX="30.0" layoutY="65.0" startX="82.5858383178711" startY="1.2195110684842803E-5" stroke="#4cc2ff" />
-        <Label layoutX="20.0" layoutY="132.0" onMouseClicked="#handleEvaluateStudent" prefHeight="15.0" prefWidth="86.0" text="Evaluate Student">
-            <font>
-                <Font name="Arial" size="12.0" />
-            </font>
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-        </Label>
-        <Label layoutX="20.0" layoutY="200.0" prefHeight="15.0" prefWidth="86.0">
-            <font>
-                <Font name="Arial" size="12.0" />
-            </font>
-        </Label>
+        <HBox prefHeight="1172.0" prefWidth="268.0">
+            <children>
+                <VBox prefHeight="1074.0" prefWidth="243.0" spacing="30.0">
+                    <children>
+                        <HBox>
+                            <children>
+                                <Label prefHeight="27.0" prefWidth="235.0" style="-fx-font-weight: bold;" text="Student Menagment">
+                                    <font>
+                                        <Font name="Arial" size="21.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="15.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <Line endX="-8.707082748413086" endY="6.115436463005608E-6" startX="206.5858154296875" startY="6.854534149169922E-6" stroke="#0a84ff">
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" />
+                            </VBox.margin>
+                        </Line>
+                        <HBox fx:id="hboxShowStudents" alignment="CENTER_LEFT" onMouseClicked="#handleShowStudentsClick" prefHeight="38.0" prefWidth="220.0" style="-fx-background-radius: 10px;">
+                            <children>
+                                <Label prefHeight="20.0" prefWidth="140.0" text="Evaluate Students">
+                                    <font>
+                                        <Font name="Arial" size="18.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Label>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="15.0" right="10.0" />
+                            </VBox.margin>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <padding>
+                                <Insets left="8.0" />
+                            </padding>
+                        </HBox>
+                        <HBox fx:id="hboxEditStudent" alignment="CENTER_LEFT" layoutX="25.0" layoutY="148.0" onMouseClicked="#handleEditStudentClick" prefHeight="38.0" prefWidth="220.0">
+                            <children>
+                                <Label prefHeight="20.0" prefWidth="140.0" text="Blank 1">
+                                    <font>
+                                        <Font name="Arial" size="18.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Label>
+                            </children>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <padding>
+                                <Insets left="8.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets left="15.0" right="10.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox fx:id="hboxAddStudent" alignment="CENTER_LEFT" layoutX="25.0" layoutY="216.0" onMouseClicked="#handleAddStudentClick" prefHeight="38.0" prefWidth="220.0">
+                            <children>
+                                <Label prefHeight="20.0" prefWidth="140.0" text="Blank 2">
+                                    <font>
+                                        <Font name="Arial" size="18.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Label>
+                            </children>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <padding>
+                                <Insets left="8.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets left="15.0" right="10.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox fx:id="hboxGenerateCredentials" alignment="CENTER_LEFT" layoutX="25.0" layoutY="290.0" onMouseClicked="#handleGenerateCredentialsClick" prefHeight="38.0" prefWidth="220.0">
+                            <children>
+                                <Label prefHeight="21.0" prefWidth="187.0" text="Blank 3">
+                                    <font>
+                                        <Font name="Arial" size="18.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Label>
+                            </children>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <padding>
+                                <Insets left="8.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets left="15.0" right="10.0" />
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                    <HBox.margin>
+                        <Insets top="20.0" />
+                    </HBox.margin>
+                    <effect>
+                        <ColorAdjust />
+                    </effect>
+                </VBox>
+                <Line endX="-11.24137020111084" endY="42.47406005859375" startX="-10.24221134185791" startY="1214.2020263671875" stroke="#0a84ff">
+                    <HBox.margin>
+                        <Insets right="30.0" top="10.0" />
+                    </HBox.margin>
+                </Line>
+            </children>
+        </HBox>
+        <HBox fx:id="addPane" alignment="CENTER" prefHeight="1184.0" prefWidth="1654.0" />
     </children>
-    <padding>
-        <Insets bottom="20.0" left="10.0" right="10.0" />
-    </padding>
-</VBox>
+</HBox>
