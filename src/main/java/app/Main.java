@@ -18,6 +18,10 @@ public class Main extends Application {
         // Per me testu ribbonin e mbikqyrsve
 //        Navigatior.navigate(stage,Navigatior.SUPERVISOR_RIBBON);
         // Per me testu loginin
+//        stage.setWidth(730);
+//        stage.setHeight(530);
+//        stage.setMinWidth(730);
+//        stage.setMinHeight(530);
 //        Navigatior.navigate(stage, Navigatior.LOGIN);
 
     }
