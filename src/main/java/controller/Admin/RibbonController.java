@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
@@ -16,8 +17,9 @@ import java.io.FileNotFoundException;
 
 public class RibbonController {
 
-    @FXML
-    private HBox addPane;
+   @FXML
+   private HBox addPane;
+
     @FXML
     private ImageView imgProfileIcon;
     @FXML
@@ -28,6 +30,8 @@ public class RibbonController {
     private ImageView imgSupervisorIcon;
     @FXML
     private ImageView imgUpLogo;
+    @FXML
+    private ImageView imgRegistrationIcon;
 
     @FXML
     private void initialize(){
@@ -38,6 +42,7 @@ public class RibbonController {
             this.imgSupervisorIcon.setImage(new Image(new FileInputStream("Images/supervisorIcon.png")));
             this.imgInboxIcon.setImage(new Image(new FileInputStream("Images/inboxIcon.png")));
             this.imgUpLogo.setImage(new Image(new FileInputStream("Images/upLogoNoRing.png")));
+            this.imgRegistrationIcon.setImage(new Image(new FileInputStream("Images/registrationIcon.png")));
             // System.out.println("Image set successfully.");
         } catch (FileNotFoundException e) {
             System.out.println("Image not found");
@@ -78,5 +83,9 @@ public class RibbonController {
     @FXML
     private void handleSignOut(ActionEvent ae){
         Navigatior.navigate(this.addPane, "");
+    }
+    @FXML
+    private void handleRegistrationPeriodClick(MouseEvent me){
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_REGISTRATIONMENU);
     }
 }

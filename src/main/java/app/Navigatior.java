@@ -28,10 +28,14 @@ import java.io.IOException;
 interface OverallPages{
     public static String DASHBOARD = "";
     public static String ERROR404 = "overall-error404.fxml";
+
+    public static final String cssForActiveSection = "-fx-background-color: #A5CEF2; -fx-background-radius:10px;";
 }
 
 interface AdminPages{
     public final static String ADMIN_RIBBON = "admin-ribbon.fxml";
+
+    public final static String ADMIN_REGISTRATIONMENU = "admin-registrationPeriodMenu.fxml";
     public final static String ADMIN_STUDENTMENU = "admin-studentMenu.fxml";
     public final static String ADMIN_STUDENTMENU_ADDSTUDENT = "admin-studentMenu-addStudent.fxml";
 
@@ -95,7 +99,7 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         return pane;
     }
 
-    private static Pane loadPane(String page){
+    public static Pane loadPane(String page){
         FXMLLoader loader = new FXMLLoader(
                 Navigatior.class.getResource(page)
         );

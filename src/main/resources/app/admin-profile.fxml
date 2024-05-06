@@ -1,147 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.ProfileController">
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox prefHeight="846.0" prefWidth="1920.0">
+      <HBox maxHeight="100.0" VBox.vgrow="ALWAYS" />
+      <HBox layoutX="10.0" layoutY="10.0" prefHeight="574.0" prefWidth="1300.0">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" />
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox HBox.hgrow="ALWAYS" />
+            <AnchorPane prefHeight="574.0" prefWidth="760.0">
                <children>
-                  <FlowPane alignment="CENTER" prefHeight="71.0" prefWidth="1860.0">
-                     <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="106.0" text="Name">
-                           <font>
-                              <Font name="Arial" size="23.0" />
-                           </font>
-                           <FlowPane.margin>
-                              <Insets left="50.0" />
-                           </FlowPane.margin>
-                        </Label>
-                        <TextField fx:id="txtName" disable="true">
-                           <FlowPane.margin>
-                              <Insets left="50.0" right="150.0" />
-                           </FlowPane.margin>
-                        </TextField>
-                        <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="17.0" prefHeight="27.0" prefWidth="106.0" text="Surname">
-                           <font>
-                              <Font name="Arial" size="23.0" />
-                           </font>
-                           <FlowPane.margin>
-                              <Insets left="50.0" right="50.0" />
-                           </FlowPane.margin>
-                        </Label>
-                        <TextField fx:id="txtSurname" layoutX="216.0" layoutY="18.0" disable="true">
-                           <FlowPane.margin>
-                              <Insets left="50.0" right="50.0" />
-                           </FlowPane.margin>
-                        </TextField>
-                     </children>
-                  </FlowPane>
+                  <Label layoutX="80.0" layoutY="78.0" prefHeight="35.0" prefWidth="136.0" text="First Name:">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="80.0" layoutY="113.0" prefHeight="35.0" prefWidth="312.0" />
+                  <Label layoutX="80.0" layoutY="162.0" prefHeight="35.0" prefWidth="136.0" text="Last Name:">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="80.0" layoutY="197.0" prefHeight="35.0" prefWidth="312.0" />
+                  <TextField layoutX="80.0" layoutY="278.0" prefHeight="35.0" prefWidth="312.0" />
+                  <Label layoutX="80.0" layoutY="243.0" prefHeight="35.0" prefWidth="136.0" text="Email:">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="80.0" layoutY="322.0" prefHeight="35.0" prefWidth="136.0" text="Phone:">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="80.0" layoutY="357.0" prefHeight="35.0" prefWidth="312.0" />
+                  <Button layoutX="80.0" layoutY="438.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="119.0" text="Change Password" />
+                  <Button layoutX="273.0" layoutY="438.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="119.0" text="Edit" />
+                  <ImageView fitHeight="218.0" fitWidth="236.0" layoutX="479.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/adminProfileImage.png" />
+                     </image>
+                  </ImageView>
                </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="50.0" left="10.0" right="50.0" top="10.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <FlowPane alignment="CENTER" prefHeight="71.0" prefWidth="1860.0">
-                     <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="106.0" text="Email">
-                           <font>
-                              <Font name="Arial" size="23.0" />
-                           </font>
-                           <FlowPane.margin>
-                              <Insets left="50.0" />
-                           </FlowPane.margin>
-                        </Label>
-                        <TextField fx:id="txtEmail" disable="true">
-                           <FlowPane.margin>
-                              <Insets left="50.0" right="150.0" />
-                           </FlowPane.margin>
-                        </TextField>
-                        <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="17.0" prefHeight="27.0" prefWidth="106.0" text="Phone">
-                           <font>
-                              <Font name="Arial" size="23.0" />
-                           </font>
-                           <FlowPane.margin>
-                              <Insets left="50.0" right="50.0" />
-                           </FlowPane.margin>
-                        </Label>
-                        <TextField fx:id="txtPhone" layoutX="216.0" layoutY="18.0" disable="true">
-                           <FlowPane.margin>
-                              <Insets left="50.0" right="50.0" />
-                           </FlowPane.margin>
-                        </TextField>
-                     </children>
-                  </FlowPane>
-               </children>
-               <padding>
-                  <Insets bottom="50.0" left="10.0" right="50.0" top="10.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="210.0" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <FlowPane alignment="CENTER" prefHeight="71.0" prefWidth="1860.0">
-                     <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="106.0" text="Password">
-                           <font>
-                              <Font name="Arial" size="23.0" />
-                           </font>
-                           <FlowPane.margin>
-                              <Insets left="50.0" />
-                           </FlowPane.margin>
-                        </Label>
-                        <PasswordField fx:id="pwdPassword" disable="true">
-                           <FlowPane.margin>
-                              <Insets left="50.0" right="150.0" />
-                           </FlowPane.margin>
-                        </PasswordField>
-                     </children>
-                  </FlowPane>
-               </children>
-               <padding>
-                  <Insets bottom="50.0" left="10.0" right="50.0" top="10.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="310.0" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <FlowPane alignment="CENTER" prefHeight="71.0" prefWidth="1860.0">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#handleEdit" prefHeight="40.0" prefWidth="117.0" text="Edit">
-                           <FlowPane.margin>
-                              <Insets left="50.0" right="50.0" />
-                           </FlowPane.margin>
-                           <padding>
-                              <Insets right="5.0" />
-                           </padding>
-                        </Button>
-                        <Button layoutX="882.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleChangePassword" prefHeight="40.0" prefWidth="117.0" text="Change Password">
-                           <FlowPane.margin>
-                              <Insets left="100.0" right="100.0" />
-                           </FlowPane.margin>
-                        </Button>
-                     </children>
-                  </FlowPane>
-               </children>
-               <padding>
-                  <Insets bottom="50.0" left="10.0" right="50.0" top="10.0" />
-               </padding>
-            </HBox>
+            </AnchorPane>
+            <HBox layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
          </children>
-      </VBox>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="110.0" maxHeight="100.0" VBox.vgrow="ALWAYS" />
    </children>
-</StackPane>
+</VBox>

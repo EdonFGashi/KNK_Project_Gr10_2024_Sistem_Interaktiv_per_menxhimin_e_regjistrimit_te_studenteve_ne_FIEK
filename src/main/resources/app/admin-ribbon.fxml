@@ -10,7 +10,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.RibbonController">
+
+<VBox alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.RibbonController">
    <children>
       <HBox>
          <children>
@@ -102,6 +103,25 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </HBox>
+                  <HBox alignment="CENTER" layoutX="592.0" layoutY="20.0" onMouseClicked="#handleRegistrationPeriodClick" prefHeight="50.0" prefWidth="130.0">
+                     <children>
+                        <Label nodeOrientation="LEFT_TO_RIGHT" prefHeight="22.0" prefWidth="130.0" style="-fx-font-weight: bold;" text="REGISTRATION" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Arial" size="13.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ImageView fx:id="imgRegistrationIcon" fitHeight="20.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </HBox>
                </children>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
@@ -109,6 +129,6 @@
             </HBox>
          </children>
       </HBox>
-      <HBox fx:id="addPane" minHeight="70.0" prefHeight="860.0" prefWidth="1920.0" />
+      <HBox fx:id="addPane" alignment="TOP_CENTER" centerShape="false" nodeOrientation="LEFT_TO_RIGHT" />
    </children>
 </VBox>
