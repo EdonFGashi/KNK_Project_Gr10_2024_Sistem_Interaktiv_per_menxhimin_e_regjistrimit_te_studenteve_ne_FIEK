@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Supervisor.SupervisorMenuEditController">
+   <children>
+      <Label layoutX="171.0" layoutY="53.0" prefHeight="34.0" prefWidth="274.0" text="Search Supervisor:">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtSearchSupervisor" layoutX="342.0" layoutY="51.0" prefHeight="38.0" prefWidth="380.0" AnchorPane.leftAnchor="342.0" AnchorPane.rightAnchor="578.0" />
+      <Button layoutX="744.0" layoutY="51.0" mnemonicParsing="false" onAction="#handleSearchEmailSupervisor" prefHeight="41.0" prefWidth="95.0" text="Search Email" />
+      <Label layoutX="91.0" layoutY="158.0" prefHeight="34.0" prefWidth="165.0" text="First Name:">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtFirstNameSupervisor" layoutX="260.0" layoutY="162.0" prefHeight="38.0" prefWidth="274.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="766.0" />
+      <Label layoutX="631.0" layoutY="158.0" prefHeight="34.0" prefWidth="148.0" text="     Last Name:">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="87.0" layoutY="215.0" prefHeight="34.0" prefWidth="166.0" text="Telephone:">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="626.0" layoutY="213.0" prefHeight="34.0" prefWidth="193.0" text="     Email:">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="87.0" layoutY="278.0" prefHeight="34.0" prefWidth="165.0" text="Telephone:">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="645.0" layoutY="280.0" prefHeight="34.0" prefWidth="155.0" text="Statusi:">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="84.0" layoutY="450.0" prefHeight="34.0" prefWidth="180.0" text="Salla e provimit:">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="72.0" layoutY="525.0" prefHeight="34.0" prefWidth="180.0" text="Niveli i mbikqyrjes:">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="652.0" layoutY="523.0" prefHeight="34.0" prefWidth="139.0" text="Year of study:" textFill="RED">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="638.0" layoutY="342.0" prefHeight="34.0" prefWidth="166.0" text="Afati:" textFill="RED">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="647.0" layoutY="467.0" prefHeight="34.0" prefWidth="148.0" text="Afati:">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="103.0" layoutY="625.0" prefHeight="34.0" prefWidth="205.0" text="Reset Password:">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Button layoutX="618.0" layoutY="624.0" mnemonicParsing="false" onAction="#handleResetPasswordSupervisor" prefHeight="40.0" prefWidth="105.0" text="Reset Password" />
+      <TextField fx:id="txtYearOfStudy" layoutX="803.0" layoutY="523.0" prefHeight="39.0" prefWidth="274.0" AnchorPane.leftAnchor="803.0" AnchorPane.rightAnchor="223.0" />
+      <Button layoutX="887.0" layoutY="571.0" mnemonicParsing="false" onAction="#handleSaveSupervisingInfo" prefHeight="43.0" prefWidth="165.0" text="Save Supervising Info" />
+      <Button layoutX="907.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleSavePersonalSupervisorInfo" prefHeight="41.0" prefWidth="166.0" text="Save Personal Info" />
+      <Button layoutX="854.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleSearchIdSupervisor" prefHeight="43.0" prefWidth="105.0" text="Search ID" />
+      <TextField fx:id="txtLastNameSupervisor" layoutX="803.0" layoutY="161.0" prefHeight="38.0" prefWidth="274.0" AnchorPane.leftAnchor="803.0" AnchorPane.rightAnchor="223.0" />
+      <TextField fx:id="txtPhoneSupervisor" layoutX="260.0" layoutY="216.0" prefHeight="38.0" prefWidth="274.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="766.0" />
+      <TextField layoutX="257.0" layoutY="281.0" prefHeight="38.0" prefWidth="274.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="766.0" />
+      <TextField fx:id="txtEmailSupervisor" layoutX="807.0" layoutY="211.0" prefHeight="38.0" prefWidth="274.0" AnchorPane.leftAnchor="803.0" AnchorPane.rightAnchor="223.0" />
+      <TextField fx:id="txtStatusiSupervisor" layoutX="807.0" layoutY="278.0" prefHeight="38.0" prefWidth="274.0" AnchorPane.leftAnchor="803.0" AnchorPane.rightAnchor="223.0" />
+      <TextField fx:id="txtSallaProvimitSupervisor" layoutX="260.0" layoutY="456.0" prefHeight="38.0" prefWidth="274.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="766.0" />
+      <TextField layoutX="803.0" layoutY="341.0" prefHeight="38.0" prefWidth="274.0" AnchorPane.leftAnchor="803.0" AnchorPane.rightAnchor="223.0" />
+      <TextField fx:id="txtAfatiSupervisor" layoutX="807.0" layoutY="465.0" prefHeight="38.0" prefWidth="274.0" AnchorPane.leftAnchor="803.0" AnchorPane.rightAnchor="223.0" />
+      <TextField fx:id="txtNiveliSupervising" layoutX="260.0" layoutY="520.0" prefHeight="39.0" prefWidth="274.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="766.0" />
+      <TextField layoutX="257.0" layoutY="340.0" prefHeight="38.0" prefWidth="274.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="766.0" />
+      <Label layoutX="91.0" layoutY="337.0" prefHeight="34.0" prefWidth="166.0" text="Statusi:" textFill="RED">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Line endX="-33.0" layoutX="64.0" layoutY="113.0" startX="1209.0" stroke="#0a84ff" AnchorPane.leftAnchor="30.5" AnchorPane.rightAnchor="26.5" />
+      <PasswordField fx:id="pwdResetPasswordSupervisor" layoutX="264.0" layoutY="624.0" prefHeight="39.0" prefWidth="308.0" />
+      <Label fx:id="labelStatus" layoutX="73.0" layoutY="121.0" prefHeight="21.0" prefWidth="235.0" />
+   </children>
+</AnchorPane>
