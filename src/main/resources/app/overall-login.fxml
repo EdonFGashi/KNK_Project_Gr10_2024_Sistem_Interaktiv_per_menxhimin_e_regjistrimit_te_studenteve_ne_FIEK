@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Overall.LoginController">
+   <left>
+      <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: #0A84FF;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="123.0" fitWidth="145.0" layoutX="104.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Images/upLogoNoRing.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="75.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Regjistrimi për student">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Button layoutX="133.0" layoutY="334.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="84.0" style="-fx-background-color: #FFFFFF;" text="Apliko" textFill="#0a84ff" />
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="500.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField layoutX="101.0" layoutY="193.0" promptText="username" style="-fx-background-color: transparent; -fx-border-color: #0A84FF; -fx-border-width: 0px 0px 2px 0px;" />
+            <PasswordField layoutX="101.0" layoutY="263.0" promptText="password" style="-fx-background-color: transparent; -fx-border-color: #0A84FF; -fx-border-width: 0px 0px 2px 0px;" />
+            <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="60.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Images/blue-user.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="60.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+               <image>
+                  <Image url="@../../../../Images/blue-key.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="133.0" layoutY="334.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="84.0" style="-fx-background-color: #0A84FF;" text="Kyquni" textFill="WHITE" />
+            <Hyperlink layoutX="111.0" layoutY="433.0" text="Keni harruar fjalëkalimin?">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Hyperlink>
+            <Text fill="#0a84ff" layoutX="139.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log In">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="60.0" fitWidth="63.0" layoutX="145.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Images/blue-users.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
