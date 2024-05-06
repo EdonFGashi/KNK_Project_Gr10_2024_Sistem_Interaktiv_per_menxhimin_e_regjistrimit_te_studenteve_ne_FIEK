@@ -2,12 +2,10 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.StudentMenuEditStudentController">
    <children>
@@ -74,12 +72,6 @@
             <Font name="Arial" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="625.0" prefHeight="34.0" prefWidth="205.0" text="Reset Password:">
-         <font>
-            <Font name="Arial" size="17.0" />
-         </font>
-      </Label>
-      <Button layoutX="618.0" layoutY="624.0" mnemonicParsing="false" onAction="#handleResetPassword" prefHeight="40.0" prefWidth="105.0" text="Reset Password" />
       <TextField fx:id="txtYearOfStudy" layoutX="803.0" layoutY="523.0" prefHeight="39.0" prefWidth="274.0" AnchorPane.leftAnchor="803.0" AnchorPane.rightAnchor="223.0" />
       <Button layoutX="887.0" layoutY="571.0" mnemonicParsing="false" onAction="#handleSaveRegisteredInfo" prefHeight="43.0" prefWidth="165.0" text="Save Registered Info" />
       <Button layoutX="907.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleSavePersonalInfo" prefHeight="41.0" prefWidth="166.0" text="Save Personal Info" />
@@ -100,7 +92,6 @@
          </font>
       </Label>
       <Line endX="-33.0" layoutX="64.0" layoutY="113.0" startX="1209.0" stroke="#0a84ff" AnchorPane.leftAnchor="30.5" AnchorPane.rightAnchor="26.5" />
-      <PasswordField fx:id="pwdResetPassword" layoutX="264.0" layoutY="624.0" prefHeight="39.0" prefWidth="308.0" />
       <Label fx:id="labelStatus" layoutX="73.0" layoutY="121.0" prefHeight="21.0" prefWidth="235.0" />
    </children>
 </AnchorPane>
