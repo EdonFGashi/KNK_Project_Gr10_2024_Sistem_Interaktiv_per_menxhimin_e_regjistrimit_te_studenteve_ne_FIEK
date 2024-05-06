@@ -14,7 +14,11 @@ public class Main extends Application {
         stage.setMaximized(true);
 
         Navigatior.navigate(stage,Navigatior.ADMIN_RIBBON);
+
+        // Per me testu ribbonin e mbikqyrsve
 //        Navigatior.navigate(stage,Navigatior.SUPERVISOR_RIBBON);
+        // Per me testu loginin
+//        Navigatior.navigate(stage, Navigatior.LOGIN);
 
     }
 }

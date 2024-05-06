@@ -28,6 +28,7 @@ import java.io.IOException;
 interface OverallPages{
     public static String DASHBOARD = "";
     public static String ERROR404 = "overall-error404.fxml";
+    public static String LOGIN = "overall-login.fxml";
 }
 
 interface AdminPages{
