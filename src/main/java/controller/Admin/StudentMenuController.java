@@ -24,61 +24,46 @@ public class StudentMenuController {
     @FXML
     private HBox hboxGenerateCredentials;
     @FXML
-    private StackPane addPane;
+    private HBox addPane;
 
 
-    private static int activeSection;
+    private final String cssForActiveSection = "-fx-background-color: #A5CEF2; -fx-background-radius:10px;";
 
     @FXML
     private void initialize(){
         //Varesisht se qka u kliku e fundit kjo e tregon
-        if(activeSection == 1) {
-            hboxShowStudents.setStyle("-fx-background-color: #A5CEF2; -fx-background-radius:10px;");
-        } else if (activeSection == 2) {
-            hboxAddStudent.setStyle("-fx-background-color: #A5CEF2; -fx-background-radius:10px;");
-        }else if (activeSection ==3) {
-            hboxEditStudent.setStyle("-fx-background-color: #A5CEF2; -fx-background-radius:10px;");
-        } else if (activeSection ==4) {
-            hboxGenerateCredentials.setStyle("-fx-background-color: #A5CEF2; -fx-background-radius:10px;");
-        }else{
-            hboxShowStudents.setStyle("-fx-background-color: #A5CEF2; -fx-background-radius:10px;");
-        }
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_PROFILE);
+        hboxShowStudents.setStyle(cssForActiveSection);
     }
 
     @FXML
     private void handleShowStudentsClick(MouseEvent me){
-        Navigatior.addPane(this.addPane, Navigatior.ADMIN_PROFILE);
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_PROFILE);
         refreshActiveSection();
-        hboxShowStudents.setStyle("-fx-background-color: #A5CEF2; -fx-background-radius:10px;");
+        hboxShowStudents.setStyle(cssForActiveSection);
     }
 
     @FXML
     private void handleAddStudentClick(MouseEvent me){
-        Navigatior.addPane(this.addPane, Navigatior.ADMIN_PROFILE);
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_PROFILE);
         refreshActiveSection();
-        hboxAddStudent.setStyle("-fx-background-color: #A5CEF2; -fx-background-radius:10px;");
+        hboxAddStudent.setStyle(cssForActiveSection);
     }
 
     @FXML
     private void handleEditStudentClick(MouseEvent me){
-        Navigatior.addPane(this.addPane, Navigatior.ADMIN_PROFILE);
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_PROFILE);
         refreshActiveSection();
-        hboxEditStudent.setStyle("-fx-background-color: #A5CEF2; -fx-background-radius:10px;");
+        hboxEditStudent.setStyle(cssForActiveSection);
     }
 
     @FXML
     private void handleGenerateCredentialsClick(MouseEvent me){
-        Navigatior.addPane(this.addPane, Navigatior.ADMIN_PROFILE);
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_PROFILE);
         refreshActiveSection();
-        hboxGenerateCredentials.setStyle("-fx-background-color: #A5CEF2; -fx-background-radius:10px;");
+        hboxGenerateCredentials.setStyle(cssForActiveSection);
     }
 
-
-
-    private void setActiveSection(int num) {
-        activeSection = num;
-        refreshActiveSection();
-    }
 
     private void refreshActiveSection(){
         hboxShowStudents.setStyle("");

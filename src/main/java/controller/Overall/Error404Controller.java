@@ -19,7 +19,7 @@ public class Error404Controller {
 
             Image image = new Image(inputStream);
             imgError404.setImage(image);
-            System.out.println("Image set successfully.");
+           // System.out.println("Image set successfully.");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             System.out.println("Image not found");

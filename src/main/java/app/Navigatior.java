@@ -23,6 +23,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
+
+interface OverallPages{
+    public static String DASHBOARD = "";
+    public static String ERROR404 = "overall-error404.fxml";
+}
+
 interface AdminPages{
     public final static String ADMIN_RIBBON = "admin-ribbon.fxml";
     public final static String ADMIN_STUDENTMENU = "admin-studentMenu.fxml";
@@ -37,11 +44,6 @@ interface SupervisorPages{
     public final static String SUPERVISOR_MENU = "supervisor-menu.fxml";
 
 }
-interface OverallPages{
-    public static String DASHBOARD = "";
-    public static String ERROR404 = "overall-error404.fxml";
-}
-
 
 
 
@@ -110,6 +112,9 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
 
         }
     }
+
+
+
 
     public static void navigateNewStage(String page){
        Scene scene = new Scene(loadPane(page));
