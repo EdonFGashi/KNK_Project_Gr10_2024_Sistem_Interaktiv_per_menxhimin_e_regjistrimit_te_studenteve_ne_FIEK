@@ -9,14 +9,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import service.DBConnector;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-
-
-
-
+import java.sql.Connection;
+import java.sql.SQLException;
 
 
 //Klas e Testimeve (MOS E MIRRNI SERIOZISHT)
@@ -29,19 +28,15 @@ public class FirstApp extends Application {
     @Override
     public void start(Stage stage){
 
-        try{
-            FileInputStream inputstream = new FileInputStream("Images/Error404.png");
-            Image image = new Image(inputstream);
-
-            Pane pane = new Pane(new ImageView(image));
-            Scene scene = new Scene(pane);
-            stage.setScene(scene);
-            stage.show();
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+       UpLogoAnimate object = new UpLogoAnimate();
 
 
+
+        Scene scene = new Scene(object);
+        stage.setScene(scene);
+        stage.show();
 
     }
+
+
 }

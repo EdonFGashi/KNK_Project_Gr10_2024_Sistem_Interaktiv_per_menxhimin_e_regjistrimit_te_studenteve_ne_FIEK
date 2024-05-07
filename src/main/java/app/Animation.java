@@ -60,6 +60,9 @@ import javafx.util.Duration;
 //}
 
 public class Animation {
+
+
+
     public static Pane getAnimation(){
         int d1 = 100;
         int d2 = 15;
@@ -76,6 +79,7 @@ public class Animation {
 
         CrossCircleMoveEventHandler event1 = new CrossCircleMoveEventHandler(logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9, -20, 0, 40, 1.7, 0.85);
         PaneAnimation animation1 = new PaneAnimation(logo1, event1);
+
         animation1.start();
 
         Pane pane1 = new StackPane(logo9,logo8, logo7, logo6, logo5, logo4, logo3, logo2, logo1);
@@ -86,6 +90,10 @@ public class Animation {
         return finalPane;
     }
 
+
+
+
+
 //    animation1.start();
 
 //    Pane pane = new StackPane(logo9, logo8, logo7, logo6, logo5, logo4, logo3, logo2, logo1);
@@ -93,6 +101,44 @@ public class Animation {
 //        primaryStage.setScene(scene);
 //        primaryStage.show();
 }
+
+class UpLogoAnimate extends Pane{
+    private StackPane pane1;
+    private CrossCircleMoveEventHandler event;
+   private PaneAnimation animation;
+   private StackPane pane2;
+
+   public UpLogoAnimate(){
+       int d1 = 100;
+       int d2 = 15;
+       Logo logo1 = new Logo(d1, d2, Color.rgb(206, 42, 45));
+       Logo logo2 = new Logo(d1, d2, Color.rgb(25, 19, 16));
+       Logo logo3 = new Logo(d1, d2, Color.rgb(96, 93, 92));
+       Logo logo4 = new Logo(d1, d2, Color.rgb(113, 113, 111));
+       Logo logo5 = new Logo(d1, d2, Color.rgb(133, 132, 131));
+       Logo logo6 = new Logo(d1, d2, Color.rgb(151, 150, 149));
+       Logo logo7 = new Logo(d1, d2, Color.rgb(170, 171, 170));
+       Logo logo8 = new Logo(d1, d2, Color.rgb(195, 195, 194));
+       Logo logo9 = new Logo(d1, d2, Color.rgb(223, 222, 222));
+       LogoText text = new LogoText(40, Color.RED);
+
+       this.event = new CrossCircleMoveEventHandler(logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9, -20, 0, 40, 1.7, 0.85);
+       this.animation = new PaneAnimation(logo1, this.event);
+       this.pane1 = new StackPane(logo9,logo8, logo7, logo6, logo5, logo4, logo3, logo2, logo1);
+       pane2 = new StackPane(text);
+       this.draw();
+   }
+   public void draw(){
+       VBox finalPane = new VBox(pane1, pane2);
+       super.getChildren().clear();
+       super.getChildren().add(finalPane);
+   }
+   public void start(){
+       this.animation.start();
+   }
+
+}
+
 
 class Logo extends StackPane{
     private int d1;
@@ -199,6 +245,7 @@ class PaneAnimation{
         System.out.println("Testt");
     }
 }
+
 
 class CrossCircleMoveEventHandler implements EventHandler<ActionEvent>{
     private Logo logo1 = new Logo(600, 90, Color.rgb(206, 42, 45));

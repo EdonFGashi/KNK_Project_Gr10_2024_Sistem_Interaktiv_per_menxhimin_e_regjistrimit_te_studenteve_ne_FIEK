@@ -6,12 +6,12 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.RibbonController">
+<VBox nodeOrientation="LEFT_TO_RIGHT" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.RibbonController">
    <children>
       <HBox>
          <children>
@@ -20,7 +20,7 @@
                   <Insets left="30.0" />
                </padding>
                <children>
-                  <ImageView fx:id="imgUpLogo" fitHeight="65.0" fitWidth="75.0" onMouseClicked="#handleUpLogoClick" pickOnBounds="true" preserveRatio="true" />
+                  <AnchorPane fx:id="anchorLogo" onMouseClicked="#handleLogoClicked" onMouseEntered="#handleStartAnimation" prefHeight="70.0" prefWidth="98.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" minHeight="70.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="67.0" prefWidth="1920.0" spacing="60.0" style="-fx-background-color: #0A84FF; -fx-background-radius: 0.5;">

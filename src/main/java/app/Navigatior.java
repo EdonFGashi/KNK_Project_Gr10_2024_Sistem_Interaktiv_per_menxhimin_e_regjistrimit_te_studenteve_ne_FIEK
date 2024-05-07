@@ -7,7 +7,7 @@ Navigatior.navigate(pane qe mbushet, edhe pane qe vjen) -> shembulli tek Admini 
 
 Metodat niher spi fshij amo besoj e ndreqi ni menyr qysh me u en kahmos.
 
- */
+*/
 
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
@@ -133,9 +133,10 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
        Scene scene = new Scene(loadPane(page));
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.setMaximized(true);
+        //stage.setMaximized(true);
         stage.show();
     }
+
 
 
 
