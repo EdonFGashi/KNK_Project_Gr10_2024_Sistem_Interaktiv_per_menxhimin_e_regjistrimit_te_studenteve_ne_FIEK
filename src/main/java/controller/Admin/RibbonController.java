@@ -11,6 +11,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
@@ -50,7 +52,8 @@ public class RibbonController {
             System.out.println("Image not found");
         }
         this.anchorLogo.getChildren().add(logo);
-
+      //  this.anchorLogo.setStyle("-fx-background-col");
+        this.anchorLogo.setTranslateY(25);
     }
 
     @FXML

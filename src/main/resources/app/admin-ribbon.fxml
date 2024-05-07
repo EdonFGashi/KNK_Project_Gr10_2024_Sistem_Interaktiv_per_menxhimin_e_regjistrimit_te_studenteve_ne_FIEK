@@ -8,6 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -122,6 +123,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </HBox>
+                  <StackPane fx:id="logoPane" alignment="BOTTOM_LEFT" prefHeight="27.0" prefWidth="87.0" />
                </children>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
