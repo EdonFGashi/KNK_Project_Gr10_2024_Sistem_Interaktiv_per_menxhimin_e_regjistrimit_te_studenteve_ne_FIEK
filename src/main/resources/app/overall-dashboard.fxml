@@ -16,7 +16,7 @@
          <children>
             <Text fill="#0a84ff" layoutX="22.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 800;" text="Sistemi për menaxhimin e regjistrimit të studentëve - FIEK">
                <font>
-                  <Font name="Algerian" size="24.0" />
+                  <Font name="Arial" size="24.0" />
                </font>
             </Text>
             <ImageView fitHeight="20.0" fitWidth="25.0" layoutX="31.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
