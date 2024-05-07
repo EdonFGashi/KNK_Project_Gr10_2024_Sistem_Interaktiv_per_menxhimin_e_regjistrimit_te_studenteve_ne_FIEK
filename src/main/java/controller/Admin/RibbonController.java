@@ -38,6 +38,7 @@ public class RibbonController {
             this.imgSupervisorIcon.setImage(new Image(new FileInputStream("Images/supervisorIcon.png")));
             this.imgInboxIcon.setImage(new Image(new FileInputStream("Images/inboxIcon.png")));
             this.imgUpLogo.setImage(new Image(new FileInputStream("Images/upLogoNoRing.png")));
+
             // System.out.println("Image set successfully.");
         } catch (FileNotFoundException e) {
             System.out.println("Image not found");
