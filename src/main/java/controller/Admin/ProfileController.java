@@ -1,5 +1,6 @@
 package controller.Admin;
 
+import app.Navigatior;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -26,11 +27,11 @@ public class ProfileController {
         this.txtPhone.setDisable(false);
         this.pwdPassword.setDisable(false);
 
-
     }
+
     @FXML
     private void handleChangePassword(ActionEvent ae){
-
+        Navigatior.navigateNewStage(Navigatior.CHANGEPASSWORD);
     }
 
 

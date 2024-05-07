@@ -9,17 +9,22 @@ Metodat niher spi fshij amo besoj e ndreqi ni menyr qysh me u en kahmos.
 
 */
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Screen;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -30,7 +35,8 @@ interface OverallPages{
     public static String ERROR404 = "overall-error404.fxml";
 
     public static final String cssForActiveSection = "-fx-background-color: #A5CEF2; -fx-background-radius:10px;";
-    public static String LOGIN = "overall-login.fxml";
+    public static final String LOGIN = "overall-login.fxml";
+    public static final String CHANGEPASSWORD = "changePassword.fxml";
 }
 
 interface AdminPages{
@@ -125,18 +131,71 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
 
         }
     }
-
-
+    public static void closeStageAfterDelay(Event event, Duration delay) {
+        Node eventNode = (Node) event.getSource();
+        Stage stage = (Stage) eventNode.getScene().getWindow();
+        Timeline timeline = new Timeline(new KeyFrame(delay, new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                stage.close();
+            }
+        }));
+        timeline.play();
+    }
 
 
     public static void navigateNewStage(String page){
-       Scene scene = new Scene(loadPane(page));
+         Scene scene = new Scene(loadPane(page));
         Stage stage = new Stage();
+        stage.setMaximized(false);
         stage.setScene(scene);
-        //stage.setMaximized(true);
         stage.show();
-    }
 
+    }
+    public static void loading(boolean successful){
+        UpLogoAnimate pane = new UpLogoAnimate();
+        pane.start();
+        pane.setTranslateY(50);
+        StackPane stackPane = new StackPane();
+
+        Text text = new Text("          Loading ...");
+        text.setStyle("-fx-font-weight: bold; -fx-font-size:18 ;");
+        text.setTranslateY(110);
+        VBox mainPane = new VBox();
+        mainPane.getChildren().addAll(stackPane,text);
+
+        stackPane.getChildren().add(pane);
+        Scene scene = new Scene(mainPane,200,200);
+
+
+        Stage stage = new Stage();
+        stage.setMaximized(false);
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.show();
+        Timeline timeline2= new Timeline(new KeyFrame(Duration.millis(1700), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (successful) {
+                    text.setText(" Operation Successful!");
+                    text.setStyle("-fx-font-weight: bold; -fx-font-size: 19; -fx-fill: green;");
+                } else {
+                    text.setText("     Operation Failed");
+                    text.setStyle("-fx-font-weight: bold; -fx-font-size: 20; -fx-fill: red;");
+                }
+            }
+        }));
+        timeline2.play();
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(3300), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                stage.close();
+            }
+        }));
+        timeline.play();
+
+
+    }
 
 
 

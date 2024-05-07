@@ -1,16 +1,46 @@
 package model;
 
 public class Admin {
+    private int id;
     private String firstName;
     private String lastName;
     private String email;
     private String phone;
+    private String salt;
+    private String hashedPassword;
 
-    public Admin(String firstName, String lastName, String email, String phone) {
+    public Admin(int id, String firstName, String lastName, String email, String phone, String salt, String hashedPassword) {
+        this.id=id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
+        this.salt = salt;
+        this.hashedPassword=hashedPassword;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public String getHashedPassword() {
+        return hashedPassword;
+    }
+
+    public void setHashedPassword(String hashedPassword) {
+        this.hashedPassword = hashedPassword;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {
