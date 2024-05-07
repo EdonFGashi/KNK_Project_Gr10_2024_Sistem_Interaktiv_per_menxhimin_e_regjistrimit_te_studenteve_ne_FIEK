@@ -1,6 +1,7 @@
 package controller.Admin;
 
 import app.Navigatior;
+import app.UpLogoAnimate;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -32,6 +33,8 @@ public class RibbonController {
     @FXML
     private AnchorPane anchorLogo;
 
+    private UpLogoAnimate logo = new UpLogoAnimate();
+
     @FXML
     private void initialize(){
         Navigatior.navigate(this.addPane, Navigatior.ADMIN_STUDENTMENU);
@@ -46,7 +49,8 @@ public class RibbonController {
         } catch (FileNotFoundException e) {
             System.out.println("Image not found");
         }
-        this.anchorLogo = null;
+        this.anchorLogo.getChildren().add(logo);
+
     }
 
     @FXML
@@ -87,11 +91,15 @@ public class RibbonController {
 
     @FXML
     private void handleLogoClicked(MouseEvent me){
-
+      Navigatior.navigate(this.addPane,Navigatior.DASHBOARD);
     }
     @FXML
     private void handleStartAnimation(MouseEvent me){
-
+        this.logo.start();
+    }
+    @FXML
+    private void handleRegistrationPeriodClick(MouseEvent me){
+        Navigatior.navigate(this.addPane,Navigatior.ADMIN_REGISTRATIONMENU);
     }
 
 }

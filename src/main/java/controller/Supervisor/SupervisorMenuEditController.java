@@ -1,6 +1,6 @@
 package controller.Supervisor;
 
-import app.Animation;
+
 import app.Navigatior;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

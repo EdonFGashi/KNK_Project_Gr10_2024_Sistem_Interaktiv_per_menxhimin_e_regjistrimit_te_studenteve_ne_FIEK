@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import service.DBConnector;
@@ -29,10 +30,11 @@ public class FirstApp extends Application {
     public void start(Stage stage){
 
        UpLogoAnimate object = new UpLogoAnimate();
+       object.start();
 
-
-
-        Scene scene = new Scene(object);
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().add(object);
+        Scene scene = new Scene(stackPane,500,500);
         stage.setScene(scene);
         stage.show();
 
