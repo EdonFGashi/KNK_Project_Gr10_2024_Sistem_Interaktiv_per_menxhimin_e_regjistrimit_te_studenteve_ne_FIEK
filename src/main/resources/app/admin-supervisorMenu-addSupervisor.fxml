@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -58,6 +59,7 @@
             <Insets bottom="20.0" left="10.0" right="50.0" top="10.0" />
          </padding>
          <children>
+            <Pane fx:id="animationPane" prefHeight="70.0" prefWidth="81.0" />
             <FlowPane alignment="CENTER" prefHeight="119.0" prefWidth="1488.0">
                <children>
                   <FlowPane alignment="CENTER" prefHeight="63.0" prefWidth="478.0">

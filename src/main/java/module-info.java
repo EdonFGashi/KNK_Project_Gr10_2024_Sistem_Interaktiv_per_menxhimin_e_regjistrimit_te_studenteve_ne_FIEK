@@ -8,7 +8,8 @@ module com.example.knk_project_gr10_2024 {
     opens controller.Overall to javafx.fxml;
     opens controller.Supervisor to javafx.fxml;
 
-    opens app to javafx.fxml;
+//    opens app to javafx.fxml;
+    opens app to javafx.graphics;
     exports app;
     //   opens com.example.knk_project_gr10_2024 to javafx.fxml;
 
