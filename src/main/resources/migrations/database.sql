@@ -11,6 +11,8 @@ CREATE TABLE tblUser (
 
 CREATE TABLE tblAdmin (
     aid INT AUTO_INCREMENT PRIMARY KEY,
+    Emri VARCHAR(50) NOT NULL,
+    Mbiemri VARCHAR(50) NOT NULL,
     Username VARCHAR(50) NOT NULL,
     Salt VARCHAR(50) NOT NULL,
     PasswordHash VARCHAR(100) NOT NULL
@@ -168,6 +170,3 @@ ALTER TABLE tblDocument
 ADD CONSTRAINT Check_Not_Empty_Document CHECK (COALESCE(LENGTH(CertifikataNotave), 0) + COALESCE(LENGTH(Leternjoftimi), 0) + COALESCE(LENGTH(Diploma), 0) > 0);
 
 
-
-ALTER TABLE tblStudentApplicant
-ADD CONSTRAINT Check_Valid_Age CHECK (YEAR(CURRENT_DATE) - YEAR(DataLindjes) > 17);
