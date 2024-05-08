@@ -2,11 +2,13 @@ package repository;
 
 import model.Admin;
 import model.dto.Admin.ChangePasswordOnDb;
+import model.dto.Admin.EditAdminProfileDto;
 import service.DBConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class AdminRepository {
 
@@ -22,24 +24,27 @@ public class AdminRepository {
             if(result.next()){
                 return getAdminFromResultSet(result);
             }
+
             return null;
 
         }catch(Exception e){
+            e.printStackTrace();
             return null;
         }
+
+
     }
 
     private static Admin getAdminFromResultSet(ResultSet result){
         try{
-            int id = result.getInt("id");
-            String firstName = result.getString("firstName");
-            String lastName = result.getString("lastName");
-            String email = result.getString("email");
-            String phone = result.getString("phone");
-            String salt = result.getString("salt");
-            String passwodHash = result.getString("passwordHash");
+            int id = result.getInt("aid");
+            String firstName = result.getString("Emri");
+            String lastName = result.getString("Mbiemri");
+            String email = result.getString("Email");
+            String salt = result.getString("Salt");
+            String PasswodHash = result.getString("PasswordHash");
 
-            return new Admin(id,firstName,lastName,email,phone, salt,passwodHash);
+            return new Admin(id,firstName,lastName,email,salt,PasswodHash);
         }catch(Exception e){
             return null;
         }
@@ -67,5 +72,24 @@ public class AdminRepository {
     }
 
 
+    public static boolean savePersonalDetails(EditAdminProfileDto data) {
+        String query = "UPDATE tblAdmin SET Emri = ?, Mbiemri = ?, Email = ? WHERE email = ?";
 
+        Connection connection = DBConnector.getConnection();
+        try {
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setString(1, data.getFirstname());
+            pst.setString(2, data.getLastName());
+            pst.setString(3, data.getEmail());
+            pst.setString(4, data.getOldEmail());
+            int rowsAffected = pst.executeUpdate();
+
+            pst.close();
+
+            return rowsAffected > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

@@ -23,17 +23,7 @@ public class FirstApp extends Application {
 
     }
 
-    public static void main(String[] args) {
-       String JoniSalt = PasswordHasher.generateSalt();
-        System.out.println("JoniSalt: "+JoniSalt);
 
-        String EdoniSalt = PasswordHasher.generateSalt();
-        System.out.println("EdoniSalt: "+EdoniSalt);
-        System.out.println(PasswordHasher.generateSaltedHash("Isaku1234",JoniSalt));
-        System.out.println(PasswordHasher.generateSaltedHash("Isaku1234",EdoniSalt));
-
-
-    }
 
 
 }

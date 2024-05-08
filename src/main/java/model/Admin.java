@@ -5,16 +5,14 @@ public class Admin {
     private String firstName;
     private String lastName;
     private String email;
-    private String phone;
     private String salt;
     private String hashedPassword;
 
-    public Admin(int id, String firstName, String lastName, String email, String phone, String salt, String hashedPassword) {
+    public Admin(int id, String firstName, String lastName, String email, String salt, String hashedPassword) {
         this.id=id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.phone = phone;
         this.salt = salt;
         this.hashedPassword=hashedPassword;
     }
@@ -63,15 +61,7 @@ public class Admin {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
-    public String getPhone() {
-        return phone;
-    }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+
 }

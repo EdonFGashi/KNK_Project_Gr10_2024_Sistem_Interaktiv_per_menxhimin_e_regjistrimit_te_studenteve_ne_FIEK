@@ -49,15 +49,16 @@ public class StudentMenuEditStudentController {
 
    @FXML
     private void handleSearchEmail(ActionEvent ae){
-       EditStudentDto editStudentDto = StudentFromAdminService.searchStudentEmail((this.txtSearch.getText()).trim());
-       if(editStudentDto == null){
-           this.labelStatus.setText("Student not Found");
-           this.labelStatus.setStyle("-fx-background-color:red;");
-       }else{
-           this.labelStatus.setText("Student Found Succesfuly");
-           this.labelStatus.setStyle("-fx-background-color: green;");
-         setFields(editStudentDto);
-       }
+     //  EditStudentDto editStudentDto = StudentFromAdminService.searchStudentEmail((this.txtSearch.getText()).trim());
+//
+//       if(editStudentDto == null){
+//           this.labelStatus.setText("Student not Found");
+//           this.labelStatus.setStyle("-fx-background-color:red;");
+//       }else{
+//           this.labelStatus.setText("Student Found Succesfuly");
+//           this.labelStatus.setStyle("-fx-background-color: green;");
+//         setFields(editStudentDto);
+//       }
    }
     @FXML
     private void handleSearchId(ActionEvent ae){
@@ -65,40 +66,40 @@ public class StudentMenuEditStudentController {
     }
     @FXML
     private void handleSavePersonalInfo(ActionEvent ae){
-       SaveStudentPersonalInfoDto saveStudentPersonalInfoDto = new SaveStudentPersonalInfoDto(
-         this.txtFirstName.getText(),
-               this.txtLastName.getText(),
-               this.txtPersonalNumber.getText(),
-               this.txtPersonalEmail.getText(),
-               this.txtPhone.getText(),
-               this.txtNationality.getText(),
-               this.txtAccepted.getText(),
-               this.txtSupervisorId.getText()
-               );
-      if(StudentFromAdminService.saveStudentPersonalInfo(saveStudentPersonalInfoDto)){
-          this.labelStatus.setText("Student Edited Succesfuly");
-          this.labelStatus.setStyle("-fx-background-color: green;");
-      }else{
-          this.labelStatus.setText("Student Not Edited");
-          this.labelStatus.setStyle("-fx-background-color:red;");
-      };
+//       SaveStudentPersonalInfoDto saveStudentPersonalInfoDto = new SaveStudentPersonalInfoDto(
+//         this.txtFirstName.getText(),
+//               this.txtLastName.getText(),
+//               this.txtPersonalNumber.getText(),
+//               this.txtPersonalEmail.getText(),
+//               this.txtPhone.getText(),
+//               this.txtNationality.getText(),
+//               this.txtAccepted.getText(),
+//               this.txtSupervisorId.getText()
+//               );
+//      if(StudentFromAdminService.saveStudentPersonalInfo(saveStudentPersonalInfoDto)){
+//          this.labelStatus.setText("Student Edited Succesfuly");
+//          this.labelStatus.setStyle("-fx-background-color: green;");
+//      }else{
+//          this.labelStatus.setText("Student Not Edited");
+//          this.labelStatus.setStyle("-fx-background-color:red;");
+//      };
     }
 
     @FXML
     private void handleSaveRegisteredInfo(ActionEvent ae){
-        SaveRegisteredStudentInfoDto saveRegisteredStudentInfoDto = new SaveRegisteredStudentInfoDto(
-          this.txtDepartament.getText(),
-          this.txtGeneratedEmail.getText(),
-          this.txtGeneratedId.getText(),
-          this.txtYearOfStudy.getText()
-        );
-        if(StudentFromAdminService.saveRegisteredStudent(saveRegisteredStudentInfoDto)){
-            this.labelStatus.setText("Student Edited Succesfuly");
-            this.labelStatus.setStyle("-fx-background-color: green;");
-        }else{
-            this.labelStatus.setText("Student Not Edited");
-            this.labelStatus.setStyle("-fx-background-color:red;");
-        };
+//        SaveRegisteredStudentInfoDto saveRegisteredStudentInfoDto = new SaveRegisteredStudentInfoDto(
+//          this.txtDepartament.getText(),
+//          this.txtGeneratedEmail.getText(),
+//          this.txtGeneratedId.getText(),
+//          this.txtYearOfStudy.getText()
+//        );
+//        if(StudentFromAdminService.saveRegisteredStudent(saveRegisteredStudentInfoDto)){
+//            this.labelStatus.setText("Student Edited Succesfuly");
+//            this.labelStatus.setStyle("-fx-background-color: green;");
+//        }else{
+//            this.labelStatus.setText("Student Not Edited");
+//            this.labelStatus.setStyle("-fx-background-color:red;");
+//        };
     }
 
 

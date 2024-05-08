@@ -2,7 +2,9 @@ package service.Admin;
 
 
 import model.Admin;
+import model.dto.Admin.AdminProfileToControllerDto;
 import model.dto.Admin.ChangePasswordOnDb;
+import model.dto.Admin.EditAdminProfileDto;
 import model.dto.Admin.LoginAdminDto;
 import model.dto.Overall.ChangePasswordDto;
 import repository.AdminRepository;
@@ -10,7 +12,6 @@ import service.CustomExceptions.InvalidPassword;
 import service.PasswordHasher;
 
 public class AdminService {
-
 public static boolean login(LoginAdminDto loginData){
 
     Admin admin = AdminRepository.getByEmail(loginData.getEmail());
@@ -19,6 +20,7 @@ public static boolean login(LoginAdminDto loginData){
         return false;
 
     }
+
     System.out.println("Admini u murr");
 
     String password = loginData.getPassword();
@@ -29,7 +31,7 @@ public static boolean login(LoginAdminDto loginData){
     return PasswordHasher.compareSaltedHash(
             password,salt,passwordHash
     );
-}
+  }
 
 
     public static void changePassword(ChangePasswordDto changeData) throws InvalidPassword{
@@ -57,5 +59,20 @@ public static boolean login(LoginAdminDto loginData){
     if(!AdminRepository.changePassword(new ChangePasswordOnDb(admin.getEmail(), saltedHashed))){
         throw new InvalidPassword("Database Connection failed");
     };
+    }
+
+
+    public static AdminProfileToControllerDto getProfileInfo(String email) {
+        Admin admin = AdminRepository.getByEmail(email);
+        if (admin == null) {
+            System.out.println("Admin nuk u murr");
+            return null;
+        }
+        System.out.println("Admin u murr");
+        return new AdminProfileToControllerDto(
+                admin.getFirstName(),
+                admin.getLastName(),
+                admin.getEmail()
+        );
     }
 }

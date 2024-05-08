@@ -34,6 +34,8 @@ public class RibbonController {
    // private ImageView imgUpLogo;
     @FXML
     private AnchorPane anchorLogo;
+    @FXML
+    private ImageView imgRegistrationIcon;
 
     private UpLogoAnimate logo = new UpLogoAnimate(50, "FIEK Management", 5);
 
@@ -45,14 +47,11 @@ public class RibbonController {
             this.imgStudentIcon.setImage(new Image(new FileInputStream("Images/studentIcon.png")));
             this.imgSupervisorIcon.setImage(new Image(new FileInputStream("Images/supervisorIcon.png")));
             this.imgInboxIcon.setImage(new Image(new FileInputStream("Images/inboxIcon.png")));
-            //this.imgUpLogo.setImage(new Image(new FileInputStream("Images/upLogoNoRing.png")));
-
-            // System.out.println("Image set successfully.");
+            this.imgRegistrationIcon.setImage(new Image(new FileInputStream("Images/registrationIcon.png")));
         } catch (FileNotFoundException e) {
             System.out.println("Image not found");
         }
         this.anchorLogo.getChildren().add(logo);
-      //  this.anchorLogo.setStyle("-fx-background-col");
         this.anchorLogo.setTranslateY(25);
     }
 

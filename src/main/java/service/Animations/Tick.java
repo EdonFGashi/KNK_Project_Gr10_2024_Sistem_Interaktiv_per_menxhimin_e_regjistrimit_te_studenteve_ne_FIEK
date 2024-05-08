@@ -133,10 +133,7 @@ class TickObject extends Pane {
         if (this.tick != null) {
             super.getChildren().clear();
             super.getChildren().addAll(circle, this.tick);
-        } else {
-            System.out.println("Polygon1 is null or not found in the polygonHashMap.");
         }
-
     }
 
     public void refreshTick(int iterator){

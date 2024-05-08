@@ -23,7 +23,7 @@ public class ChangePassword {
     private void handleChangePassword(ActionEvent ae){
 
         ChangePasswordDto change = new ChangePasswordDto(
-                "hey100",
+                "edon@admin.uni-pr.edu",
                 this.pwdCurrentPassword.getText(),
                 this.pwdNewPassword.getText(),
                 this.pwdConfirmPassword.getText()

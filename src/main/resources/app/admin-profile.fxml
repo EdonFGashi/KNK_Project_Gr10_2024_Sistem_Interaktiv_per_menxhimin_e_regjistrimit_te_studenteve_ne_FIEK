@@ -23,32 +23,27 @@
                         <Font name="Arial" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtFiistName" layoutX="80.0" layoutY="113.0" prefHeight="35.0" prefWidth="312.0" />
-                  <Label layoutX="80.0" layoutY="162.0" prefHeight="35.0" prefWidth="136.0" text="Last Name:">
+                  <TextField fx:id="txtFirstName" layoutX="80.0" layoutY="113.0" prefHeight="35.0" prefWidth="312.0" />
+                  <Label layoutX="80.0" layoutY="167.0" prefHeight="35.0" prefWidth="136.0" text="Last Name:">
                      <font>
                         <Font name="Arial" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtLastName" layoutX="80.0" layoutY="197.0" prefHeight="35.0" prefWidth="312.0" />
-                  <TextField fx:id="txtEmail" layoutX="80.0" layoutY="278.0" prefHeight="35.0" prefWidth="312.0" />
-                  <Label layoutX="80.0" layoutY="243.0" prefHeight="35.0" prefWidth="136.0" text="Email:">
+                  <TextField fx:id="txtLastName" layoutX="80.0" layoutY="203.0" prefHeight="35.0" prefWidth="312.0" />
+                  <TextField fx:id="txtEmail" layoutX="80.0" layoutY="296.0" prefHeight="35.0" prefWidth="312.0" />
+                  <Label layoutX="80.0" layoutY="251.0" prefHeight="35.0" prefWidth="136.0" text="Email:">
                      <font>
                         <Font name="Arial" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="80.0" layoutY="322.0" prefHeight="35.0" prefWidth="136.0" text="Phone:">
-                     <font>
-                        <Font name="Arial" size="18.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="txtPhone" layoutX="80.0" layoutY="357.0" prefHeight="35.0" prefWidth="312.0" />
-                  <Button layoutX="80.0" layoutY="438.0" mnemonicParsing="false" onAction="#handleChangePassword" prefHeight="42.0" prefWidth="119.0" text="Change Password" />
-                  <Button layoutX="273.0" layoutY="438.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="42.0" prefWidth="119.0" text="Edit" />
-                  <ImageView fitHeight="218.0" fitWidth="236.0" layoutX="479.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+                  <Button layoutX="80.0" layoutY="387.0" mnemonicParsing="false" onAction="#handleChangePassword" prefHeight="42.0" prefWidth="119.0" text="Change Password" />
+                  <Button fx:id="buttonEdit" layoutX="272.0" layoutY="387.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="42.0" prefWidth="119.0" text="Edit" />
+                  <ImageView fx:id="imgProfilePhoto" fitHeight="218.0" fitWidth="236.0" layoutX="461.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../Images/adminProfileImage.png" />
                      </image>
                   </ImageView>
+                  <Button fx:id="buttonSave" layoutX="272.0" layoutY="441.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="42.0" prefWidth="119.0" text="Save" />
                </children>
             </AnchorPane>
             <HBox layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
