@@ -45,9 +45,9 @@ CREATE TABLE tblStudentApplicant (
     uid INT,
     adid INT,
     mid INT,
-    FOREIGN KEY (uid) REFERENCES tblUser(uid),
-    FOREIGN KEY (adid) REFERENCES tblAdresa(adid),
-    FOREIGN KEY (mid) REFERENCES tblMbikqyresi(mid)
+    FOREIGN KEY (uid) REFERENCES tblUser(uid) ON DELETE SET NULL,
+    FOREIGN KEY (adid) REFERENCES tblAdresa(adid) ON DELETE SET NULL,
+    FOREIGN KEY (mid) REFERENCES tblMbikqyresi(mid) ON DELETE SET NULL
 );
 
 
@@ -74,7 +74,7 @@ CREATE TABLE tblDrejtimi (
     sid INT PRIMARY KEY,
     Niveli VARCHAR(255),
     did INT,
-    FOREIGN KEY (did) REFERENCES tblDepartamenti(did),
+    FOREIGN KEY (did) REFERENCES tblDepartamenti(did) ON DELETE SET NULL,
     FOREIGN KEY (sid) REFERENCES tblStudentApplicant(sid) 
 );
 CREATE TABLE tblDocument (
@@ -102,7 +102,7 @@ CREATE TABLE tblShkolla (
     shid INT AUTO_INCREMENT PRIMARY KEY,
     Emri VARCHAR(255),
     adid INT PRIMARY KEY,
-    FOREIGN KEY (adid) REFERENCES tblAdresa(adid)
+    FOREIGN KEY (adid) REFERENCES tblAdresa(adid) ON DELETE SET NULL
 );
 
 
@@ -114,8 +114,8 @@ CREATE TABLE tblProvimiPranues (
     Salla INT,
     Piket INT,
     FOREIGN KEY (sid) REFERENCES tblStudentApplicant(sid),
-    FOREIGN KEY (aid) REFERENCES tblAfati(afid),
-    FOREIGN KEY (mid) REFERENCES tblMbikqyresi(mid)
+    FOREIGN KEY (aid) REFERENCES tblAfati(afid) ON DELETE SET NULL,
+    FOREIGN KEY (mid) REFERENCES tblMbikqyresi(mid) ON DELETE SET NULL
 
 );
 
@@ -125,7 +125,7 @@ CREATE TABLE tblKonkurrimet (
     sid INT,
     afid INT,
     FOREIGN KEY (sid) REFERENCES tblStudentApplicant(sid),
-    FOREIGN KEY (afid) REFERENCES tblAfati(afid)
+    FOREIGN KEY (afid) REFERENCES tblAfati(afid) ON DELETE SET NULL
 );
 
 CREATE TABLE tblAcceptedStudents (
@@ -134,8 +134,8 @@ CREATE TABLE tblAcceptedStudents (
     did INT,
     aid INT,
     FOREIGN KEY (sid) REFERENCES tblStudentApplicant(sid),
-    FOREIGN KEY (did) REFERENCES tblDepartamenti(did),
-    FOREIGN KEY (aid) REFERENCES tblAfati(aid)
+    FOREIGN KEY (did) REFERENCES tblDepartamenti(did) ON DELETE SET NULL,
+    FOREIGN KEY (aid) REFERENCES tblAfati(aid) ON DELETE SET NULL
 );
 
 CREATE TABLE tblRegisteredStudents (
@@ -146,12 +146,12 @@ CREATE TABLE tblRegisteredStudents (
     EmailGenerated VARCHAR(255),
     viti INT,
 FOREIGN KEY (sid) REFERENCES tblStudentApplicant(sid),
- FOREIGN KEY (did) REFERENCES tblDepartamenti(did),
+ FOREIGN KEY (did) REFERENCES tblDepartamenti(did) ON DELETE SET NULL,
 );
 
 CREATE TABLE tblNjoftimet (
     id INT PRIMARY KEY,
     aid INT,
     Njoftimi VARCHAR(255),
- FOREIGN KEY (aid) REFERENCES tblAdmin(id)
+ FOREIGN KEY (aid) REFERENCES tblAdmin(id) ON DELETE SET NULL
 );
