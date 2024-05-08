@@ -77,3 +77,81 @@ CREATE TABLE tblDrejtimi (
     FOREIGN KEY (did) REFERENCES tblDepartamenti(did),
     FOREIGN KEY (sid) REFERENCES tblStudentApplicant(sid) 
 );
+CREATE TABLE tblDocument (
+    sid INT PRIMARY KEY,
+    CertifikataNotave LONGBLOB,
+    Leternjoftimi LONGBLOB,
+    Diploma LONGBLOB,
+    FOREIGN KEY (sid) REFERENCES tblStudentApplicant(sid)
+);
+
+CREATE TABLE tblShkollimiMesem (
+    sid INT PRIMARY KEY,
+    piketMat INT,
+    piketAnglisht INT,
+    piketShqip INT,
+    piketLendaZgjedhore INT,
+    lendaZgjedhore VARCHAR(255),
+    viti INT,
+    piketMatureTotal INT,
+    NotaMesatare INT,
+ FOREIGN KEY (sid) REFERENCES tblStudentApplicant(sid)
+);
+
+CREATE TABLE tblShkolla (
+    shid INT AUTO_INCREMENT PRIMARY KEY,
+    Emri VARCHAR(255),
+    adid INT PRIMARY KEY,
+    FOREIGN KEY (adid) REFERENCES tblAdresa(adid)
+);
+
+
+CREATE TABLE tblProvimiPranues (
+    sid INT PRIMARY KEY,
+    student_applicant_id INT,
+    aid INT,
+    mid INT,
+    Salla INT,
+    Piket INT,
+    FOREIGN KEY (sid) REFERENCES tblStudentApplicant(sid),
+    FOREIGN KEY (aid) REFERENCES tblAfati(afid),
+    FOREIGN KEY (mid) REFERENCES tblMbikqyresi(mid)
+
+);
+
+
+CREATE TABLE tblKonkurrimet (
+    kid INT AUTO_INCREMENT PRIMARY KEY,
+    sid INT,
+    afid INT,
+    FOREIGN KEY (sid) REFERENCES tblStudentApplicant(sid),
+    FOREIGN KEY (afid) REFERENCES tblAfati(afid)
+);
+
+CREATE TABLE tblAcceptedStudents (
+    id INT PRIMARY KEY,
+    sid INT,
+    did INT,
+    aid INT,
+    FOREIGN KEY (sid) REFERENCES tblStudentApplicant(sid),
+    FOREIGN KEY (did) REFERENCES tblDepartamenti(did),
+    FOREIGN KEY (aid) REFERENCES tblAfati(aid)
+);
+
+CREATE TABLE tblRegisteredStudents (
+    StudentId INT PRIMARY KEY,
+    sid INT,
+    did INT,
+    Email VARCHAR(255),
+    EmailGenerated VARCHAR(255),
+    viti INT,
+FOREIGN KEY (sid) REFERENCES tblStudentApplicant(sid),
+ FOREIGN KEY (did) REFERENCES tblDepartamenti(did),
+);
+
+CREATE TABLE tblNjoftimet (
+    id INT PRIMARY KEY,
+    aid INT,
+    Njoftimi VARCHAR(255),
+ FOREIGN KEY (aid) REFERENCES tblAdmin(id)
+);
