@@ -101,10 +101,11 @@ CREATE TABLE tblShkollimiMesem (
 );
 
 CREATE TABLE tblShkolla (
-    shid INT AUTO_INCREMENT PRIMARY KEY,
+    shid INT AUTO_INCREMENT,
     Emri VARCHAR(255),
-    adid INT PRIMARY KEY,
-    FOREIGN KEY (adid) REFERENCES tblAdresa(adid) ON DELETE SET NULL
+    adid INT,
+    PRIMARY KEY (shid,adid),
+    FOREIGN KEY (adid) REFERENCES tblAdresa(adid) 
 );
 
 
@@ -136,7 +137,7 @@ CREATE TABLE tblAcceptedStudents (
     aid INT,
     FOREIGN KEY (sid) REFERENCES tblStudentApplicant(sid),
     FOREIGN KEY (did) REFERENCES tblDepartamenti(did) ON DELETE SET NULL,
-    FOREIGN KEY (aid) REFERENCES tblAfati(aid) ON DELETE SET NULL
+    FOREIGN KEY (aid) REFERENCES tblAfati(afid) ON DELETE SET NULL
 );
 
 CREATE TABLE tblRegisteredStudents (
