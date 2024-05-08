@@ -11,7 +11,9 @@ CREATE TABLE tblUser (
 
 CREATE TABLE tblAdmin (
     aid INT AUTO_INCREMENT PRIMARY KEY,
-    Username VARCHAR(50) NOT NULL,
+    Emri VARCHAR(50) NOT NULL,
+    Mbiemri VARCHAR(50) NOT NULL,
+    Email VARCHAR(50) NOT NULL,
     Salt VARCHAR(50) NOT NULL,
     PasswordHash VARCHAR(400) NOT NULL
 );
