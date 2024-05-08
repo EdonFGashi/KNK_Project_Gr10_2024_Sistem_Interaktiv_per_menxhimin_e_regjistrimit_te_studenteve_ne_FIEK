@@ -81,7 +81,9 @@ public class RibbonController {
 
     @FXML
     private void handleGoToProfile(ActionEvent ae){
+
         Navigatior.navigate(this.addPane, Navigatior.ADMIN_PROFILE);
+        Navigatior.tick();
     }
     @FXML
     private void handleChangeLanguage(ActionEvent ae){

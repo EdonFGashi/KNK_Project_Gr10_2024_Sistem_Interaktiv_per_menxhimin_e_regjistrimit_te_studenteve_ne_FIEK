@@ -25,6 +25,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import service.Animations.Tick;
 
 import java.io.IOException;
 
@@ -152,6 +153,23 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         stage.show();
 
     }
+    public static void tick(){
+        Tick tick = new Tick(200);
+        Scene scene = new Scene(tick,200,200);
+        Stage stage = new Stage();
+        stage.setMaximized(false);
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.show();
+        Timeline timeline2= new Timeline(new KeyFrame(Duration.millis(1000), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+              stage.close();
+            }
+        }));
+        timeline2.play();
+    }
+
     public static void loading(boolean successful){
         UpLogoAnimate pane = new UpLogoAnimate();
         pane.start();
