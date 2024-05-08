@@ -14,7 +14,7 @@ public class FirstApp extends Application {
     @Override
     public void start(Stage stage){
 
-       Navigatior.tick();
+       Navigatior.tick(200);
 
 
 

@@ -153,9 +153,9 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         stage.show();
 
     }
-    public static void tick(){
-        Tick tick = new Tick(200);
-        Scene scene = new Scene(tick,200,200);
+    public static void tick(double dimension){
+        Tick tick = new Tick(dimension);
+        Scene scene = new Scene(tick,dimension,dimension);
         Stage stage = new Stage();
         stage.setMaximized(false);
         stage.setScene(scene);
@@ -170,7 +170,7 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         timeline2.play();
     }
 
-    public static void loading(boolean successful){
+    public static void loading(String message,boolean successful){
         UpLogoAnimate pane = new UpLogoAnimate();
         pane.start();
         pane.setTranslateY(50);
@@ -194,11 +194,10 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         Timeline timeline2= new Timeline(new KeyFrame(Duration.millis(1700), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                text.setText(message);
                 if (successful) {
-                    text.setText(" Operation Successful!");
                     text.setStyle("-fx-font-weight: bold; -fx-font-size: 19; -fx-fill: green;");
                 } else {
-                    text.setText("     Operation Failed");
                     text.setStyle("-fx-font-weight: bold; -fx-font-size: 20; -fx-fill: red;");
                 }
             }
