@@ -11,9 +11,7 @@ CREATE TABLE tblUser (
 
 CREATE TABLE tblAdmin (
     aid INT AUTO_INCREMENT PRIMARY KEY,
-    Emri VARCHAR(50) NOT NULL,
-    Mbiemri VARCHAR(50) NOT NULL,
-    Email VARCHAR(50) NOT NULL,
+    Username VARCHAR(50) NOT NULL,
     Salt VARCHAR(50) NOT NULL,
     PasswordHash VARCHAR(400) NOT NULL
 );
@@ -79,7 +77,6 @@ CREATE TABLE tblDrejtimi (
     FOREIGN KEY (did) REFERENCES tblDepartamenti(did) ON DELETE SET NULL,
     FOREIGN KEY (sid) REFERENCES tblStudentApplicant(sid) 
 );
-
 CREATE TABLE tblDocument (
     sid INT PRIMARY KEY,
     CertifikataNotave LONGBLOB,
@@ -102,10 +99,11 @@ CREATE TABLE tblShkollimiMesem (
 );
 
 CREATE TABLE tblShkolla (
-    shid INT AUTO_INCREMENT PRIMARY KEY,
+    shid INT AUTO_INCREMENT,
     Emri VARCHAR(255),
-    adid INT PRIMARY KEY,
-    FOREIGN KEY (adid) REFERENCES tblAdresa(adid) ON DELETE SET NULL
+    adid INT,
+    PRIMARY KEY (shid,adid),
+    FOREIGN KEY (adid) REFERENCES tblAdresa(adid)
 );
 
 
@@ -137,7 +135,7 @@ CREATE TABLE tblAcceptedStudents (
     aid INT,
     FOREIGN KEY (sid) REFERENCES tblStudentApplicant(sid),
     FOREIGN KEY (did) REFERENCES tblDepartamenti(did) ON DELETE SET NULL,
-    FOREIGN KEY (aid) REFERENCES tblAfati(aid) ON DELETE SET NULL
+    FOREIGN KEY (aid) REFERENCES tblAfati(afid) ON DELETE SET NULL
 );
 
 CREATE TABLE tblRegisteredStudents (
@@ -148,14 +146,14 @@ CREATE TABLE tblRegisteredStudents (
     EmailGenerated VARCHAR(255),
     viti INT,
 FOREIGN KEY (sid) REFERENCES tblStudentApplicant(sid),
- FOREIGN KEY (did) REFERENCES tblDepartamenti(did) ON DELETE SET NULL,
+ FOREIGN KEY (did) REFERENCES tblDepartamenti(did) ON DELETE SET NULL
 );
 
 CREATE TABLE tblNjoftimet (
     id INT PRIMARY KEY,
     aid INT,
     Njoftimi VARCHAR(255),
- FOREIGN KEY (aid) REFERENCES tblAdmin(id) ON DELETE SET NULL
+ FOREIGN KEY (aid) REFERENCES tblAdmin(aid) ON DELETE SET NULL
 );
 
 ALTER TABLE tblAfati
