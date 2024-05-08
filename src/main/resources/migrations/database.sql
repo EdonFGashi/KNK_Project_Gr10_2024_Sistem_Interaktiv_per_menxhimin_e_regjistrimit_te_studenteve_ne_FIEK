@@ -154,3 +154,11 @@ CREATE TABLE tblNjoftimet (
     Njoftimi VARCHAR(255),
  FOREIGN KEY (aid) REFERENCES tblAdmin(id) ON DELETE SET NULL
 );
+
+ALTER TABLE tblAfati
+ADD CONSTRAINT Check_Opening_Date_Before_Closing_Date CHECK (DataHapjes < DataMbylljes);
+
+
+
+ALTER TABLE tblProvimiPranues
+ADD CONSTRAINT Check_Exam_Score_Range CHECK (Piket BETWEEN 0 AND 100);
