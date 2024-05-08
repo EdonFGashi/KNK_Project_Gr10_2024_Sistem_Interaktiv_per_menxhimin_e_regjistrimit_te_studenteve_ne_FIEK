@@ -13,7 +13,7 @@ public class SupervisorMenuAddController {
     @FXML
     private void initialize(){
 
-      UpLogoAnimate pane1 = new UpLogoAnimate();
+      UpLogoAnimate pane1 = new UpLogoAnimate(100, "Loading...", 10);
       pane1.setMaxWidth(100);
       pane1.setMaxHeight(100);
       pane1.start();

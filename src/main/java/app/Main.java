@@ -15,9 +15,5 @@ public class Main extends Application {
 
         Navigatior.navigate(stage,Navigatior.ADMIN_RIBBON);
 
-
-
-
-
     }
 }

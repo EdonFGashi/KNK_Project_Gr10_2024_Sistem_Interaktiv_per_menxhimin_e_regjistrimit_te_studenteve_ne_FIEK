@@ -35,7 +35,7 @@ public class RibbonController {
     @FXML
     private AnchorPane anchorLogo;
 
-    private UpLogoAnimate logo = new UpLogoAnimate();
+    private UpLogoAnimate logo = new UpLogoAnimate(50, "FIEK Management", 5);
 
     @FXML
     private void initialize(){

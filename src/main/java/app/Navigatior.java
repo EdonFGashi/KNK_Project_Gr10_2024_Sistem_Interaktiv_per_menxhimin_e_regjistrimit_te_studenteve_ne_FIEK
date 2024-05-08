@@ -171,7 +171,7 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
     }
 
     public static void loading(String message,boolean successful){
-        UpLogoAnimate pane = new UpLogoAnimate();
+        UpLogoAnimate pane = new UpLogoAnimate(50, "Loading...", 10);
         pane.start();
         pane.setTranslateY(50);
         StackPane stackPane = new StackPane();

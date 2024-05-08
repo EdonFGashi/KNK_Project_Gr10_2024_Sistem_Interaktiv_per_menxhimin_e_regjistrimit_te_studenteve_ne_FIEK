@@ -19,10 +19,18 @@ public class UpLogoAnimate extends Pane{
    private PaneAnimation animation;
    private StackPane pane2;
    private VBox finalPane;
+   private int d1;
+   private int d2;
+   private String shkrimi;
+   private int textGrowth;
 
-   public UpLogoAnimate(){
-       int d1 = 50;
-       int d2 = 6;
+   public UpLogoAnimate(int d1, String shkrimi, int textGrowth){
+       this.d1 = d1;
+       this.d2 = d1/7;
+       this.shkrimi = shkrimi;
+       this.textGrowth = textGrowth;
+//       int d1 = 50;
+//       int d2 = 6;
        Logo logo1 = new Logo(d1, d2, Color.rgb(206, 42, 45));
        Logo logo2 = new Logo(d1, d2, Color.rgb(25, 19, 16));
        Logo logo3 = new Logo(d1, d2, Color.rgb(96, 93, 92));
@@ -32,7 +40,7 @@ public class UpLogoAnimate extends Pane{
        Logo logo7 = new Logo(d1, d2, Color.rgb(170, 171, 170));
        Logo logo8 = new Logo(d1, d2, Color.rgb(195, 195, 194));
        Logo logo9 = new Logo(d1, d2, Color.rgb(223, 222, 222));
-       LogoText text = new LogoText("FIEK Management", 40, Color.BLACK);
+       LogoText text = new LogoText(this.shkrimi, (this.d1/2 - this.d2)/2 + textGrowth, Color.BLACK);
 
        this.event = new LogoAnimationEventHandler(logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9, text, 40, 1.7, 0.85);
        this.animation = new PaneAnimation(logo1, this.event);
@@ -40,26 +48,24 @@ public class UpLogoAnimate extends Pane{
 //       this.pane1.setMinHeight(75);
 //       this.pane2.setMinWidth(75);
        this.pane2 = new StackPane(text);
-       this.pane2.setTranslateY(18);
+       this.pane2.setTranslateY((this.d1/2)-5);
 //       finalPane.getChildren().clear();
 //       finalPane.getChildren().addAll(pane1, pane2);
        this.draw();
    }
    public void draw(){
        VBox finalPane = new VBox(this.pane1, this.pane2);
-        super.setMaxWidth(100);
-        super.setMaxHeight(100);
+        super.setMaxWidth(130);
+        super.setMaxHeight(130);
        super.getChildren().clear();
        super.getChildren().add(finalPane);
    }
    public void start(){
        this.animation.start();
-
    }
    public void stopAnimation(){
        this.animation.stop();
    }
-
 }
 
 class Logo extends StackPane{
@@ -79,6 +85,9 @@ class Logo extends StackPane{
         this.draw();
     }
 
+    public int getD2(){
+        return this.d2;
+    }
     private void draw(){
         Polygon polygon1 = new Polygon(0,(this.d1/2), this.d1/2, (this.d1/2) - (this.d2/2), this.d1, this.d1/2, (this.d1/2), (this.d1/2) + (this.d2/2));
         polygon1.setFill(this.color);
@@ -108,6 +117,7 @@ class LogoText extends StackPane{
 
     private void draw(){
         text.setFill(this.color);
+        this.text.setFont(Font.font(this.size));
         super.getChildren().clear();
         super.getChildren().addAll(text);
     }
@@ -125,14 +135,10 @@ class PaneAnimation{
         this.frame = new KeyFrame(Duration.millis(6), this.event);
         this.animation = new Timeline(this.frame);
         this.animation.setCycleCount(Timeline.INDEFINITE);
-//        this.start();
     }
     public void start(){
         this.animation.play();
 
-    }
-    public void test(){
-        System.out.println("Testt");
     }
 
     public void stop() {
@@ -155,9 +161,9 @@ class LogoAnimationEventHandler implements EventHandler<ActionEvent>{
 
     private double rotate;
     private double rRotate;
-    private int step ;
+    private int step = 0;
     private double backward;
-    private int red = 0;
+    private int red = 120;
 
     public int getStep(){return this.step;}
 
@@ -202,7 +208,7 @@ class LogoAnimationEventHandler implements EventHandler<ActionEvent>{
         }  else if( getRotate1 >= backward && this.step == 0){
             this.step = 1;
             backward += 20;
-            this.red = 0;
+            this.red = 1;
         }
         if(getRotate1 >= -20 && step == 1) {
             this.logo1.setRotate(getRotate1 + this.rotate);
@@ -327,18 +333,18 @@ class LogoAnimationEventHandler implements EventHandler<ActionEvent>{
         }
 
         if(this.step == 0){
-            this.text.setColor(Color.rgb(( red -= 10), 0, 0));
+            if(red >= 8){
+                this.text.setColor(Color.rgb(( red -= 7), 0, 0));
+            }
         } else if(this.step == 1){
-            this.text.setColor(Color.rgb(( red += 5), 0, 0));
+            if(red <= 252) {
+                this.text.setColor(Color.rgb((red += 2), 0, 0));
+            }
         } else if( this.step == 2){
-            this.text.setColor(Color.rgb(( red -= 10), 0, 0));
+            if(red >= 2) {
+                this.text.setColor(Color.rgb((red -= 0.01), 0, 0));
+            }
         }
 
-    }
-
-    private Color generateRandomColor(){
-        return new Color(
-                Math.random(), Math.random(), Math.random(), 1
-        );
     }
 }
