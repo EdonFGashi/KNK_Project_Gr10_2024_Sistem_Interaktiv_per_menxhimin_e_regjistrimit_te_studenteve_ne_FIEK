@@ -1,44 +1,44 @@
 CREATE TABLE tblUser (
     uid INT AUTO_INCREMENT PRIMARY KEY,
-    Emri VARCHAR(50),
-    Mbiemri VARCHAR(50),
+    Emri VARCHAR(50) NOT NULL,
+    Mbiemri VARCHAR(50) NOT NULL,
     Gjinia VARCHAR(10),
     DataLindjes DATE,
-    Username VARCHAR(50),
-    Salt VARCHAR(50),
-    PasswordHash VARCHAR(100)
+    Username VARCHAR(50) NOT NULL,
+    Salt VARCHAR(50) NOT NULL,
+    PasswordHash VARCHAR(100)NOT NULL
 );
 
 CREATE TABLE tblAdmin (
     aid INT AUTO_INCREMENT PRIMARY KEY,
-    Username VARCHAR(50),
-    Salt VARCHAR(50),
-    PasswordHash VARCHAR(100)
+    Username VARCHAR(50) NOT NULL,
+    Salt VARCHAR(50) NOT NULL,
+    PasswordHash VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE tblMbikqyresi (
     mid INT AUTO_INCREMENT PRIMARY KEY,
-    Emri VARCHAR(50),
-    Mbiemri VARCHAR(50),
-    Username VARCHAR(50),
-    Salt VARCHAR(50),
-    PasswordHash VARCHAR(100),
-    Email VARCHAR(100),
+    Emri VARCHAR(50) NOT NULL,
+    Mbiemri VARCHAR(50) NOT NULL,
+    Username VARCHAR(50) NOT NULL,
+    Salt VARCHAR(50) NOT NULL,
+    PasswordHash VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) NOT NULL,
     Afati DATE,
     Salla VARCHAR(50)
 );
 
 CREATE TABLE tblAdresa (
     adid INT AUTO_INCREMENT PRIMARY KEY,
-    Qyteti VARCHAR(50),
-    Shteti VARCHAR(50)
+    Qyteti VARCHAR(50) NOT NULL,
+    Shteti VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE tblStudentApplicant (
     sid INT AUTO_INCREMENT PRIMARY KEY,
-    Emri VARCHAR(50),
-    Mbiemri VARCHAR(50),
-    NrPersonal VARCHAR(20),
+    Emri VARCHAR(50) NOT NULL,
+    Mbiemri VARCHAR(50) NOT NULL,
+    NrPersonal VARCHAR(20) NOT NULL,
     Email VARCHAR(100),
     NrTel VARCHAR(20),
     Nacionaliteti VARCHAR(50),
@@ -56,14 +56,14 @@ CREATE TABLE tblAfati (
     afid INT AUTO_INCREMENT PRIMARY KEY,
     Niveli VARCHAR(50),
     Viti INT,
-    DataHapjes DATE,
-    DataMbylljes DATE
+    DataHapjes DATE NOT NULL,
+    DataMbylljes DATE NOT NULL
 );
 
 
 CREATE TABLE tblDepartamenti (
     did INT AUTO_INCREMENT PRIMARY KEY,
-    Emri VARCHAR(100),
+    Emri VARCHAR(100) NOT NULL,
     NumriPranimeveAfat1 INT,
     NumriPranimeveAfat2 INT,
     NumriMinoritetAfat1 INT,
@@ -108,7 +108,6 @@ CREATE TABLE tblShkolla (
 
 CREATE TABLE tblProvimiPranues (
     sid INT PRIMARY KEY,
-    student_applicant_id INT,
     aid INT,
     mid INT,
     Salla INT,
