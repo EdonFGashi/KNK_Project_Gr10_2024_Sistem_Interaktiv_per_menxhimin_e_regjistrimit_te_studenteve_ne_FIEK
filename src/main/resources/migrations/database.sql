@@ -162,3 +162,12 @@ ADD CONSTRAINT Check_Opening_Date_Before_Closing_Date CHECK (DataHapjes < DataMb
 
 ALTER TABLE tblProvimiPranues
 ADD CONSTRAINT Check_Exam_Score_Range CHECK (Piket BETWEEN 0 AND 100);
+
+
+ALTER TABLE tblDocument
+ADD CONSTRAINT Check_Not_Empty_Document CHECK (COALESCE(LENGTH(CertifikataNotave), 0) + COALESCE(LENGTH(Leternjoftimi), 0) + COALESCE(LENGTH(Diploma), 0) > 0);
+
+
+
+ALTER TABLE tblStudentApplicant
+ADD CONSTRAINT Check_Valid_Age CHECK (YEAR(CURRENT_DATE) - YEAR(DataLindjes) > 17);
