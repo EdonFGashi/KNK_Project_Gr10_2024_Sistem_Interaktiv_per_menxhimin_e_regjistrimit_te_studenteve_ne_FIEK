@@ -171,19 +171,24 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
     }
 
     public static void loading(String message,boolean successful){
-        UpLogoAnimate pane = new UpLogoAnimate(50, "Loading...", 10);
+        UpLogoAnimate pane = new UpLogoAnimate(100, "Loading...", 10);
         pane.start();
         pane.setTranslateY(50);
         StackPane stackPane = new StackPane();
 
-        Text text = new Text("          Loading ...");
-        text.setStyle("-fx-font-weight: bold; -fx-font-size:18 ;");
+        Text text = new Text();
+        text.setText(message);
+        if (successful) {
+            text.setStyle("-fx-font-weight: bold; -fx-font-size: 19; -fx-fill: green;");
+        } else {
+            text.setStyle("-fx-font-weight: bold; -fx-font-size: 20; -fx-fill: red;");
+        }
         text.setTranslateY(110);
         VBox mainPane = new VBox();
         mainPane.getChildren().addAll(stackPane,text);
 
         stackPane.getChildren().add(pane);
-        Scene scene = new Scene(mainPane,200,200);
+        Scene scene = new Scene(mainPane,280,200);
 
 
         Stage stage = new Stage();
@@ -191,19 +196,9 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         stage.setScene(scene);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
-        Timeline timeline2= new Timeline(new KeyFrame(Duration.millis(1700), new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                text.setText(message);
-                if (successful) {
-                    text.setStyle("-fx-font-weight: bold; -fx-font-size: 19; -fx-fill: green;");
-                } else {
-                    text.setStyle("-fx-font-weight: bold; -fx-font-size: 20; -fx-fill: red;");
-                }
-            }
-        }));
-        timeline2.play();
+
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(3300), new EventHandler<ActionEvent>() {
+
             @Override
             public void handle(ActionEvent event) {
                 stage.close();

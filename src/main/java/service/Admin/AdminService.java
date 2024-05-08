@@ -36,13 +36,13 @@ public static boolean login(LoginAdminDto loginData){
     Admin admin = AdminRepository.getByEmail(changeData.getEmail());
 
     if(admin == null){
-        throw new InvalidPassword("Admin is not found");
+        throw new InvalidPassword("  Admin is not found");
     }
 
     if(!admin.getHashedPassword().equals(PasswordHasher.generateSaltedHash(changeData.getCurrentPassword(),admin.getSalt()))){
-        throw new InvalidPassword("Invalid Current Password");
+        throw new InvalidPassword("  Invalid Current Password");
     }
-    if(changeData.getNewPassword().length() <8){
+    if(changeData.getNewPassword().length() < 8){
         throw new InvalidPassword("Password too short");
     }
     if(!changeData.getNewPassword().equals(changeData.getConfirmPassword())){

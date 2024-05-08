@@ -5,13 +5,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.util.Duration;
-import model.Admin;
 import model.dto.Overall.ChangePasswordDto;
 import service.Admin.AdminService;
 import service.CustomExceptions.InvalidPassword;
-
-import java.lang.reflect.InaccessibleObjectException;
-
 
 public class ChangePassword {
     @FXML
@@ -37,7 +33,7 @@ public class ChangePassword {
             AdminService.changePassword(change);
             System.out.println("U nderrua Passwordi me sukses");
             Navigatior.closeStageAfterDelay(ae, Duration.millis(3000));
-            Navigatior.loading("Changed Password!",true);
+            Navigatior.loading("   Changed Password!",true);
         }catch(InvalidPassword e){
             Navigatior.loading(e.getMessage(),false);
         }

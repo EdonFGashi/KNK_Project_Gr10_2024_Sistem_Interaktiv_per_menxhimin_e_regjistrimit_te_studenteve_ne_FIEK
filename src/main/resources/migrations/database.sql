@@ -6,14 +6,16 @@ CREATE TABLE tblUser (
     DataLindjes DATE,
     Username VARCHAR(50) NOT NULL,
     Salt VARCHAR(50) NOT NULL,
-    PasswordHash VARCHAR(100)NOT NULL
+    PasswordHash VARCHAR(400)NOT NULL
 );
 
 CREATE TABLE tblAdmin (
     aid INT AUTO_INCREMENT PRIMARY KEY,
-    Username VARCHAR(50) NOT NULL,
+    Emri VARCHAR(50) NOT NULL,
+    Mbiemri VARCHAR(50) NOT NULL,
+    Email VARCHAR(50) NOT NULL,
     Salt VARCHAR(50) NOT NULL,
-    PasswordHash VARCHAR(100) NOT NULL
+    PasswordHash VARCHAR(400) NOT NULL
 );
 
 CREATE TABLE tblMbikqyresi (
@@ -22,7 +24,7 @@ CREATE TABLE tblMbikqyresi (
     Mbiemri VARCHAR(50) NOT NULL,
     Username VARCHAR(50) NOT NULL,
     Salt VARCHAR(50) NOT NULL,
-    PasswordHash VARCHAR(100) NOT NULL,
+    PasswordHash VARCHAR(400) NOT NULL,
     Email VARCHAR(100) NOT NULL,
     Afati DATE,
     Salla VARCHAR(50)
@@ -77,6 +79,7 @@ CREATE TABLE tblDrejtimi (
     FOREIGN KEY (did) REFERENCES tblDepartamenti(did) ON DELETE SET NULL,
     FOREIGN KEY (sid) REFERENCES tblStudentApplicant(sid) 
 );
+
 CREATE TABLE tblDocument (
     sid INT PRIMARY KEY,
     CertifikataNotave LONGBLOB,
@@ -94,7 +97,7 @@ CREATE TABLE tblShkollimiMesem (
     lendaZgjedhore VARCHAR(255),
     viti INT,
     piketMatureTotal INT,
-    NotaMesatare INT,
+    NotaMesatare DOUBLE,
  FOREIGN KEY (sid) REFERENCES tblStudentApplicant(sid)
 );
 
