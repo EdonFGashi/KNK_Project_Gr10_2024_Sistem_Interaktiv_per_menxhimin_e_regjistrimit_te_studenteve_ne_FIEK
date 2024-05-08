@@ -148,14 +148,14 @@ CREATE TABLE tblRegisteredStudents (
     EmailGenerated VARCHAR(255),
     viti INT,
 FOREIGN KEY (sid) REFERENCES tblStudentApplicant(sid),
- FOREIGN KEY (did) REFERENCES tblDepartamenti(did) ON DELETE SET NULL,
+ FOREIGN KEY (did) REFERENCES tblDepartamenti(did) ON DELETE SET NULL
 );
 
 CREATE TABLE tblNjoftimet (
     id INT PRIMARY KEY,
     aid INT,
     Njoftimi VARCHAR(255),
- FOREIGN KEY (aid) REFERENCES tblAdmin(id) ON DELETE SET NULL
+ FOREIGN KEY (aid) REFERENCES tblAdmin(aid) ON DELETE SET NULL
 );
 
 ALTER TABLE tblAfati
