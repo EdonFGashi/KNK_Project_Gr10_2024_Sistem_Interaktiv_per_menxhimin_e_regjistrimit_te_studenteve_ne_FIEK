@@ -1,4 +1,4 @@
-package app;
+package service.Animations;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -23,12 +23,14 @@ public class UpLogoAnimate extends Pane{
    private int d2;
    private String shkrimi;
    private int textGrowth;
+   int perseritjaAnimacionit;
 
-   public UpLogoAnimate(int d1, String shkrimi, int textGrowth){
+   public UpLogoAnimate(int d1, String shkrimi, int textGrowth, int perseritjaAnimacionit){
        this.d1 = d1;
        this.d2 = d1/7;
        this.shkrimi = shkrimi;
        this.textGrowth = textGrowth;
+       this.perseritjaAnimacionit = perseritjaAnimacionit;
 //       int d1 = 50;
 //       int d2 = 6;
        Logo logo1 = new Logo(d1, d2, Color.rgb(206, 42, 45));
@@ -42,7 +44,7 @@ public class UpLogoAnimate extends Pane{
        Logo logo9 = new Logo(d1, d2, Color.rgb(223, 222, 222));
        LogoText text = new LogoText(this.shkrimi, (this.d1/2 - this.d2)/2 + textGrowth, Color.BLACK);
 
-       this.event = new LogoAnimationEventHandler(logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9, text, 40, 1.7, 0.85);
+       this.event = new LogoAnimationEventHandler(logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9, text, 40, 1.7, 0.85, perseritjaAnimacionit);
        this.animation = new PaneAnimation(logo1, this.event);
        this.pane1 = new StackPane(logo9,logo8, logo7, logo6, logo5, logo4, logo3, logo2, logo1);
 //       this.pane1.setMinHeight(75);
@@ -60,9 +62,23 @@ public class UpLogoAnimate extends Pane{
        super.getChildren().clear();
        super.getChildren().add(finalPane);
    }
-   public void start(){
-       this.animation.start();
+   public void startWithMouse(){
+       if(event.perfundimi == 0) {
+           event.perseritjaAktuale = 0;
+           event.step = 1;
+           this.animation.start();
+           System.out.println("Start");
+       } else if (event.perfundimi == 1){
+           animation.stop();
+           System.out.println("Stop");
+       }
+       event.perfundimi = 0;
    }
+
+    public void start(){
+       this.animation.start();
+    }
+   public void stop(){this.animation.stop();}
    public void stopAnimation(){
        this.animation.stop();
    }
@@ -140,7 +156,6 @@ class PaneAnimation{
         this.animation.play();
 
     }
-
     public void stop() {
         this.animation.stop();
     }
@@ -161,13 +176,16 @@ class LogoAnimationEventHandler implements EventHandler<ActionEvent>{
 
     private double rotate;
     private double rRotate;
-    private int step = 0;
+    public int step = 0;
     private double backward;
     private int red = 120;
+    private int perseritjetTotale;
+    public int perseritjaAktuale = 0;
+    public int perfundimi = 0;
 
     public int getStep(){return this.step;}
 
-    public LogoAnimationEventHandler(Logo logo1, Logo logo2, Logo logo3, Logo logo4, Logo logo5, Logo logo6, Logo logo7, Logo logo8, Logo logo9, LogoText text, double backward, double rotate, double rRotate) {
+    public LogoAnimationEventHandler(Logo logo1, Logo logo2, Logo logo3, Logo logo4, Logo logo5, Logo logo6, Logo logo7, Logo logo8, Logo logo9, LogoText text, double backward, double rotate, double rRotate, int perseritjetTotale) {
         this.logo1 = logo1;
         this.logo2 = logo2;
         this.logo3 = logo3;
@@ -178,10 +196,12 @@ class LogoAnimationEventHandler implements EventHandler<ActionEvent>{
         this.logo8 = logo8;
         this.logo9 = logo9;
         this.text = text;
+        this.perseritjetTotale = perseritjetTotale;
         this.backward = backward;
         this.rotate = -rotate;
         this.rRotate = rRotate;
     }
+
 
     @Override
     public void handle(ActionEvent actionEvent) {
@@ -237,14 +257,14 @@ class LogoAnimationEventHandler implements EventHandler<ActionEvent>{
             this.logo7.setRotate(getRotate7 + this.rotate);
             this.logo8.setRotate(getRotate8 + this.rotate);
             this.logo9.setRotate(getRotate9 + this.rotate);
-        } else if (getRotate4 >= -80 && this.step == 1){
+        } else if (getRotate4 >= -80 && this.step == 1 ){
             this.logo4.setRotate(getRotate4 + this.rotate);
             this.logo5.setRotate(getRotate5 + this.rotate);
             this.logo6.setRotate(getRotate6 + this.rotate);
             this.logo7.setRotate(getRotate7 + this.rotate);
             this.logo8.setRotate(getRotate8 + this.rotate);
             this.logo9.setRotate(getRotate9 + this.rotate);
-        } else if (getRotate5 >= -100 && this.step == 1){
+        } else if (getRotate5 >= -100 && this.step == 1 ){
             this.logo5.setRotate(getRotate5 + this.rotate);
             this.logo6.setRotate(getRotate6 + this.rotate);
             this.logo7.setRotate(getRotate7 + this.rotate);
@@ -328,8 +348,39 @@ class LogoAnimationEventHandler implements EventHandler<ActionEvent>{
             this.red = 0;
         }
 
-        if( backward >= 90){
-            backward = 40;
+
+
+        if(this.backward >= 90){
+            this.perseritjaAktuale += 1;
+            this.step = 3;
+            this.backward = 40;
+            System.out.println("Perseritja: " + this.perseritjaAktuale + "Totale: " + this.perseritjetTotale);
+        }
+
+        if(this.step == 3){
+            if(getRotate1 >= 0){
+                this.logo1.setRotate(getRotate1 + this.rotate);
+                this.logo2.setRotate(getRotate2 + this.rotate);
+                this.logo3.setRotate(getRotate3 + this.rotate);
+                this.logo4.setRotate(getRotate4 + this.rotate);
+                this.logo5.setRotate(getRotate5 + this.rotate);
+                this.logo6.setRotate(getRotate6 + this.rotate);
+                this.logo7.setRotate(getRotate7 + this.rotate);
+                this.logo8.setRotate(getRotate8 + this.rotate);
+                this.logo9.setRotate(getRotate9 + this.rotate);
+            }  else if( getRotate1 <= 0){
+                if(this.perseritjaAktuale >= this.perseritjetTotale) {
+//                this.backward = 40;
+                    this.step = 4;
+                    System.out.println("test1");
+                    this.perfundimi = 1;
+//                backward += 20;
+                    this.red = 1;
+                } else {
+                    this.step = 1;
+                    System.out.println("test2");
+                }
+            }
         }
 
         if(this.step == 0){

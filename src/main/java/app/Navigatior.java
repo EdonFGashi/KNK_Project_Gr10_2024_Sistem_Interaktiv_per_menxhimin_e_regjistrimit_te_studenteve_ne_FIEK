@@ -26,6 +26,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import service.Animations.Tick;
+import service.Animations.UpLogoAnimate;
 
 import java.io.IOException;
 
@@ -171,7 +172,7 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
     }
 
     public static void loading(String message,boolean successful){
-        UpLogoAnimate pane = new UpLogoAnimate(100, "Loading...", 10);
+        UpLogoAnimate pane = new UpLogoAnimate(100, "Loading...", 10, 10);
         pane.start();
         pane.setTranslateY(50);
         StackPane stackPane = new StackPane();

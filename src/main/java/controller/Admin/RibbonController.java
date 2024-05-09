@@ -1,19 +1,14 @@
 package controller.Admin;
 
 import app.Navigatior;
-import app.UpLogoAnimate;
+import service.Animations.UpLogoAnimate;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -37,7 +32,7 @@ public class RibbonController {
     @FXML
     private ImageView imgRegistrationIcon;
 
-    private UpLogoAnimate logo = new UpLogoAnimate(50, "FIEK Management", 5);
+    private UpLogoAnimate logo = new UpLogoAnimate(50, "FIEK Management", 5, 1);
 
     @FXML
     private void initialize(){
@@ -97,7 +92,7 @@ public class RibbonController {
     }
     @FXML
     private void handleStartAnimation(MouseEvent me){
-        this.logo.start();
+        this.logo.startWithMouse();
     }
     @FXML
     private void handleRegistrationPeriodClick(MouseEvent me){
