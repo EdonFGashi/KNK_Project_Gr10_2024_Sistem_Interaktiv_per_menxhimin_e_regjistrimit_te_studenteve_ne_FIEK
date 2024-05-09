@@ -1,8 +1,7 @@
 package controller.Supervisor;
 
 
-import app.Navigatior;
-import app.UpLogoAnimate;
+import service.Animations.UpLogoAnimate;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
@@ -13,7 +12,7 @@ public class SupervisorMenuAddController {
     @FXML
     private void initialize(){
 
-      UpLogoAnimate pane1 = new UpLogoAnimate(100, "Loading...", 10);
+      UpLogoAnimate pane1 = new UpLogoAnimate(100, "Loading...", 10, 2);
       pane1.setMaxWidth(100);
       pane1.setMaxHeight(100);
       pane1.start();
