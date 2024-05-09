@@ -83,15 +83,22 @@ CREATE TABLE tblAfati (
     hera VARCHAR(50) NOT NULL,
     viti INT NOT NULL,
     dataHapjes DATE,
-    dataMbylljes DATE
+    dataMbylljes DATE,
+    niveli VARCHAR(50)
 );
 CREATE TABLE tblAplikimi (
     aplikimiId INT AUTO_INCREMENT PRIMARY KEY,
     shkollaId INT,
-    deptId INT,
+    deptIdPrioritet1 INT,
+    deptIdPrioritet2 INT,
+    deptIdPrioritet3 INT,
+    deptIdPrioritet4 INT,
     afatId INT,
 	FOREIGN KEY (shkollaId) REFERENCES tblShkollaMesme(shkollaId) ON DELETE SET NULL,
-	FOREIGN KEY (deptId) REFERENCES tblDepartamenti(deptId) ON DELETE SET NULL,
+	FOREIGN KEY (deptIdPrioritet1) REFERENCES tblDepartamenti(deptId) ON DELETE SET NULL,
+	FOREIGN KEY (deptIdPrioritet2) REFERENCES tblDepartamenti(deptId) ON DELETE SET NULL,
+	FOREIGN KEY (deptIdPrioritet3) REFERENCES tblDepartamenti(deptId) ON DELETE SET NULL,
+	FOREIGN KEY (deptIdPrioritet4) REFERENCES tblDepartamenti(deptId) ON DELETE SET NULL,
 	FOREIGN KEY (afatId) REFERENCES tblAfati(afatId) ON DELETE SET NULL
 );
 CREATE TABLE tblProvimiPranues (
@@ -113,6 +120,8 @@ CREATE TABLE tblRegisteredStudents (
     userId INT,
     generatedEmail VARCHAR(50),
     registeredEmail VARCHAR(50),
+    emriDepartamentit VARCHAR(50),
+    niveli VARCHAR(50),
 	FOREIGN KEY (userId) REFERENCES tblUserStudent(userId) ON DELETE SET NULL
 );
 CREATE TABLE tblNjoftimet (
