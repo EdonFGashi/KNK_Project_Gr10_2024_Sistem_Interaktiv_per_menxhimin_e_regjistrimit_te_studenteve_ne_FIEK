@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.RegistrationMenuAddRegistrationController">
+   <children>
+      <Label layoutX="169.0" layoutY="428.0" prefHeight="50.0" prefWidth="162.0" text="Open date:">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dateClosedDate" layoutX="586.0" layoutY="478.0" prefHeight="38.0" prefWidth="226.0" promptText="Enter date" />
+      <DatePicker fx:id="dateOpenDate" layoutX="167.0" layoutY="478.0" prefHeight="38.0" prefWidth="226.0" promptText="Enter date" />
+      <Label layoutX="586.0" layoutY="434.0" prefHeight="38.0" prefWidth="162.0" text="Close date:">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtYear" layoutX="167.0" layoutY="250.0" prefHeight="50.0" prefWidth="258.0" />
+      <Label layoutX="167.0" layoutY="191.0" prefHeight="50.0" prefWidth="287.0" text="Year:">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="157.0" layoutY="86.0" prefHeight="50.0" prefWidth="294.0" style="-fx-font-weight: bold;" text="New Registration Period" textFill="#0a84ff" underline="true">
+         <font>
+            <Font name="Arial" size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="697.0" layoutY="561.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="50.0" prefWidth="102.0" style="-fx-background-radius: 20px; -fx-background-color: #0A84FF; -fx-font-weight: bold;" text="Save" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <ChoiceBox fx:id="choiseChoseLevel" layoutX="586.0" layoutY="256.0" prefHeight="38.0" prefWidth="226.0" />
+      <RadioButton fx:id="radioFirst" layoutX="169.0" layoutY="332.0" mnemonicParsing="false" selected="true" text="First">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="hera" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="radioSecond" layoutX="331.0" layoutY="332.0" mnemonicParsing="false" text="Second" toggleGroup="$hera">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </RadioButton>
+      <Label layoutX="586.0" layoutY="191.0" prefHeight="50.0" prefWidth="287.0" text="Level Of Study:">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -47,7 +47,7 @@ public class RegistrationPeriodMenuController {
 
     @FXML
     private void handleAssignSupervisorsClick(MouseEvent me){
-        Navigatior.navigate(this.addPane, "");
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_REGISTRATIONMENU_ADDREGISTRATION);
         refreshActiveSection();
         this.hboxAssignSupervisors.setStyle(Navigatior.cssForActiveSection);
     }
