@@ -174,8 +174,8 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         timeline2.play();
     }
 
-    public static void loading(String message,boolean successful){
-        UpLogoAnimate pane = new UpLogoAnimate(100, "Loading...", 10, 10);
+    public static void loading(String message,boolean successful, String logoText){
+        UpLogoAnimate pane = new UpLogoAnimate(100, logoText, 10, 10);
         pane.start();
         pane.setTranslateY(50);
         StackPane stackPane = new StackPane();
@@ -188,8 +188,9 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
             text.setStyle("-fx-font-weight: bold; -fx-font-size: 20; -fx-fill: red;");
         }
         text.setTranslateY(110);
+        StackPane stack = new StackPane(text);
         VBox mainPane = new VBox();
-        mainPane.getChildren().addAll(stackPane,text);
+        mainPane.getChildren().addAll(stackPane,stack);
 
         stackPane.getChildren().add(pane);
         Scene scene = new Scene(mainPane,280,200);

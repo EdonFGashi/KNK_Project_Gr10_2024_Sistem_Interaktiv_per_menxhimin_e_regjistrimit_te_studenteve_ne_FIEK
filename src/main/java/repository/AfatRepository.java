@@ -27,7 +27,7 @@ public class AfatRepository {
 
             pst.execute();
             pst.close();
-            conn.close();
+
             return true;
         }catch(Exception e){
             return false;

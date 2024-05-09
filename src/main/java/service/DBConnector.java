@@ -22,6 +22,7 @@ public class DBConnector{
                 throw new RuntimeException(e);
             }
         }
+        System.out.println("Lidhja u krijua me sukses !");
         return connection;
     }
 

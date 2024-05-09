@@ -1,10 +1,15 @@
 package controller.Supervisor;
 
 
+import app.Navigatior;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import model.dto.Supervisor.SupervisorCreateInterfaceDto;
 import service.Animations.UpLogoAnimate;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
+import service.Supervisor.SupervisorService;
 
 public class SupervisorMenuAddController {
     @FXML
@@ -31,10 +36,37 @@ public class SupervisorMenuAddController {
 //        }
     }
     @FXML
+    private TextField txtFirstname;
+    @FXML
+    private TextField txtLastname;
+    @FXML
+    private TextField txtEmail;
+    @FXML
+    private PasswordField pwdPasswordSupervisorSignUp;
+    @FXML
+    private PasswordField pwdConfirmPasswordSupervisorSignUp;
+    @FXML
     private void handleSignUpSupervisor(ActionEvent ae){
+        SupervisorCreateInterfaceDto addNewSupervisor = new SupervisorCreateInterfaceDto(
+                this.txtFirstname.getText(),
+                this.txtLastname.getText(),
+                this.txtEmail.getText(),
+                this.pwdPasswordSupervisorSignUp.getText(),
+                this.pwdConfirmPasswordSupervisorSignUp.getText()
+        );
+        boolean supervisorCreated = SupervisorService.signUp(addNewSupervisor);
+        Navigatior.tick(250);
 
     }
 
+    @FXML
+    private void handleClearSignUpSupervisor(ActionEvent ae){
+        this.txtFirstname.setText("");
+        this.txtLastname.setText("");
+        this.txtEmail.setText("");
+        this.pwdPasswordSupervisorSignUp.setText("");
+        this.pwdConfirmPasswordSupervisorSignUp.setText("");
+    }
 
 
 }

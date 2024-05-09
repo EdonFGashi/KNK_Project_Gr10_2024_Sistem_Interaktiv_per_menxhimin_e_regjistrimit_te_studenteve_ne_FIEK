@@ -72,19 +72,6 @@
                         <TextField fx:id="txtEmail" prefHeight="26.0" prefWidth="255.0" />
                      </children>
                   </FlowPane>
-                  <FlowPane alignment="CENTER" prefHeight="63.0" prefWidth="524.0">
-                     <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="210.0" text="Afati:  ">
-                           <font>
-                              <Font name="Arial" size="23.0" />
-                           </font>
-                           <FlowPane.margin>
-                              <Insets />
-                           </FlowPane.margin>
-                        </Label>
-                        <TextField fx:id="txtAfati" prefHeight="26.0" prefWidth="251.0" />
-                     </children>
-                  </FlowPane>
                </children>
             </FlowPane>
          </children>
@@ -116,7 +103,7 @@
                               <Insets />
                            </FlowPane.margin>
                         </Label>
-                        <PasswordField fx:id="pwsConfirmPasswordSupervisorSignUp" prefHeight="26.0" prefWidth="263.0" />
+                        <PasswordField fx:id="pwdConfirmPasswordSupervisorSignUp" prefHeight="26.0" prefWidth="263.0" />
                      </children>
                   </FlowPane>
                </children>

@@ -33,9 +33,9 @@ public class ChangePassword {
             AdminService.changePassword(change);
             System.out.println("U nderrua Passwordi me sukses");
             Navigatior.closeStageAfterDelay(ae, Duration.millis(3000));
-            Navigatior.loading("   Changed Password!",true);
+            Navigatior.loading("   Changed Password!",true, "");
         }catch(InvalidPassword e){
-            Navigatior.loading(e.getMessage(),false);
+            Navigatior.loading(e.getMessage(),false, "");
         }
 
 
