@@ -1,6 +1,7 @@
 package controller.Overall;
 
 import app.Navigatior;
+import app.PopUp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -33,9 +34,9 @@ public class ChangePassword {
             AdminService.changePassword(change);
             System.out.println("U nderrua Passwordi me sukses");
             Navigatior.closeStageAfterDelay(ae, Duration.millis(3000));
-            Navigatior.loading("   Changed Password!",true, "");
+            PopUp.loading("   Changed Password!",true, "");
         }catch(InvalidPassword e){
-            Navigatior.loading(e.getMessage(),false, "");
+            PopUp.loading(e.getMessage(),false, "");
         }
 
 

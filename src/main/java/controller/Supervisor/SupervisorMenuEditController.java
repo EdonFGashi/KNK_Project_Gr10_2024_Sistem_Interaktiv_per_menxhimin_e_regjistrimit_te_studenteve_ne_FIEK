@@ -2,6 +2,7 @@ package controller.Supervisor;
 
 
 import app.Navigatior;
+import app.PopUp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -54,7 +55,7 @@ public class SupervisorMenuEditController {
 //        Navigatior.navigate(this.animationPane, String.valueOf(pane1));
         boolean isFound = SupervisorService.supervisorIsFoundByEmail(this.txtSearchSupervisorByEmail.getText());
         if (!isFound) {
-            Navigatior.loading("Jepni email valide !", false, "");
+            PopUp.loading("Jepni email valide !", false, "");
         }
         SupervisorTableModel supervisor = SupervisorRepository.getSupervisorByEmail(this.txtSearchSupervisorByEmail.getText());
         this.txtEmail.setText(supervisor.getEmail());
