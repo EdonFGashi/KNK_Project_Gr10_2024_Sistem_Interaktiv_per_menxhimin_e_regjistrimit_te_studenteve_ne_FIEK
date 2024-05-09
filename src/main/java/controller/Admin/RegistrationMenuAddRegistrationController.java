@@ -1,6 +1,7 @@
 package controller.Admin;
 
 import app.Navigatior;
+import app.PopUp;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -59,9 +60,9 @@ public class RegistrationMenuAddRegistrationController {
             year,hera,formattedOpenDate,formattedClosedDate,choiceLevel
         );
        if(AfatRepository.addNewAfat(addNewAfatDto)){
-           Navigatior.tick(500);
+           PopUp.tick(250);
        }else{
-
+           System.out.println("Afat did not create");
        };
 
     }

@@ -1,6 +1,7 @@
 package controller.Admin;
 
 import app.Navigatior;
+import app.PopUp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,10 +14,9 @@ import model.dto.Admin.AdminProfileToControllerDto;
 import model.dto.Admin.EditAdminProfileDto;
 import repository.AdminRepository;
 import service.Admin.AdminService;
+import service.SESSION;
 
 import java.io.FileInputStream;
-
-import static service.Admin.AdminService.*;
 
 public class ProfileController {
 
@@ -43,7 +43,7 @@ public class ProfileController {
             System.out.println("Image not found!");
         }
         this.cancel();
-        AdminProfileToControllerDto admin = AdminService.getProfileInfo("jon@admin.uni-pr.edu");
+        AdminProfileToControllerDto admin = AdminService.getProfileInfo(SESSION.getLoggedUserEmail());
 
         if(admin != null) {
             this.txtFirstName.setText(admin.getFirstName());
@@ -76,7 +76,7 @@ public class ProfileController {
                 this.txtEmail.getText().trim()
         );
         if(AdminRepository.savePersonalDetails(editAdminProfileDto)){
-             Navigatior.tick(200);
+             PopUp.tick(200);
         }else{
             System.out.println("Gabim");
         };

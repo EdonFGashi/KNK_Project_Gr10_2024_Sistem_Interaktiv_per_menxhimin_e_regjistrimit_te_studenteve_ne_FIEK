@@ -10,6 +10,7 @@ import model.dto.Overall.ChangePasswordDto;
 import repository.AdminRepository;
 import service.CustomExceptions.InvalidPassword;
 import service.PasswordHasher;
+import service.SESSION;
 
 public class AdminService {
 public static boolean login(LoginAdminDto loginData){
@@ -35,14 +36,14 @@ public static boolean login(LoginAdminDto loginData){
 
 
     public static void changePassword(ChangePasswordDto changeData) throws InvalidPassword{
-    Admin admin = AdminRepository.getByEmail(changeData.getEmail());
+    Admin admin = AdminRepository.getByEmail(SESSION.getLoggedUserEmail());
 
     if(admin == null){
-        throw new InvalidPassword("  Admin is not found");
+        throw new InvalidPassword("Admin is not found");
     }
 
     if(!admin.getHashedPassword().equals(PasswordHasher.generateSaltedHash(changeData.getCurrentPassword(),admin.getSalt()))){
-        throw new InvalidPassword("  Invalid Current Password");
+        throw new InvalidPassword("Invalid Current Password");
     }
     if(changeData.getNewPassword().length() < 8){
         throw new InvalidPassword("Password too short");
@@ -60,7 +61,6 @@ public static boolean login(LoginAdminDto loginData){
         throw new InvalidPassword("Database Connection failed");
     };
     }
-
 
     public static AdminProfileToControllerDto getProfileInfo(String email) {
         Admin admin = AdminRepository.getByEmail(email);

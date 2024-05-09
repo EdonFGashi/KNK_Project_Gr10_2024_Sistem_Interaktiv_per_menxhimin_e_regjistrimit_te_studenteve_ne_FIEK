@@ -14,9 +14,7 @@ public class AdminRepository {
 
     public static Admin getByEmail(String email){
         String query = "SELECT * FROM tblAdmin WHERE email = ? LIMIT 1";
-
         Connection connection = DBConnector.getConnection();
-
         try{
             PreparedStatement pst = connection.prepareStatement(query);
             pst.setString(1,email);
@@ -37,12 +35,12 @@ public class AdminRepository {
 
     private static Admin getAdminFromResultSet(ResultSet result){
         try{
-            int id = result.getInt("aid");
-            String firstName = result.getString("Emri");
-            String lastName = result.getString("Mbiemri");
-            String email = result.getString("Email");
-            String salt = result.getString("Salt");
-            String PasswodHash = result.getString("PasswordHash");
+            int id = result.getInt("adminId");
+            String firstName = result.getString("emri");
+            String lastName = result.getString("mbiemri");
+            String email = result.getString("email");
+            String salt = result.getString("salt");
+            String PasswodHash = result.getString("passwordHash");
 
             return new Admin(id,firstName,lastName,email,salt,PasswodHash);
         }catch(Exception e){

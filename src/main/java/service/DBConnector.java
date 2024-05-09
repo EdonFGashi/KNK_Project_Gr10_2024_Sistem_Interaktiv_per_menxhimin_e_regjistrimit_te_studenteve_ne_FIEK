@@ -14,7 +14,6 @@ public class DBConnector{
     private static Connection connection = null;
 
     public static Connection getConnection() {
-
         if(connection == null){
             try {
                 connection = DriverManager.getConnection(url, user, password);

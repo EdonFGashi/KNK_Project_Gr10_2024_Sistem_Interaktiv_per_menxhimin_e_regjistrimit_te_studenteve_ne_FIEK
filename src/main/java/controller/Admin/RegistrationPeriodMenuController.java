@@ -10,8 +10,6 @@ public class RegistrationPeriodMenuController {
     @FXML
     private HBox hboxShowDetails;
     @FXML
-    private HBox hboxEditRegistrationPeriod;
-    @FXML
     private HBox hboxStatistics;
     @FXML
     private HBox hboxAssignSupervisors;
@@ -32,13 +30,6 @@ public class RegistrationPeriodMenuController {
     }
 
     @FXML
-    private void handleEditRegistrationPeriodClick(MouseEvent me){
-        Navigatior.navigate(this.addPane, "");
-        refreshActiveSection();
-        this.hboxEditRegistrationPeriod.setStyle(Navigatior.cssForActiveSection);
-    }
-
-    @FXML
     private void handleStatisticsClick(MouseEvent me){
         Navigatior.navigate(this.addPane, "");
         refreshActiveSection();
@@ -55,7 +46,6 @@ public class RegistrationPeriodMenuController {
 
     private void refreshActiveSection(){
         this.hboxShowDetails.setStyle("");
-        this.hboxEditRegistrationPeriod.setStyle("");
         this.hboxStatistics.setStyle("");
         this.hboxAssignSupervisors.setStyle("");
     }

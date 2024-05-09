@@ -1,25 +1,18 @@
 package model.dto.Overall;
 
 public class ChangePasswordDto {
-    private String email;
+
     private String currentPassword;
     private String newPassword;
     private String confirmPassword;
 
-    public ChangePasswordDto(String email, String currentPassword, String newPassword, String confirmPassword) {
-        this.email = email;
+    public ChangePasswordDto( String currentPassword, String newPassword, String confirmPassword) {
+
         this.currentPassword = currentPassword;
         this.newPassword = newPassword;
         this.confirmPassword = confirmPassword;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getCurrentPassword() {
         return currentPassword;

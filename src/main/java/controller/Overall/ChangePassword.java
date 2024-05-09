@@ -8,6 +8,7 @@ import javafx.util.Duration;
 import model.dto.Overall.ChangePasswordDto;
 import service.Admin.AdminService;
 import service.CustomExceptions.InvalidPassword;
+import service.SESSION;
 
 public class ChangePassword {
     @FXML
@@ -23,7 +24,6 @@ public class ChangePassword {
     private void handleChangePassword(ActionEvent ae){
 
         ChangePasswordDto change = new ChangePasswordDto(
-                "edon@admin.uni-pr.edu",
                 this.pwdCurrentPassword.getText(),
                 this.pwdNewPassword.getText(),
                 this.pwdConfirmPassword.getText()

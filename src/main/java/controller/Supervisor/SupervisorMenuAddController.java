@@ -2,6 +2,7 @@ package controller.Supervisor;
 
 
 import app.Navigatior;
+import app.PopUp;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import model.dto.Supervisor.SupervisorCreateInterfaceDto;
@@ -55,7 +56,7 @@ public class SupervisorMenuAddController {
                 this.pwdConfirmPasswordSupervisorSignUp.getText()
         );
         boolean supervisorCreated = SupervisorService.signUp(addNewSupervisor);
-        Navigatior.tick(250);
+        PopUp.tick(250);
 
     }
 
