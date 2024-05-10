@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.MenuController">
    <children>
-      <AnchorPane prefHeight="720.0" prefWidth="238.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);">
+      <AnchorPane prefHeight="720.0" prefWidth="238.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-background-radius: 30;" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
          <children>
             <ImageView fx:id="imgMain" fitHeight="152.0" fitWidth="155.0" layoutX="47.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -35,6 +36,9 @@
                      </font>
                   </Label>
                </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
             </HBox>
             <HBox fx:id="hboxOption2" alignment="CENTER_LEFT" layoutX="22.0" layoutY="412.0" onMouseClicked="#handleOption2Click" onMouseEntered="#handleHoverOption2" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
                <children>
@@ -45,6 +49,9 @@
                      </font>
                   </Label>
                </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
             </HBox>
             <Line endX="223.7999725341797" layoutX="15.0" layoutY="278.0" startX="0.5999641418457031" stroke="WHITE" />
             <HBox fx:id="hboxOption3" alignment="CENTER_LEFT" layoutX="21.0" layoutY="515.0" onMouseClicked="#handleOption3Click" onMouseEntered="#handleHoverOption3" prefHeight="43.0" prefWidth="225.0" spacing="10.0">
@@ -56,6 +63,9 @@
                      </font>
                   </Label>
                </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
             </HBox>
             <Line endX="247.39996337890625" endY="-1.9073486328125E-6" layoutX="11.0" layoutY="1.0" startX="-10.999987602233887" startY="-1.9073486328125E-6" stroke="WHITE" />
          </children>

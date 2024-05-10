@@ -57,16 +57,15 @@ public class MenuController {
             this.txtOption3.setText("Statistics");
             this.option1Navigate = Navigatior.ADMIN_PROFILE;
             this.option2Navigate = Navigatior.ADMIN_STUDENTMENU_ADDSTUDENT;
+            this.option3Navigate = "";
             try {
                 this.imgMain.setImage(new Image(new FileInputStream("Images/studentMenu.png")));
-                this.imgOption1.setImage(new Image(new FileInputStream("Images/profileIcon.png")));
-                this.imgOption2.setImage(new Image(new FileInputStream("Images/studentIcon.png")));
-                this.imgOption3.setImage(new Image(new FileInputStream("Images/supervisorIcon.png")));
+                this.imgOption1.setImage(new Image(new FileInputStream("Images/application.png")));
+                this.imgOption2.setImage(new Image(new FileInputStream("Images/showAndEdit.png")));
+                this.imgOption3.setImage(new Image(new FileInputStream("Images/statistics.png")));
             } catch (FileNotFoundException e) {
                 System.out.println("Image not found");
             }
-
-
 
 
         }else if(menu.equals("Supervisor")){
@@ -76,15 +75,15 @@ public class MenuController {
             this.txtOption3.setText("Aprove Supervisor");
             this.option1Navigate = Navigatior.ADMIN_SUPERVISORMENU_EDITSUPERVISOR;
             this.option2Navigate = Navigatior.ADMIN_SUPERVISORMENU_ADDSUPERVISOR;
+            this.option3Navigate = "";
             try {
                 this.imgMain.setImage(new Image(new FileInputStream("Images/supervisorMenu.png")));
-                this.imgOption1.setImage(new Image(new FileInputStream("Images/profileIcon.png")));
-                this.imgOption2.setImage(new Image(new FileInputStream("Images/studentIcon.png")));
-                this.imgOption3.setImage(new Image(new FileInputStream("Images/supervisorIcon.png")));
+                this.imgOption1.setImage(new Image(new FileInputStream("Images/showAndEdit.png")));
+                this.imgOption2.setImage(new Image(new FileInputStream("Images/addSupervisor.png")));
+                this.imgOption3.setImage(new Image(new FileInputStream("Images/aproveSupervisor.png")));
             } catch (FileNotFoundException e) {
                 System.out.println("Image not found");
             }
-
 
 
         }else if(menu.equals("Afat")) {
@@ -94,11 +93,12 @@ public class MenuController {
             this.txtOption3.setText("Statistics");
             this.option1Navigate = "";
             this.option2Navigate = Navigatior.ADMIN_REGISTRATIONMENU_ADDREGISTRATION;
+            this.option3Navigate = "";
             try {
                 this.imgMain.setImage(new Image(new FileInputStream("Images/registrationMenu.png")));
-                this.imgOption1.setImage(new Image(new FileInputStream("Images/profileIcon.png")));
-                this.imgOption2.setImage(new Image(new FileInputStream("Images/studentIcon.png")));
-                this.imgOption3.setImage(new Image(new FileInputStream("Images/supervisorIcon.png")));
+                this.imgOption1.setImage(new Image(new FileInputStream("Images/showAndEdit.png")));
+                this.imgOption2.setImage(new Image(new FileInputStream("Images/addAfat.png")));
+                this.imgOption3.setImage(new Image(new FileInputStream("Images/statistics.png")));
             } catch (FileNotFoundException e) {
                 System.out.println("Image not found");
             }

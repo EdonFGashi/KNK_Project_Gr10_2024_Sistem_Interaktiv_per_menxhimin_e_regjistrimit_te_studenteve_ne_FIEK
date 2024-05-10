@@ -37,7 +37,8 @@ public class RibbonController {
 
     @FXML
     private void initialize(){
-        Navigatior.navigate(this.addPane, Navigatior.ADMIN_STUDENTMENU);
+        SESSION.setAdminMenu("Student");
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_MENU);
         try {
             this.imgProfileIcon.setImage(new Image(new FileInputStream("Images/profileIcon.png")));
             this.imgStudentIcon.setImage(new Image(new FileInputStream("Images/studentIcon.png")));
