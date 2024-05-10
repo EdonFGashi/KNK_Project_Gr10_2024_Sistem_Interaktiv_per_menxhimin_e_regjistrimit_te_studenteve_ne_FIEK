@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import model.Afat;
 import repository.AfatRepository;
 import service.Admin.AdminService;
+import service.SESSION;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -64,8 +65,7 @@ public class RegistrationMenuShowAndEditController {
     @FXML
     private void initialize(){
         choiseChoseLevel.setItems(FXCollections.observableArrayList("Bachelor", "Master", "Doctorature"));
-        this.afatList =  AdminService.searchAfat("");
-        setColumns();
+
         try {
             this.imgSearch.setImage(new Image(new FileInputStream("Images/search.png")));
         } catch (FileNotFoundException e) {
@@ -78,6 +78,10 @@ public class RegistrationMenuShowAndEditController {
                 this.setTextFields();
             }
         });
+
+        this.afatList = AdminService.searchAfat(SESSION.getAdmin_registration_lastSearch());
+        this.txtSearch.setText(SESSION.getAdmin_registration_lastSearch());
+        setColumns();
         this.edit = true;
 
     }
@@ -113,8 +117,8 @@ public class RegistrationMenuShowAndEditController {
             }else{
                 System.out.println("Edit not succesful");
             }
-            this.afatList = AdminService.searchAfat("");
-            this.setColumns();
+            this.afatList = AdminService.searchAfat(SESSION.getAdmin_registration_lastSearch());
+            setColumns();
             this.disableForms();
             this.btnEdit.setText("Edit");
             this.edit = true;
@@ -123,6 +127,7 @@ public class RegistrationMenuShowAndEditController {
     @FXML
     private void handleSearch(ActionEvent ae){
         this.afatList = AdminService.searchAfat(this.txtSearch.getText().trim());
+        SESSION.setAdmin_registration_lastSearch(this.txtSearch.getText().trim());
         this.setColumns();
     }
     @FXML
@@ -135,8 +140,8 @@ public class RegistrationMenuShowAndEditController {
     private void handleDelete(ActionEvent ae){
        if(AfatRepository.deleteAfat(Integer.parseInt(this.txtId.getText()))){
            PopUp.tick(150);
-           this.afatList = AdminService.searchAfat("");
-           this.setColumns();
+           this.afatList = AdminService.searchAfat(SESSION.getAdmin_registration_lastSearch());
+           setColumns();
        }else{
            System.out.println("Nuk u fshi");
        }
