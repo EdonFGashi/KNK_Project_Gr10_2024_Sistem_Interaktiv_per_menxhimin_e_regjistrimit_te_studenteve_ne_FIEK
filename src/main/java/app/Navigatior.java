@@ -55,6 +55,7 @@ interface AdminPages{
 
     public final static String ADMIN_REGISTRATIONMENU = "admin-registrationPeriodMenu.fxml";
     public final static String ADMIN_REGISTRATIONMENU_ADDREGISTRATION = "admin-registrationPeriodMenu-addRegistration.fxml";
+    public static final String ADMIN_REGISTRATIONMENU_SHOWANDEDIT = "admin-registrationMenu-showAndEdit.fxml";
 
 
 }

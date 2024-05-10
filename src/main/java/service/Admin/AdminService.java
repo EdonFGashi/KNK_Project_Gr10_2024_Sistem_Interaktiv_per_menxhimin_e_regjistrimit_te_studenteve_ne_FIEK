@@ -1,16 +1,22 @@
 package service.Admin;
 
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.Admin;
+import model.Afat;
 import model.dto.Admin.AdminProfileToControllerDto;
 import model.dto.Admin.ChangePasswordOnDb;
-import model.dto.Admin.EditAdminProfileDto;
+
 import model.dto.Admin.LoginAdminDto;
 import model.dto.Overall.ChangePasswordDto;
 import repository.AdminRepository;
+import repository.AfatRepository;
 import service.CustomExceptions.InvalidPassword;
 import service.PasswordHasher;
 import service.SESSION;
+
+import java.util.Objects;
 
 public class AdminService {
 public static boolean login(LoginAdminDto loginData){
@@ -65,7 +71,6 @@ public static boolean login(LoginAdminDto loginData){
     public static AdminProfileToControllerDto getProfileInfo(String email) {
         Admin admin = AdminRepository.getByEmail(email);
         if (admin == null) {
-            System.out.println("Admin nuk u murr");
             return null;
         }
         System.out.println("Admin u murr");
@@ -75,4 +80,18 @@ public static boolean login(LoginAdminDto loginData){
                 admin.getEmail()
         );
     }
+
+    public static ObservableList<Afat> searchAfat(String search){
+        try {
+            if (search.isEmpty()) {
+                return FXCollections.observableArrayList(AfatRepository.getAllAfatArray());
+            } else {
+                return FXCollections.observableArrayList(AfatRepository.getAfatArraySearch(search));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return FXCollections.observableArrayList();
+        }
+    }
+
 }

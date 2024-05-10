@@ -18,4 +18,5 @@ module com.example.knk_project_gr10_2024 {
    //    exports com.example.knk_project_gr10_2024;
     requires java.sql;
 
+    opens model to javafx.base;
 }

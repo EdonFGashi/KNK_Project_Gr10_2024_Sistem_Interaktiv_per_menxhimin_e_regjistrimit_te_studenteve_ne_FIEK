@@ -14,7 +14,7 @@ public class Admin {
         this.lastName = lastName;
         this.email = email;
         this.salt = salt;
-        this.hashedPassword=hashedPassword;
+        this.hashedPassword = hashedPassword;
     }
 
     public String getSalt() {

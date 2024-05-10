@@ -26,7 +26,8 @@ public class RegistrationMenuAddRegistrationController {
     private DatePicker dateOpenDate;
     @FXML
     private DatePicker dateClosedDate;
-    @FXML RadioButton radioFirst, radioSecond;
+    @FXML
+    private RadioButton radioFirst, radioSecond;
 
 
     @FXML
@@ -37,7 +38,6 @@ public class RegistrationMenuAddRegistrationController {
     @FXML
     private void handleSave(ActionEvent ae){
          String hera;
-
           if (radioFirst.isSelected()) {
               hera = "1";
           } else {
@@ -49,11 +49,10 @@ public class RegistrationMenuAddRegistrationController {
           }else{
                year = 2024;
           }
-
           LocalDate openDate = this.dateOpenDate.getValue();
           String formattedOpenDate = openDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
           LocalDate closeDate = this.dateClosedDate.getValue();
-          String formattedClosedDate = openDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+          String formattedClosedDate = closeDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
           String choiceLevel = this.choiseChoseLevel.getValue();
 
         AddNewAfatDto addNewAfatDto = new AddNewAfatDto(

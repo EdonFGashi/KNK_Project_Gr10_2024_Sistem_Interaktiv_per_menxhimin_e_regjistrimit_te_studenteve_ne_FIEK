@@ -91,7 +91,7 @@ public class MenuController {
             this.txtOption1.setText("Show and Edit");
             this.txtOption2.setText("Add new");
             this.txtOption3.setText("Statistics");
-            this.option1Navigate = "";
+            this.option1Navigate = Navigatior.ADMIN_REGISTRATIONMENU_SHOWANDEDIT;
             this.option2Navigate = Navigatior.ADMIN_REGISTRATIONMENU_ADDREGISTRATION;
             this.option3Navigate = "";
             try {

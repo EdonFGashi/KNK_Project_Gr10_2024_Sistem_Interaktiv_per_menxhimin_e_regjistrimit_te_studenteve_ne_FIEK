@@ -1,10 +1,11 @@
 package repository;
 
+import model.Afat;
 import model.dto.Admin.AddNewAfatDto;
 import service.DBConnector;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class AfatRepository {
 
@@ -26,11 +27,109 @@ public class AfatRepository {
             pst.setString(5, addNewAfatDto.getNiveli());
 
             pst.execute();
-            pst.close();
 
             return true;
         }catch(Exception e){
             return false;
         }
     }
+
+    public static ArrayList<Afat> getAfatArraySearch(String search){
+
+        Connection conn = DBConnector.getConnection();
+        System.out.println("U ekxekutu getFromSearch");
+
+        String query = "SELECT * FROM tblAfati WHERE afatId = ? OR hera LIKE ? OR viti = ? OR dataHapjes LIKE ? OR dataMbylljes LIKE ? OR niveli LIKE ?";
+
+        try {
+             PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, search);
+            pst.setString(2, search);
+            pst.setString(3, search);
+            pst.setString(4, "%" + search + "%");
+            pst.setString(5, "%" + search + "%");
+            pst.setString(6, "%" + search + "%");
+
+            ResultSet result = pst.executeQuery();
+
+           return getAfatiFromResultSet(result);
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+
+        }
+
+    private static ArrayList<Afat> getAfatiFromResultSet(ResultSet result) {
+        ArrayList<Afat> array = new ArrayList<>(0);
+        try {
+            while(result.next()) {
+                int afatId = result.getInt("afatId");
+                String hera = result.getString("hera");
+                int viti = result.getInt("viti");
+                Date dataHapjes = result.getDate("dataHapjes");
+                Date dataMbylljes = result.getDate("dataMbylljes");
+                String niveli = result.getString("niveli");
+                array.add(new Afat(afatId, viti, hera, dataHapjes.toString(), dataMbylljes.toString(), niveli));
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return array;
+    }
+    public static ArrayList<Afat> getAllAfatArray(){
+
+        Connection conn = DBConnector.getConnection();
+        String query =  """
+            SELECT *
+            FROM tblAfati;""";
+        System.out.println("U ekzekutu getAllAfatArray");
+
+        try {
+            PreparedStatement pst = conn.prepareStatement(query);
+            ResultSet result = pst.executeQuery();
+            return getAfatiFromResultSet(result);
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+    public static boolean editAfat(Afat afat){
+        Connection connection = DBConnector.getConnection();
+        String query = "UPDATE tblAfati SET hera = ?, viti = ?, dataHapjes = ?, dataMbylljes = ?, niveli = ? WHERE afatId = ?";
+        try {
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setString(1, afat.getHera());
+            pst.setInt(2, afat.getYear());
+            pst.setString(3, afat.getDataHapjes());
+            pst.setString(4, afat.getDataMbylljes());
+            pst.setString(5, afat.getNiveli());
+            pst.setInt(6, afat.getId());
+            int rowsAffected = pst.executeUpdate();
+            pst.close();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public static boolean deleteAfat(int id){
+        Connection connection = DBConnector.getConnection();
+        String query = "DELETE FROM tblAfati WHERE afatId = ?";
+        try {
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setInt(1, id);
+            int rowsAffected = pst.executeUpdate();
+            pst.close();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
+
+
+

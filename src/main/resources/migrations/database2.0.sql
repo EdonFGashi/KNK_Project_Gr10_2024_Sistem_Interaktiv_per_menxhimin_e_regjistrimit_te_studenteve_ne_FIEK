@@ -130,3 +130,9 @@ CREATE TABLE tblNjoftimet (
     adminId INT,
 	FOREIGN KEY (adminId) REFERENCES tblAdmin(adminId) ON DELETE SET NULL
 );
+
+
+insert into tblAdmin (email,emri,mbiemri,salt,passwordHash)
+values ("edon@admin.uni-pr.edu","Edon","Gashi","jmsiV++dDMDe7FXCx0Qn/S8M7IUcuht8L1YeU95V5Tg=","6a6d7369562b2b64444d4465374658437830516e2f53384d37495563756874384c315965553935563554673dd75688ba54e10e904f243faa0d486f4a7bebbb19cdcdcb78bf2b158c6058cbe5");
+
+

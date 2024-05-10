@@ -35,14 +35,12 @@ public class RegistrationPeriodMenuController {
         refreshActiveSection();
         this.hboxStatistics.setStyle(Navigatior.cssForActiveSection);
     }
-
     @FXML
     private void handleAssignSupervisorsClick(MouseEvent me){
         Navigatior.navigate(this.addPane, Navigatior.ADMIN_REGISTRATIONMENU_ADDREGISTRATION);
         refreshActiveSection();
         this.hboxAssignSupervisors.setStyle(Navigatior.cssForActiveSection);
     }
-
 
     private void refreshActiveSection(){
         this.hboxShowDetails.setStyle("");
