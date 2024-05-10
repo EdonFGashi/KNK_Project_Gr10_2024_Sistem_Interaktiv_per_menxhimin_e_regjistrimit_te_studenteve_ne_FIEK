@@ -129,6 +129,10 @@
             </HBox>
          </children>
       </HBox>
-      <HBox fx:id="addPane" alignment="TOP_CENTER" centerShape="false" nodeOrientation="LEFT_TO_RIGHT" />
+      <AnchorPane fx:id="addPane" prefHeight="790.0" prefWidth="1718.0">
+         <VBox.margin>
+            <Insets left="-5.0" />
+         </VBox.margin>
+      </AnchorPane>
    </children>
 </VBox>

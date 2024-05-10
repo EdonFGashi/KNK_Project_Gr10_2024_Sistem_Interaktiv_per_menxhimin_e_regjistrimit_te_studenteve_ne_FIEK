@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import service.SESSION;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -16,7 +17,7 @@ import java.io.FileNotFoundException;
 public class RibbonController {
 
     @FXML
-    private HBox addPane;
+    private AnchorPane addPane;
     @FXML
     private ImageView imgProfileIcon;
     @FXML
@@ -58,11 +59,13 @@ public class RibbonController {
 
     @FXML
     private void handleSupervisorMenagmentClick(MouseEvent me){
-        Navigatior.navigate(this.addPane, Navigatior.ADMIN_SUPERVISORMENU);
+        SESSION.setAdminMenu("Supervisor");
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_MENU);
     }
     @FXML
     private void handleStudentMenagmentClick(MouseEvent me){
-        Navigatior.navigate(this.addPane, Navigatior.ADMIN_STUDENTMENU);
+        SESSION.setAdminMenu("Student");
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_MENU);
     }
     @FXML
     private void handleInboxClick(MouseEvent me){
@@ -96,7 +99,8 @@ public class RibbonController {
     }
     @FXML
     private void handleRegistrationPeriodClick(MouseEvent me){
-        Navigatior.navigate(this.addPane,Navigatior.ADMIN_REGISTRATIONMENU);
+        SESSION.setAdminMenu("Afat");
+        Navigatior.navigate(this.addPane,Navigatior.ADMIN_MENU);
     }
 
 }

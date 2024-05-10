@@ -44,6 +44,8 @@ interface OverallPages{
 interface AdminPages{
     public final static String ADMIN_RIBBON = "admin-ribbon.fxml";
 
+    public final static String ADMIN_MENU = "admin-Menu.fxml";
+
 
     public final static String ADMIN_STUDENTMENU = "admin-studentMenu.fxml";
     public final static String ADMIN_STUDENTMENU_ADDSTUDENT = "admin-studentMenu-addStudent.fxml";
