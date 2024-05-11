@@ -19,7 +19,7 @@ public class FirstApp extends Application {
     @Override
     public void start(Stage stage){
        FXMLLoader loader = new FXMLLoader(
-         this.getClass().getResource("changePassword.fxml")
+         this.getClass().getResource("admin-showAndEditStudent.fxml")
 
        );
        try{

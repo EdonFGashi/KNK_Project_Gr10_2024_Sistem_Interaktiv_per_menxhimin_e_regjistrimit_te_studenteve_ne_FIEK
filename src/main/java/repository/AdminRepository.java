@@ -58,10 +58,7 @@ public class AdminRepository {
             pst.setString(2, changeData.getEmail());
 
             int rowsAffected = pst.executeUpdate();
-
             pst.close();
-            connection.close();
-
             return rowsAffected > 0;
         } catch (Exception e) {
             e.printStackTrace();

@@ -18,6 +18,7 @@ import repository.Supervisor.SupervisorRepository;
 import service.CustomExceptions.InvalidPassword;
 import service.PasswordHasher;
 import service.SESSION;
+import repository.StudentRepository;
 
 import java.util.Objects;
 
@@ -119,9 +120,10 @@ public static boolean login(LoginAdminDto loginData){
            if(!SupervisorRepository.resetPassword(resetPasswordOnDb)){
                throw new InvalidPassword("Problem in Database!");
            }
-       }else{
-           //logjika per me reset studentin
-
+       }else if(SESSION.getAdmin_reset_type().equals("Student")){
+           if(!StudentRepository.resetPassword(resetPasswordOnDb)){
+               throw new InvalidPassword("Problem in Database!");
+           }
        }
 
     }

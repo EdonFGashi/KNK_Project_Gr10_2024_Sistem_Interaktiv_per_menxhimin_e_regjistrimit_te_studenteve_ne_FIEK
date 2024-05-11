@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.StudentMenuShowAndEditController">
+   <children>
+      <ScrollPane prefHeight="710.0" prefWidth="1269.0">
+         <content>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="3000.0" minWidth="-Infinity" prefHeight="836.0" prefWidth="1260.0">
+               <children>
+                  <AnchorPane layoutX="38.0" layoutY="28.0" minHeight="0.0" prefHeight="64.0" prefWidth="1207.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <children>
+                        <TextField fx:id="txtSearch" layoutX="21.0" layoutY="10.0" prefHeight="38.0" prefWidth="335.0" promptText="Search" style="-fx-background-radius: 15;" />
+                        <Button layoutX="365.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="38.0" prefWidth="59.0" style="-fx-background-radius: 20; -fx-background-color: #A5CEF2;" />
+                        <ImageView fx:id="imgSearch" fitHeight="24.0" fitWidth="27.0" layoutX="381.0" layoutY="17.0" onMouseClicked="#handleSearchClick" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+                  <ScrollPane layoutX="39.0" layoutY="120.0" prefHeight="318.0" prefWidth="1217.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <content>
+                        <VBox alignment="TOP_CENTER" prefHeight="572.0" prefWidth="1193.0" style="-fx-background-color: white;">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <children>
+                              <TableView fx:id="tableStudent" prefHeight="552.0" prefWidth="478.0" style="-fx-background-color: transparent; -fx-border-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-border-width: 2px; -fx-border-radius: 8px;">
+                                 <columns>
+                                    <TableColumn fx:id="columnId" editable="false" prefWidth="56.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-size: 40px; -fx-font-family: Arial; -fx-border-color: white;" text=" Id" />
+                                    <TableColumn fx:id="columnPersonalNumber" prefWidth="75.0" text="Personal num" />
+                                    <TableColumn fx:id="columnEmail" editable="false" prefWidth="135.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="email" />
+                                    <TableColumn fx:id="columnFirstName" editable="false" minWidth="0.0" prefWidth="114.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="First Name" />
+                                    <TableColumn fx:id="columnLastName" editable="false" minWidth="0.0" prefWidth="125.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Last Name" />
+                                    <TableColumn fx:id="columnNationality" editable="false" minWidth="0.0" prefWidth="134.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Nationality" />
+                                    <TableColumn fx:id="columnCity" editable="false" minWidth="0.0" prefWidth="128.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="City" />
+                                    <TableColumn fx:id="columnNation" editable="false" minWidth="0.0" prefWidth="146.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Nation" />
+                                    <TableColumn fx:id="columnGender" editable="false" minWidth="0.0" prefWidth="142.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Gender" />
+                                    <TableColumn fx:id="columnBirthDate" editable="false" minWidth="0.0" prefWidth="169.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Birth Date" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+                  <Label fx:id="txtSchoolName1" layoutX="34.0" layoutY="474.0" prefHeight="30.0" prefWidth="315.0" text="Student Has these Aplicant credentials">
+                     <font>
+                        <Font name="Tahoma" size="16.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="40.0" layoutY="502.0" prefHeight="544.0" prefWidth="1153.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <children>
+                        <Button fx:id="btnApprove" layoutX="617.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleAprove" prefHeight="50.0" prefWidth="121.0" style="-fx-background-radius: 20px; -fx-background-color: #5F9EA0; -fx-font-weight: bold;" text="Aprove">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="762.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="50.0" prefWidth="210.0" style="-fx-background-radius: 20px; -fx-background-color: AA4A44; -fx-font-weight: bold;" text="Delete Selected Student">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnResetPassword" layoutX="988.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleResetPassword" prefHeight="50.0" prefWidth="152.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="Reset Password">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <GridPane layoutX="30.0" layoutY="18.0" prefHeight="481.0" prefWidth="565.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.0000274658203" minWidth="10.0" prefWidth="217.60006408691407" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="365.3999786376953" minWidth="10.0" prefWidth="283.19993591308594" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="104.60001220703126" minHeight="10.0" prefHeight="49.8" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="189.4" minHeight="10.0" prefHeight="67.4" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="211.60001220703128" minHeight="10.0" prefHeight="65.20000000000002" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="211.60001220703128" minHeight="10.0" prefHeight="71.6" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="211.60001220703128" minHeight="10.0" prefHeight="71.6" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="211.60001220703128" minHeight="10.0" prefHeight="71.6" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="211.60001220703128" minHeight="10.0" prefHeight="71.6" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="211.60001220703128" minHeight="10.0" prefHeight="71.6" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="211.60001220703128" minHeight="10.0" prefHeight="71.6" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="211.60001220703128" minHeight="10.0" prefHeight="71.6" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <TextField fx:id="txtSchoolName" editable="false" prefHeight="46.0" prefWidth="314.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" />
+                              <TextField fx:id="txtMath" editable="false" layoutX="269.0" layoutY="10.0" prefHeight="38.0" prefWidth="315.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtAlbanian" editable="false" layoutX="154.0" layoutY="64.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="txtEnglish" editable="false" layoutX="154.0" layoutY="64.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label prefHeight="23.0" prefWidth="134.0" text="School Name:">
+                                 <font>
+                                    <Font name="Tahoma" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="23.0" prefWidth="195.0" text="Mathematic Points:" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Tahoma" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="23.0" prefWidth="195.0" text="Albanian points:" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Tahoma" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="140.0" prefHeight="23.0" prefWidth="195.0" text="English points:" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Tahoma" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="187.0" prefHeight="23.0" prefWidth="195.0" text="Chosen Subject:" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Tahoma" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtChosenSubject" editable="false" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label layoutX="10.0" layoutY="209.0" prefHeight="23.0" prefWidth="195.0" text="Chosen Subject points:" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="Tahoma" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtChosenSubjectPoints" editable="false" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label prefHeight="23.0" prefWidth="222.0" text="All points on &quot;Mature&quot; test:" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="Tahoma" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtAllPoints" editable="false" layoutX="241.0" layoutY="256.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <Label prefHeight="23.0" prefWidth="222.0" text="Success in Grade 10" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font name="Tahoma" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="23.0" prefWidth="222.0" text="Success in Grade 11" GridPane.rowIndex="8">
+                                 <font>
+                                    <Font name="Tahoma" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="392.0" prefHeight="23.0" prefWidth="222.0" text="Success in Grade 12" GridPane.rowIndex="9">
+                                 <font>
+                                    <Font name="Tahoma" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtGrade10" editable="false" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <TextField fx:id="txtGrade11" editable="false" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <TextField fx:id="txtGrade12" editable="false" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                           </children>
+                        </GridPane>
+                        <ImageView fx:id="imgGradeCertificate" fitHeight="221.0" fitWidth="210.0" layoutX="628.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="imgIdentification" fitHeight="207.0" fitWidth="195.0" layoutX="929.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="imgDiplome" fitHeight="207.0" fitWidth="195.0" layoutX="891.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label layoutX="657.0" layoutY="9.0" prefHeight="23.0" prefWidth="152.0" text="Grade certificate:">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="950.0" layoutY="9.0" prefHeight="23.0" prefWidth="152.0" text="Indetification:">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="663.0" layoutY="335.0" prefHeight="23.0" prefWidth="178.0" text="Diplome of High Scool">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="40.0" layoutY="1100.0" prefHeight="402.0" prefWidth="1154.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <children>
+                        <Label layoutX="36.0" layoutY="84.0" prefHeight="30.0" prefWidth="315.0" text="Generated Email:">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="443.0" layoutY="84.0" prefHeight="30.0" prefWidth="315.0" text="Generated Id:">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="29.0" layoutY="207.0" prefHeight="30.0" prefWidth="315.0" text="Departament Name:">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="443.0" layoutY="207.0" prefHeight="30.0" prefWidth="315.0" text="Level of Study:">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtGeneratedEmail" editable="false" layoutX="36.0" layoutY="133.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" />
+                        <TextField fx:id="txtGeneratedId" editable="false" layoutX="443.0" layoutY="122.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" />
+                        <TextField fx:id="txtDepartment" editable="false" layoutX="35.0" layoutY="245.0" prefHeight="38.0" prefWidth="301.0" style="-fx-background-radius: 15;" />
+                        <TextField fx:id="txtLevel" editable="false" layoutX="441.0" layoutY="245.0" prefHeight="38.0" prefWidth="307.0" style="-fx-background-radius: 15;" />
+                        <Label layoutX="463.0" layoutY="18.0" prefHeight="38.0" prefWidth="242.0" style="-fx-font-weight: bold;" text="Registered Details" textFill="#0a85ff">
+                           <font>
+                              <Font name="Tahoma" size="18.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="868.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="50.0" prefWidth="121.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="Edit">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

@@ -7,6 +7,7 @@ public class SESSION {
     private static String admin_supervisor_lastSearch = "";
     private static int admin_reset_PasswordId = 0;
     private static String admin_reset_type = "";
+    private static String admin_student_lastSearch = "";
     private SESSION() {
     }
 
@@ -56,5 +57,13 @@ public class SESSION {
 
     public static String getAdmin_reset_type() {
         return admin_reset_type;
+    }
+
+    public static String getAdmin_student_lastSearch() {
+        return admin_student_lastSearch;
+    }
+
+    public static void setAdmin_student_lastSearch(String admin_student_lastSearch) {
+        SESSION.admin_student_lastSearch = admin_student_lastSearch;
     }
 }
