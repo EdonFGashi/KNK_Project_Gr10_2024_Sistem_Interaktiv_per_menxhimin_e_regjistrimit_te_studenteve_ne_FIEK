@@ -140,3 +140,28 @@ values ("edon@admin.uni-pr.edu","Edon","Gashi","jmsiV++dDMDe7FXCx0Qn/S8M7IUcuht8
 -- Shtim i kolones per gjenerume
 ALTER TABLE tblRegisteredStudents
 CHANGE registeredEmail generatedId VARCHAR(50);
+
+ALTER TABLE tblShkollaMesme
+ADD COLUMN approved BOOLEAN DEFAULT TRUE;
+
+
+CREATE VIEW UserStudentRegisteredView AS
+SELECT
+    s.userId AS userStudentUserId,
+    s.numriPersonal,
+    s.email,
+    s.emri,
+    s.mbiemri,
+    s.nacionaliteti,
+    s.qyteti,
+    s.shteti,
+    s.gjinia,
+    s.dataLindjes,
+    s.salt,
+    s.passwordHash,
+    r.generatedEmail,
+    r.generatedId,
+    r.emriDepartamentit,
+    r.niveli
+FROM tblUserStudent s
+JOIN tblRegisteredStudents r ON s.userId = r.userId;
