@@ -51,7 +51,7 @@ interface AdminPages{
     public final static String ADMIN_STUDENTMENU_ADDSTUDENT = "admin-studentMenu-addStudent.fxml";
 
     public final static String ADMIN_STUDENTMENU_EDITSTUDENT = "admin-studentMenu-editStudent.fxml";
-    public final static String ADMIN_STUDENTMENU_SHOWANDEDIT = "admin-showAndEditStudent.fxml";
+    public final static String ADMIN_STUDENTMENU_SHOWANDEDIT = "admin-studentMenu-showAndEditStudent.fxml";
     public final static String ADMIN_PROFILE = "admin-profile.fxml";
 
     public final static String ADMIN_REGISTRATIONMENU = "admin-registrationPeriodMenu.fxml";

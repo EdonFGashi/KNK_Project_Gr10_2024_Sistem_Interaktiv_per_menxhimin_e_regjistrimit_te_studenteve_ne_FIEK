@@ -5,6 +5,7 @@ import model.RegisteredStudent;
 import model.ShkollaMesme;
 import model.UserStudent;
 import model.dto.Admin.ApproveStudentsDto;
+import model.dto.Admin.EditRegisteredStudentDetailsOnDbDto;
 import model.dto.ResetPasswordOnDb;
 import service.DBConnector;
 
@@ -227,6 +228,28 @@ public class StudentRepository {
             pst.close();
             return rowsAffected > 0;
         } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean editRegisteredStudent(EditRegisteredStudentDetailsOnDbDto data) {
+        String query = "UPDATE tblRegisteredStudents SET generatedEmail = ?, generatedId = ?, emriDepartamentit = ?, niveli = ? WHERE userId = ?";
+
+        Connection connection = DBConnector.getConnection();
+        try {
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setString(1, data.getGeneratedEmail());
+            pst.setString(2, data.getGeneratedId());
+            pst.setString(3, data.getDepartmentName());
+            pst.setString(4, data.getLevel());
+            pst.setInt(5, data.getUserId());
+            int rowsAffected = pst.executeUpdate();
+
+            pst.close();
+
+            return rowsAffected > 0;
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }

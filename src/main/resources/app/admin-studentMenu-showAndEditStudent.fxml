@@ -16,7 +16,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.StudentMenuShowAndEditController">
    <children>
       <ScrollPane prefHeight="710.0" prefWidth="1269.0">
@@ -223,7 +222,7 @@
                               <Font name="Tahoma" size="18.0" />
                            </font>
                         </Label>
-                        <Button layoutX="868.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="50.0" prefWidth="121.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="Edit">
+                        <Button fx:id="btnEdit" layoutX="868.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="50.0" prefWidth="121.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="Edit">
                            <font>
                               <Font size="15.0" />
                            </font>

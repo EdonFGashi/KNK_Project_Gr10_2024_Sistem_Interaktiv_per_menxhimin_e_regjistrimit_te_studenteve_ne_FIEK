@@ -16,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 import model.ShkollaMesme;
 import model.UserStudent;
 import model.dto.Admin.ApproveStudentsDto;
+import model.dto.Admin.EditRegisteredStudentDetailsOnDbDto;
 import model.dto.Admin.RegisteredStudentDetailsToControllerDto;
 import repository.StudentRepository;
 import service.Admin.StudentFromAdminService;
@@ -128,6 +129,30 @@ public class StudentMenuShowAndEditController {
 
    @FXML
    private void handleEdit(ActionEvent ae){
+       if(!this.edit) {
+           this.btnEdit.setText("Edit");
+           if (StudentRepository.editRegisteredStudent(
+                   new EditRegisteredStudentDetailsOnDbDto(
+                           this.selectedUser.getUserId(),
+                           this.txtGeneratedEmail.getText(),
+                           this.txtGeneratedId.getText(),
+                           this.txtDepartment.getText(),
+                           this.txtLevel.getText()
+                   )
+           )) {
+               PopUp.tick(200);
+               this.userStudentsList = StudentFromAdminService.searchStudent(this.txtSearch.getText());
+               this.setColumns();
+           } else {
+               System.out.println("Edit was not Done");
+           }
+           this.edit = true;
+       }else {
+           this.enableForms();
+           this.btnEdit.setText("Save");
+           this.edit = false;
+       }
+
 
    }
 
@@ -224,10 +249,23 @@ public class StudentMenuShowAndEditController {
               this.approve = false;
               this.btnApprove.setText("Dont Aprove");
           }
-      }
+      }else{
+          this.txtSchoolName.setText("");
+          this.txtMath.setText("");
+          this.txtAlbanian.setText("");
+          this.txtEnglish.setText("");
+          this.txtChosenSubject.setText("");
+          this.txtChosenSubjectPoints.setText("");
+          this.txtAllPoints.setText("");
+          this.txtGrade10.setText("");
+          this.txtGrade11.setText("");
+          this.txtGrade12.setText("");
 
+          this.imgGradeCertificate.setImage(null);
+          this.imgIdentification.setImage(null);
+          this.imgDiplome.setImage(null);
 
-
+        }
 
     }
 
@@ -250,8 +288,14 @@ public class StudentMenuShowAndEditController {
             this.txtGeneratedId.setText(data.getGeneratedId());
             this.txtLevel.setText(data.getLevel());
             this.txtDepartment.setText(data.getDepartmentName());
+        }else{
+            this.txtGeneratedEmail.setText("");
+            this.txtGeneratedId.setText("");
+            this.txtLevel.setText("");
+            this.txtDepartment.setText("");
         }
 
     }
+
 
 }
