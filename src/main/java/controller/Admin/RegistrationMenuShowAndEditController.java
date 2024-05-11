@@ -78,7 +78,8 @@ public class RegistrationMenuShowAndEditController {
                 this.setTextFields();
             }
         });
-
+        this.disableForms();
+        this.txtId.setDisable(true);
         this.afatList = AdminService.searchAfat(SESSION.getAdmin_registration_lastSearch());
         this.txtSearch.setText(SESSION.getAdmin_registration_lastSearch());
         setColumns();
@@ -133,6 +134,7 @@ public class RegistrationMenuShowAndEditController {
     @FXML
     private void handleSearchClick(MouseEvent me){
         this.afatList = AdminService.searchAfat(this.txtSearch.getText().trim());
+        SESSION.setAdmin_registration_lastSearch(this.txtSearch.getText().trim());
         this.setColumns();
     }
 
@@ -177,8 +179,8 @@ public class RegistrationMenuShowAndEditController {
     private void enableForms(){
               this.txtYear.setEditable(true);
               this.choiseChoseLevel.setDisable(false);
-              this.dateOpenDate.setEditable(false);
-              this.dateClosedDate.setEditable(false);
+              this.dateOpenDate.setEditable(true);
+              this.dateClosedDate.setEditable(true);
     }
     private void disableForms() {
         this.txtYear.setEditable(false);

@@ -1,4 +1,4 @@
-package model.dto.Supervisor;
+package model;
 
 public class SupervisorTableModel {
     private int mbikqyresiId;
@@ -8,7 +8,7 @@ public class SupervisorTableModel {
     private String salt;
     private String passwordHash;
 
-    public SupervisorTableModel(int mbikqyresiId, String firstName, String lastName, String email, String salt, String passwordHash) {
+    public SupervisorTableModel(int mbikqyresiId, String email,String firstName, String lastName, String salt, String passwordHash) {
         this.mbikqyresiId = mbikqyresiId;
         this.firstName = firstName;
         this.lastName = lastName;

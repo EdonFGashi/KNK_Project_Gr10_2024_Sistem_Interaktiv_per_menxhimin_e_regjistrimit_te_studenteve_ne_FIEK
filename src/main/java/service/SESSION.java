@@ -4,6 +4,9 @@ public class SESSION {
     private static String loggedUserEmail = "jon@admin.uni-pr.edu";
     private static String adminMenu = "";
     private static String admin_registration_lastSearch = "";
+    private static String admin_supervisor_lastSearch = "";
+    private static int admin_reset_PasswordId = 0;
+    private static String admin_reset_type = "";
     private SESSION() {
     }
 
@@ -29,5 +32,29 @@ public class SESSION {
 
     public static void setAdminMenu(String adminMenu) {
         SESSION.adminMenu = adminMenu;
+    }
+
+    public static String getAdmin_supervisor_lastSearch() {
+        return admin_supervisor_lastSearch;
+    }
+
+    public static int getAdmin_reset_PasswordId() {
+        return admin_reset_PasswordId;
+    }
+
+    public static void setAdmin_reset_PasswordId(int admin_reset_PasswordId) {
+        SESSION.admin_reset_PasswordId = admin_reset_PasswordId;
+    }
+
+    public static void setAdmin_supervisor_lastSearch(String admin_supervisor_lastSearch) {
+        SESSION.admin_supervisor_lastSearch = admin_supervisor_lastSearch;
+    }
+
+    public static void setAdmin_reset_type(String admin_reset_type) {
+        SESSION.admin_reset_type = admin_reset_type;
+    }
+
+    public static String getAdmin_reset_type() {
+        return admin_reset_type;
     }
 }

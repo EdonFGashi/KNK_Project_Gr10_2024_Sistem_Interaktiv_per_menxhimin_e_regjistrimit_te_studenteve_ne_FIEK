@@ -55,7 +55,8 @@ interface AdminPages{
 
     public final static String ADMIN_REGISTRATIONMENU = "admin-registrationPeriodMenu.fxml";
     public final static String ADMIN_REGISTRATIONMENU_ADDREGISTRATION = "admin-registrationPeriodMenu-addRegistration.fxml";
-    public static final String ADMIN_REGISTRATIONMENU_SHOWANDEDIT = "admin-registrationMenu-showAndEdit.fxml";
+    public final static String ADMIN_REGISTRATIONMENU_SHOWANDEDIT = "admin-registrationMenu-showAndEdit.fxml";
+    public final static String ADMIN_RESETPASSWORD = "admin-resetPassword.fxml";
 
 
 }
@@ -68,7 +69,7 @@ interface SupervisorPages{
     public final static String SUPERVISOR_PROFILE = "supervisor-profile.fxml";
     public final static String ADMIN_SUPERVISORMENU = "admin-supervisorMenu.fxml";
     public final static String ADMIN_SUPERVISORMENU_ADDSUPERVISOR = "admin-supervisorMenu-addSupervisor.fxml";
-    public final static String ADMIN_SUPERVISORMENU_EDITSUPERVISOR = "admin-supervisorMenu-editSupervisor.fxml";
+    public final static String ADMIN_SUPERVISORMENU_EDITSUPERVISOR = "admin-superVisorMenu-showAndEditSupervisor.fxml";
 
 }
 

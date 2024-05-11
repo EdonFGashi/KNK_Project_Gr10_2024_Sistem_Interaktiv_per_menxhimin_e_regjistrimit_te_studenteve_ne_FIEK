@@ -18,23 +18,18 @@ public class FirstApp extends Application {
 
     @Override
     public void start(Stage stage){
+       FXMLLoader loader = new FXMLLoader(
+         this.getClass().getResource("changePassword.fxml")
 
+       );
+       try{
+           Scene scene = new Scene(loader.load());
+           stage.setScene(scene);
+           stage.show();
 
- //Navigatior.navigateNewStage("teat.fxml");
-
-
-        FXMLLoader loader = new FXMLLoader(
-                this.getClass().getResource("teat.fxml")
-        );
-
-        try {
-            Scene scene = new Scene(loader.load());
-            stage.setScene(scene);
-            stage.show();
-
-        } catch (IOException e) {
-           e.printStackTrace();
-        }
+       }catch(Exception e){
+           System.out.println("Exception");
+       }
 
 
     }

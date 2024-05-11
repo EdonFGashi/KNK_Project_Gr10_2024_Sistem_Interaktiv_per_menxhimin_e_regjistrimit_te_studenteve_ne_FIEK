@@ -1,13 +1,15 @@
 package service.Supervisor;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import model.SupervisorTableModel;
 import model.dto.Supervisor.SupervisorCreateInterfaceDto;
 import model.dto.Supervisor.SupervisorCreateModelDto;
-import model.dto.Supervisor.SupervisorTableModel;
 import repository.Supervisor.SupervisorRepository;
 import service.PasswordHasher;
 
 import java.sql.SQLException;
-import java.util.Date;
+import java.util.ArrayList;
 
 public class SupervisorService {
     public static boolean signUp(SupervisorCreateInterfaceDto supervisorData) {
@@ -44,4 +46,22 @@ public class SupervisorService {
         }
         return true;
     }
+
+    public static ObservableList<SupervisorTableModel> searchMbikqyresi(String search) {
+        try {
+            if (search.isEmpty()) {
+                return FXCollections.observableArrayList(SupervisorRepository.getAllMbikqyresiArray());
+
+            } else {
+                return FXCollections.observableArrayList(SupervisorRepository.getSupervisorsSearch(search));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return FXCollections.observableArrayList();
+        }
+    }
+
+
+
+
 }

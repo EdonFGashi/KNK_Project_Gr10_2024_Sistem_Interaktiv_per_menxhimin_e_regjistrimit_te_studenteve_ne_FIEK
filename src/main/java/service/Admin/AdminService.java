@@ -9,9 +9,12 @@ import model.dto.Admin.AdminProfileToControllerDto;
 import model.dto.Admin.ChangePasswordOnDb;
 
 import model.dto.Admin.LoginAdminDto;
+import model.dto.Admin.ResetPasswordDto;
 import model.dto.Overall.ChangePasswordDto;
+import model.dto.ResetPasswordOnDb;
 import repository.AdminRepository;
 import repository.AfatRepository;
+import repository.Supervisor.SupervisorRepository;
 import service.CustomExceptions.InvalidPassword;
 import service.PasswordHasher;
 import service.SESSION;
@@ -94,4 +97,32 @@ public static boolean login(LoginAdminDto loginData){
         }
     }
 
+
+    public static void resetPassword(ResetPasswordDto resetData) throws InvalidPassword{
+        if(resetData.getNewPassword().length() < 8){
+            throw new InvalidPassword("Password too short");
+        }
+
+        if(!resetData.getNewPassword().equals(resetData.getConfirmPassword())){
+            throw new InvalidPassword("New and Confirm do not match!");
+        }
+
+       String salt = PasswordHasher.generateSalt();
+       int id = SESSION.getAdmin_reset_PasswordId();
+       String passwordHash = PasswordHasher.generateSaltedHash(resetData.getNewPassword(),salt);
+
+        ResetPasswordOnDb resetPasswordOnDb = new ResetPasswordOnDb(
+          id,salt,passwordHash
+        );
+
+       if(SESSION.getAdmin_reset_type().equals("Supervisor")){
+           if(!SupervisorRepository.resetPassword(resetPasswordOnDb)){
+               throw new InvalidPassword("Problem in Database!");
+           }
+       }else{
+           //logjika per me reset studentin
+
+       }
+
+    }
 }

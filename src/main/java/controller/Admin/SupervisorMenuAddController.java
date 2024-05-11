@@ -1,7 +1,6 @@
-package controller.Supervisor;
+package controller.Admin;
 
 
-import app.Navigatior;
 import app.PopUp;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;

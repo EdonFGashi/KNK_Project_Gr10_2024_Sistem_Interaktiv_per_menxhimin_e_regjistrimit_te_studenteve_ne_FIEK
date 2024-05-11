@@ -85,6 +85,7 @@ public class ProfileController {
 
     @FXML
     private void handleChangePassword(ActionEvent ae){
+
         Navigatior.navigateNewStage(Navigatior.CHANGEPASSWORD);
     }
     public void disable(){

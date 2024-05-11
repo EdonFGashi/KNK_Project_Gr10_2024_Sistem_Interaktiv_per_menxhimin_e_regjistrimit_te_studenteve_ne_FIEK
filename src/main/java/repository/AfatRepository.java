@@ -85,7 +85,7 @@ public class AfatRepository {
         String query =  """
             SELECT *
             FROM tblAfati;""";
-        System.out.println("U ekzekutu getAllAfatArray");
+      //  System.out.println("U ekzekutu getAllAfatArray");
 
         try {
             PreparedStatement pst = conn.prepareStatement(query);
