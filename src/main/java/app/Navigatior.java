@@ -33,7 +33,7 @@ import java.io.IOException;
 
 
 interface OverallPages{
-    public static String DASHBOARD = "";
+    public static String DASHBOARD = "overall-dashboard.fxml";
     public static String ERROR404 = "overall-error404.fxml";
 
     public static final String cssForActiveSection = "-fx-background-color: #A5CEF2; -fx-background-radius:10px;";

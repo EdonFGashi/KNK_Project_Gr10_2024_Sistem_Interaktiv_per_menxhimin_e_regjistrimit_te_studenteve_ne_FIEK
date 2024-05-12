@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Overall.DashboardController">
    <center>
       <AnchorPane prefHeight="428.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <children>
@@ -28,7 +28,7 @@
                <font>
                   <Font size="17.0" />
                </font></Text>
-            <Button layoutX="284.0" layoutY="226.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="130.0" style="-fx-background-color: #0A84FF; -fx-opacity: 1; -fx-font-weight: 800;" text="Qasja" textFill="WHITE">
+            <Button layoutX="284.0" layoutY="226.0" mnemonicParsing="false" onAction="#handleQasja" prefHeight="52.0" prefWidth="130.0" style="-fx-background-color: #0A84FF; -fx-opacity: 1; -fx-font-weight: 800;" text="Qasja" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
