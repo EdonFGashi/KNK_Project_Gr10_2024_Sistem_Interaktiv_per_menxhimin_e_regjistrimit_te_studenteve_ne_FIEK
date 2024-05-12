@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="1260.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentStatistics.StudentMenuStatisticsController">
+   <children>
+      <ScrollPane layoutX="51.0" layoutY="142.0" prefHeight="540.0" prefWidth="1154.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <content>
+            <VBox alignment="TOP_CENTER" prefHeight="572.0" prefWidth="1130.0" style="-fx-background-color: white;">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <children>
+                  <AnchorPane prefHeight="391.0" prefWidth="1110.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <children>
+                        <AnchorPane layoutX="11.2" layoutY="18.4" prefHeight="371.0" prefWidth="350.0" style="-fx-background-color: white; -fx-background-radius: 10;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="749.0" AnchorPane.topAnchor="0.0">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.8105263113975525" green="0.7985185384750366" blue="0.7985185384750366" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <BarChart fx:id="BSCChart" categoryGap="20.0" layoutY="-44.8" prefHeight="363.0" prefWidth="350.0" title="Numri studentëve në BSC" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <xAxis>
+                                  <CategoryAxis animated="false" prefWidth="294.0" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis animated="false" side="LEFT" />
+                                </yAxis>
+                              </BarChart>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="379.0" layoutY="16.0" prefHeight="371.0" prefWidth="350.0" style="-fx-background-color: white; -fx-background-radius: 10;" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="380.0">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.8105263113975525" green="0.7985185384750366" blue="0.7985185384750366" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <BarChart fx:id="MSCChart" layoutY="14.0" prefHeight="324.8" prefWidth="334.39999999999986" title="Numri studentëve në MSC" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <xAxis>
+                                    <CategoryAxis animated="false" side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis animated="false" side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="756.0" layoutY="51.0" prefHeight="371.0" prefWidth="350.0" style="-fx-background-color: white; -fx-background-radius: 10;" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="11.0">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.8105263113975525" green="0.7985185384750366" blue="0.7985185384750366" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <BarChart fx:id="PHDChart" layoutY="14.0" prefHeight="324.8" prefWidth="334.39999999999986" title="Numri studentëve në PHD" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <xAxis>
+                                    <CategoryAxis animated="false" side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis animated="false" side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="434.0" prefWidth="1110.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <children>
+                        <HBox layoutX="5.0" layoutY="33.0" prefHeight="460.0" prefWidth="1096.0">
+                           <children>
+                              <LineChart fx:id="totalChart" prefHeight="460.0" prefWidth="1090.0" title="Numri i aplikimeve ndër vite">
+                                <xAxis>
+                                  <CategoryAxis animated="false" side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis animated="false" side="LEFT" />
+                                </yAxis>
+                              </LineChart>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </content>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </ScrollPane>
+      <AnchorPane layoutX="54.0" layoutY="17.0" prefHeight="104.0" prefWidth="1154.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Button layoutX="35.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleShow" prefHeight="38.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="Gjenero Statistikat">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <AnchorPane layoutX="331.0" layoutY="10.0" prefHeight="82.0" prefWidth="202.0" style="-fx-background-color: linear-gradient(to bottom,#0A1DC8, #0681D4, #06B1D4) linear-gradient(to bottom,#0A1DC8, #0681D4, #06B1D4); -fx-background-radius: 10;">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" style="-fx-font-weight: bold;" text="Total Studentë Aktiv" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtTotalStudents" alignment="TOP_RIGHT" layoutX="41.0" layoutY="36.0" prefHeight="22.0" prefWidth="146.0" style="-fx-font-weight: bold;" text="0" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="619.0" layoutY="11.0" prefHeight="82.0" prefWidth="202.0" style="-fx-background-color: linear-gradient(to bottom,#0A1DC8, #0681D4, #06B1D4) linear-gradient(to bottom,#0A1DC8, #0681D4, #06B1D4); -fx-background-radius: 10;">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" style="-fx-font-weight: bold;" text="Total Femra" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtFemaleTotalStudents" alignment="TOP_RIGHT" layoutX="41.0" layoutY="36.0" prefHeight="22.0" prefWidth="146.0" style="-fx-font-weight: bold;" text="0" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="913.0" layoutY="11.0" prefHeight="82.0" prefWidth="202.0" style="-fx-background-color: linear-gradient(to bottom,#0A1DC8, #0681D4, #06B1D4) linear-gradient(to bottom,#0A1DC8, #0681D4, #06B1D4); -fx-background-radius: 10;">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" style="-fx-font-weight: bold;" text="Total Meshkuj" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtMaleTotalStudents" alignment="TOP_RIGHT" layoutX="41.0" layoutY="36.0" prefHeight="22.0" prefWidth="146.0" style="-fx-font-weight: bold;" text="0" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
