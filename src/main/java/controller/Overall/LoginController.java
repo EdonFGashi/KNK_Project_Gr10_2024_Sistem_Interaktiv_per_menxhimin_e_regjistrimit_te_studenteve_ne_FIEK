@@ -3,6 +3,9 @@ package controller.Overall;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import service.Animations.UpLogoAnimate;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -11,12 +14,14 @@ public class LoginController {
     @FXML
     private ImageView imgUpLogo;
     @FXML
+    private AnchorPane logoPaneLoginPage;
+    @FXML
     private ImageView loginLogo;
     @FXML
     private ImageView usernameLogo;
     @FXML
     private ImageView passwordLogo;
-
+    private UpLogoAnimate logo = new UpLogoAnimate(120, "Regjistrimi për student", 7, 1);
     @FXML
     private void initialize(){
         try {
@@ -28,6 +33,15 @@ public class LoginController {
         } catch (FileNotFoundException fnfe){
             System.out.println("Image not found");
         }
+        this.logoPaneLoginPage.getChildren().add(logo);
+        this.logoPaneLoginPage.setTranslateX(-60);
+        this.logoPaneLoginPage.setTranslateY(50);
+
+    }
+
+    @FXML
+    void handleStartAnimation(MouseEvent event) {
+        this.logo.startWithMouse();
     }
 
 
