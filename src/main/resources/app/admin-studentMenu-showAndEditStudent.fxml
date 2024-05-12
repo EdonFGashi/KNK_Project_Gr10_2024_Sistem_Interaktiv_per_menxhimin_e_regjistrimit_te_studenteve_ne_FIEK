@@ -20,7 +20,7 @@
    <children>
       <ScrollPane prefHeight="710.0" prefWidth="1269.0">
          <content>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="3000.0" minWidth="-Infinity" prefHeight="836.0" prefWidth="1260.0">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="1600.0" minWidth="-Infinity" prefHeight="836.0" prefWidth="1260.0">
                <children>
                   <AnchorPane layoutX="38.0" layoutY="28.0" minHeight="0.0" prefHeight="64.0" prefWidth="1207.0" style="-fx-background-color: white; -fx-background-radius: 10;">
                      <effect>
