@@ -13,25 +13,110 @@ import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.sql.*;
 import java.util.ArrayList;
+import model.dto.RegisteredStudents.ChartInformationEnrolledStudents;
+import service.DBConnector;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class StudentRepository {
-    public static ShkollaMesme getShkollaMeme(int userId) {
-            String query = "SELECT * FROM tblShkollaMesme WHERE userId = ? LIMIT 1";
-            Connection connection = DBConnector.getConnection();
-            try {
-                PreparedStatement pst = connection.prepareStatement(query);
-                pst.setString(1, Integer.toString(userId));
-                ResultSet result = pst.executeQuery();
-                if (result.next()) {
-                    return getShkollaMesmeFromResultSet(result);
-                }
-                return null;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
+    public static ArrayList<ChartInformationEnrolledStudents> getStudentForChart(String niveli, String gjinia){
+        ArrayList<ChartInformationEnrolledStudents> listaInformacionevePerChart = new ArrayList<ChartInformationEnrolledStudents>();
+
+        String query = """ 
+                SELECT registered.emriDepartamentit, COUNT(useri.userId) AS total_male_BSC_students 
+                FROM tblUserStudent useri 
+                JOIN tblRegisteredStudents registered ON useri.userId = registered.userId 
+                WHERE useri.gjinia = ? AND registered.niveli = ?
+                GROUP BY registered.emriDepartamentit; 
+                """;
+
+        Connection connection = DBConnector.getConnection();
+        try{
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setString(1, gjinia);
+            pst.setString(2, niveli);
+            ResultSet result = pst.executeQuery();
+            while(result.next()){
+                ChartInformationEnrolledStudents std = getStudentCharInformationForDepartment(result);
+                listaInformacionevePerChart.add(std);
             }
+        } catch (SQLException e){
+            System.out.println("Gabim");
         }
+        return listaInformacionevePerChart;
+    }
+
+    private static ChartInformationEnrolledStudents getStudentCharInformationForDepartment(ResultSet result) {
+        try {
+            int numri = result.getInt("total_male_BSC_students");
+            String emriDepartamentit = result.getString("emriDepartamentit");
+            return new ChartInformationEnrolledStudents(numri, emriDepartamentit);
+        } catch (Exception e) {
+            System.out.println("Nuk ka te dhenaaaa!");
+            return null;
+        }
+    }
+
+    public static ArrayList<ChartInformationEnrolledStudents> getApplicationsForChart(){
+        ArrayList<ChartInformationEnrolledStudents> listaInformacionevePerChart = new ArrayList<ChartInformationEnrolledStudents>();
+
+        String query = "SELECT viti, COUNT(*) AS numri_aplikimeve "
+                + "FROM tblAfati "
+                + "JOIN tblAplikimi ON tblAplikimi.afatId = tblAfati.afatId "
+                + "GROUP BY viti "
+                + "ORDER BY viti ASC LIMIT 15; ";
+        Connection connection = DBConnector.getConnection();
+        try{
+
+            PreparedStatement pst = connection.prepareStatement(query);
+            ResultSet result = pst.executeQuery();
+
+            while(result.next()){
+                ChartInformationEnrolledStudents std = getStudentCharInformationForTotalApplications(result);
+                listaInformacionevePerChart.add(std);
+            }
+        } catch (SQLException e){
+            System.out.println("Gabim");
+        }
+        return listaInformacionevePerChart;
+    }
+
+    private static ChartInformationEnrolledStudents getStudentCharInformationForTotalApplications(ResultSet result){
+        try{
+            int numri = result.getInt("numri_aplikimeve");
+            int viti = result.getInt("viti");
+            return new ChartInformationEnrolledStudents(viti, numri);
+        } catch (Exception e){
+            System.out.println("Nuk ka te dhenaaaa!");
+            return null;
+        }
+    }
+
+
+
+
+    public static ShkollaMesme getShkollaMeme(int userId) {
+        String query = "SELECT * FROM tblShkollaMesme WHERE userId = ? LIMIT 1";
+        Connection connection = DBConnector.getConnection();
+        try {
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setString(1, Integer.toString(userId));
+            ResultSet result = pst.executeQuery();
+            if (result.next()) {
+                return getShkollaMesmeFromResultSet(result);
+            }
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     private static ShkollaMesme getShkollaMesmeFromResultSet(ResultSet result) {
         try {
             int userId = result.getInt("userId");
@@ -77,9 +162,6 @@ public class StudentRepository {
             return null;
         }
     }
-
-
-
 
     public static ArrayList<UserStudent> getUserStudents(String search) {
         Connection conn = DBConnector.getConnection();
@@ -138,12 +220,9 @@ public class StudentRepository {
         return array;
     }
 
-
-
     public static RegisteredStudent getRegisteredStudent(int userId) {
         String query = "SELECT * FROM UserStudentRegisteredView WHERE userStudentUserId = ? LIMIT 1";
         Connection connection = DBConnector.getConnection();
-
         try{
             PreparedStatement pst = connection.prepareStatement(query);
             pst.setInt(1, userId);
@@ -190,7 +269,7 @@ public class StudentRepository {
         String query = "UPDATE tblShkollaMesme SET approved = ? WHERE userId = ? LIMIT 1";
         Connection connection = DBConnector.getConnection();
         try{
-             PreparedStatement pst = connection.prepareStatement(query);
+            PreparedStatement pst = connection.prepareStatement(query);
             pst.setBoolean(1, approveStudentsDto.isAprove());
             pst.setInt(2, approveStudentsDto.getId());
 

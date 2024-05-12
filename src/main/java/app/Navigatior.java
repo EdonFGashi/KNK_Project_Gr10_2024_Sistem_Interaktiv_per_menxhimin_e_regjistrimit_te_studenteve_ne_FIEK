@@ -51,6 +51,7 @@ interface AdminPages{
     public final static String ADMIN_STUDENTMENU_ADDSTUDENT = "admin-studentMenu-addStudent.fxml";
 
     public final static String ADMIN_STUDENTMENU_EDITSTUDENT = "admin-studentMenu-editStudent.fxml";
+    public final static String ADMIN_STUDENTMENU_STATISTICS = "admin-studentsMenu-statistics.fxml";
     public final static String ADMIN_STUDENTMENU_SHOWANDEDIT = "admin-studentMenu-showAndEditStudent.fxml";
     public final static String ADMIN_PROFILE = "admin-profile.fxml";
 
@@ -58,7 +59,6 @@ interface AdminPages{
     public final static String ADMIN_REGISTRATIONMENU_ADDREGISTRATION = "admin-registrationPeriodMenu-addRegistration.fxml";
     public final static String ADMIN_REGISTRATIONMENU_SHOWANDEDIT = "admin-registrationMenu-showAndEdit.fxml";
     public final static String ADMIN_RESETPASSWORD = "admin-resetPassword.fxml";
-
 
 
 }

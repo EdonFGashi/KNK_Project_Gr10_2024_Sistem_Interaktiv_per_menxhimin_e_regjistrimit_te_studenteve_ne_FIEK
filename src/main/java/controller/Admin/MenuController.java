@@ -57,7 +57,7 @@ public class MenuController {
             this.txtOption3.setText("Statistics");
             this.option1Navigate = Navigatior.ADMIN_PROFILE;
             this.option2Navigate = Navigatior.ADMIN_STUDENTMENU_SHOWANDEDIT;
-            this.option3Navigate = "";
+            this.option3Navigate = Navigatior.ADMIN_STUDENTMENU_STATISTICS;
             try {
                 this.imgMain.setImage(new Image(new FileInputStream("Images/studentMenu.png")));
                 this.imgOption1.setImage(new Image(new FileInputStream("Images/application.png")));
