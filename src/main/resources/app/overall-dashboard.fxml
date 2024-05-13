@@ -44,7 +44,7 @@
    <center>
       <AnchorPane fx:id="middle_anchor" prefHeight="200.0" prefWidth="200.0" stylesheets="@../../../../CSS/dashboard.css" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="main_image" fitHeight="409.0" fitWidth="700.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="mainImage" fitHeight="409.0" fitWidth="700.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Images/rektorati.jpg" />
                </image>

@@ -1,11 +1,23 @@
 package controller.Overall;
 
+import app.Navigatior;
+import app.PopUp;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+import model.dto.Overall.LoginDto;
 import service.Animations.UpLogoAnimate;
+import service.CustomExceptions.InvalidEmail;
+import service.CustomExceptions.InvalidPassword;
+import service.Overall.LoginService;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,6 +34,14 @@ public class LoginController {
     @FXML
     private ImageView passwordLogo;
     private UpLogoAnimate logo = new UpLogoAnimate(120, "Regjistrimi për student", 7, 1);
+
+    @FXML
+    private TextField userEmail;
+    @FXML
+    private PasswordField userPassword;
+    @FXML
+    private Label errorMessageLabel;
+
     @FXML
     private void initialize(){
         try {
@@ -33,15 +53,47 @@ public class LoginController {
         } catch (FileNotFoundException fnfe){
             System.out.println("Image not found");
         }
-        this.logoPaneLoginPage.getChildren().add(logo);
-        this.logoPaneLoginPage.setTranslateX(-60);
-        this.logoPaneLoginPage.setTranslateY(50);
+//        this.logoPaneLoginPage.getChildren().add(logo);
+//        this.logoPaneLoginPage.setTranslateX(-60);
+//        this.logoPaneLoginPage.setTranslateY(50);
 
     }
 
     @FXML
     void handleStartAnimation(MouseEvent event) {
         this.logo.startWithMouse();
+    }
+
+    @FXML
+    private void handleLogin(ActionEvent event) {
+
+        LoginDto loginDto = new LoginDto(
+                this.userEmail.getText(),
+                this.userPassword.getText()
+        );
+
+        errorMessageLabel.setText("");
+        errorMessageLabel.setVisible(false);
+
+        try {
+
+            if (LoginService.login(loginDto)){
+
+                System.out.println("Jeni i kyqur si mbikqyres!");
+//                Stage stage = new Stage();
+//                Navigatior.navigate(stage, Navigatior.SUPERVISOR_RIBBON);
+                Navigatior.closeStageAfterDelay(event, Duration.millis(1));
+            } else {
+                System.out.println("Nuk jeni i kyqur!");
+                System.out.println("---------------------");
+            }
+
+        }catch (InvalidPassword | InvalidEmail e){
+            errorMessageLabel.setText(e.getMessage());
+            errorMessageLabel.setVisible(true);
+
+        }
+
     }
 
 
