@@ -15,7 +15,7 @@
 
 <BorderPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Overall.LoginController">
    <left>
-      <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: #0A84FF;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);" BorderPane.alignment="CENTER">
          <children>
             <ImageView fx:id="imgUpLogo" fitHeight="123.0" fitWidth="145.0" layoutX="104.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -59,7 +59,7 @@
                </image>
             </ImageView>
             <PasswordField fx:id="userPassword" layoutX="85.0" layoutY="265.0" prefHeight="28.0" prefWidth="180.0" promptText="password" style="-fx-background-color: transparent; -fx-border-color: #0A84FF; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.40000000000003" />
-            <Button layoutX="133.0" layoutY="334.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="35.0" prefWidth="84.0" style="-fx-background-color: #0A84FF;" text="Kyquni" textFill="WHITE" AnchorPane.leftAnchor="133.0" AnchorPane.rightAnchor="132.8">
+            <Button layoutX="133.0" layoutY="334.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="35.0" prefWidth="84.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);" text="Kyquni" textFill="WHITE" AnchorPane.leftAnchor="133.0" AnchorPane.rightAnchor="132.8">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
