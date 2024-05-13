@@ -76,14 +76,12 @@ public class LoginController {
         errorMessageLabel.setVisible(false);
 
         try {
-            String role = "";
-            Stage stage = new Stage();
-            stage.setMaximized(true);
+
             if (LoginService.login(loginDto)){
 
                 System.out.println("Jeni i kyqur si mbikqyres!");
-
-                Navigatior.navigate(stage, Navigatior.SUPERVISOR_RIBBON);
+//                Stage stage = new Stage();
+//                Navigatior.navigate(stage, Navigatior.SUPERVISOR_RIBBON);
                 Navigatior.closeStageAfterDelay(event, Duration.millis(1));
             } else {
                 System.out.println("Nuk jeni i kyqur!");

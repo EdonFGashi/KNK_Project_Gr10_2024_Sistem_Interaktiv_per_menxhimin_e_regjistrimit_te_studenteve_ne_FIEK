@@ -1,6 +1,7 @@
 package service.Overall;
 
 import app.Navigatior;
+import javafx.stage.Stage;
 import model.Admin;
 import model.SupervisorTableModel;
 import model.dto.Overall.LoginDto;
@@ -28,12 +29,27 @@ public class LoginService {
 
         switch (emailDomain) {
             case ADMIN_EMAIL_DOMAIN -> {
+                if (loginAsAdmin(loginDto)){
+                    Stage stage = new Stage();
+                    stage.setMaximized(true);
+                    Navigatior.navigate(stage, Navigatior.ADMIN_RIBBON, Navigatior.ADMIN_REGISTRATIONMENU);
+                }
                 return loginAsAdmin(loginDto);
             }
             case SUPERVISOR_EMAIL_DOMAIN -> {
+                if (loginAsSupervisor(loginDto)){
+                    Stage stage = new Stage();
+                    stage.setMaximized(true);
+                    Navigatior.navigate(stage, Navigatior.SUPERVISOR_RIBBON);
+                }
                 return loginAsSupervisor(loginDto);
             }
             case STUDENT_EMAIL_DOMAIN -> {
+                if (loginAsStudent(loginDto)){
+                    Stage stage = new Stage();
+                    stage.setMaximized(true);
+                    Navigatior.navigate(stage, "");
+                }
                 return loginAsStudent(loginDto);
             }
             default -> {
