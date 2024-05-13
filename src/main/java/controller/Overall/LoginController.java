@@ -1,8 +1,10 @@
 package controller.Overall;
 
 import app.Navigatior;
+import app.PopUp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -13,6 +15,8 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.dto.Overall.LoginDto;
 import service.Animations.UpLogoAnimate;
+import service.CustomExceptions.InvalidEmail;
+import service.CustomExceptions.InvalidPassword;
 import service.Overall.LoginService;
 
 import java.io.FileInputStream;
@@ -35,6 +39,8 @@ public class LoginController {
     private TextField userEmail;
     @FXML
     private PasswordField userPassword;
+    @FXML
+    private Label errorMessageLabel;
 
     @FXML
     private void initialize(){
@@ -66,10 +72,17 @@ public class LoginController {
                 this.userPassword.getText()
         );
 
+        errorMessageLabel.setText("");
+        errorMessageLabel.setVisible(false);
+
         try {
+            String role = "";
+            Stage stage = new Stage();
+            stage.setMaximized(true);
             if (LoginService.login(loginDto)){
+
                 System.out.println("Jeni i kyqur si mbikqyres!");
-                Stage stage = new Stage();
+
                 Navigatior.navigate(stage, Navigatior.SUPERVISOR_RIBBON);
                 Navigatior.closeStageAfterDelay(event, Duration.millis(1));
             } else {
@@ -77,8 +90,10 @@ public class LoginController {
                 System.out.println("---------------------");
             }
 
-        }catch (Exception e){
-            e.printStackTrace();
+        }catch (InvalidPassword | InvalidEmail e){
+            errorMessageLabel.setText(e.getMessage());
+            errorMessageLabel.setVisible(true);
+
         }
 
     }

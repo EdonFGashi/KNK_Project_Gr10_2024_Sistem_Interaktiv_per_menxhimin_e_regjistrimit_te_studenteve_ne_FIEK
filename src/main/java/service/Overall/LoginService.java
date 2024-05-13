@@ -1,5 +1,6 @@
 package service.Overall;
 
+import app.Navigatior;
 import model.Admin;
 import model.SupervisorTableModel;
 import model.dto.Overall.LoginDto;
@@ -19,8 +20,8 @@ public class LoginService {
     public static boolean login(LoginDto loginDto) throws InvalidEmail, InvalidPassword {
         String email = loginDto.getUserEmail();
         if (!isValidEmail(email)){
-            System.out.println("Nuk eshte email valid!");
-            return false;
+            throw new InvalidEmail("Invalid Email");
+//            return false;
         }
 
         String emailDomain = email.substring(email.indexOf("@"));
@@ -37,7 +38,7 @@ public class LoginService {
             }
             default -> {
 //
-                throw new InvalidEmail("Email not Valid");
+                throw new InvalidEmail("Email doesn't exist");
             }
         }
 
@@ -49,14 +50,14 @@ public class LoginService {
         return email.contains("@");
     }
 
-    private static boolean loginAsAdmin(LoginDto loginDto) throws InvalidPassword {
+    private static boolean loginAsAdmin(LoginDto loginDto) throws InvalidEmail {
         System.out.println("Eshte admin");
 
         Admin admin = AdminRepository.getByEmail(loginDto.getUserEmail());
         if (admin == null){
 
             System.out.println("Admini nuk u gjend ne databaze");
-            throw new InvalidPassword("Admin is not found");
+            throw new InvalidEmail("Admin is not found");
 //            return false;
         }
 
@@ -64,12 +65,12 @@ public class LoginService {
         return true;
     }
 
-    private static boolean loginAsSupervisor(LoginDto loginDto) throws InvalidPassword {
+    private static boolean loginAsSupervisor(LoginDto loginDto) throws InvalidEmail {
         System.out.println("Eshte mbikqyres");
 
         SupervisorTableModel supervisor = SupervisorRepository.getSupervisorByEmail(loginDto.getUserEmail());
         if (supervisor == null){
-            throw new InvalidPassword("Supervisor is not found");
+            throw new InvalidEmail("Supervisor is not found");
 //            return false;
         }
 

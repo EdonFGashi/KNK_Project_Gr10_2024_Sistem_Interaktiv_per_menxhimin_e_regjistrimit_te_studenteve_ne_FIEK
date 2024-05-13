@@ -3,6 +3,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -36,18 +37,28 @@
    <center>
       <AnchorPane prefHeight="500.0" prefWidth="350.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="userEmail" layoutX="84.0" layoutY="195.0" prefHeight="28.0" prefWidth="180.0" promptText="username" style="-fx-background-color: transparent; -fx-border-color: #0A84FF; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="86.40000000000003" />
-            <PasswordField fx:id="userPassword" layoutX="85.0" layoutY="265.0" prefHeight="28.0" prefWidth="180.0" promptText="password" style="-fx-background-color: transparent; -fx-border-color: #0A84FF; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.40000000000003" />
+            <ImageView fx:id="loginLogo" fitHeight="60.0" fitWidth="250.0" layoutX="145.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="145.0" AnchorPane.rightAnchor="145.39999999999998">
+               <image>
+                  <Image url="@../../../../Images/blue-users.png" />
+               </image>
+            </ImageView>
+            <Text fill="#0a84ff" layoutX="139.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log In" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="138.86191406250003">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
             <ImageView fx:id="usernameLogo" fitHeight="27.0" fitWidth="27.0" layoutX="39.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="286.0">
                <image>
                   <Image url="@../../../../Images/blue-user.png" />
                </image>
             </ImageView>
+            <TextField fx:id="userEmail" layoutX="84.0" layoutY="195.0" prefHeight="28.0" prefWidth="180.0" promptText="username" style="-fx-background-color: transparent; -fx-border-color: #0A84FF; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="86.40000000000003" />
             <ImageView fx:id="passwordLogo" fitHeight="27.0" fitWidth="27.0" layoutX="39.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="287.6">
                <image>
                   <Image url="@../../../../Images/blue-key.png" />
                </image>
             </ImageView>
+            <PasswordField fx:id="userPassword" layoutX="85.0" layoutY="265.0" prefHeight="28.0" prefWidth="180.0" promptText="password" style="-fx-background-color: transparent; -fx-border-color: #0A84FF; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.40000000000003" />
             <Button layoutX="133.0" layoutY="334.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="35.0" prefWidth="84.0" style="-fx-background-color: #0A84FF;" text="Kyquni" textFill="WHITE" AnchorPane.leftAnchor="133.0" AnchorPane.rightAnchor="132.8">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -57,16 +68,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Hyperlink>
-            <Text fill="#0a84ff" layoutX="139.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log In" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="138.86191406250003">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Text>
-            <ImageView fx:id="loginLogo" fitHeight="60.0" fitWidth="250.0" layoutX="145.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="145.0" AnchorPane.rightAnchor="145.39999999999998">
-               <image>
-                  <Image url="@../../../../Images/blue-users.png" />
-               </image>
-            </ImageView>
+            <Label fx:id="errorMessageLabel" layoutX="87.0" layoutY="308.0" prefWidth="180.0" textFill="RED" visible="false" AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="87.39999999999998" />
          </children>
       </AnchorPane>
    </center>
