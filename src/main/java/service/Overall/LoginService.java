@@ -5,6 +5,8 @@ import model.SupervisorTableModel;
 import model.dto.Overall.LoginDto;
 import repository.AdminRepository;
 import repository.Supervisor.SupervisorRepository;
+import service.CustomExceptions.InvalidEmail;
+import service.CustomExceptions.InvalidPassword;
 import service.PasswordHasher;
 
 public class LoginService {
@@ -14,7 +16,7 @@ public class LoginService {
     public static final String STUDENT_EMAIL_DOMAIN = "@student.uni-pr.edu";
 
 
-    public static boolean login(LoginDto loginDto){
+    public static boolean login(LoginDto loginDto) throws InvalidEmail, InvalidPassword {
         String email = loginDto.getUserEmail();
         if (!isValidEmail(email)){
             System.out.println("Nuk eshte email valid!");
@@ -35,11 +37,11 @@ public class LoginService {
             }
             default -> {
 //
-                System.out.println("Domeni nuk i perket fakultetit!");
+                throw new InvalidEmail("Email not Valid");
             }
         }
 
-        return false;
+//        return false;
     }
 
 
@@ -47,27 +49,28 @@ public class LoginService {
         return email.contains("@");
     }
 
-    private static boolean loginAsAdmin(LoginDto loginDto){
+    private static boolean loginAsAdmin(LoginDto loginDto) throws InvalidPassword {
         System.out.println("Eshte admin");
 
         Admin admin = AdminRepository.getByEmail(loginDto.getUserEmail());
         if (admin == null){
-            
+
             System.out.println("Admini nuk u gjend ne databaze");
-            return false;
+            throw new InvalidPassword("Admin is not found");
+//            return false;
         }
 
         System.out.println("Admini u gjend!");
         return true;
     }
 
-    private static boolean loginAsSupervisor(LoginDto loginDto){
+    private static boolean loginAsSupervisor(LoginDto loginDto) throws InvalidPassword {
         System.out.println("Eshte mbikqyres");
 
         SupervisorTableModel supervisor = SupervisorRepository.getSupervisorByEmail(loginDto.getUserEmail());
         if (supervisor == null){
-            System.out.println("Mbikqyresi nuk u gjend ne databaze");
-            return false;
+            throw new InvalidPassword("Supervisor is not found");
+//            return false;
         }
 
         System.out.println("Mbikqyresi u gjend!");
