@@ -1,19 +1,1 @@
-#buttoni_qasja{
-    -fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);
-    -fx-opacity: 0.4;
-}
-#buttoni_qasja : hover{
-    -fx-opacity: 0.9;
-}
 
-#dashboard_ribbon{
-    -fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);
-}
-
-#main_text{
-    -fx-font-weight: 800;
-}
-
-#main_image{
-    -fx-opacity: 1;
-}
