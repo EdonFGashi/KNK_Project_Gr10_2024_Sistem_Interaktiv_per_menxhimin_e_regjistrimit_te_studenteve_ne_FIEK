@@ -51,10 +51,13 @@ public class SupervisorRepository {
             ResultSet result = pst.executeQuery();
             if(result.next()){
                 return getSupervisorFromResultSet(result);
-            }else {
-                connection.close();
-                return null;
             }
+//            Po shkakton problem n'login nese nuk gjendet emaili
+//            else {
+//                connection.close();
+//                return null;
+//            }
+            return null;
         } catch (Exception e){
             return null;
         }
