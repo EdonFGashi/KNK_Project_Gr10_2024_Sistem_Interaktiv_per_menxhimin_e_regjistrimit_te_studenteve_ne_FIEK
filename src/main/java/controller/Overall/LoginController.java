@@ -64,9 +64,12 @@ public class LoginController {
         );
 
         try {
-            LoginService.login(loginDto);
-            System.out.println("Email: " + this.userEmail.getText());
-            System.out.println("Password: " + this.userPassword.getText());
+            if (LoginService.login(loginDto)){
+                System.out.println("Jeni i kyqur si mbikqyres!");
+            } else {
+                System.out.println("Nuk jeni i kyqur!");
+            }
+
         }catch (Exception e){
             e.printStackTrace();
         }
