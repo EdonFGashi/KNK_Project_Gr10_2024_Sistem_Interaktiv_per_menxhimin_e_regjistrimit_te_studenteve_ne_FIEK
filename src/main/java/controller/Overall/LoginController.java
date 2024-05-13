@@ -33,9 +33,9 @@ public class LoginController {
         } catch (FileNotFoundException fnfe){
             System.out.println("Image not found");
         }
-        this.logoPaneLoginPage.getChildren().add(logo);
-        this.logoPaneLoginPage.setTranslateX(-60);
-        this.logoPaneLoginPage.setTranslateY(50);
+//        this.logoPaneLoginPage.getChildren().add(logo);
+//        this.logoPaneLoginPage.setTranslateX(-60);
+//        this.logoPaneLoginPage.setTranslateY(50);
 
     }
 

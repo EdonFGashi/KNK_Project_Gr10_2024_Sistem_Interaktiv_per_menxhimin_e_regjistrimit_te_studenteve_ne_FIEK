@@ -14,13 +14,22 @@
 
 <BorderPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Overall.LoginController">
    <left>
-      <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: #0A84FF;" BorderPane.alignment="CENTER">
          <children>
+            <ImageView fx:id="imgUpLogo" fitHeight="123.0" fitWidth="145.0" layoutX="104.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Images/upLogoNoRing.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="75.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Regjistrimi për student">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
             <Button layoutX="133.0" layoutY="334.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="84.0" style="-fx-background-color: #FFFFFF;" text="Apliko" textFill="#0a84ff">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <AnchorPane fx:id="logoPaneLoginPage" layoutX="98.0" layoutY="95.0" onMouseEntered="#handleStartAnimation" prefHeight="141.0" prefWidth="155.0" />
          </children>
       </AnchorPane>
    </left>
@@ -39,7 +48,7 @@
                   <Image url="@../../../../Images/blue-key.png" />
                </image>
             </ImageView>
-            <Button layoutX="133.0" layoutY="334.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="84.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);" text="Kyquni" textFill="WHITE" AnchorPane.leftAnchor="133.0" AnchorPane.rightAnchor="132.8">
+            <Button layoutX="133.0" layoutY="334.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="84.0" style="-fx-background-color: #0A84FF;" text="Kyquni" textFill="WHITE" AnchorPane.leftAnchor="133.0" AnchorPane.rightAnchor="132.8">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
