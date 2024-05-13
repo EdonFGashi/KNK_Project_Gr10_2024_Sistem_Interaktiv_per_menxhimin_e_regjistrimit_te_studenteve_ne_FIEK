@@ -13,13 +13,13 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         stage.setMaximized(true);
 
-        Navigatior.navigate(stage,Navigatior.ADMIN_RIBBON);
+//        Navigatior.navigate(stage,Navigatior.ADMIN_RIBBON);
 //
         // Per me testu ribbonin e mbikqyrsve
 //        Navigatior.navigate(stage,Navigatior.SUPERVISOR_RIBBON);
 
         // Per me testu Dashboardin
 //        Navigatior.navigate(stage,Navigatior.DASHBOARD);
-//        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
+        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
     }
 }
