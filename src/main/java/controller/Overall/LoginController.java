@@ -1,5 +1,6 @@
 package controller.Overall;
 
+import app.Navigatior;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -8,6 +9,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.dto.Overall.LoginDto;
 import service.Animations.UpLogoAnimate;
 import service.Overall.LoginService;
@@ -66,8 +69,12 @@ public class LoginController {
         try {
             if (LoginService.login(loginDto)){
                 System.out.println("Jeni i kyqur si mbikqyres!");
+                Stage stage = new Stage();
+                Navigatior.navigate(stage, Navigatior.SUPERVISOR_RIBBON);
+                Navigatior.closeStageAfterDelay(event, Duration.millis(1));
             } else {
                 System.out.println("Nuk jeni i kyqur!");
+                System.out.println("---------------------");
             }
 
         }catch (Exception e){

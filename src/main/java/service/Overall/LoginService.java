@@ -39,6 +39,8 @@ public class LoginService {
                 return false;
             }
 
+            System.out.println("Mbikqyresi u gjend!");
+
             String password = loginDto.getUserPassword();
             String salt = supervisor.getSalt();
             String passwordHash = supervisor.getPasswordHash();
