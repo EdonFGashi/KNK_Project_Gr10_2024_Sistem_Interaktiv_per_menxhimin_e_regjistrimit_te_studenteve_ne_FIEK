@@ -62,7 +62,14 @@ public class LoginService {
         }
 
         System.out.println("Admini u gjend!");
-        return true;
+
+        String password = loginDto.getUserPassword();
+        String salt = admin.getSalt();
+        String passwordHash = admin.getHashedPassword();
+
+        return PasswordHasher.compareSaltedHash(
+                password, salt, passwordHash
+        );
     }
 
     private static boolean loginAsSupervisor(LoginDto loginDto) throws InvalidEmail {
