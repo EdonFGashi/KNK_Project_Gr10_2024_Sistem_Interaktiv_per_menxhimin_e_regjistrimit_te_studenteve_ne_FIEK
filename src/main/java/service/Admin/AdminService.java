@@ -5,11 +5,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Admin;
 import model.Afat;
-import model.dto.Admin.AdminProfileToControllerDto;
-import model.dto.Admin.ChangePasswordOnDb;
+import model.dto.Admin.*;
 
-import model.dto.Admin.LoginAdminDto;
-import model.dto.Admin.ResetPasswordDto;
 import model.dto.Overall.ChangePasswordDto;
 import model.dto.ResetPasswordOnDb;
 import repository.AdminRepository;
@@ -17,10 +14,8 @@ import repository.AfatRepository;
 import repository.Supervisor.SupervisorRepository;
 import service.CustomExceptions.InvalidPassword;
 import service.PasswordHasher;
-import service.SESSION;
+import controller.SESSION;
 import repository.StudentRepository;
-
-import java.util.Objects;
 
 public class AdminService {
 public static boolean login(LoginAdminDto loginData){
@@ -46,7 +41,7 @@ public static boolean login(LoginAdminDto loginData){
 
 
     public static void changePassword(ChangePasswordDto changeData) throws InvalidPassword{
-    Admin admin = AdminRepository.getByEmail(SESSION.getLoggedUserEmail());
+    Admin admin = AdminRepository.getByEmail(changeData.getEmail());
 
     if(admin == null){
         throw new InvalidPassword("Admin is not found");
@@ -71,7 +66,9 @@ public static boolean login(LoginAdminDto loginData){
         throw new InvalidPassword("Database Connection failed");
     };
     }
-
+    public static boolean editAfat(Afat afat) {
+        return AfatRepository.editAfat(afat);
+    }
     public static AdminProfileToControllerDto getProfileInfo(String email) {
         Admin admin = AdminRepository.getByEmail(email);
         if (admin == null) {
@@ -83,6 +80,9 @@ public static boolean login(LoginAdminDto loginData){
                 admin.getLastName(),
                 admin.getEmail()
         );
+    }
+    public static boolean addNewAfat(AddNewAfatDto afat) {
+        return AfatRepository.addNewAfat(afat);
     }
 
     public static ObservableList<Afat> searchAfat(String search){
@@ -127,4 +127,12 @@ public static boolean login(LoginAdminDto loginData){
        }
 
     }
+
+
+
+    public static boolean savePersonalDetails(EditAdminProfileDto editData) {
+    return AdminRepository.savePersonalDetails(editData);
+    }
+
+
 }

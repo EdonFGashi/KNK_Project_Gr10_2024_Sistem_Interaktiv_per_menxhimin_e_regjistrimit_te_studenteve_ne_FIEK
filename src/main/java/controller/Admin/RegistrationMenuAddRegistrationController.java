@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import model.dto.Admin.AddNewAfatDto;
 import repository.AfatRepository;
+import service.Admin.AdminService;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -58,7 +59,7 @@ public class RegistrationMenuAddRegistrationController {
         AddNewAfatDto addNewAfatDto = new AddNewAfatDto(
             year,hera,formattedOpenDate,formattedClosedDate,choiceLevel
         );
-       if(AfatRepository.addNewAfat(addNewAfatDto)){
+       if(AdminService.addNewAfat(addNewAfatDto)){
            PopUp.tick(250);
        }else{
            System.out.println("Afat did not create");

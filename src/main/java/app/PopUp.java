@@ -11,8 +11,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-import service.Animations.Tick;
-import service.Animations.UpLogoAnimate;
+import controller.Animations.Tick;
+import controller.Animations.UpLogoAnimate;
 
 public class PopUp {
     public static void tick(double dimension){

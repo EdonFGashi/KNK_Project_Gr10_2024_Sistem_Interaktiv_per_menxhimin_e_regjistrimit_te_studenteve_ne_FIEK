@@ -5,16 +5,14 @@ import app.PopUp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import model.Admin;
 import model.dto.Admin.AdminProfileToControllerDto;
 import model.dto.Admin.EditAdminProfileDto;
 import repository.AdminRepository;
 import service.Admin.AdminService;
-import service.SESSION;
+import controller.SESSION;
 
 import java.io.FileInputStream;
 
@@ -75,7 +73,7 @@ public class ProfileController {
           this.txtLastName.getText().trim(),
                 this.txtEmail.getText().trim()
         );
-        if(AdminRepository.savePersonalDetails(editAdminProfileDto)){
+        if(AdminService.savePersonalDetails(editAdminProfileDto)){
              PopUp.tick(200);
         }else{
             System.out.println("Gabim");

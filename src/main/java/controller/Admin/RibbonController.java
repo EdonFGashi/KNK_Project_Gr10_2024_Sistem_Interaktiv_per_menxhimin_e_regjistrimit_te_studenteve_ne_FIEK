@@ -1,15 +1,14 @@
 package controller.Admin;
 
 import app.Navigatior;
-import service.Animations.UpLogoAnimate;
+import controller.Animations.UpLogoAnimate;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import service.SESSION;
+import controller.SESSION;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -87,7 +86,7 @@ public class RibbonController {
     }
     @FXML
     private void handleSignOut(ActionEvent ae){
-        Navigatior.navigate(this.addPane, "");
+        Navigatior.navigate(ae,Navigatior.LOGIN);
     }
 
     @FXML

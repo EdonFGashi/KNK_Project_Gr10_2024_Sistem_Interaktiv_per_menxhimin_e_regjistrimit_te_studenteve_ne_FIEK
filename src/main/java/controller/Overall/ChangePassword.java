@@ -2,6 +2,7 @@ package controller.Overall;
 
 import app.Navigatior;
 import app.PopUp;
+import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -9,7 +10,6 @@ import javafx.util.Duration;
 import model.dto.Overall.ChangePasswordDto;
 import service.Admin.AdminService;
 import service.CustomExceptions.InvalidPassword;
-import service.SESSION;
 
 public class ChangePassword {
     @FXML
@@ -27,7 +27,8 @@ public class ChangePassword {
         ChangePasswordDto change = new ChangePasswordDto(
                 this.pwdCurrentPassword.getText(),
                 this.pwdNewPassword.getText(),
-                this.pwdConfirmPassword.getText()
+                this.pwdConfirmPassword.getText(),
+                SESSION.getLoggedUserEmail()
         );
 
         try{
