@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="459.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="518.0" layoutX="14.0" layoutY="14.0" stroke="#a5cef2" strokeType="INSIDE" style="-fx-fill: transparent;" width="429.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="57.0" AnchorPane.topAnchor="14.0" />
+        <ImageView fitHeight="107.0" fitWidth="117.0" layoutX="175.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../Images/info.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="145.0" layoutY="140.0" prefHeight="35.0" prefWidth="167.0" text="Manuali i Studentit" textFill="#0a84ff">
+            <font>
+                <Font name="Arial" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="80.0" layoutY="175.0" prefHeight="35.0" prefWidth="297.0" text="Ky manual ofron udhëzime për përdorimin e faqes!" textFill="#0a84ff">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </Label>
+        <Line endX="171.0" layoutX="243.0" layoutY="219.0" startX="-196.0" stroke="#a5cef2" />
+        <Label layoutX="130.0" layoutY="239.0" prefHeight="22.0" prefWidth="197.0" style="-fx-border-color: #a5cef2; -fx-border-width: 0px 0px 2px 0px;" text="Elementet në pjesën e majtë:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <HBox layoutX="56.0" layoutY="283.0" prefHeight="35.0" prefWidth="344.0">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="PROFILE - Mundëson qkyqjen nga llogaria dhe gjithashtu ndrrimin e gjuhës." textAlignment="JUSTIFY" wrappingWidth="344.13671875" />
+            </children>
+        </HBox>
+        <HBox layoutX="57.0" layoutY="326.0" prefHeight="35.0" prefWidth="344.0">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="PERSONAL INFO - Pjesa ku duhet vendosur të dhënat personale të studentit." textAlignment="JUSTIFY" wrappingWidth="343.13671875" />
+            </children>
+        </HBox>
+        <HBox layoutX="58.0" layoutY="370.0" prefHeight="22.0" prefWidth="348.0">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EDUCATIONAL EXPERIENCE - Pjesa ku duhet vendosur informacioni për shkollën, universitetin ose kurset e përfunduara, përfshirë emrin e institucionit, gradën ose diplomën e arritur, dhe periudhën e studimeve." textAlignment="JUSTIFY" wrappingWidth="341.13671875" />
+            </children>
+        </HBox>
+        <HBox layoutX="59.0" layoutY="447.0" prefHeight="22.0" prefWidth="339.0">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ACADEMIC INTEREST - Përfshin fushat e studimit ose temat që interesojnë kandidatin për studime të mëtejshme, kërkime, ose zhvillim profesional." textAlignment="JUSTIFY" wrappingWidth="343.41796875" />
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>
