@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.StudentMenuController">
+    <children>
+        <AnchorPane prefHeight="800.0" prefWidth="1520.0">
+            <children>
+                <AnchorPane prefHeight="800.0" prefWidth="400.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-background-radius: 30;" AnchorPane.topAnchor="2.0">
+                    <children>
+                        <HBox fx:id="hbxPersinfo" layoutX="42.0" layoutY="314.0" onMouseClicked="#handleOptionClick1" prefHeight="62.0" prefWidth="314.0">
+                            <children>
+                                <ImageView fx:id="imgPrsinfo" fitHeight="64.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true" />
+                                <Label fx:id="txtPrsinfo" prefHeight="64.0" prefWidth="257.0" text="Personal Information" textFill="WHITE">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox fx:id="hboxEducation" layoutX="35.0" layoutY="455.0" onMouseClicked="#handleOptionClick2" prefHeight="64.0" prefWidth="330.0">
+                            <children>
+                                <ImageView fx:id="imgEducation" fitHeight="64.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true" />
+                                <Label fx:id="txtEducation" prefHeight="64.0" prefWidth="257.0" text=" Educational Experience" textFill="WHITE">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox fx:id="hboxAcademic" layoutX="43.0" layoutY="595.0" onMouseClicked="#handleOptionClick3" prefHeight="62.0" prefWidth="314.0">
+                            <children>
+                                <ImageView fx:id="imgAcademic" fitHeight="64.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true" />
+                                <Label fx:id="txtAcademic" prefHeight="64.0" prefWidth="257.0" text="Academic Interest" textFill="WHITE">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <AnchorPane fx:id="logoPane" layoutX="53.0" layoutY="25.0" onMouseClicked="#handleLogoClicked"  prefHeight="255.0" prefWidth="292.0" />
+                    </children>
+                </AnchorPane>
+                <HBox fx:id="hboxaddPane" layoutX="400.0" layoutY="2.0" prefHeight="800.0" prefWidth="1530.0" />
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>

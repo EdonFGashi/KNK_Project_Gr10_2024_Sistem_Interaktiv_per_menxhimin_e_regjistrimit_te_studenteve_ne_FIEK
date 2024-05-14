@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="794.0" prefWidth="1120.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.EducationalExperienceController">
+   <children>
+      <Pane layoutX="-1.0" layoutY="73.0" prefHeight="184.0" prefWidth="1123.0" style="-fx-background-color: #1e2b66;">
+         <children>
+            <Label layoutX="121.0" layoutY="70.0" text="Educational Experience" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <AnchorPane layoutX="2.0" layoutY="242.0" prefHeight="531.0" prefWidth="1115.0">
+         <children>
+            <AnchorPane layoutX="16.0" layoutY="31.0" prefHeight="506.0" prefWidth="1084.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <GridPane layoutX="30.0" layoutY="18.0" prefHeight="481.0" prefWidth="565.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.0000274658203" minWidth="10.0" prefWidth="217.60006408691407" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="365.3999786376953" minWidth="10.0" prefWidth="283.19993591308594" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="104.60001220703126" minHeight="10.0" prefHeight="49.8" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="189.4" minHeight="10.0" prefHeight="67.4" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="211.60001220703128" minHeight="10.0" prefHeight="65.20000000000002" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="211.60001220703128" minHeight="10.0" prefHeight="71.6" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="211.60001220703128" minHeight="10.0" prefHeight="71.6" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="211.60001220703128" minHeight="10.0" prefHeight="71.6" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="211.60001220703128" minHeight="10.0" prefHeight="71.6" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="211.60001220703128" minHeight="10.0" prefHeight="71.6" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="211.60001220703128" minHeight="10.0" prefHeight="71.6" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="211.60001220703128" minHeight="10.0" prefHeight="71.6" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <TextField fx:id="txtSchoolName" editable="false" prefHeight="46.0" prefWidth="315.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtMath" editable="false" layoutX="269.0" layoutY="10.0" prefHeight="38.0" prefWidth="315.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtAlbanian" editable="false" layoutX="154.0" layoutY="64.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtEnglish" editable="false" layoutX="154.0" layoutY="64.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label prefHeight="23.0" prefWidth="134.0" text="School Name:">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="23.0" prefWidth="195.0" text="Mathematic Points:" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="23.0" prefWidth="195.0" text="Albanian points:" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="140.0" prefHeight="23.0" prefWidth="195.0" text="English points:" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="187.0" prefHeight="23.0" prefWidth="195.0" text="Chosen Subject:" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtChosenSubject" editable="false" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label layoutX="10.0" layoutY="209.0" prefHeight="23.0" prefWidth="195.0" text="Chosen Subject points:" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtChosenSubjectPoints" editable="false" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label prefHeight="23.0" prefWidth="222.0" text="All points on &quot;Mature&quot; test:" GridPane.rowIndex="6">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtAllPoints" editable="false" layoutX="241.0" layoutY="256.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label prefHeight="23.0" prefWidth="222.0" text="Success in Grade 10" GridPane.rowIndex="7">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="23.0" prefWidth="222.0" text="Success in Grade 11" GridPane.rowIndex="8">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="392.0" prefHeight="23.0" prefWidth="222.0" text="Success in Grade 12" GridPane.rowIndex="9">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtGrade10" editable="false" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <TextField fx:id="txtGrade11" editable="false" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <TextField fx:id="txtGrade12" editable="false" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                     </children>
+                  </GridPane>
+                  <ImageView fx:id="imgGradeCertificate" fitHeight="191.0" fitWidth="210.0" layoutX="628.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imgIdentification" fitHeight="186.0" fitWidth="166.0" layoutX="900.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imgDiplome" fitHeight="180.0" fitWidth="168.0" layoutX="899.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="657.0" layoutY="9.0" prefHeight="23.0" prefWidth="152.0" text="Grade certificate:">
+                     <font>
+                        <Font name="Tahoma" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="950.0" layoutY="9.0" prefHeight="23.0" prefWidth="133.0" text="Identification:">
+                     <font>
+                        <Font name="Tahoma" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="663.0" layoutY="335.0" prefHeight="23.0" prefWidth="178.0" text="High School Diploma">
+                     <font>
+                        <Font name="Tahoma" size="16.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="645.0" layoutY="442.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 30;" text="Back" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="871.0" layoutY="442.0" mnemonicParsing="false" onAction="#handleContinue" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #387a43; -fx-background-radius: 30;" text="Continue" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
