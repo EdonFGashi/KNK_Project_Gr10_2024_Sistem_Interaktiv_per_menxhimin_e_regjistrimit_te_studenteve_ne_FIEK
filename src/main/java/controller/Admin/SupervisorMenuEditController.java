@@ -3,7 +3,6 @@ package controller.Admin;
 
 import app.Navigatior;
 import app.PopUp;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,19 +14,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import model.Afat;
 import model.SupervisorTableModel;
 import model.dto.Supervisor.SupervisorEditDto;
-import repository.AfatRepository;
 import repository.Supervisor.SupervisorRepository;
-import service.Admin.AdminService;
-import service.SESSION;
+import controller.SESSION;
 import service.Supervisor.SupervisorService;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class SupervisorMenuEditController {
     @FXML

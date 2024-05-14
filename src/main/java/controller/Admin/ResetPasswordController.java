@@ -5,12 +5,10 @@ import app.PopUp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
-import javafx.stage.Popup;
 import javafx.util.Duration;
 import model.dto.Admin.ResetPasswordDto;
 import service.Admin.AdminService;
 import service.CustomExceptions.InvalidPassword;
-import service.SESSION;
 
 public class ResetPasswordController {
     @FXML

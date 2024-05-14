@@ -20,8 +20,7 @@ import model.dto.Admin.EditRegisteredStudentDetailsOnDbDto;
 import model.dto.Admin.RegisteredStudentDetailsToControllerDto;
 import repository.StudentRepository;
 import service.Admin.StudentFromAdminService;
-import service.SESSION;
-import service.Supervisor.SupervisorService;
+import controller.SESSION;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -102,10 +101,10 @@ public class StudentMenuShowAndEditController {
     }
     @FXML
     private void handleDelete(ActionEvent ae){
-       if(StudentRepository.deleteStudent(this.selectedUser.getUserId())){
+       if(StudentFromAdminService.deleteStudent(this.selectedUser.getUserId())){
             PopUp.tick(200);
            this.userStudentsList = StudentFromAdminService.searchStudent(this.txtSearch.getText());
-           this.setColumns();
+           this.tableStudent.setItems(this.userStudentsList);
         }else{
             System.out.println("Nuk u fshi");
         }
@@ -131,7 +130,7 @@ public class StudentMenuShowAndEditController {
    private void handleEdit(ActionEvent ae){
        if(!this.edit) {
            this.btnEdit.setText("Edit");
-           if (StudentRepository.editRegisteredStudent(
+           if (StudentFromAdminService.editRegisteredStudent(
                    new EditRegisteredStudentDetailsOnDbDto(
                            this.selectedUser.getUserId(),
                            this.txtGeneratedEmail.getText(),
@@ -142,7 +141,7 @@ public class StudentMenuShowAndEditController {
            )) {
                PopUp.tick(200);
                this.userStudentsList = StudentFromAdminService.searchStudent(this.txtSearch.getText());
-               this.setColumns();
+               this.tableStudent.setItems(this.userStudentsList);
            } else {
                System.out.println("Edit was not Done");
            }
@@ -184,31 +183,6 @@ public class StudentMenuShowAndEditController {
         this.txtSearch.setText(SESSION.getAdmin_student_lastSearch());
 
         this.userStudentsList = StudentFromAdminService.searchStudent(this.txtSearch.getText());
-        this.setColumns();
-        this.edit = true;
-    }
-
-    @FXML
-    private void handleSearch(ActionEvent ae) {
-        this.userStudentsList = StudentFromAdminService.searchStudent(this.txtSearch.getText());
-        SESSION.setAdmin_student_lastSearch(this.txtSearch.getText().trim());
-        this.setColumns();
-    }
-    @FXML
-    private void handleSearchClick(MouseEvent me){
-        this.userStudentsList = StudentFromAdminService.searchStudent(this.txtSearch.getText());
-        SESSION.setAdmin_student_lastSearch(this.txtSearch.getText().trim());
-        this.setColumns();
-    }
-
-    private void enableForms() {
-       this.txtDepartment.setEditable(true);
-       this.txtGeneratedEmail.setEditable(true);
-       this.txtGeneratedId.setEditable(true);
-       this.txtLevel.setEditable(true);
-    }
-
-    private void setColumns(){
         this.columnId.setCellValueFactory(new PropertyValueFactory<UserStudent,Integer>("userId"));
         this.columnPersonalNumber.setCellValueFactory(new PropertyValueFactory<UserStudent,String>("numriPersonal"));
         this.columnEmail.setCellValueFactory(new PropertyValueFactory<UserStudent,String>("email"));
@@ -220,7 +194,29 @@ public class StudentMenuShowAndEditController {
         this.columnGender.setCellValueFactory(new PropertyValueFactory<UserStudent,String>("gjinia"));
         this.columnBirthDate.setCellValueFactory(new PropertyValueFactory<UserStudent,String>("dataLindjes"));
         this.tableStudent.setItems(this.userStudentsList);
+        this.edit = true;
     }
+
+    @FXML
+    private void handleSearch(ActionEvent ae) {
+        this.userStudentsList = StudentFromAdminService.searchStudent(this.txtSearch.getText());
+        SESSION.setAdmin_student_lastSearch(this.txtSearch.getText().trim());
+        this.tableStudent.setItems(this.userStudentsList);
+    }
+    @FXML
+    private void handleSearchClick(MouseEvent me){
+        this.userStudentsList = StudentFromAdminService.searchStudent(this.txtSearch.getText());
+        SESSION.setAdmin_student_lastSearch(this.txtSearch.getText().trim());
+        this.tableStudent.setItems(this.userStudentsList);
+    }
+
+    private void enableForms() {
+       this.txtDepartment.setEditable(true);
+       this.txtGeneratedEmail.setEditable(true);
+       this.txtGeneratedId.setEditable(true);
+       this.txtLevel.setEditable(true);
+    }
+
 
     private void setTextFields(){
 

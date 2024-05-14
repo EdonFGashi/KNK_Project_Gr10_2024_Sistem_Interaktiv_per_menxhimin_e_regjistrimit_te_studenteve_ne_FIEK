@@ -12,8 +12,8 @@ module com.example.knk_project_gr10_2024 {
 //    opens app to javafx.fxml;
     opens app to javafx.graphics;
     exports app;
-    exports service.Animations;
-    opens service.Animations to javafx.graphics;
+    exports controller.Animations;
+    opens controller.Animations to javafx.graphics;
     //   opens com.example.knk_project_gr10_2024 to javafx.fxml;
 
    //    exports com.example.knk_project_gr10_2024;

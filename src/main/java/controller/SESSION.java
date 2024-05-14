@@ -1,4 +1,4 @@
-package service;
+package controller;
 
 public class SESSION {
     private static String loggedUserEmail = "jon@admin.uni-pr.edu";
