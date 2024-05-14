@@ -13,7 +13,7 @@ import javafx.scene.input.MouseEvent;
 import model.Afat;
 import repository.AfatRepository;
 import service.Admin.AdminService;
-import service.SESSION;
+import controller.SESSION;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -83,6 +83,7 @@ public class RegistrationMenuShowAndEditController {
         this.afatList = AdminService.searchAfat(SESSION.getAdmin_registration_lastSearch());
         this.txtSearch.setText(SESSION.getAdmin_registration_lastSearch());
         setColumns();
+        this.tableAfat.setItems(this.afatList);
         this.edit = true;
 
     }
@@ -107,7 +108,7 @@ public class RegistrationMenuShowAndEditController {
             LocalDate closeDate = this.dateClosedDate.getValue();
             String formattedClosedDate = closeDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
             String choiceLevel = this.choiseChoseLevel.getValue();
-            if(AfatRepository.editAfat(
+            if(AdminService.editAfat(
                     new Afat(
                             Integer.parseInt(this.txtId.getText()),
                              Integer.parseInt(this.txtYear.getText()),hera,
@@ -119,7 +120,7 @@ public class RegistrationMenuShowAndEditController {
                 System.out.println("Edit not succesful");
             }
             this.afatList = AdminService.searchAfat(SESSION.getAdmin_registration_lastSearch());
-            setColumns();
+            this.tableAfat.setItems(this.afatList);
             this.disableForms();
             this.btnEdit.setText("Edit");
             this.edit = true;
@@ -129,13 +130,13 @@ public class RegistrationMenuShowAndEditController {
     private void handleSearch(ActionEvent ae){
         this.afatList = AdminService.searchAfat(this.txtSearch.getText().trim());
         SESSION.setAdmin_registration_lastSearch(this.txtSearch.getText().trim());
-        this.setColumns();
+        this.tableAfat.setItems(this.afatList);
     }
     @FXML
     private void handleSearchClick(MouseEvent me){
         this.afatList = AdminService.searchAfat(this.txtSearch.getText().trim());
         SESSION.setAdmin_registration_lastSearch(this.txtSearch.getText().trim());
-        this.setColumns();
+        this.tableAfat.setItems(this.afatList);
     }
 
     @FXML
@@ -143,7 +144,7 @@ public class RegistrationMenuShowAndEditController {
        if(AfatRepository.deleteAfat(Integer.parseInt(this.txtId.getText()))){
            PopUp.tick(150);
            this.afatList = AdminService.searchAfat(SESSION.getAdmin_registration_lastSearch());
-           setColumns();
+           this.tableAfat.setItems(this.afatList);
        }else{
            System.out.println("Nuk u fshi");
        }
@@ -157,7 +158,6 @@ public class RegistrationMenuShowAndEditController {
         this.columnOpenDate.setCellValueFactory(new PropertyValueFactory<Afat,String>("dataHapjes"));
         this.columnCloseDate.setCellValueFactory(new PropertyValueFactory<Afat,String>("dataMbylljes"));
         this.columnLevel.setCellValueFactory(new PropertyValueFactory<Afat,String>("niveli"));
-        this.tableAfat.setItems(this.afatList);
     }
 
     private void setTextFields(){
@@ -179,8 +179,8 @@ public class RegistrationMenuShowAndEditController {
     private void enableForms(){
               this.txtYear.setEditable(true);
               this.choiseChoseLevel.setDisable(false);
-              this.dateOpenDate.setEditable(true);
-              this.dateClosedDate.setEditable(true);
+              this.dateOpenDate.setDisable(false);
+              this.dateClosedDate.setDisable(false);
     }
     private void disableForms() {
         this.txtYear.setEditable(false);

@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.RegisteredStudent;
 import model.UserStudent;
+import model.dto.Admin.EditRegisteredStudentDetailsOnDbDto;
 import model.dto.Admin.RegisteredStudentDetailsToControllerDto;
 import repository.StudentRepository;
 
@@ -38,5 +39,13 @@ public class StudentFromAdminService {
             );
         }
 
+    }
+
+    public static boolean deleteStudent(int userId) {
+        return StudentRepository.deleteStudent(userId);
+    }
+
+    public static boolean editRegisteredStudent(EditRegisteredStudentDetailsOnDbDto data) {
+        return StudentRepository.editRegisteredStudent(data);
     }
 }

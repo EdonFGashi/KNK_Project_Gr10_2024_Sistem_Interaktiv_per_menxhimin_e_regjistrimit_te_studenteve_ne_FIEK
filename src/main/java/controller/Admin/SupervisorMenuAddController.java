@@ -5,7 +5,7 @@ import app.PopUp;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import model.dto.Supervisor.SupervisorCreateInterfaceDto;
-import service.Animations.UpLogoAnimate;
+import controller.Animations.UpLogoAnimate;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
