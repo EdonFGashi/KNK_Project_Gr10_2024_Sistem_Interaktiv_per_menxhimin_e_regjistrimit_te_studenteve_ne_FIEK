@@ -60,8 +60,8 @@ public class StudentMenuController {
     private void initialize() {
 
         this.personalinfoNavigate = Navigatior.ADMIN_PROFILE;
-      //  this.EducationExperienceNavigate = Navigatior.EDUCATION;
-        //this.AcademinInterestNavigate = Navigatior.ACADEMIC;
+        this.EducationExperienceNavigate = Navigatior.EDUCATION;
+        this.AcademinInterestNavigate = Navigatior.ACADEMIC;
         try {
             this.imgPrsinfo.setImage(new Image(new FileInputStream("Images/information.png")));
             this.imgEducation.setImage(new Image(new FileInputStream("Images/Education.png")));
