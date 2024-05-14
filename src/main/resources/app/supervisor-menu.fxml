@@ -1,136 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<HBox prefHeight="1154.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.SupervisorMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.MenuController">
     <children>
-        <HBox prefHeight="1172.0" prefWidth="268.0">
+        <AnchorPane prefHeight="720.0" prefWidth="238.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-background-radius: 30;" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
             <children>
-                <VBox prefHeight="1074.0" prefWidth="243.0" spacing="30.0">
+                <ImageView fx:id="imgMain" fitHeight="152.0" fitWidth="155.0" layoutX="47.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../../Images/studentMenu.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="txtMenuName" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="230.0" prefHeight="38.0" prefWidth="259.0" style="-fx-font-weight: bold; -fx-text-alignment: center;" text="Student Menagment" textFill="WHITE">
+                    <font>
+                        <Font name="Tahoma" size="18.0" />
+                    </font>
+                </Label>
+                <HBox fx:id="hboxOption1" alignment="CENTER_LEFT" layoutX="22.0" layoutY="312.0" onMouseClicked="#handleOption1Click" onMouseEntered="#handleHoverOption1" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
                     <children>
-                        <HBox>
-                            <children>
-                                <Label prefHeight="27.0" prefWidth="235.0" style="-fx-font-weight: bold;" text="Student Menagment">
-                                    <font>
-                                        <Font name="Arial" size="21.0" />
-                                    </font>
-                                </Label>
-                            </children>
-                            <VBox.margin>
-                                <Insets left="15.0" />
-                            </VBox.margin>
-                        </HBox>
-                        <Line endX="-8.707082748413086" endY="6.115436463005608E-6" startX="206.5858154296875" startY="6.854534149169922E-6" stroke="#0a84ff">
-                            <VBox.margin>
-                                <Insets bottom="10.0" left="10.0" />
-                            </VBox.margin>
-                        </Line>
-                        <HBox fx:id="hboxShowStudents" alignment="CENTER_LEFT" onMouseClicked="#handleShowStudentsClick" prefHeight="38.0" prefWidth="220.0" style="-fx-background-radius: 10px;">
-                            <children>
-                                <Label prefHeight="20.0" prefWidth="140.0" text="Evaluate Students">
-                                    <font>
-                                        <Font name="Arial" size="18.0" />
-                                    </font>
-                                    <cursor>
-                                        <Cursor fx:constant="HAND" />
-                                    </cursor>
-                                </Label>
-                            </children>
-                            <VBox.margin>
-                                <Insets left="15.0" right="10.0" />
-                            </VBox.margin>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                            <padding>
-                                <Insets left="8.0" />
-                            </padding>
-                        </HBox>
-                        <HBox fx:id="hboxEditStudent" alignment="CENTER_LEFT" layoutX="25.0" layoutY="148.0" onMouseClicked="#handleEditStudentClick" prefHeight="38.0" prefWidth="220.0">
-                            <children>
-                                <Label prefHeight="20.0" prefWidth="140.0" text="Blank 1">
-                                    <font>
-                                        <Font name="Arial" size="18.0" />
-                                    </font>
-                                    <cursor>
-                                        <Cursor fx:constant="HAND" />
-                                    </cursor>
-                                </Label>
-                            </children>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                            <padding>
-                                <Insets left="8.0" />
-                            </padding>
-                            <VBox.margin>
-                                <Insets left="15.0" right="10.0" />
-                            </VBox.margin>
-                        </HBox>
-                        <HBox fx:id="hboxAddStudent" alignment="CENTER_LEFT" layoutX="25.0" layoutY="216.0" onMouseClicked="#handleAddStudentClick" prefHeight="38.0" prefWidth="220.0">
-                            <children>
-                                <Label prefHeight="20.0" prefWidth="140.0" text="Blank 2">
-                                    <font>
-                                        <Font name="Arial" size="18.0" />
-                                    </font>
-                                    <cursor>
-                                        <Cursor fx:constant="HAND" />
-                                    </cursor>
-                                </Label>
-                            </children>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                            <padding>
-                                <Insets left="8.0" />
-                            </padding>
-                            <VBox.margin>
-                                <Insets left="15.0" right="10.0" />
-                            </VBox.margin>
-                        </HBox>
-                        <HBox fx:id="hboxGenerateCredentials" alignment="CENTER_LEFT" layoutX="25.0" layoutY="290.0" onMouseClicked="#handleGenerateCredentialsClick" prefHeight="38.0" prefWidth="220.0">
-                            <children>
-                                <Label prefHeight="21.0" prefWidth="187.0" text="Blank 3">
-                                    <font>
-                                        <Font name="Arial" size="18.0" />
-                                    </font>
-                                    <cursor>
-                                        <Cursor fx:constant="HAND" />
-                                    </cursor>
-                                </Label>
-                            </children>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                            <padding>
-                                <Insets left="8.0" />
-                            </padding>
-                            <VBox.margin>
-                                <Insets left="15.0" right="10.0" />
-                            </VBox.margin>
-                        </HBox>
+                        <ImageView fx:id="imgOption1" fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../../Images/showAndEditStudent.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="txtOption1" prefHeight="42.0" prefWidth="168.0" text="Show and Edit" textFill="WHITE">
+                            <font>
+                                <Font name="Tahoma" size="18.0" />
+                            </font>
+                        </Label>
                     </children>
-                    <HBox.margin>
-                        <Insets top="20.0" />
-                    </HBox.margin>
-                    <effect>
-                        <ColorAdjust />
-                    </effect>
-                </VBox>
-                <Line endX="-11.24137020111084" endY="42.47406005859375" startX="-10.24221134185791" startY="1214.2020263671875" stroke="#0a84ff">
-                    <HBox.margin>
-                        <Insets right="30.0" top="10.0" />
-                    </HBox.margin>
-                </Line>
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </HBox>
+                <HBox fx:id="hboxOption2" alignment="CENTER_LEFT" layoutX="22.0" layoutY="412.0" onMouseClicked="#handleOption2Click" onMouseEntered="#handleHoverOption2" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
+                    <children>
+                        <ImageView fx:id="imgOption2" fitHeight="25.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="txtOption2" prefHeight="42.0" prefWidth="142.0" text="Statisctics" textFill="WHITE">
+                            <font>
+                                <Font name="Tahoma" size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </HBox>
+                <Line endX="223.7999725341797" layoutX="15.0" layoutY="278.0" startX="0.5999641418457031" stroke="WHITE" />
+                <HBox fx:id="hboxOption3" alignment="CENTER_LEFT" layoutX="21.0" layoutY="515.0" onMouseClicked="#handleOption3Click" onMouseEntered="#handleHoverOption3" prefHeight="43.0" prefWidth="225.0" spacing="10.0">
+                    <children>
+                        <ImageView fx:id="imgOption3" fitHeight="24.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="txtOption3" prefHeight="42.0" prefWidth="145.0" text="hej" textFill="WHITE">
+                            <font>
+                                <Font name="Tahoma" size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </HBox>
+                <Line endX="247.39996337890625" endY="-1.9073486328125E-6" layoutX="11.0" layoutY="1.0" startX="-10.999987602233887" startY="-1.9073486328125E-6" stroke="WHITE" />
             </children>
-        </HBox>
-        <HBox fx:id="addPane" alignment="CENTER" prefHeight="1184.0" prefWidth="1654.0" />
+        </AnchorPane>
+        <HBox fx:id="addPane" layoutX="248.0" prefHeight="720.0" prefWidth="1270.0" />
     </children>
-</HBox>
+</AnchorPane>
