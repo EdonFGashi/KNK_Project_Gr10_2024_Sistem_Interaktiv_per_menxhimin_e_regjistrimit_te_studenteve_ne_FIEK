@@ -32,7 +32,7 @@ public class LoginService {
                 if (loginAsAdmin(loginDto)){
                     Stage stage = new Stage();
                     stage.setMaximized(true);
-                    Navigatior.navigate(stage, Navigatior.ADMIN_RIBBON, Navigatior.ADMIN_REGISTRATIONMENU);
+                    Navigatior.navigate(stage, Navigatior.ADMIN_RIBBON);
                 }
                 return loginAsAdmin(loginDto);
             }
