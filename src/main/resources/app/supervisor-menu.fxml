@@ -68,6 +68,19 @@
                </padding>
             </HBox>
             <Line endX="247.39996337890625" endY="-1.9073486328125E-6" layoutX="11.0" layoutY="1.0" startX="-10.999987602233887" startY="-1.9073486328125E-6" stroke="WHITE" />
+            <HBox fx:id="hboxOption4" alignment="CENTER_LEFT" layoutX="16.0" layoutY="586.0" onMouseClicked="#handleOption4Click" onMouseEntered="#handleHoverOption4" prefHeight="43.0" prefWidth="225.0" spacing="10.0">
+               <children>
+                  <ImageView fx:id="imgOption31" fitHeight="24.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="txtOption31" prefHeight="42.0" prefWidth="145.0" text="Profile (temp)" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
          </children>
       </AnchorPane>
       <HBox fx:id="addPane" layoutX="248.0" prefHeight="720.0" prefWidth="1270.0" />

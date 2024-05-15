@@ -29,10 +29,13 @@
                   <Insets bottom="10.0" left="30.0" right="20.0" top="10.0" />
                </padding>
                <children>
-                  <ImageView fx:id="imgInfoIcon" fitHeight="34.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgInfoIcon" fitHeight="34.0" fitWidth="47.0" onMouseClicked="#handleInfoIconClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../Images/info-icon.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                   <HBox alignment="CENTER" onMouseClicked="#handleProfileClick" prefHeight="50.0" prefWidth="123.0">
                      <children>

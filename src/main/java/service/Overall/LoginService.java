@@ -1,6 +1,7 @@
 package service.Overall;
 
 import app.Navigatior;
+import controller.SESSION;
 import javafx.stage.Stage;
 import model.Admin;
 import model.SupervisorTableModel;
@@ -18,11 +19,15 @@ public class LoginService {
     public static final String STUDENT_EMAIL_DOMAIN = "@student.uni-pr.edu";
 
 
-    public static boolean login(LoginDto loginDto) throws InvalidEmail, InvalidPassword {
+    public static String login(LoginDto loginDto) throws InvalidEmail, InvalidPassword {
         String email = loginDto.getUserEmail();
         if (!isValidEmail(email)){
-            throw new InvalidEmail("Invalid Email");
-//            return false;
+            throw new InvalidEmail("Invalid Email Format");
+        }
+
+        String password = loginDto.getUserPassword();
+        if (password.isEmpty()){
+            throw new InvalidPassword("Please type your password!");
         }
 
         String emailDomain = email.substring(email.indexOf("@"));
@@ -30,56 +35,54 @@ public class LoginService {
         switch (emailDomain) {
             case ADMIN_EMAIL_DOMAIN -> {
                 if (loginAsAdmin(loginDto)){
-                    Stage stage = new Stage();
-                    stage.setMaximized(true);
-                    Navigatior.navigate(stage, Navigatior.ADMIN_RIBBON);
+                    SESSION.setLoggedUserEmail(email);
+                    return "admin";
                 }
-                return loginAsAdmin(loginDto);
+                return null;
             }
             case SUPERVISOR_EMAIL_DOMAIN -> {
                 if (loginAsSupervisor(loginDto)){
-                    Stage stage = new Stage();
-                    stage.setMaximized(true);
-                    Navigatior.navigate(stage, Navigatior.SUPERVISOR_RIBBON);
+                    SESSION.setLoggedUserEmail(email);
+                    return "supervisor";
                 }
-                return loginAsSupervisor(loginDto);
+                return null;
             }
-            case STUDENT_EMAIL_DOMAIN -> {
-                if (loginAsStudent(loginDto)){
-                    Stage stage = new Stage();
-                    stage.setMaximized(true);
-                    Navigatior.navigate(stage, "");
-                }
-                return loginAsStudent(loginDto);
-            }
+//            case STUDENT_EMAIL_DOMAIN -> {
+//                if (loginAsStudent(loginDto)){
+//                    Stage stage = new Stage();
+//                    stage.setMaximized(true);
+//                    Navigatior.navigate(stage, "");
+//                }
+//                return null;
+//            }
             default -> {
 //
-                throw new InvalidEmail("Email doesn't exist");
+                if (loginAsStudent(loginDto)){
+                    SESSION.setLoggedUserEmail(email);
+                    return "student";
+                }
+                return null;
             }
         }
-
-//        return false;
     }
-
 
     private static boolean isValidEmail(String email){
-        return email.contains("@");
+        String emailPattern = "^.+@.+\\..+$";
+        // Kontrollon nese emaili i pershtatet patternit
+        return email.matches(emailPattern);
     }
 
-    private static boolean loginAsAdmin(LoginDto loginDto) throws InvalidEmail {
-        System.out.println("Eshte admin");
+    private static boolean loginAsAdmin(LoginDto loginDto) throws InvalidEmail, InvalidPassword {
 
         Admin admin = AdminRepository.getByEmail(loginDto.getUserEmail());
+
         if (admin == null){
 
-            System.out.println("Admini nuk u gjend ne databaze");
-            throw new InvalidEmail("Admin is not found");
-//            return false;
+            return false;
         }
 
-        System.out.println("Admini u gjend!");
-
         String password = loginDto.getUserPassword();
+
         String salt = admin.getSalt();
         String passwordHash = admin.getHashedPassword();
 
@@ -89,15 +92,12 @@ public class LoginService {
     }
 
     private static boolean loginAsSupervisor(LoginDto loginDto) throws InvalidEmail {
-        System.out.println("Eshte mbikqyres");
 
         SupervisorTableModel supervisor = SupervisorRepository.getSupervisorByEmail(loginDto.getUserEmail());
         if (supervisor == null){
-            throw new InvalidEmail("Supervisor is not found");
-//            return false;
-        }
 
-        System.out.println("Mbikqyresi u gjend!");
+            return false;
+        }
 
         String password = loginDto.getUserPassword();
         String salt = supervisor.getSalt();

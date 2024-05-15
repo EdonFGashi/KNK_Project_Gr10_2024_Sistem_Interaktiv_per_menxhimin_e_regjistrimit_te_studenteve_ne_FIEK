@@ -4,6 +4,7 @@ import app.Navigatior;
 import controller.Animations.UpLogoAnimate;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -52,6 +53,11 @@ public class RibbonController {
         }
         this.anchorLogo.getChildren().add(logo);
         this.anchorLogo.setTranslateY(25);
+
+        // E bon display ni text kur tbohet hover logo e infos
+        Tooltip tooltip = new Tooltip("Info");
+
+        Tooltip.install(imgInfoIcon, tooltip);
     }
 
     @FXML
@@ -105,5 +111,8 @@ public class RibbonController {
         SESSION.setAdminMenu("Afat");
         Navigatior.navigate(this.addPane,Navigatior.ADMIN_MENU);
     }
+
+    @FXML
+    private void handleInfoIconClicked(MouseEvent me){Navigatior.navigateNewStage(Navigatior.HELP_ADMIN);}
 
 }

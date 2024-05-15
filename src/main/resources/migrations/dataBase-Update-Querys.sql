@@ -70,3 +70,15 @@ VALUES
 
 
 
+-- Shkruani edhe daten para se me e qit ni query
+
+-- 15/05/2024 - Joni
+ALTER TABLE tblKonkurimet
+ADD COLUMN piketPranues INT NOT NULL;
+
+ALTER TABLE tblKonkurimet
+ADD COLUMN mbikqyresiId INT,
+ADD FOREIGN KEY (mbikqyresiId) REFERENCES tblMbikqyresi(mbikqyresiId) ON DELETE SET NULL;
+
+DROP table tblProvimiPranues;
+

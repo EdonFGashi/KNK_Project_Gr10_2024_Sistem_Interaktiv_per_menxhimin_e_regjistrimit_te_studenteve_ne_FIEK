@@ -72,7 +72,7 @@ interface SupervisorPages{
     public final static String SUPERVISOR_RIBBON = "supervisor-ribbon.fxml";
     public final static String SUPERVISOR_MENU = "supervisor-menu.fxml";
     public final static String SUPERVISOR_PROFILE = "supervisor-profile.fxml";
-    public final static String SUPERVISOR_EDIT_POINTS = "supervisor-showAndEditPoints.fxml";
+    public final static String SUPERVISOR_GRADE_POINTS = "supervisor-gradePoints.fxml";
     public final static String SUPERVISOR_INBOX = "supervisor-inbox.fxml";
     public final static String SUPERVISOR_STATISTICS = "supervisor-statistics.fxml";
     public final static String ADMIN_SUPERVISORMENU = "admin-supervisorMenu.fxml";
