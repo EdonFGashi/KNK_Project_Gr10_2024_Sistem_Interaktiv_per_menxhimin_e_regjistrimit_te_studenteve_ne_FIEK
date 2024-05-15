@@ -1,6 +1,7 @@
 package service.Overall;
 
 import app.Navigatior;
+import controller.SESSION;
 import javafx.stage.Stage;
 import model.Admin;
 import model.SupervisorTableModel;
@@ -34,12 +35,14 @@ public class LoginService {
         switch (emailDomain) {
             case ADMIN_EMAIL_DOMAIN -> {
                 if (loginAsAdmin(loginDto)){
+                    SESSION.setLoggedUserEmail(email);
                     return "admin";
                 }
                 return null;
             }
             case SUPERVISOR_EMAIL_DOMAIN -> {
                 if (loginAsSupervisor(loginDto)){
+                    SESSION.setLoggedUserEmail(email);
                     return "supervisor";
                 }
                 return null;
@@ -55,6 +58,7 @@ public class LoginService {
             default -> {
 //
                 if (loginAsStudent(loginDto)){
+                    SESSION.setLoggedUserEmail(email);
                     return "student";
                 }
                 return null;
