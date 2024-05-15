@@ -3,6 +3,7 @@ package app;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import service.PasswordHasher;
@@ -13,6 +14,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         stage.setMaximized(true);
+        stage.getIcons().add(new Image("upLogoNoRing.png"));
 
 //        Navigatior.navigate(stage,Navigatior.ADMIN_RIBBON);
 //
