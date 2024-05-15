@@ -28,7 +28,7 @@ public class ChangePassword {
                 this.pwdCurrentPassword.getText(),
                 this.pwdNewPassword.getText(),
                 this.pwdConfirmPassword.getText(),
-                SESSION.getLoggedUserEmail()
+                SESSION.getLoggedAdmin().getEmail()
         );
 
         try{

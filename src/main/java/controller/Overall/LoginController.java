@@ -1,6 +1,7 @@
 package controller.Overall;
 
 import app.Navigatior;
+import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -13,9 +14,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.Admin;
 import model.dto.Overall.LoginDto;
 import controller.Animations.UpLogoAnimate;
 import org.jfree.util.Log;
+import service.Admin.AdminService;
 import service.CustomExceptions.InvalidEmail;
 import service.CustomExceptions.InvalidPassword;
 import service.Overall.LoginService;
@@ -99,8 +102,11 @@ public class LoginController {
                 Stage stage = new Stage();
                 stage.setMaximized(true);
                 Navigatior.navigate(stage, Navigatior.ADMIN_RIBBON);
-
+                //Admini mu ru ne session
+                SESSION.setLoggedAdmin(AdminService.getAdminByEmail(this.userEmail.getText()));
+                System.out.println(SESSION.getLoggedAdmin().getFirstName());
                 Navigatior.closeStageAfterDelay(event, Duration.millis(1));
+
             } else if (Objects.equals(LoginService.login(loginDto), "supervisor")) {
 
                 Stage stage = new Stage();

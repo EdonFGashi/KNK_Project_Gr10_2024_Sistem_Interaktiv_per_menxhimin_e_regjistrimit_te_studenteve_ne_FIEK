@@ -82,3 +82,13 @@ ADD FOREIGN KEY (mbikqyresiId) REFERENCES tblMbikqyresi(mbikqyresiId) ON DELETE 
 
 DROP table tblProvimiPranues;
 
+
+-- 15/05/2024 - Joni
+ALTER TABLE tblNjoftimet
+MODIFY COLUMN text VARCHAR(2000);
+
+INSERT INTO tblAdmin (email,emri,mbiemri,salt,passwordHash)
+VALUES ("jon@admin.uni-pr.edu","Jon","Kuçi","OCjHhzKXTym9xYJtqCQZWr/3rS2RCs5Hs22qp8UrXtk=","4f436a48687a4b5854796d3978594a747143515a57722f337253325243733548733232717038557258746b3d42120edb685b822fc9dc878664c8d2b8b0d005ad2ffe94926efbb7b5bf55adf9");
+
+--Passi i admin Jonit eshte Isaku1234
+
