@@ -10,6 +10,7 @@ module com.example.knk_project_gr10_2024 {
     opens controller.StudentStatistics to javafx.fxml;
     opens controller.Student to javafx.fxml;
 
+
 //    opens app to javafx.fxml;
     opens app to javafx.graphics;
     exports app;

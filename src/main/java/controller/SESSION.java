@@ -1,15 +1,14 @@
 package controller;
 
 public class SESSION {
-    private static String loggedUserEmail = "jon@admin.uni-pr.edu";
+    private static String loggedUserEmail = "edon@admin.uni-pr.edu";
     private static String adminMenu = "";
     private static String admin_registration_lastSearch = "";
     private static String admin_supervisor_lastSearch = "";
     private static int admin_reset_PasswordId = 0;
     private static String admin_reset_type = "";
     private static String admin_student_lastSearch = "";
-    private SESSION() {
-    }
+    private SESSION() {}
 
     public static String getAdmin_registration_lastSearch() {
         return admin_registration_lastSearch;

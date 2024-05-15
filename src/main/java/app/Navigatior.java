@@ -165,6 +165,7 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
          Scene scene = new Scene(loadPane(page));
         Stage stage = new Stage();
         stage.setMaximized(false);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
 
@@ -172,6 +173,7 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
 
 
 
+//Navigatori 1.0 -Jashte perdorimit
 
     //kur navigojmeNeMenu qojme Pane
     public static Pane getRibbonWithSection(String ribbon, Pane section){
@@ -188,6 +190,7 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         mainPane.getChildren().add(section);
         return mainPane;
     }
+
 
     //Navigon veq Ribbon
     public static void navigate(Event event, String ribbon, String section){

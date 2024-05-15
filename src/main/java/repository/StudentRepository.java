@@ -237,6 +237,7 @@ public class StudentRepository {
         return null;
     }
 
+
     private static RegisteredStudent getRegisteredStudentFromResultSet(ResultSet result) {
         try {
             int userId = result.getInt("userStudentUserId");
