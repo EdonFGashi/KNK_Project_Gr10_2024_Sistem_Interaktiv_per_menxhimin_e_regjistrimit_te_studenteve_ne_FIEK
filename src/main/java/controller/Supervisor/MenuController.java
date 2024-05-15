@@ -51,7 +51,7 @@ public class MenuController {
         this.txtOption1.setText("Test Grading");
         this.txtOption2.setText("Inbox");
         this.txtOption3.setText("Statistics");
-        this.option1Navigate = Navigatior.SUPERVISOR_EDIT_POINTS;
+        this.option1Navigate = Navigatior.SUPERVISOR_GRADE_POINTS;
         this.option2Navigate = Navigatior.SUPERVISOR_INBOX;
         this.option3Navigate = Navigatior.SUPERVISOR_STATISTICS;
         try {
