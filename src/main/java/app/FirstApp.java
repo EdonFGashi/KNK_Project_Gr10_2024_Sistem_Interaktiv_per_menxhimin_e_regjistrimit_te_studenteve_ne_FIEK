@@ -30,11 +30,21 @@ public class FirstApp extends Application {
 //       }catch(Exception e){
 //           System.out.println("Exception");
 //       }
+
+
+// SHko te Admini direkt
         stage.setMaximized(true);
          Navigatior.navigate(stage,AdminPages.ADMIN_RIBBON);
 
     }
 
+
+//    public static void main(String[] args) {
+//
+//        String salt = PasswordHasher.generateSalt();
+//        System.out.println(salt);
+//        System.out.println(PasswordHasher.generateSaltedHash("Isaku1234",salt));
+//    }
 
 
 

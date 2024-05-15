@@ -25,5 +25,8 @@ public class Main extends Application {
 //        Navigatior.navigate(stage,Navigatior.DASHBOARD);
 //        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
         Navigatior.navigateNewStage(Navigatior.LOGIN);
+
+
+
     }
 }
