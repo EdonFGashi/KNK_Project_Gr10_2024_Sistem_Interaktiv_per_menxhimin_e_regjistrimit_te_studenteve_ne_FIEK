@@ -16,11 +16,14 @@ public class DashboardController {
     private ImageView mainImage;
     @FXML
     private Button buttoni_qasja;
+    @FXML
+    private ImageView infoimg;
 
     @FXML
     private void initialize(){
         try {
             this.mainImage.setImage(new Image(new FileInputStream("Images/fieku.jpg")));
+            this.infoimg.setImage(new Image(new FileInputStream("Images/info-icon.jpg")));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
