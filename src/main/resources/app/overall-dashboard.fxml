@@ -38,6 +38,11 @@
                   <Image url="@../../../../Images/phone.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="infoimg" fitHeight="26.0" fitWidth="24.0" layoutX="664.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Images/info-icon.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </top>
@@ -78,12 +83,16 @@
                   </Text>
                </children>
             </HBox>
-            <Text fill="WHITE" layoutX="115.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-opacity: 0.8;" text="Këshilli Drejtues i Fakultetit të Inxhinierisë Elektrike dhe Kompjuterike, ka vendosur për datën e aplikimit të studentëve për vitin akademik 2024/25. Aplikimi do të jetë i hapur deri më 01.07.2024. Suksese!" textAlignment="CENTER" wrappingWidth="485.9830722808838">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
             <Text fill="WHITE" layoutX="182.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 800;" text="© All Rights Reserved. Powered by University of Prishtina" />
+            <HBox layoutX="108.0" layoutY="114.0" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-opacity: 0.8;" text="Këshilli Drejtues i Fakultetit të Inxhinierisë Elektrike dhe Kompjuterike, ka vendosur për datën e aplikimit të studentëve për vitin akademik 2024/25. Aplikimi do të jetë i hapur deri më 01.07.2024. Suksese!" textAlignment="CENTER" wrappingWidth="485.9830722808838">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
          </children>
       </AnchorPane>
    </center>
