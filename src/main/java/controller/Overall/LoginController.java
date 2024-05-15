@@ -47,6 +47,8 @@ public class LoginController {
     private CheckBox showHidePasswordCheckbox;
     @FXML
     private Label errorMessageLabel;
+    @FXML
+    private ImageView eyeIcon;
 
     @FXML
     private void initialize(){
@@ -66,6 +68,7 @@ public class LoginController {
             this.loginLogo.setImage(new Image(new FileInputStream("Images/blue-users.png")));
             this.usernameLogo.setImage(new Image(new FileInputStream("Images/blue-user.png")));
             this.passwordLogo.setImage(new Image(new FileInputStream("Images/blue-key.png")));
+            this.eyeIcon.setImage(new Image(new FileInputStream("Images/eye-icon.png")));
 
         } catch (FileNotFoundException fnfe){
             System.out.println("Image not found");
