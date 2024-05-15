@@ -21,6 +21,7 @@ module com.example.knk_project_gr10_2024 {
    //    exports com.example.knk_project_gr10_2024;
     requires java.sql;
     requires jfreechart;
+    requires jcommon;
 
     opens model to javafx.base;
     opens controller.Help to javafx.fxml;
