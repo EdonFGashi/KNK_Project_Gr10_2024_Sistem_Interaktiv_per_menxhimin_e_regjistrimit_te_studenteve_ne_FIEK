@@ -10,15 +10,18 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.dto.Overall.LoginDto;
 import controller.Animations.UpLogoAnimate;
+import org.jfree.util.Log;
 import service.CustomExceptions.InvalidEmail;
 import service.CustomExceptions.InvalidPassword;
 import service.Overall.LoginService;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Objects;
 
 public class LoginController {
     @FXML
@@ -75,15 +78,32 @@ public class LoginController {
 
         try {
 
-            if (LoginService.login(loginDto)){
+            if (Objects.equals(LoginService.login(loginDto), "admin")){
 
-                System.out.println("Jeni i kyqur si mbikqyres!");
-//                Stage stage = new Stage();
-//                Navigatior.navigate(stage, Navigatior.SUPERVISOR_RIBBON);
+                Stage stage = new Stage();
+                stage.setMaximized(true);
+                Navigatior.navigate(stage, Navigatior.ADMIN_RIBBON);
+
                 Navigatior.closeStageAfterDelay(event, Duration.millis(1));
-            } else {
+            } else if (Objects.equals(LoginService.login(loginDto), "supervisor")) {
+
+                Stage stage = new Stage();
+                stage.setMaximized(true);
+                Navigatior.navigate(stage, Navigatior.SUPERVISOR_MENU);
+
+                Navigatior.closeStageAfterDelay(event, Duration.millis(1));
+            } else if (Objects.equals(LoginService.login(loginDto), "student")) {
+
+                Stage stage = new Stage();
+                stage.setMaximized(true);
+                Navigatior.navigate(stage, Navigatior.STUDENT_MENU);
+
+                Navigatior.closeStageAfterDelay(event, Duration.millis(1));
+            }
+            else {
                 System.out.println("Nuk jeni i kyqur!");
                 System.out.println("---------------------");
+                throw new InvalidEmail("Invalid credentials");
             }
 
         }catch (InvalidPassword | InvalidEmail e){
