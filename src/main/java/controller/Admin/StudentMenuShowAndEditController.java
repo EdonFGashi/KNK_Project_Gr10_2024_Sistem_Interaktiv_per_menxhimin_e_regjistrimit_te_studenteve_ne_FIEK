@@ -2,28 +2,36 @@ package controller.Admin;
 
 import app.Navigatior;
 import app.PopUp;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.Node;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 import model.ShkollaMesme;
 import model.UserStudent;
 import model.dto.Admin.ApproveStudentsDto;
 import model.dto.Admin.EditRegisteredStudentDetailsOnDbDto;
 import model.dto.Admin.RegisteredStudentDetailsToControllerDto;
+import model.filter.StudentFilter;
 import repository.StudentRepository;
 import service.Admin.StudentFromAdminService;
 import controller.SESSION;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class StudentMenuShowAndEditController {
     @FXML
@@ -195,6 +203,8 @@ public class StudentMenuShowAndEditController {
         this.columnBirthDate.setCellValueFactory(new PropertyValueFactory<UserStudent,String>("dataLindjes"));
         this.tableStudent.setItems(this.userStudentsList);
         this.edit = true;
+
+        this.paneFilterShowHide.setVisible(false);
     }
 
     @FXML
@@ -293,5 +303,75 @@ public class StudentMenuShowAndEditController {
 
     }
 
+
+//Filter
+
+    @FXML
+    private TextField txtEmri;
+    @FXML
+    private TextField txtMbiemri;
+    @FXML
+    private TextField txtEmail;
+    @FXML
+    private TextField txtNumriPersonal;
+    @FXML
+    private TextField txtQyteti;
+    @FXML
+    private TextField txtShteti;
+    @FXML
+    private TextField txtGjinia;
+    @FXML
+    private TextField txtNacionaliteti;
+    @FXML
+    private DatePicker dataDataLindjes;
+    @FXML
+    private AnchorPane paneFilterShowHide;
+
+   @FXML
+   private void handleShowFilterStudents(ActionEvent ae){
+         this.paneFilterShowHide.setVisible(true);
+   }
+    @FXML
+    private void handleFilter(ActionEvent ae){
+       String formattedDataLindjes;
+       if(dataDataLindjes.getValue() != null){
+           LocalDate dataLindjes = this.dataDataLindjes.getValue();
+            formattedDataLindjes = dataLindjes.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+       }else{
+           formattedDataLindjes = "";
+       }
+
+        this.userStudentsList = FXCollections.observableArrayList(StudentFromAdminService.filterStudents(
+                 new StudentFilter(
+                   this.txtNumriPersonal.getText(),
+                   this.txtEmail.getText(),
+                   this.txtEmri.getText(),
+                   this.txtMbiemri.getText(),
+                   this.txtNacionaliteti.getText(),
+                   this.txtQyteti.getText(),
+                   this.txtShteti.getText(),
+                   this.txtGjinia.getText(),
+                   formattedDataLindjes
+                 )
+        ));
+        this.tableStudent.setItems(this.userStudentsList);
+
+        //Mshile mas nja gjys sekonde
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(700), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Node source = (Node) ae.getSource();
+                AnchorPane parentPane = (AnchorPane) source.getParent();
+                parentPane.setVisible(false);
+            }
+        }));
+        timeline.play();
+
+    }
+
+    @FXML
+    private void handleCancelFilter(ActionEvent ae){
+        this.paneFilterShowHide.setVisible(false);
+    }
 
 }

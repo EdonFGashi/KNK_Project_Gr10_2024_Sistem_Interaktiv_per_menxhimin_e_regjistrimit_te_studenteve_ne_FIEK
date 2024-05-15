@@ -70,3 +70,4 @@ VALUES
 
 
 
+-- Shkruani edhe daten para se me e qit ni query
