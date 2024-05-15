@@ -14,29 +14,35 @@
    <children>
       <AnchorPane layoutX="364.0" layoutY="38.0" prefHeight="434.0" prefWidth="305.0" style="-fx-background-color: #3f7bb0;">
          <children>
-            <TextField fx:id="txtName" layoutX="72.0" layoutY="63.0" prefHeight="24.0" prefWidth="145.0" promptText="Name" style="-fx-color: #fff;">
+            <TextField fx:id="txtName" layoutX="72.0" layoutY="63.0" prefHeight="24.0" prefWidth="145.0" promptText="Name" style="-fx-color: #fff; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;">
                <font>
                   <Font size="11.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtSurname" layoutX="72.0" layoutY="109.0" prefHeight="27.0" prefWidth="147.0" promptText="Surname" style="-fx-color: #fff;">
+            <TextField fx:id="txtSurname" layoutX="72.0" layoutY="109.0" prefHeight="27.0" prefWidth="147.0" promptText="Surname" style="-fx-color: #fff; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;">
                <font>
-                  <Font size="10.0" />
+                  <Font size="11.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtEmail" layoutX="73.0" layoutY="159.0" prefHeight="27.0" prefWidth="145.0" promptText="Email" style="-fx-color: #fff;">
+            <TextField fx:id="txtEmail" layoutX="73.0" layoutY="159.0" prefHeight="27.0" prefWidth="145.0" promptText="Email" style="-fx-color: #fff; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;">
                <font>
-                  <Font size="10.0" />
+                  <Font size="11.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="pwdPassword" layoutX="73.0" layoutY="211.0" prefHeight="26.0" prefWidth="146.0" promptText="Password" style="-fx-color: #fff;" />
-            <PasswordField fx:id="pwdConfirmPassword" layoutX="73.0" layoutY="262.0" prefHeight="26.0" prefWidth="146.0" promptText="Confirm Password" style="-fx-color: #fff;" />
+            <PasswordField fx:id="pwdPassword" layoutX="73.0" layoutY="211.0" prefHeight="26.0" prefWidth="146.0" promptText="Password" style="-fx-color: #fff; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;">
+               <font>
+                  <Font size="11.0" />
+               </font></PasswordField>
+            <PasswordField fx:id="pwdConfirmPassword" layoutX="73.0" layoutY="262.0" prefHeight="26.0" prefWidth="146.0" promptText="Confirm Password" style="-fx-color: #fff; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;">
+               <font>
+                  <Font size="11.0" />
+               </font></PasswordField>
             <Button layoutX="67.0" layoutY="336.0" mnemonicParsing="false" onAction="#handleSignUp" prefHeight="38.0" prefWidth="158.0" style="-fx-background-color: #435778; -fx-background-radius: 10;" text="Sign Up" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Label layoutX="114.0" prefHeight="26.0" prefWidth="66.0" text="Sign Up" textFill="WHITE">
+            <Label layoutX="114.0" prefHeight="37.0" prefWidth="74.0" text="Sign Up" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -63,10 +69,11 @@
             <Label prefHeight="130.0" prefWidth="150.0" text="Register in our application &#10;to apply &#10;to the university" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Italic" size="12.0" />
-               </font></Label>
+               </font>
+            </Label>
          </children>
       </HBox>
-      <Button layoutX="122.0" layoutY="377.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 10;" text=" Back" />
+      <Button layoutX="122.0" layoutY="377.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 10;" text=" Back" textFill="WHITE" />
       <ImageView fx:id="imgIcon" fitHeight="110.0" fitWidth="115.0" layoutX="101.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
