@@ -3,6 +3,7 @@ package controller.Overall;
 import app.Navigatior;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -41,10 +42,25 @@ public class LoginController {
     @FXML
     private PasswordField userPassword;
     @FXML
+    private TextField userPasswordVisible;
+    @FXML
+    private CheckBox showHidePasswordCheckbox;
+    @FXML
     private Label errorMessageLabel;
 
     @FXML
     private void initialize(){
+        userPasswordVisible.setVisible(false);
+        userPasswordVisible.setManaged(false);
+
+        userPassword.visibleProperty().bind(showHidePasswordCheckbox.selectedProperty().not());
+        userPassword.managedProperty().bind(showHidePasswordCheckbox.selectedProperty().not());
+
+        userPasswordVisible.visibleProperty().bind(showHidePasswordCheckbox.selectedProperty());
+        userPasswordVisible.managedProperty().bind(showHidePasswordCheckbox.selectedProperty());
+
+        // Lidh userPassword me userPasswordVisible, ku nese ndryshon njona ndryshon edhe tjetra
+        userPassword.textProperty().bindBidirectional(userPasswordVisible.textProperty());
         try {
             this.imgUpLogo.setImage(new Image(new FileInputStream("Images/upLogoNoRing.png")));
             this.loginLogo.setImage(new Image(new FileInputStream("Images/blue-users.png")));
