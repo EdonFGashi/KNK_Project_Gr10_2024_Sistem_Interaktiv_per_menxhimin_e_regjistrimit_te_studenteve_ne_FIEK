@@ -69,6 +69,7 @@ public static boolean login(LoginAdminDto loginData){
     public static boolean editAfat(Afat afat) {
         return AfatRepository.editAfat(afat);
     }
+
     public static AdminProfileToControllerDto getProfileInfo(String email) {
         Admin admin = AdminRepository.getByEmail(email);
         if (admin == null) {

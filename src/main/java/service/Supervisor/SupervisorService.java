@@ -2,9 +2,13 @@ package service.Supervisor;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import model.Admin;
 import model.SupervisorTableModel;
+import model.dto.Admin.AdminProfileToControllerDto;
 import model.dto.Supervisor.SupervisorCreateInterfaceDto;
 import model.dto.Supervisor.SupervisorCreateModelDto;
+import model.dto.Supervisor.SupervisorProfileToControllerDto;
+import repository.AdminRepository;
 import repository.Supervisor.SupervisorRepository;
 import service.PasswordHasher;
 
@@ -61,6 +65,18 @@ public class SupervisorService {
         }
     }
 
+    public static SupervisorProfileToControllerDto getProfileInfo(String email) {
+        SupervisorTableModel supervisor = SupervisorRepository.getSupervisorByEmail(email);
+        if (supervisor == null) {
+            return null;
+        }
+        System.out.println("Admin u murr");
+        return new SupervisorProfileToControllerDto(
+                supervisor.getFirstName(),
+                supervisor.getLastName(),
+                supervisor.getEmail()
+        );
+    }
 
 
 
