@@ -7,6 +7,7 @@ import model.UserStudent;
 import model.dto.Admin.ApproveStudentsDto;
 import model.dto.Admin.EditRegisteredStudentDetailsOnDbDto;
 import model.dto.ResetPasswordOnDb;
+import model.filter.StudentFilter;
 import service.DBConnector;
 
 import java.io.ByteArrayInputStream;
@@ -14,13 +15,11 @@ import java.io.FileInputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import model.dto.RegisteredStudents.ChartInformationEnrolledStudents;
-import service.DBConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 
 public class StudentRepository {
@@ -158,24 +157,6 @@ public class StudentRepository {
 
             return new ShkollaMesme(userId, emriShkolles, piketMat, piketGjSh, piketAng, piketZgjedhore, lendaZgjedhore, suksesiKl10, suksesiKl11, suksesiKl12, certifikataNotaveImage, leternjoftimiImage, diplomashkollesImage, approved);
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    public static ArrayList<UserStudent> getUserStudents(String search) {
-        Connection conn = DBConnector.getConnection();
-        String query = "SELECT * FROM tblUserStudent WHERE userId = ? OR numriPersonal LIKE ? OR email = ? OR emri LIKE ? OR mbiemri LIKE ? OR nacionaliteti LIKE ? OR qyteti LIKE ? OR shteti LIKE ? OR gjinia LIKE ? OR dataLindjes LIKE ?";
-
-        try {
-            PreparedStatement pst = conn.prepareStatement(query);
-            for (int i = 1; i <= 10; i++) {
-                pst.setString(i, "%" + search + "%");
-            }
-
-            ResultSet result = pst.executeQuery();
-            return getUserStudentFromResultSet(result);
-        } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
@@ -333,5 +314,21 @@ public class StudentRepository {
             e.printStackTrace();
             return false;
         }
+    }
+    public static ArrayList<UserStudent> getFilteredStudents(StudentFilter studentFilter){
+        Connection conn = DBConnector.getConnection();
+        String query = "SELECT * FROM tblUserStudent WHERE 1 = 1";
+
+        query+=studentFilter.buildQuery();
+        System.out.println(query);
+        try {
+            PreparedStatement pst = conn.prepareStatement(query);
+            ResultSet result = pst.executeQuery();
+            return getUserStudentFromResultSet(result);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
     }
 }

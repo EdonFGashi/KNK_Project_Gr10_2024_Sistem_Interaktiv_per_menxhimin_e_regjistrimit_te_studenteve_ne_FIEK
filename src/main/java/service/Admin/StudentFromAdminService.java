@@ -6,6 +6,7 @@ import model.RegisteredStudent;
 import model.UserStudent;
 import model.dto.Admin.EditRegisteredStudentDetailsOnDbDto;
 import model.dto.Admin.RegisteredStudentDetailsToControllerDto;
+import model.filter.StudentFilter;
 import repository.StudentRepository;
 
 import java.util.ArrayList;
@@ -17,22 +18,6 @@ import java.util.stream.Collectors;
 import static java.util.Map.Entry.comparingByValue;
 
 public class StudentFromAdminService {
-
-
-    public static ObservableList<UserStudent> searchStudents(String search) {
-        try {
-            if (search.isEmpty()) {
-                return FXCollections.observableArrayList(StudentRepository.getUserStudents());
-
-            } else {
-                return FXCollections.observableArrayList(StudentRepository.getUserStudents(search));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return FXCollections.observableArrayList();
-        }
-
-    }
 
     //Advanced Search
     public static ObservableList<UserStudent> searchStudent(String search){
@@ -57,17 +42,17 @@ public class StudentFromAdminService {
                 nameMap.put(student.getNacionaliteti().toLowerCase(),2);
                 nameMap.put(student.getQyteti().toLowerCase(),3);
                 nameMap.put(student.getShteti().toLowerCase(),1);
-                nameMap.put(student.getGjinia().toLowerCase(),1);
+                nameMap.put(student.getGjinia().toLowerCase(),2);
                 nameMap.put(student.getDataLindjes().toLowerCase(),2);
 
-               points = 0;
+                points = 0.0;
 
                 for (String searchPart : searchParts) {
                     for(HashMap.Entry<String, Integer> nameSet : nameMap.entrySet()){
                         if(nameSet.getKey().equals(searchPart)){
                             points+= nameSet.getValue();
                         }else if(nameSet.getKey().contains(searchPart) && searchPart.length()>1){
-                            points += (double)nameSet.getValue()/3;
+                            points += (double)nameSet.getValue()/2;
                         }
                     }
                 }
@@ -117,5 +102,10 @@ public class StudentFromAdminService {
 
     public static boolean editRegisteredStudent(EditRegisteredStudentDetailsOnDbDto data) {
         return StudentRepository.editRegisteredStudent(data);
+    }
+
+    public static ArrayList<UserStudent>  filterStudents(StudentFilter studentFilter) {
+        return StudentRepository.getFilteredStudents(studentFilter);
+
     }
 }
