@@ -10,10 +10,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="459.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="459.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Help.StudentHelpController">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="518.0" layoutX="14.0" layoutY="14.0" stroke="#a5cef2" strokeType="INSIDE" style="-fx-fill: transparent;" width="429.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="57.0" AnchorPane.topAnchor="14.0" />
-        <ImageView fitHeight="107.0" fitWidth="117.0" layoutX="175.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="helpLogo" fitHeight="107.0" fitWidth="117.0" layoutX="175.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../../Images/info.png" />
             </image>

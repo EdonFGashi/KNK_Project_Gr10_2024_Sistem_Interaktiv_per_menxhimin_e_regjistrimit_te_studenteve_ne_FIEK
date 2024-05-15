@@ -22,4 +22,5 @@ module com.example.knk_project_gr10_2024 {
     requires jfreechart;
 
     opens model to javafx.base;
+    opens controller.Help to javafx.fxml;
 }

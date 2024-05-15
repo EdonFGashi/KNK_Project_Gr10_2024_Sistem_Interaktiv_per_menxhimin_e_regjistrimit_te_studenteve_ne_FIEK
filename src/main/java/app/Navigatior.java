@@ -35,6 +35,10 @@ interface OverallPages{
     public static final String cssForActiveSection = "-fx-background-color: #A5CEF2; -fx-background-radius:10px;";
     public static final String LOGIN = "overall-login.fxml";
     public static final String CHANGEPASSWORD = "changePassword.fxml";
+    public static final String HELP_ADMIN = "help-admin.fxml";
+    public static final String HELP_DASHBOARD = "help-dashboard.fxml";
+    public static final String HELP_STUDENT = "help-student.fxml";
+    public static final String HELP_SUPERVISOR = "help-supervisor.fxml";
 }
 
 interface AdminPages{
