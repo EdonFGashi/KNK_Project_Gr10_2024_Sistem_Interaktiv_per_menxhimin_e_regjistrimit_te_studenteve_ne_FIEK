@@ -103,7 +103,7 @@ public class NjoftimRepository {
         String query = "SELECT * FROM tblNjoftimet WHERE 1 = 1 ";
 
         query += data.buildQuery();
-        System.out.println(query);
+       // System.out.println(query);
 
         try {
             PreparedStatement pst = conn.prepareStatement(query);
