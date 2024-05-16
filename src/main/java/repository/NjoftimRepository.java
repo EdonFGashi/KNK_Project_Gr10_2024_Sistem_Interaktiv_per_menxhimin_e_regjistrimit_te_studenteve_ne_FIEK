@@ -2,6 +2,7 @@ package repository;
 
 import model.Njoftim;
 import model.dto.Admin.AddNewNjoftimDto;
+import model.filter.NjoftimPagination;
 import service.DBConnector;
 
 import java.sql.Connection;
@@ -14,9 +15,9 @@ public class NjoftimRepository {
     public static boolean addNewNjoftim(AddNewNjoftimDto data) {
         Connection conn = DBConnector.getConnection();
         String query = """
-            INSERT INTO tblNjoftimet (text, adminId)
-            VALUES (?, ?)
-            """;
+                INSERT INTO tblNjoftimet (text, adminId)
+                VALUES (?, ?)
+                """;
 
         try {
             PreparedStatement pst = conn.prepareStatement(query);
@@ -52,8 +53,8 @@ public class NjoftimRepository {
     public static ArrayList<Njoftim> getAllNjoftimArray() {
         Connection conn = DBConnector.getConnection();
         String query = """
-            SELECT *
-            FROM tblNjoftimet;""";
+                SELECT *
+                FROM tblNjoftimet;""";
 
         try {
             PreparedStatement pst = conn.prepareStatement(query);
@@ -96,4 +97,42 @@ public class NjoftimRepository {
             return false;
         }
     }
+
+    public static ArrayList<Njoftim> getPagenatedNjoftim(NjoftimPagination data) {
+        Connection conn = DBConnector.getConnection();
+        String query = "SELECT * FROM tblNjoftimet WHERE 1 = 1 ";
+
+        query += data.buildQuery();
+        System.out.println(query);
+
+        try {
+            PreparedStatement pst = conn.prepareStatement(query);
+            ResultSet result = pst.executeQuery();
+            return getNjoftimFromResultSet(result);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+    public static int getTotalNjoftimi() {
+        Connection conn = DBConnector.getConnection();
+        int total = 0;
+        String query = "SELECT COUNT(*) FROM tblNjoftimet";
+
+        try {
+             PreparedStatement pst = conn.prepareStatement(query);
+             ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                total = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return total;
+    }
+
 }

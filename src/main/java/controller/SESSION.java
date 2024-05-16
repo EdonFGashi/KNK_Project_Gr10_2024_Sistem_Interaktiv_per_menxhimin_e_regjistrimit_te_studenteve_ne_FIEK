@@ -5,6 +5,8 @@ import model.Admin;
 public class SESSION {
     private static Admin loggedAdmin;
 
+    private static String loggedUserEmail;
+
     private static String adminMenu = "";
     private static String admin_registration_lastSearch = "";
     private static String admin_supervisor_lastSearch = "";
@@ -23,7 +25,9 @@ public class SESSION {
         SESSION.admin_registration_lastSearch = admin_registration_lastSearch;
     }
 
-
+    public static int getUser() {
+        return user;
+    }
 
     public static String getAdminMenu() {
         return adminMenu;
@@ -72,4 +76,18 @@ public class SESSION {
     public static void setLoggedAdmin(Admin loggedAdmin) {
         SESSION.loggedAdmin = loggedAdmin;
     }
+
+    public static String getLoggedUserEmail() {
+        return loggedUserEmail;
+    }
+
+    public static void setLoggedUserEmail(String loggedUserEmail) {
+        SESSION.loggedUserEmail = loggedUserEmail;
+    }
+
+    public static void setUser(int user) {
+        SESSION.user = user;
+    }
+
+
 }

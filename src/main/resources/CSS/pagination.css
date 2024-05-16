@@ -27,6 +27,6 @@
 .pagination > .pagination-control > .control-box > .number-button:selected,
 .pagination > .pagination-control > .control-box > .bullet-button:selected{
     -fx-background-insets: 0;
-    -fx-background-color: #58379A;
+    -fx-background-color: #0986FF;
     -fx-text-fill: white;
 }

@@ -10,6 +10,7 @@ import model.dto.Admin.*;
 
 import model.dto.Overall.ChangePasswordDto;
 import model.dto.ResetPasswordOnDb;
+import model.filter.NjoftimPagination;
 import repository.AdminRepository;
 import repository.AfatRepository;
 import repository.NjoftimRepository;
@@ -18,6 +19,8 @@ import service.CustomExceptions.InvalidPassword;
 import service.PasswordHasher;
 import controller.SESSION;
 import repository.StudentRepository;
+
+import java.util.ArrayList;
 
 public class AdminService {
 public static boolean login(LoginAdminDto loginData){
@@ -146,4 +149,15 @@ public static boolean login(LoginAdminDto loginData){
     return AdminRepository.getByEmail(email);
     }
 
+    public static ArrayList<Njoftim> getAllNjoftimet() {
+    return NjoftimRepository.getAllNjoftimArray();
+    }
+
+    public static ArrayList<Njoftim> getNjoftimiWithPagination(NjoftimPagination pagination) {
+    return NjoftimRepository.getPagenatedNjoftim(pagination);
+    }
+
+    public static int getTotalNjoftime() {
+    return NjoftimRepository.getTotalNjoftimi();
+    }
 }

@@ -17,26 +17,27 @@ import java.io.IOException;
 public class FirstApp extends Application {
 
     @Override
-    public void start(Stage stage){
-//       FXMLLoader loader = new FXMLLoader(
-//         this.getClass().getResource("admin-studentMenu-showAndEditStudent.fxml")
+    public void start(Stage stage) {
+//        FXMLLoader loader = new FXMLLoader(
+//                this.getClass().getResource("admin-inbol-njoftimPane.fxml")
 //
-//       );
-//       try{
-//           Scene scene = new Scene(loader.load());
-//           stage.setScene(scene);
-//           stage.show();
+//        );
+//        try {
+//            Scene scene = new Scene(loader.load());
+//            stage.setScene(scene);
+//            stage.show();
 //
-//       }catch(Exception e){
-//           System.out.println("Exception");
-//       }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.out.println("Exception");
+//        }
 
 
-// SHko te Admini direkt
+ //SHko te Admini direkt
         stage.setMaximized(true);
          Navigatior.navigate(stage,AdminPages.ADMIN_RIBBON);
 
-    }
+//    }
 
 
 //    public static void main(String[] args) {
@@ -47,5 +48,5 @@ public class FirstApp extends Application {
 //    }
 
 
-
+    }
 }
