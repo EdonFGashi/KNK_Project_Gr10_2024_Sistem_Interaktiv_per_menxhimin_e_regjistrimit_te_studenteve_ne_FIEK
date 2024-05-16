@@ -6,7 +6,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import model.Njoftim;
 
-public class NjoftimPaneController extends InboxController{
+public class NjoftimPaneController{
 
     @FXML
     private AnchorPane paneNjoftim;
@@ -40,11 +40,11 @@ public class NjoftimPaneController extends InboxController{
        this.controller.setFormsNjoftimi(njoftimi);
 
     }
-
-    @Override
-    public void initialize(){
-
+    @FXML
+    void handeTextClicked(MouseEvent event) {
+        this.controller.setFormsNjoftimi(njoftimi);
     }
+
 
 
 }
