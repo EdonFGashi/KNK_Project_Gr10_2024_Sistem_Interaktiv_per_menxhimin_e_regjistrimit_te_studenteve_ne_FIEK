@@ -2,8 +2,10 @@ package controller.Admin;
 
 import app.Navigatior;
 import controller.Animations.UpLogoAnimate;
+import controller.BackAndForth;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -35,12 +37,24 @@ public class RibbonController {
     @FXML
     private ImageView imgInfoIcon;
 
+    @FXML
+    private Button btnBack;
+    @FXML
+    private Button btnForth;
+
     private UpLogoAnimate logo = new UpLogoAnimate(50, "FIEK Management", 5, 1);
 
     @FXML
     private void initialize(){
-        SESSION.setAdminMenu("Student");
-        Navigatior.navigate(this.addPane, Navigatior.ADMIN_MENU);
+        if(BackAndForth.getIndex() == 0){
+            SESSION.setAdminMenu("Student");
+            Navigatior.navigate(this.addPane, Navigatior.ADMIN_MENU);
+            BackAndForth.addOnePage(Navigatior.ADMIN_MENU);
+        }else{
+            this.navigateAndSaveState(Navigatior.ADMIN_MENU);
+        }
+
+
         try {
             this.imgProfileIcon.setImage(new Image(new FileInputStream("Images/profileIcon.png")));
             this.imgStudentIcon.setImage(new Image(new FileInputStream("Images/studentIcon.png")));
@@ -58,40 +72,50 @@ public class RibbonController {
         Tooltip tooltip = new Tooltip("Info");
 
         Tooltip.install(imgInfoIcon, tooltip);
+
+        if(BackAndForth.getIndex() <= 1){
+            this.btnBack.setDisable(true);
+        }
+        if(BackAndForth.getIndex() == BackAndForth.getMaxIndex()){
+            this.btnForth.setDisable(true);
+        }
     }
 
     @FXML
     private void handleUpLogoClick(MouseEvent ae){
         //Navigu ne Dashboard
-        Navigatior.navigate(this.addPane, "");
+        Navigatior.navigate(this.addPane, Navigatior.DASHBOARD);
     }
 
     @FXML
     private void handleSupervisorMenagmentClick(MouseEvent me){
         SESSION.setAdminMenu("Supervisor");
         Navigatior.navigate(this.addPane, Navigatior.ADMIN_MENU);
+        BackAndForth.addOnePage(Navigatior.ADMIN_MENU);
+
     }
     @FXML
     private void handleStudentMenagmentClick(MouseEvent me){
         SESSION.setAdminMenu("Student");
-        Navigatior.navigate(this.addPane, Navigatior.ADMIN_MENU);
+        this.navigateAndSaveState(Navigatior.ADMIN_MENU);
     }
     @FXML
     private void handleInboxClick(MouseEvent me){
-        Navigatior.navigate(this.addPane, Navigatior.ADMIN_INBOX);
+        this.navigateAndSaveState(Navigatior.ADMIN_INBOX);
     }
     @FXML
     private void handleProfileClick(MouseEvent me){
-        Navigatior.navigate(this.addPane, Navigatior.ADMIN_PROFILE);
+        this.navigateAndSaveState(Navigatior.ADMIN_PROFILE);
     }
 
     @FXML
     private void handleGoToProfile(ActionEvent ae){
-        Navigatior.navigate(this.addPane, Navigatior.ADMIN_PROFILE);
+        this.navigateAndSaveState(Navigatior.ADMIN_PROFILE);
     }
     @FXML
     private void handleChangeLanguage(ActionEvent ae){
-        Navigatior.navigate(this.addPane, "");
+       // Navigatior.navigate(this.addPane, "");
+        //
     }
     @FXML
     private void handleSignOut(ActionEvent ae){
@@ -100,7 +124,7 @@ public class RibbonController {
 
     @FXML
     private void handleLogoClicked(MouseEvent me){
-      Navigatior.navigate(this.addPane,Navigatior.DASHBOARD);
+        this.navigateAndSaveState(Navigatior.DASHBOARD);
     }
     @FXML
     private void handleStartAnimation(MouseEvent me){
@@ -109,10 +133,49 @@ public class RibbonController {
     @FXML
     private void handleRegistrationPeriodClick(MouseEvent me){
         SESSION.setAdminMenu("Afat");
-        Navigatior.navigate(this.addPane,Navigatior.ADMIN_MENU);
+        this.navigateAndSaveState(Navigatior.ADMIN_MENU);
     }
 
     @FXML
-    private void handleInfoIconClicked(MouseEvent me){Navigatior.navigateNewStage(Navigatior.HELP_ADMIN);}
+    private void handleInfoIconClicked(MouseEvent me){
+        Navigatior.navigateNewStage(Navigatior.HELP_ADMIN);
+    }
+
+
+    @FXML
+    void handleBackClick(ActionEvent event) {
+         Navigatior.navigate(this.addPane, BackAndForth.gotoPreviousPage());
+        System.out.println("Index:" +BackAndForth.getIndex());
+        System.out.println("This is the back page: "+ BackAndForth.gotoPreviousPage());
+    }
+
+    @FXML
+    void handleForthClick(ActionEvent event) {
+        Navigatior.navigate(this.addPane, BackAndForth.gotoForthPage());
+        System.out.println("Index:" +BackAndForth.getIndex());
+        System.out.println("This is the forth page: "+ BackAndForth.gotoForthPage());
+
+    }
+
+
+    private void navigateAndSaveState(String page){
+        Navigatior.navigate(this.addPane,page);
+        BackAndForth.addOnePage(page);
+        System.out.println("Added Page!!"+page);
+        System.out.println("Index:" +BackAndForth.getIndex());
+        System.out.println("Max Index:" +BackAndForth.getMaxIndex());
+        if(BackAndForth.getIndex() == 0){
+            this.btnBack.setDisable(true);
+        }else{
+            this.btnBack.setDisable(false);
+        }
+        if(BackAndForth.getIndex() == BackAndForth.getMaxIndex()){
+            this.btnForth.setDisable(true);
+        }else{
+            this.btnForth.setDisable(false);
+        }
+    }
 
 }
+
+
