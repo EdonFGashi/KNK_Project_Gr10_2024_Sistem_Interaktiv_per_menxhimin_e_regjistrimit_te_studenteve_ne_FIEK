@@ -70,7 +70,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Hyperlink>
-            <Label fx:id="errorMessageLabel" layoutX="87.0" layoutY="330.0" prefWidth="180.0" textFill="RED" visible="false" AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="87.39999999999998" />
+            <Label fx:id="errorMessageLabel" layoutX="208.0" layoutY="300.0" prefWidth="180.0" textFill="RED" visible="false" AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="87.39999999999998" />
             <CheckBox fx:id="showHidePasswordCheckbox" layoutX="273.0" layoutY="270.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="32.0" style="-fx-opacity: 0;" textFill="#0a84ff">
                <font>
                   <Font name="Arial" size="12.0" />
