@@ -1,6 +1,7 @@
 package repository.Supervisor;
 
 import model.SupervisorTableModel;
+import model.dto.Admin.ChangePasswordOnDb;
 import model.dto.ResetPasswordOnDb;
 import model.dto.Supervisor.SupervisorCreateModelDto;
 import model.dto.Supervisor.SupervisorEditDto;
@@ -175,6 +176,27 @@ public class SupervisorRepository {
             pst.close();
             return rowsAffected > 0;
         } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean changePassword(ChangePasswordOnDb changeData){
+        String query = "UPDATE tblmbikqyresi SET passwordHash = ? WHERE email = ?";
+        System.out.println("Supervisor:");
+        System.out.println(changeData.getNewPassword());
+        System.out.println(changeData.getEmail());
+
+        Connection connection = DBConnector.getConnection();
+        try {
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setString(1, changeData.getNewPassword());
+            pst.setString(2, changeData.getEmail());
+
+            int rowsAffected = pst.executeUpdate();
+            pst.close();
+            return rowsAffected > 0;
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }

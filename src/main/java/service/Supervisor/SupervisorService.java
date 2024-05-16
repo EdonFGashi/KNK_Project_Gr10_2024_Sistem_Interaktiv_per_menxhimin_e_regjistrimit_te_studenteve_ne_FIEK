@@ -5,11 +5,14 @@ import javafx.collections.ObservableList;
 import model.Admin;
 import model.SupervisorTableModel;
 import model.dto.Admin.AdminProfileToControllerDto;
+import model.dto.Admin.ChangePasswordOnDb;
+import model.dto.Overall.ChangePasswordDto;
 import model.dto.Supervisor.SupervisorCreateInterfaceDto;
 import model.dto.Supervisor.SupervisorCreateModelDto;
 import model.dto.Supervisor.SupervisorProfileToControllerDto;
 import repository.AdminRepository;
 import repository.Supervisor.SupervisorRepository;
+import service.CustomExceptions.InvalidPassword;
 import service.PasswordHasher;
 
 import java.sql.SQLException;
@@ -76,6 +79,33 @@ public class SupervisorService {
                 supervisor.getLastName(),
                 supervisor.getEmail()
         );
+    }
+
+    public static void changePassword(ChangePasswordDto changeData) throws InvalidPassword {
+        SupervisorTableModel supervisor = SupervisorRepository.getSupervisorByEmail(changeData.getEmail());
+
+        if(supervisor == null){
+            throw new InvalidPassword("Supervisor is not found");
+        }
+
+        if(!supervisor.getPasswordHash().equals(PasswordHasher.generateSaltedHash(changeData.getCurrentPassword(),supervisor.getSalt()))){
+            throw new InvalidPassword("Invalid Current Password");
+        }
+        if(changeData.getNewPassword().length() < 8){
+            throw new InvalidPassword("Password too short");
+        }
+        if(!changeData.getNewPassword().equals(changeData.getConfirmPassword())){
+            throw new InvalidPassword("New and Confirm do not match");
+        }
+        if(changeData.getCurrentPassword().equals(changeData.getNewPassword())) {
+            throw new InvalidPassword("Cannot be the old Password");
+        }
+
+        String saltedHashed = PasswordHasher.generateSaltedHash(changeData.getNewPassword(),supervisor.getSalt());
+
+        if(!SupervisorRepository.changePassword(new ChangePasswordOnDb(supervisor.getEmail(), saltedHashed))){
+            throw new InvalidPassword("Database Connection failed");
+        };
     }
 
 
