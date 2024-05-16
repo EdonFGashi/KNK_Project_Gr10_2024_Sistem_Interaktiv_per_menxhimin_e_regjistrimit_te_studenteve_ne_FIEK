@@ -5,12 +5,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Admin;
 import model.Afat;
+import model.Njoftim;
 import model.dto.Admin.*;
 
 import model.dto.Overall.ChangePasswordDto;
 import model.dto.ResetPasswordOnDb;
 import repository.AdminRepository;
 import repository.AfatRepository;
+import repository.NjoftimRepository;
 import repository.Supervisor.SupervisorRepository;
 import service.CustomExceptions.InvalidPassword;
 import service.PasswordHasher;
@@ -135,5 +137,13 @@ public static boolean login(LoginAdminDto loginData){
     return AdminRepository.savePersonalDetails(editData);
     }
 
+
+    public static boolean addNewNjoftim(AddNewNjoftimDto data){
+       return  NjoftimRepository.addNewNjoftim(data);
+    }
+
+    public static Admin getAdminByEmail(String email){
+    return AdminRepository.getByEmail(email);
+    }
 
 }

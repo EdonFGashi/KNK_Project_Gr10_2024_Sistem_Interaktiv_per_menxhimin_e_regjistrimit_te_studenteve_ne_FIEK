@@ -58,12 +58,12 @@
                     </font>
                 </Button>
             <Line endX="146.0" layoutX="193.0" layoutY="313.0" startX="-146.0" stroke="#a5cef2" strokeWidth="2.0" />
-            <Label layoutX="71.0" layoutY="400.0" text="Vendos pikët:">
+            <Label layoutX="87.0" layoutY="400.0" text="Vendos pikët:">
                <font>
                   <Font name="Britannic Bold" size="22.0" />
                </font>
             </Label>
-            <TextField layoutX="223.0" layoutY="396.0" prefHeight="26.0" prefWidth="82.0" style="-fx-border-color: #a5cef2; -fx-border-width: 4px;" />
+            <TextField layoutX="236.0" layoutY="395.0" prefHeight="26.0" prefWidth="82.0" style="-fx-border-color: #a5cef2; -fx-border-width: 4px;" />
             </children>
         </AnchorPane>
         <ScrollPane layoutX="51.0" layoutY="190.0" prefHeight="486.0" prefWidth="750.0" style="-fx-background-color: white; -fx-background-radius: 10;">

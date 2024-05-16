@@ -63,7 +63,7 @@ interface AdminPages{
 
 }
 interface StudentPages{
-    public final static String STUDENT_MENU = "StudentMenu2.fxml";
+    public final static String STUDENT_MENU = "StudentMenu.fxml";
     public final static String PERSONAL_INFO = "";
     public final static String EDUCATION = "";
     public final static String ACADEMIC = "";
