@@ -2,7 +2,7 @@ package repository.Supervisor;
 
 import model.SupervisorTableModel;
 import model.dto.Admin.ChangePasswordOnDb;
-import model.dto.ResetPasswordOnDb;
+import model.dto.Admin.ResetPasswordOnDb;
 import model.dto.Supervisor.SupervisorCreateModelDto;
 import model.dto.Supervisor.SupervisorEditDto;
 import service.DBConnector;

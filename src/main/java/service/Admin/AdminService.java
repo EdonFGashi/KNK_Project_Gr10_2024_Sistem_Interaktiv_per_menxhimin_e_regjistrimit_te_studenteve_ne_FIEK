@@ -9,7 +9,7 @@ import model.Njoftim;
 import model.dto.Admin.*;
 
 import model.dto.Overall.ChangePasswordDto;
-import model.dto.ResetPasswordOnDb;
+import model.dto.Admin.ResetPasswordOnDb;
 import model.filter.NjoftimPagination;
 import repository.AdminRepository;
 import repository.AfatRepository;
@@ -115,14 +115,14 @@ public static boolean login(LoginAdminDto loginData){
         }
 
        String salt = PasswordHasher.generateSalt();
-       int id = SESSION.getAdmin_reset_PasswordId();
+       int id = resetData.getId();
        String passwordHash = PasswordHasher.generateSaltedHash(resetData.getNewPassword(),salt);
 
         ResetPasswordOnDb resetPasswordOnDb = new ResetPasswordOnDb(
           id,salt,passwordHash
         );
 
-       if(SESSION.getAdmin_reset_type().equals("Supervisor")){
+       if(resetData.getType().equals("Supervisor")){
            if(!SupervisorRepository.resetPassword(resetPasswordOnDb)){
                throw new InvalidPassword("Problem in Database!");
            }

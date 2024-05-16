@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import controller.SESSION;
+import javafx.util.Duration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -133,7 +134,9 @@ public class RibbonController {
     }
     @FXML
     private void handleSignOut(ActionEvent ae){
-        Navigatior.navigate(ae,Navigatior.LOGIN);
+        Navigatior.navigateNewStage(Navigatior.LOGIN);
+        SESSION.setLoggedAdmin(null);
+       // Navigatior.closeStageAfterDelay(ae, Duration.millis(100));
     }
 
     @FXML
