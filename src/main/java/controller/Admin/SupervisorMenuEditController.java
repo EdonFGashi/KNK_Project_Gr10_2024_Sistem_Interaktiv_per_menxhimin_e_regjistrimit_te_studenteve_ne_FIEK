@@ -147,9 +147,9 @@ public class SupervisorMenuEditController {
 
     private void setColumns(){
         this.columnId.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,Integer>("mbikqyresiId"));
-        this.columnEmail.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,String>("email"));
-        this.columnFirstName.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,String>("firstName"));
-        this.columnLastName.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,String>("lastName"));
+        this.columnEmail.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,String>("firstName"));
+        this.columnFirstName.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,String>("lastName"));
+        this.columnLastName.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,String>("email"));
         this.tableSupervisor.setItems(this.supervisorList);
     }
 
