@@ -18,12 +18,15 @@ public class DashboardController {
     private Button buttoni_qasja;
     @FXML
     private ImageView infoimg;
+    @FXML
+    private ImageView changeLanguageIcon;
 
     @FXML
     private void initialize(){
         try {
-            this.mainImage.setImage(new Image(new FileInputStream("Images/fieku.jpg")));
-            this.infoimg.setImage(new Image(new FileInputStream("Images/info-icon.jpg")));
+            this.mainImage.setImage(new Image(new FileInputStream("Images/fieku.png")));
+            this.infoimg.setImage(new Image(new FileInputStream("Images/info-icon.png")));
+            this.changeLanguageIcon.setImage(new Image(new FileInputStream("Images/language-icon.png")));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
