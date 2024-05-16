@@ -1,7 +1,10 @@
 package controller;
 
+import model.Admin;
+
 public class SESSION {
-    private static String loggedUserEmail = "edon@admin.uni-pr.edu";
+    private static Admin loggedAdmin;
+
     private static String adminMenu = "";
     private static String admin_registration_lastSearch = "";
     private static String admin_supervisor_lastSearch = "";
@@ -18,13 +21,6 @@ public class SESSION {
         SESSION.admin_registration_lastSearch = admin_registration_lastSearch;
     }
 
-    public static String getLoggedUserEmail() {
-        return loggedUserEmail;
-    }
-
-    public static void setLoggedUserEmail(String loggedUserEmail) {
-        SESSION.loggedUserEmail = loggedUserEmail;
-    }
 
     public static String getAdminMenu() {
         return adminMenu;
@@ -64,5 +60,13 @@ public class SESSION {
 
     public static void setAdmin_student_lastSearch(String admin_student_lastSearch) {
         SESSION.admin_student_lastSearch = admin_student_lastSearch;
+    }
+
+    public static Admin getLoggedAdmin() {
+        return loggedAdmin;
+    }
+
+    public static void setLoggedAdmin(Admin loggedAdmin) {
+        SESSION.loggedAdmin = loggedAdmin;
     }
 }

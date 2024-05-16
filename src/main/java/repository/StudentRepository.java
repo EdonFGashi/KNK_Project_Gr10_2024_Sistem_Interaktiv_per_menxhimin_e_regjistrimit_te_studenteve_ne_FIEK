@@ -319,8 +319,8 @@ public class StudentRepository {
         Connection conn = DBConnector.getConnection();
         String query = "SELECT * FROM tblUserStudent WHERE 1 = 1";
 
-        query+=studentFilter.buildQuery();
-        System.out.println(query);
+        query += studentFilter.buildQuery();
+       // System.out.println(query);
         try {
             PreparedStatement pst = conn.prepareStatement(query);
             ResultSet result = pst.executeQuery();

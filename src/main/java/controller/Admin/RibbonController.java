@@ -78,7 +78,7 @@ public class RibbonController {
     }
     @FXML
     private void handleInboxClick(MouseEvent me){
-        Navigatior.navigate(this.addPane, "");
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_INBOX);
     }
     @FXML
     private void handleProfileClick(MouseEvent me){

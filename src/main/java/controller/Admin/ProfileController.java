@@ -41,7 +41,7 @@ public class ProfileController {
             System.out.println("Image not found!");
         }
         this.cancel();
-        AdminProfileToControllerDto admin = AdminService.getProfileInfo(SESSION.getLoggedUserEmail());
+        AdminProfileToControllerDto admin = AdminService.getProfileInfo(SESSION.getLoggedAdmin().getEmail());
 
         if(admin != null) {
             this.txtFirstName.setText(admin.getFirstName());
@@ -66,7 +66,7 @@ public class ProfileController {
     }
     @FXML
     private void handleSave(ActionEvent ae){
-         String  oldEmail = "jon@admin.uni-pr.edu";
+         String  oldEmail = SESSION.getLoggedAdmin().getEmail();
         EditAdminProfileDto editAdminProfileDto = new EditAdminProfileDto(
                 oldEmail,
           this.txtFirstName.getText().trim(),
@@ -83,7 +83,6 @@ public class ProfileController {
 
     @FXML
     private void handleChangePassword(ActionEvent ae){
-
         Navigatior.navigateNewStage(Navigatior.CHANGEPASSWORD);
     }
     public void disable(){

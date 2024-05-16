@@ -60,6 +60,8 @@ interface AdminPages{
     public final static String ADMIN_REGISTRATIONMENU_SHOWANDEDIT = "admin-registrationMenu-showAndEdit.fxml";
     public final static String ADMIN_RESETPASSWORD = "admin-resetPassword.fxml";
 
+    public final static String ADMIN_INBOX = "admin-inbox.fxml";
+
 
 }
 interface StudentPages{
