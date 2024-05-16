@@ -10,6 +10,8 @@ import javafx.util.Duration;
 import model.dto.Overall.ChangePasswordDto;
 import service.Admin.AdminService;
 import service.CustomExceptions.InvalidPassword;
+import service.Student.StudentService;
+import service.Supervisor.SupervisorService;
 
 public class ChangePassword {
     @FXML
@@ -32,7 +34,17 @@ public class ChangePassword {
         );
 
         try{
-            AdminService.changePassword(change);
+            int user = SESSION.getUser();
+            if (user == 1){
+                AdminService.changePassword(change);
+            } else if (user == 2){
+                SupervisorService.changePassword(change);
+            } else if (user == 3){
+                System.out.println(" ");
+            } else {
+                System.out.println("ERROR");
+            }
+
             System.out.println("U nderrua Passwordi me sukses");
             Navigatior.closeStageAfterDelay(ae, Duration.millis(3000));
             PopUp.loading("   Changed Password!",true, "");

@@ -8,6 +8,8 @@ public class SESSION {
     private static int admin_reset_PasswordId = 0;
     private static String admin_reset_type = "";
     private static String admin_student_lastSearch = "";
+//    Temporary
+    private static int user;
     private SESSION() {}
 
     public static String getAdmin_registration_lastSearch() {
@@ -65,4 +67,9 @@ public class SESSION {
     public static void setAdmin_student_lastSearch(String admin_student_lastSearch) {
         SESSION.admin_student_lastSearch = admin_student_lastSearch;
     }
+
+    public static int getUser(){
+        return user;
+    }
+    public static void setUser(int user){SESSION.user = user;}
 }
