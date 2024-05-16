@@ -45,6 +45,11 @@ public class RibbonController {
     @FXML
     private ImageView imgGoForward;
 
+    private Image imageGoBackWhite;
+    private Image imageGoBackGray;
+    private Image imageGoForwardWhite;
+    private Image imageGoForwardGray;
+
     @FXML
     private void initialize(){
         if(BackAndForth.getIndex() == -1){
@@ -53,6 +58,15 @@ public class RibbonController {
             BackAndForth.addOnePage(Navigatior.ADMIN_MENU+"S");
         }else{
             this.navigateAndSaveState(Navigatior.ADMIN_MENU+"S");
+        }
+
+        try {
+            this.imageGoBackWhite = new Image(new FileInputStream("src/main/resources/Images/backArrow.png"));
+            this.imageGoBackGray = new Image(new FileInputStream("src/main/resources/Images/grayBackArrow.png"));
+            this.imageGoForwardWhite = new Image(new FileInputStream("src/main/resources/Images/forwardArrow.png"));
+            this.imageGoForwardGray = new Image(new FileInputStream("src/main/resources/Images/grayForwardArrow.png"));
+        } catch (FileNotFoundException e) {
+         //
         }
 
 
@@ -159,13 +173,13 @@ public class RibbonController {
             System.out.println("Index:" + BackAndForth.getIndex());
         }
 
-        System.out.println("Anetaret E linked List");
-        System.out.println("__________________________________________________________________");
-        for(String s:BackAndForth.getRibbonState()){
-            System.out.println(s);
-        }
-        System.out.println("Indexi: "+BackAndForth.getIndex());
-        System.out.println("__________________________________________________________________");
+//        System.out.println("Anetaret E linked List");
+//        System.out.println("__________________________________________________________________");
+//        for(String s:BackAndForth.getRibbonState()){
+//            System.out.println(s);
+//        }
+//        System.out.println("Indexi: "+BackAndForth.getIndex());
+//        System.out.println("__________________________________________________________________");
 
         setButtons();
     }
@@ -193,13 +207,13 @@ public class RibbonController {
             System.out.println("Index:" + BackAndForth.getIndex());
         }
 
-        System.out.println("Anetaret E linked List");
-        System.out.println("__________________________________________________________________");
-        for(String s:BackAndForth.getRibbonState()){
-            System.out.println(s);
-        }
-        System.out.println("Indexi: "+BackAndForth.getIndex());
-        System.out.println("__________________________________________________________________");
+//        System.out.println("Anetaret E linked List");
+//        System.out.println("__________________________________________________________________");
+//        for(String s:BackAndForth.getRibbonState()){
+//            System.out.println(s);
+//        }
+//        System.out.println("Indexi: "+BackAndForth.getIndex());
+//        System.out.println("__________________________________________________________________");
 
        setButtons();
 
@@ -214,44 +228,36 @@ public class RibbonController {
         }
         BackAndForth.addOnePage(page);
 
-        System.out.println("Anetaret E linked List");
-        System.out.println("__________________________________________________________________");
-        for(String s:BackAndForth.getRibbonState()){
-            System.out.println(s);
-            System.out.println(BackAndForth.getIndex());
-        }
-        System.out.println("__________________________________________________________________");
-        System.out.println("Indexi: "+BackAndForth.getIndex());
+//        System.out.println("Anetaret E linked List");
+//        System.out.println("__________________________________________________________________");
+//        for(String s:BackAndForth.getRibbonState()){
+//            System.out.println(s);
+//            System.out.println(BackAndForth.getIndex());
+//        }
+//        System.out.println("__________________________________________________________________");
+//        System.out.println("Indexi: "+BackAndForth.getIndex());
 
         setButtons();
 
     }
 
     private void setButtons() {
-       try {
            if (BackAndForth.getIndex() <= 0) {
-               this.imgGoBack.setImage(new Image(new FileInputStream("src/main/resources/Images/grayBackArrow.png")));
-               System.out.println("Disable executed");
+               this.imgGoBack.setImage(this.imageGoBackGray);
                this.imgGoBack.setDisable(true);
            } else {
-               this.imgGoBack.setImage(new Image(new FileInputStream("src/main/resources/Images/backArrow.png")));
-               System.out.println("Enable button");
+               this.imgGoBack.setImage(this.imageGoBackWhite);
                this.imgGoBack.setDisable(false);
            }
 
            if (BackAndForth.getIndex() == BackAndForth.getMaxIndex()) {
-               this.imgGoForward.setImage(new Image(new FileInputStream("src/main/resources/Images/grayForwardArrow.png")));
+               this.imgGoForward.setImage(this.imageGoForwardGray);
                this.imgGoForward.setDisable(true);
            } else {
-               this.imgGoForward.setImage(new Image(new FileInputStream("src/main/resources/Images/forwardArrow.png")));
+               this.imgGoForward.setImage(this.imageGoForwardWhite);
                this.imgGoForward.setDisable(false);
            }
-
-       }catch(Exception e){
-           //
-       }
     }
-
 }
 
 

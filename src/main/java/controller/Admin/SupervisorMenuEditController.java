@@ -75,6 +75,10 @@ public class SupervisorMenuEditController {
         this.btnResetPassword.setDisable(true);
         this.txtSearch.setText(SESSION.getAdmin_supervisor_lastSearch());
         this.supervisorList = SupervisorService.searchMbikqyresi(this.txtSearch.getText());
+        this.columnId.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,Integer>("mbikqyresiId"));
+        this.columnEmail.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,String>("email"));
+        this.columnFirstName.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,String>("firstName"));
+        this.columnLastName.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,String>("lastName"));
         this.setColumns();
         this.edit = true;
     }
@@ -146,10 +150,6 @@ public class SupervisorMenuEditController {
     }
 
     private void setColumns(){
-        this.columnId.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,Integer>("mbikqyresiId"));
-        this.columnEmail.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,String>("email"));
-        this.columnFirstName.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,String>("firstName"));
-        this.columnLastName.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,String>("lastName"));
         this.tableSupervisor.setItems(this.supervisorList);
     }
 

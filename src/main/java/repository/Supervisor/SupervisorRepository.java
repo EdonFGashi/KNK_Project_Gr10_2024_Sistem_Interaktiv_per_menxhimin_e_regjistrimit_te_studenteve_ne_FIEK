@@ -95,7 +95,7 @@ public class SupervisorRepository {
                 String mbiemri = result.getString("mbiemri");
                 String salt = result.getString("salt");
                 String passwordHash = result.getString("passwordHash");
-                array.add(new SupervisorTableModel(mbikqyresiId, email, emri, mbiemri, salt, passwordHash));
+                array.add(new SupervisorTableModel(mbikqyresiId, emri, mbiemri, email,salt, passwordHash));
             }
         } catch (SQLException e) {
             e.printStackTrace();
