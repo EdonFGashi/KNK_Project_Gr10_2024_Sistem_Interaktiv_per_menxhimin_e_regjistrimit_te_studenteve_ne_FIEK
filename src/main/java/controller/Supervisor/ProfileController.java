@@ -11,7 +11,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import model.dto.Admin.AdminProfileToControllerDto;
 import model.dto.Admin.EditAdminProfileDto;
+import model.dto.Supervisor.SupervisorProfileToControllerDto;
 import service.Admin.AdminService;
+import service.Supervisor.SupervisorService;
 
 import java.io.FileInputStream;
 
@@ -36,16 +38,17 @@ public class ProfileController {
             System.out.println("Image not found!");
         }
         this.disable();
-        AdminProfileToControllerDto admin = AdminService.getProfileInfo(SESSION.getLoggedUserEmail());
+        SupervisorProfileToControllerDto supervisor = SupervisorService.getProfileInfo(SESSION.getLoggedUserEmail());
 
-        if(admin != null) {
-            this.txtFirstName.setText(admin.getFirstName());
-            this.txtLastName.setText(admin.getLastName());
-            this.txtEmail.setText(admin.getEmail());
+        if(supervisor != null) {
+            this.txtFirstName.setText(supervisor.getFirstName());
+            this.txtLastName.setText(supervisor.getLastName());
+            this.txtEmail.setText(supervisor.getEmail());
         }else{
             System.out.println("Data object i admin su lexu");
         }
         System.out.println("U lexu initialize");
+        System.out.println("Email: " + SESSION.getLoggedUserEmail());
     }
 
     @FXML

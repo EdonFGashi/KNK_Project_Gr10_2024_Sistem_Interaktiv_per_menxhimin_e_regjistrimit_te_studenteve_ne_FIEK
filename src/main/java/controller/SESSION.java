@@ -11,6 +11,8 @@ public class SESSION {
     private static int admin_reset_PasswordId = 0;
     private static String admin_reset_type = "";
     private static String admin_student_lastSearch = "";
+//    Temporary
+    private static int user;
     private SESSION() {}
 
     public static String getAdmin_registration_lastSearch() {
@@ -20,6 +22,7 @@ public class SESSION {
     public static void setAdmin_registration_lastSearch(String admin_registration_lastSearch) {
         SESSION.admin_registration_lastSearch = admin_registration_lastSearch;
     }
+
 
 
     public static String getAdminMenu() {

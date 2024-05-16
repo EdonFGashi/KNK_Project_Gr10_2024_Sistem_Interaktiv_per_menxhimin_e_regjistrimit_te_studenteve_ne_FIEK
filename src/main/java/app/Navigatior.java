@@ -67,8 +67,9 @@ interface AdminPages{
 interface StudentPages{
     public final static String STUDENT_MENU = "StudentMenu.fxml";
     public final static String PERSONAL_INFO = "";
-    public final static String EDUCATION = "";
-    public final static String ACADEMIC = "";
+    public final static String EDUCATION = "educational-experience.fxml";
+    public final static String ACADEMIC = "academic-interest.fxml";
+    public final static String STUDENT_DASHBOARD = "";
 }
 interface SupervisorPages{
     public final static String SUPERVISOR_RIBBON = "supervisor-ribbon.fxml";

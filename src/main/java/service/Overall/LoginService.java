@@ -36,6 +36,7 @@ public class LoginService {
             case ADMIN_EMAIL_DOMAIN -> {
                 if (loginAsAdmin(loginDto)){
                     SESSION.setLoggedUserEmail(email);
+                    SESSION.setUser(1);
                     return "admin";
                 }
                 return null;
@@ -43,6 +44,7 @@ public class LoginService {
             case SUPERVISOR_EMAIL_DOMAIN -> {
                 if (loginAsSupervisor(loginDto)){
                     SESSION.setLoggedUserEmail(email);
+                    SESSION.setUser(2);
                     return "supervisor";
                 }
                 return null;
@@ -59,6 +61,7 @@ public class LoginService {
 //
                 if (loginAsStudent(loginDto)){
                     SESSION.setLoggedUserEmail(email);
+                    SESSION.setUser(3);
                     return "student";
                 }
                 return null;
