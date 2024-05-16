@@ -52,9 +52,15 @@ public class LoginController {
     private Label errorMessageLabel;
     @FXML
     private ImageView eyeIcon;
+    @FXML
+    private AnchorPane anchorPane;
 
     @FXML
     private void initialize(){
+        // E vendos checboxin mi sy
+        anchorPane.getChildren().remove(showHidePasswordCheckbox);
+        anchorPane.getChildren().add(showHidePasswordCheckbox);
+
         userPasswordVisible.setVisible(false);
         userPasswordVisible.setManaged(false);
 
