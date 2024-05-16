@@ -160,4 +160,12 @@ public static boolean login(LoginAdminDto loginData){
     public static int getTotalNjoftime() {
     return NjoftimRepository.getTotalNjoftimi();
     }
+
+    public static boolean editNjoftim(Njoftim njoftim) {
+    return NjoftimRepository.editNjoftim(njoftim);
+    }
+
+    public static boolean deleteNjoftim(int njoftimiId) {
+    return NjoftimRepository.deleteNjoftim(njoftimiId);
+    }
 }

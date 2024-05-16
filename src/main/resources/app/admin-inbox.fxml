@@ -13,7 +13,7 @@
    <children>
       <AnchorPane layoutX="31.0" layoutY="66.0" prefHeight="583.0" prefWidth="486.0" style="-fx-background-radius: 5; -fx-background-color: white; -fx-border-radius: 5; -fx-border-color: lightgray;">
          <children>
-            <TextField fx:id="txtAdminId" disable="true" layoutX="265.0" layoutY="376.0" prefHeight="50.0" prefWidth="176.0" style="-fx-background-radius: 15;" />
+            <TextField fx:id="txtAdminId" editable="false" layoutX="265.0" layoutY="376.0" prefHeight="50.0" prefWidth="176.0" style="-fx-background-radius: 15;" />
             <Label layoutX="259.0" layoutY="325.0" prefHeight="50.0" prefWidth="140.0" text="Admin Id:">
                <font>
                   <Font name="Tahoma" size="18.0" />
@@ -45,7 +45,7 @@
                   <Font name="Tahoma" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNjoftimId" disable="true" layoutX="21.0" layoutY="376.0" prefHeight="50.0" prefWidth="165.0" style="-fx-background-radius: 15;" />
+            <TextField fx:id="txtNjoftimId" editable="false" layoutX="21.0" layoutY="376.0" prefHeight="50.0" prefWidth="165.0" style="-fx-background-radius: 15;" />
          </children>
          <effect>
             <DropShadow />

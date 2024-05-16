@@ -1,15 +1,12 @@
 package controller.Admin;
 
 import app.Main;
-import app.Navigatior;
 import app.PopUp;
 import controller.SESSION;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -25,16 +22,16 @@ import java.util.Collections;
 public class InboxController{
 
         @FXML
-        private TextArea fielNjoftimi;
+        protected TextArea fielNjoftimi;
 
         @FXML
         private Pagination pagPagination;
 
         @FXML
-        private TextField txtAdminId;
+        protected TextField txtAdminId;
 
         @FXML
-        private TextField txtNjoftimId;
+        protected TextField txtNjoftimId;
 
         private VBox contentVBox = new VBox();
         private final int njoftimePerPage = 2;
@@ -65,6 +62,7 @@ public class InboxController{
                                 Parent PaneNjoftimi = loader.load();
                                 NjoftimPaneController controller = loader.getController();
                                 controller.setNjoftimi(njoftim);
+                                controller.setController(this);
                                 contentVBox.getChildren().add(PaneNjoftimi);
                         } catch (Exception e) {
                                 e.printStackTrace();
@@ -102,12 +100,24 @@ public class InboxController{
 
         @FXML
         private void handleDeleteNjoftim(ActionEvent ae) {
-
+                if(AdminService.deleteNjoftim(
+                      this.selectedNjoftim.getNjoftimiId()
+                )){
+                        PopUp.tick(250);
+                }
         }
 
         @FXML
         private void handleEditNjoftim(ActionEvent ae) {
-
+           if(AdminService.editNjoftim(
+             new Njoftim(
+                     this.selectedNjoftim.getNjoftimiId(),
+                     this.fielNjoftimi.getText(),
+                     SESSION.getLoggedAdmin().getId()
+             )
+           )){
+                   PopUp.tick(250);
+           }
         }
 
         private void resetFormsForNew(){
@@ -115,13 +125,11 @@ public class InboxController{
                 this.txtAdminId.setText(Integer.toString(SESSION.getLoggedAdmin().getId()));
 
         }
-        protected void getSelectedNjoftimi(Njoftim njoftimi){
-           this.selectedNjoftim = njoftimi;
-           this.txtNjoftimId.setText(Integer.toString(this.selectedNjoftim.getNjoftimiId()));
-           this.txtAdminId.setText(Integer.toString(this.selectedNjoftim.getAdminId()));
-           this.fielNjoftimi.setText(this.selectedNjoftim.getText());
+        public void setFormsNjoftimi(Njoftim njoftimi){
+                this.selectedNjoftim = njoftimi;
+                this.txtNjoftimId.setText(Integer.toString(njoftimi.getNjoftimiId()));
+                this.txtAdminId.setText(Integer.toString(njoftimi.getAdminId()));
+                this.fielNjoftimi.setText(njoftimi.getText());
         }
-
-
 
 }
