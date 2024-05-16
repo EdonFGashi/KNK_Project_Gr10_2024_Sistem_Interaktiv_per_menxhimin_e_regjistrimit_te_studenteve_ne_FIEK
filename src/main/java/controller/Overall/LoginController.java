@@ -22,6 +22,7 @@ import service.Admin.AdminService;
 import service.CustomExceptions.InvalidEmail;
 import service.CustomExceptions.InvalidPassword;
 import service.Overall.LoginService;
+import service.Supervisor.SupervisorService;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -121,7 +122,9 @@ public class LoginController {
                 Stage stage = new Stage();
                 stage.setMaximized(true);
                 Navigatior.navigate(stage, Navigatior.SUPERVISOR_MENU);
-
+                //Mbikqyresi mu ru ne session
+                SESSION.setLoggedSupervisor(SupervisorService.getSupervisorByEmail(this.userEmail.getText()));
+                System.out.println(SESSION.getLoggedSupervisor().getFirstName());
                 Navigatior.closeStageAfterDelay(event, Duration.millis(1));
             } else if (Objects.equals(LoginService.login(loginDto), "student")) {
 
