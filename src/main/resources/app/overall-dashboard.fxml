@@ -11,36 +11,41 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="700.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Overall.DashboardController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="1230.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Overall.DashboardController">
    <top>
       <AnchorPane prefHeight="76.0" prefWidth="710.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="WHITE" layoutX="273.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="Universiteti i Prishtinës">
+            <Text fill="WHITE" layoutX="539.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="Universiteti i Prishtinës">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="292.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="&quot;Hasan Prishtina&quot;">
+            <Text fill="WHITE" layoutX="557.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="&quot;Hasan Prishtina&quot;">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Hyperlink layoutX="44.0" layoutY="3.0" style="-fx-opacity: 0.7; -fx-font-weight: 700;" text="rektorati@uni-pr.edu" textFill="WHITE" />
-            <Line endX="310.0" endY="-1.0" fill="WHITE" layoutX="373.0" layoutY="26.0" startX="-355.0" startY="-1.0" stroke="WHITE" strokeLineCap="ROUND" />
-            <ImageView fitHeight="23.0" fitWidth="15.0" layoutX="29.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;">
+            <Hyperlink layoutX="90.0" layoutY="5.0" style="-fx-opacity: 0.7; -fx-font-weight: 700;" text="rektorati@uni-pr.edu" textFill="WHITE" />
+            <Line endX="796.0" endY="-1.0" fill="WHITE" layoutX="373.0" layoutY="26.0" startX="-318.0" startY="-1.0" stroke="WHITE" strokeLineCap="ROUND" />
+            <ImageView fitHeight="23.0" fitWidth="15.0" layoutX="75.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;">
                <image>
                   <Image url="@../../../../Images/mail.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="571.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 0.7; -fx-font-weight: 700;" text="+383 38 244 183 " />
-            <ImageView fitHeight="23.0" fitWidth="15.0" layoutX="556.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;">
+            <Text fill="WHITE" layoutX="1048.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 0.7; -fx-font-weight: 700;" text="+383 38 244 183 " />
+            <ImageView fitHeight="23.0" fitWidth="15.0" layoutX="1027.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;">
                <image>
                   <Image url="@../../../../Images/phone.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="infoimg" fitHeight="26.0" fitWidth="24.0" layoutX="664.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="infoimg" fitHeight="26.0" fitWidth="24.0" layoutX="1189.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Images/info-icon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="34.0" fitWidth="31.0" layoutX="1189.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Images/language-icon.png" />
                </image>
             </ImageView>
          </children>
@@ -49,50 +54,44 @@
    <center>
       <AnchorPane fx:id="middle_anchor" prefHeight="379.0" prefWidth="537.0" stylesheets="@../../../../CSS/dashboard.css" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="mainImage" fitHeight="364.0" fitWidth="714.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="mainImage" fitHeight="699.0" fitWidth="1230.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Images/fieku.png" />
                </image>
             </ImageView>
-            <HBox layoutX="110.0" layoutY="20.0" prefHeight="41.0" prefWidth="404.0">
-               <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="Sistemi i regjistrimit të studentëve">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                  </Text>
-               </children>
-            </HBox>
-            <Button fx:id="buttoni_qasja" layoutX="284.0" layoutY="265.0" mnemonicParsing="false" onMouseEntered="#buttoni_qasja_hover" prefHeight="51.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-opacity: 0.5;" />
-            <Text fill="WHITE" layoutX="329.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="Qasja">
+            <HBox layoutX="110.0" layoutY="20.0" prefHeight="41.0" prefWidth="404.0" />
+            <Button fx:id="buttoni_qasja" layoutX="528.0" layoutY="407.0" mnemonicParsing="false" onMouseEntered="#buttoni_qasja_hover" prefHeight="77.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-opacity: 0.5;" />
+            <Text fill="WHITE" layoutX="590.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="Qasja">
                <font>
-                  <Font size="17.0" />
+                  <Font size="20.0" />
                </font>
             </Text>
-            <HBox layoutX="33.0" layoutY="71.0" prefHeight="43.0" prefWidth="678.0">
+            <HBox layoutX="216.0" layoutY="125.0" prefHeight="29.0" prefWidth="642.0">
                <children>
                   <ImageView fitHeight="25.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../Images/speaker.png" />
                      </image>
                   </ImageView>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="   NJOFTIM : Hapet konkursi për pranimin e studentëve në të gjitha nivelet akademike." wrappingWidth="645.9873046875">
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="   NJOFTIM : Hapet konkursi për pranimin e studentëve në të gjitha nivelet akademike." wrappingWidth="774.9873046875">
                      <font>
-                        <Font name="System Bold" size="15.0" />
+                        <Font name="System Bold" size="19.0" />
                      </font>
                   </Text>
                </children>
             </HBox>
-            <Text fill="WHITE" layoutX="182.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 800;" text="© All Rights Reserved. Powered by University of Prishtina" />
-            <HBox layoutX="108.0" layoutY="114.0" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-opacity: 0.8;" text="Këshilli Drejtues i Fakultetit të Inxhinierisë Elektrike dhe Kompjuterike, ka vendosur për datën e aplikimit të studentëve për vitin akademik 2024/25. Aplikimi do të jetë i hapur deri më 01.07.2024. Suksese!" textAlignment="CENTER" wrappingWidth="485.9830722808838">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Text>
-               </children>
-            </HBox>
+            <Text fill="WHITE" layoutX="443.0" layoutY="654.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 800;" text="© All Rights Reserved. Powered by University of Prishtina" />
+            <HBox layoutX="108.0" layoutY="114.0" prefHeight="100.0" prefWidth="200.0" />
+            <Text fill="WHITE" layoutX="324.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="Sistemi i regjistrimit të studentëve">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="372.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-opacity: 0.8;" text="Këshilli Drejtues i Fakultetit të Inxhinierisë Elektrike dhe Kompjuterike, ka vendosur për datën e aplikimit të studentëve për vitin akademik 2024/25. Aplikimi do të jetë i hapur deri më 01.07.2024. Suksese!" textAlignment="CENTER" wrappingWidth="485.9830722808838">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </center>
