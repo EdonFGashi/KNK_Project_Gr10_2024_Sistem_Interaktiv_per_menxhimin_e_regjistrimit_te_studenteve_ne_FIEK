@@ -43,7 +43,7 @@
                   <Image url="@../../../../Images/info-icon.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="34.0" fitWidth="31.0" layoutX="1189.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="changeLanguageIcon" fitHeight="34.0" fitWidth="31.0" layoutX="1189.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Images/language-icon.png" />
                </image>
