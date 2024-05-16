@@ -96,7 +96,7 @@
          <content>
             <VBox alignment="TOP_CENTER" prefHeight="572.0" prefWidth="726.0" style="-fx-background-color: white;">
                <children>
-                  <TableView fx:id="tableAfat" prefHeight="552.0" prefWidth="478.0" style="-fx-background-color: transparent; -fx-border-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-border-width: 2px; -fx-border-radius: 8px;" stylesheets="@../../../../CSS/table.css">
+                  <TableView fx:id="tableAfat" prefHeight="552.0" prefWidth="478.0" style="-fx-background-color: transparent; -fx-border-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-border-width: 2px; -fx-border-radius: 8px;">
                      <columns>
                         <TableColumn fx:id="columnId" editable="false" prefWidth="75.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-size: 40px; -fx-font-family: Arial; -fx-border-color: white;" text=" Id" />
                         <TableColumn fx:id="columnYear" editable="false" prefWidth="105.60001373291016" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Year" />

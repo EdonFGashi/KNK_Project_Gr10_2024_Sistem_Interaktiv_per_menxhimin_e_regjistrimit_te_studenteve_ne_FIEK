@@ -97,3 +97,14 @@ VALUES ("jon@admin.uni-pr.edu","Jon","Kuçi","OCjHhzKXTym9xYJtqCQZWr/3rS2RCs5Hs2
 ALTER TABLE tblkonkurimet
 DROP COLUMN provimiId;
 
+
+-- 16/05/2024 - Joni
+-- Veq qe me i ba unique qe mos mu kan dy me email t njejt, s lejon as me editu per me ba qat email
+ALTER TABLE tblMbikqyresi
+MODIFY column email VARCHAR(50) UNIQUE;
+
+ALTER TABLE tblAdmin
+MODIFY column email VARCHAR(50) UNIQUE;
+
+
+

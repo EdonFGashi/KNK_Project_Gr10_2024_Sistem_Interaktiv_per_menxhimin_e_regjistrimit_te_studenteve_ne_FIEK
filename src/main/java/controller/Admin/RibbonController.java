@@ -5,13 +5,13 @@ import controller.Animations.UpLogoAnimate;
 import controller.BackAndForth;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import controller.SESSION;
+import javafx.util.Duration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -37,21 +37,37 @@ public class RibbonController {
     @FXML
     private ImageView imgInfoIcon;
 
-    @FXML
-    private Button btnBack;
-    @FXML
-    private Button btnForth;
+
 
     private UpLogoAnimate logo = new UpLogoAnimate(50, "FIEK Management", 5, 1);
 
     @FXML
+    private ImageView imgGoBack;
+    @FXML
+    private ImageView imgGoForward;
+
+    private Image imageGoBackWhite;
+    private Image imageGoBackGray;
+    private Image imageGoForwardWhite;
+    private Image imageGoForwardGray;
+
+    @FXML
     private void initialize(){
-        if(BackAndForth.getIndex() == 0){
+        if(BackAndForth.getIndex() == -1){
             SESSION.setAdminMenu("Student");
             Navigatior.navigate(this.addPane, Navigatior.ADMIN_MENU);
-            BackAndForth.addOnePage(Navigatior.ADMIN_MENU);
+            BackAndForth.addOnePage(Navigatior.ADMIN_MENU+"S");
         }else{
-            this.navigateAndSaveState(Navigatior.ADMIN_MENU);
+            this.navigateAndSaveState(Navigatior.ADMIN_MENU+"S");
+        }
+
+        try {
+            this.imageGoBackWhite = new Image(new FileInputStream("src/main/resources/Images/backArrow.png"));
+            this.imageGoBackGray = new Image(new FileInputStream("src/main/resources/Images/grayBackArrow.png"));
+            this.imageGoForwardWhite = new Image(new FileInputStream("src/main/resources/Images/forwardArrow.png"));
+            this.imageGoForwardGray = new Image(new FileInputStream("src/main/resources/Images/grayForwardArrow.png"));
+        } catch (FileNotFoundException e) {
+         //
         }
 
 
@@ -73,12 +89,7 @@ public class RibbonController {
 
         Tooltip.install(imgInfoIcon, tooltip);
 
-        if(BackAndForth.getIndex() <= 1){
-            this.btnBack.setDisable(true);
-        }
-        if(BackAndForth.getIndex() == BackAndForth.getMaxIndex()){
-            this.btnForth.setDisable(true);
-        }
+        this.setButtons();
     }
 
     @FXML
@@ -90,14 +101,18 @@ public class RibbonController {
     @FXML
     private void handleSupervisorMenagmentClick(MouseEvent me){
         SESSION.setAdminMenu("Supervisor");
-        Navigatior.navigate(this.addPane, Navigatior.ADMIN_MENU);
-        BackAndForth.addOnePage(Navigatior.ADMIN_MENU);
+        this.navigateAndSaveState(Navigatior.ADMIN_MENU+"M");
 
     }
     @FXML
     private void handleStudentMenagmentClick(MouseEvent me){
         SESSION.setAdminMenu("Student");
-        this.navigateAndSaveState(Navigatior.ADMIN_MENU);
+        this.navigateAndSaveState(Navigatior.ADMIN_MENU+"S");
+    }
+    @FXML
+    private void handleRegistrationPeriodClick(MouseEvent me){
+        SESSION.setAdminMenu("Afat");
+        this.navigateAndSaveState(Navigatior.ADMIN_MENU+"A");
     }
     @FXML
     private void handleInboxClick(MouseEvent me){
@@ -119,7 +134,9 @@ public class RibbonController {
     }
     @FXML
     private void handleSignOut(ActionEvent ae){
-        Navigatior.navigate(ae,Navigatior.LOGIN);
+        Navigatior.navigateNewStage(Navigatior.LOGIN);
+        SESSION.setLoggedAdmin(null);
+       // Navigatior.closeStageAfterDelay(ae, Duration.millis(100));
     }
 
     @FXML
@@ -130,11 +147,7 @@ public class RibbonController {
     private void handleStartAnimation(MouseEvent me){
         this.logo.startWithMouse();
     }
-    @FXML
-    private void handleRegistrationPeriodClick(MouseEvent me){
-        SESSION.setAdminMenu("Afat");
-        this.navigateAndSaveState(Navigatior.ADMIN_MENU);
-    }
+
 
     @FXML
     private void handleInfoIconClicked(MouseEvent me){
@@ -143,39 +156,111 @@ public class RibbonController {
 
 
     @FXML
-    void handleBackClick(ActionEvent event) {
-         Navigatior.navigate(this.addPane, BackAndForth.gotoPreviousPage());
-        System.out.println("Index:" +BackAndForth.getIndex());
-        System.out.println("This is the back page: "+ BackAndForth.gotoPreviousPage());
+    void handleBackClick(MouseEvent me) {
+
+        String currentPage =BackAndForth.gotoPreviousPage();
+        if(currentPage !=null) {
+            if(currentPage.contains("admin-Menu")) {
+                char menuChar = currentPage.charAt(currentPage.length()-1);
+                if(menuChar == 'S'){
+                    SESSION.setAdminMenu("Student");
+                } else if (menuChar == 'M') {
+                    SESSION.setAdminMenu("Supervisor");
+                }else if (menuChar == 'A') {
+                    SESSION.setAdminMenu("Afat");
+                }
+                Navigatior.navigate(this.addPane, currentPage.substring(0, currentPage.length()-1));
+            }else {
+                Navigatior.navigate(this.addPane, currentPage);
+            }
+            System.out.println("Index:" + BackAndForth.getIndex());
+        }
+
+//        System.out.println("Anetaret E linked List");
+//        System.out.println("__________________________________________________________________");
+//        for(String s:BackAndForth.getRibbonState()){
+//            System.out.println(s);
+//        }
+//        System.out.println("Indexi: "+BackAndForth.getIndex());
+//        System.out.println("__________________________________________________________________");
+
+        setButtons();
     }
 
     @FXML
-    void handleForthClick(ActionEvent event) {
-        Navigatior.navigate(this.addPane, BackAndForth.gotoForthPage());
-        System.out.println("Index:" +BackAndForth.getIndex());
-        System.out.println("This is the forth page: "+ BackAndForth.gotoForthPage());
+    void handleForthClick(MouseEvent me) {
+
+        String currentPage =BackAndForth.gotoForthPage();
+        System.out.println("U Ekzekutu Forth Click");
+        System.out.println("Faqja current: "+currentPage);
+        if(currentPage !=null) {
+            if(currentPage.contains("admin-Menu")) {
+                char menuChar = currentPage.charAt(currentPage.length()-1);
+                if(menuChar == 'S'){
+                    SESSION.setAdminMenu("Student");
+                } else if (menuChar == 'M') {
+                    SESSION.setAdminMenu("Supervisor");
+                }else if (menuChar == 'A') {
+                    SESSION.setAdminMenu("Afat");
+                }
+                Navigatior.navigate(this.addPane, currentPage.substring(0, currentPage.length()-1));
+            }else {
+                Navigatior.navigate(this.addPane, currentPage);
+            }
+            System.out.println("Index:" + BackAndForth.getIndex());
+        }
+
+//        System.out.println("Anetaret E linked List");
+//        System.out.println("__________________________________________________________________");
+//        for(String s:BackAndForth.getRibbonState()){
+//            System.out.println(s);
+//        }
+//        System.out.println("Indexi: "+BackAndForth.getIndex());
+//        System.out.println("__________________________________________________________________");
+
+       setButtons();
 
     }
 
 
     private void navigateAndSaveState(String page){
-        Navigatior.navigate(this.addPane,page);
+        if(page.contains("admin-Menu")) {
+            Navigatior.navigate(this.addPane, page.substring(0, page.length() - 1));
+        }else{
+            Navigatior.navigate(this.addPane, page);
+        }
         BackAndForth.addOnePage(page);
-        System.out.println("Added Page!!"+page);
-        System.out.println("Index:" +BackAndForth.getIndex());
-        System.out.println("Max Index:" +BackAndForth.getMaxIndex());
-        if(BackAndForth.getIndex() == 0){
-            this.btnBack.setDisable(true);
-        }else{
-            this.btnBack.setDisable(false);
-        }
-        if(BackAndForth.getIndex() == BackAndForth.getMaxIndex()){
-            this.btnForth.setDisable(true);
-        }else{
-            this.btnForth.setDisable(false);
-        }
+
+//        System.out.println("Anetaret E linked List");
+//        System.out.println("__________________________________________________________________");
+//        for(String s:BackAndForth.getRibbonState()){
+//            System.out.println(s);
+//            System.out.println(BackAndForth.getIndex());
+//        }
+//        System.out.println("__________________________________________________________________");
+//        System.out.println("Indexi: "+BackAndForth.getIndex());
+
+        setButtons();
+
     }
 
+    private void setButtons() {
+           if (BackAndForth.getIndex() <= 0) {
+               this.imgGoBack.setImage(this.imageGoBackGray);
+               this.imgGoBack.setDisable(true);
+           } else {
+               this.imgGoBack.setImage(this.imageGoBackWhite);
+               this.imgGoBack.setDisable(false);
+           }
+
+           if (BackAndForth.getIndex() == BackAndForth.getMaxIndex()) {
+               this.imgGoForward.setImage(this.imageGoForwardGray);
+               this.imgGoForward.setDisable(true);
+           } else {
+               this.imgGoForward.setImage(this.imageGoForwardWhite);
+               this.imgGoForward.setDisable(false);
+           }
+    }
 }
 
 

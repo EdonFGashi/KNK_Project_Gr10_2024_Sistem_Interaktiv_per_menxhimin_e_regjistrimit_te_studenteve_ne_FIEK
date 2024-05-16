@@ -2,6 +2,7 @@ package controller.Admin;
 
 import app.Navigatior;
 import app.PopUp;
+import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -20,7 +21,9 @@ public class ResetPasswordController {
     private void handleResetPassword(ActionEvent ae){
         ResetPasswordDto resetPasswordDto = new ResetPasswordDto(
           this.pwdNewPassword.getText(),
-          this.pwdConfirmPassword.getText()
+          this.pwdConfirmPassword.getText(),
+          SESSION.getAdmin_reset_PasswordId(),
+          SESSION.getAdmin_reset_type()
         );
 
         try{

@@ -6,7 +6,7 @@ import model.ShkollaMesme;
 import model.UserStudent;
 import model.dto.Admin.ApproveStudentsDto;
 import model.dto.Admin.EditRegisteredStudentDetailsOnDbDto;
-import model.dto.ResetPasswordOnDb;
+import model.dto.Admin.ResetPasswordOnDb;
 import model.filter.StudentFilter;
 import service.DBConnector;
 
