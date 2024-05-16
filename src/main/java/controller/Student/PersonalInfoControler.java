@@ -8,6 +8,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import model.dto.Student.PersonDTO;
+import service.Student.personService;
 
 public class PersonalInfoControler {
 
@@ -54,7 +56,31 @@ public class PersonalInfoControler {
 
     @FXML
     void handleGenerateInfo(MouseEvent event) {
+        String personalNumber = txtPersonalNumber.getText();
 
+
+        PersonDTO person = personService.getPersonByPersonalNumber(personalNumber);
+
+        if (person == null) {
+
+            System.out.println("Personi nuk u gjet në bazën e të dhënave.");
+            return;
+        }
+
+
+        txtName.setText(person.getName());
+        txtLastName.setText(person.getLastName());
+        txtNationality.setText(person.getNationality());
+        txtCity.setText(person.getCity());
+        txtCountry.setText(person.getCountry());
+
+        if (person.getGender().equals("Female")) {
+            rbuttonFemale.setSelected(true);
+        } else {
+            rdbuttonMale.setSelected(true);
+        }
+
+        selectBirthday.setValue(person.getBirthDate().toLocalDate());
     }
 
     @FXML

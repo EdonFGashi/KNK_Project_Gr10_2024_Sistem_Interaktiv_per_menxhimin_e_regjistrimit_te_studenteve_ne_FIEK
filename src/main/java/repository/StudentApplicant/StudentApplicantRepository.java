@@ -1,5 +1,6 @@
 package repository.StudentApplicant;
 
+import model.dto.Student.PersonDTO;
 import model.dto.Student.StudentApplicantDto;
 import service.DBConnector;
 
@@ -9,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class StudentApplicantRepository {
@@ -72,5 +74,53 @@ public class StudentApplicantRepository {
             System.out.println("Gabim gjatë konvertimit të skedarit në bajtë: " + e.getMessage());
             return null;
         }
+    }
+
+   public static PersonDTO SearchByPersonalNumber(String personalNumber) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        PersonDTO person = null;
+
+        try {
+
+            conn = DBConnector.getConnection();
+            String query = "SELECT * FROM tblperson WHERE numriPersonal = ?";
+            ps = conn.prepareStatement(query);
+            ps.setString(1, personalNumber);
+            rs = ps.executeQuery();
+
+
+            if (rs.next()) {
+                person = new PersonDTO();
+                person.setPersonalNumber(rs.getString("numriPersonal"));
+                person.setName(rs.getString("emri"));
+                person.setLastName(rs.getString("mbiemri"));
+                person.setNationality(rs.getString("nacionaliteti"));
+                person.setCity(rs.getString("qyteti"));
+                person.setCountry(rs.getString("shteti"));
+                person.setGender(rs.getString("gjinia"));
+                person.setBirthDate(rs.getDate("dataLindjes"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return person;
     }
 }
