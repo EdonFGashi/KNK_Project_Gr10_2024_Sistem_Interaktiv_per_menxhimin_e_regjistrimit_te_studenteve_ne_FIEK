@@ -1,9 +1,12 @@
 package controller;
 
 import model.Admin;
+import model.SupervisorTableModel;
 
 public class SESSION {
     private static Admin loggedAdmin;
+
+    private static SupervisorTableModel loggedSupervisor;
 
     private static String loggedUserEmail;
 
@@ -75,6 +78,11 @@ public class SESSION {
 
     public static void setLoggedAdmin(Admin loggedAdmin) {
         SESSION.loggedAdmin = loggedAdmin;
+    }
+
+    public static SupervisorTableModel getLoggedSupervisor() {return loggedSupervisor;}
+    public static void setLoggedSupervisor(SupervisorTableModel loggedSupervisor) {
+        SESSION.loggedSupervisor = loggedSupervisor;
     }
 
     public static String getLoggedUserEmail() {

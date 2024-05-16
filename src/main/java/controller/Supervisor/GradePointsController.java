@@ -1,7 +1,6 @@
 package controller.Supervisor;
 
 import app.PopUp;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,14 +10,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import model.Afat;
+import model.SupervisorTableModel;
+import model.dto.Supervisor.SupervisorEditDto;
 import repository.AfatRepository;
+import repository.Supervisor.SupervisorRepository;
 import service.Admin.AdminService;
 import controller.SESSION;
+import service.Supervisor.SupervisorService;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class GradePointsController {
     @FXML
@@ -26,40 +27,33 @@ public class GradePointsController {
     @FXML
     private ImageView imgSearch;
     @FXML
-    private TextField txtId;
+    private TextField supervisorId;
+    @FXML
+    private TextField studentId;
 
-//    ObservableList<String> nivelet =
-//            FXCollections.observableArrayList("Bachelor","Master","Doctorature");
+    @FXML
+    private TextField applicationId;
+    @FXML
+    private TextField piket;
 
     @FXML
-    private TextField txtYear;
-//    @FXML
-//    private ChoiceBox<String> choiseChoseLevel;
-//    @FXML
-//    private DatePicker dateOpenDate;
-//    @FXML
-//    private DatePicker dateClosedDate;
-//    @FXML
-//    private RadioButton radioFirst, radioSecond;
+    private TableView<SupervisorTableModel> tableSupervisor;
+
     @FXML
-    private TableView<Afat> tableAfat;
+    private TableColumn<SupervisorTableModel,Integer> columnId;
     @FXML
-    private TableColumn<Afat,Integer> columnId;
+    private TableColumn<SupervisorTableModel,String> columnEmail;
     @FXML
-    private TableColumn<Afat,Integer> columnYear;
+    private TableColumn<SupervisorTableModel,String> columnFirstName;
     @FXML
-    private TableColumn<Afat,String> columnTime;
-    @FXML
-    private TableColumn<Afat,String> columnOpenDate;
-    @FXML
-    private TableColumn<Afat,String> columnCloseDate;
-    @FXML
-    private TableColumn<Afat,String> columnLevel;
+    private TableColumn<SupervisorTableModel,String> columnLastName;
+
     @FXML
     private Button btnEdit;
     private boolean edit;
 
-    private ObservableList<Afat> afatList;
+    private ObservableList<SupervisorTableModel> supervisorList;
+    private SupervisorTableModel selectedSupervisor;
 
     private Afat selectedAfat;
     @FXML
@@ -72,18 +66,21 @@ public class GradePointsController {
             System.out.println("Image not found");
         }
 
-        tableAfat.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+        tableSupervisor.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
-                selectedAfat = newSelection;
+                this.selectedSupervisor = newSelection;
                 this.setTextFields();
             }
         });
         this.disableForms();
-        this.txtId.setDisable(true);
-        this.afatList = AdminService.searchAfat(SESSION.getAdmin_registration_lastSearch());
-        this.txtSearch.setText(SESSION.getAdmin_registration_lastSearch());
-        setColumns();
-        this.tableAfat.setItems(this.afatList);
+        this.studentId.setDisable(true);
+        this.supervisorId.setDisable(true);
+        this.applicationId.setDisable(true);
+
+
+        this.txtSearch.setText(SESSION.getAdmin_supervisor_lastSearch());
+        this.supervisorList = SupervisorService.searchMbikqyresi(this.txtSearch.getText());
+        this.setColumns();
         this.edit = true;
 
     }
@@ -95,32 +92,22 @@ public class GradePointsController {
             this.btnEdit.setText("Save");
             this.edit = false;
         }else{
-            // AfatRepository.editAfat(new Afat(txtId.getText(),))
-//            String hera;
-//            if (radioFirst.isSelected()) {
-//                hera = "1";
-//            } else {
-//                hera = "2";
-//            }
 
-//            LocalDate openDate = this.dateOpenDate.getValue();
-//            String formattedOpenDate = openDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-//            LocalDate closeDate = this.dateClosedDate.getValue();
-//            String formattedClosedDate = closeDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-//            String choiceLevel = this.choiseChoseLevel.getValue();
-//            if(AdminService.editAfat(
-//                    new Afat(
-//                            Integer.parseInt(this.txtId.getText()),
-//                            Integer.parseInt(this.txtYear.getText()),hera,
-//                            formattedOpenDate,formattedClosedDate,choiceLevel
-//                    )
-//            )){
-//                PopUp.tick(150);
-//            }else{
-//                System.out.println("Edit not succesful");
-//            }
-            this.afatList = AdminService.searchAfat(SESSION.getAdmin_registration_lastSearch());
-            this.tableAfat.setItems(this.afatList);
+            if (SupervisorRepository.editMbikqyresi(
+                    new SupervisorEditDto(
+                            Integer.parseInt(this.supervisorId.getText()),
+                            this.studentId.getText(),
+                            this.applicationId.getText(),
+                            (this.piket.getText())
+                    )
+            )){
+                PopUp.tick(150);
+            } else {
+                System.out.println("Edit not successful");
+            }
+
+            this.supervisorList = SupervisorService.searchMbikqyresi(SESSION.getAdmin_supervisor_lastSearch());
+            this.setColumns();
             this.disableForms();
             this.btnEdit.setText("Edit");
             this.edit = true;
@@ -128,62 +115,48 @@ public class GradePointsController {
     }
     @FXML
     private void handleSearch(ActionEvent ae){
-        this.afatList = AdminService.searchAfat(this.txtSearch.getText().trim());
-        SESSION.setAdmin_registration_lastSearch(this.txtSearch.getText().trim());
-        this.tableAfat.setItems(this.afatList);
+        this.supervisorList = SupervisorService.searchMbikqyresi(this.txtSearch.getText().trim());
+        SESSION.setAdmin_supervisor_lastSearch(this.txtSearch.getText().trim());
+        this.setColumns();
     }
     @FXML
     private void handleSearchClick(MouseEvent me){
-        this.afatList = AdminService.searchAfat(this.txtSearch.getText().trim());
-        SESSION.setAdmin_registration_lastSearch(this.txtSearch.getText().trim());
-        this.tableAfat.setItems(this.afatList);
+        this.supervisorList = SupervisorService.searchMbikqyresi(this.txtSearch.getText());
+        SESSION.setAdmin_supervisor_lastSearch(this.txtSearch.getText().trim());
+        this.setColumns();
     }
 
     @FXML
     private void handleDelete(ActionEvent ae){
-        if(AfatRepository.deleteAfat(Integer.parseInt(this.txtId.getText()))){
+        if(SupervisorRepository.deleteSupervisor(Integer.parseInt(this.supervisorId.getText()))){
             PopUp.tick(150);
-            this.afatList = AdminService.searchAfat(SESSION.getAdmin_registration_lastSearch());
-            this.tableAfat.setItems(this.afatList);
-        }else{
-            System.out.println("Nuk u fshi");
-        }
+            this.supervisorList = SupervisorService.searchMbikqyresi(SESSION.getAdmin_supervisor_lastSearch());
+            this.setColumns();
+    }else{
+        System.out.println("Nuk u fshi");
+    }
     }
 
 
     private void setColumns(){
-        this.columnId.setCellValueFactory(new PropertyValueFactory<Afat,Integer>("id"));
-        this.columnTime.setCellValueFactory(new PropertyValueFactory<Afat,String>("hera"));
-        this.columnYear.setCellValueFactory(new PropertyValueFactory<Afat,Integer>("year"));
-        this.columnOpenDate.setCellValueFactory(new PropertyValueFactory<Afat,String>("dataHapjes"));
-        this.columnCloseDate.setCellValueFactory(new PropertyValueFactory<Afat,String>("dataMbylljes"));
-        this.columnLevel.setCellValueFactory(new PropertyValueFactory<Afat,String>("niveli"));
-    }
+        this.columnId.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,Integer>("mbikqyresiId"));
+        this.columnEmail.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,String>("firstName"));
+        this.columnFirstName.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,String>("lastName"));
+        this.columnLastName.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,String>("email"));
+        this.tableSupervisor.setItems(this.supervisorList); }
 
     private void setTextFields(){
-        this.txtId.setText(Integer.toString(selectedAfat.getId()));
-        this.txtYear.setText(Integer.toString(selectedAfat.getYear()));
-//        if(this.selectedAfat.getHera().equals("1")){
-//            this.radioFirst.setSelected(true);
-//        }else{
-//            this.radioSecond.setSelected(true);
+        this.supervisorId.setText(Integer.toString(this.selectedSupervisor.getMbikqyresiId()));
+        this.studentId.setText(this.selectedSupervisor.getEmail());
+        this.applicationId.setText(this.selectedSupervisor.getFirstName());
+        this.piket.setText(this.selectedSupervisor.getLastName());
         }
-//        LocalDate dateHapjes = LocalDate.parse(this.selectedAfat.getDataHapjes(), DateTimeFormatter.ISO_LOCAL_DATE);
-//        LocalDate dateMbylljes = LocalDate.parse(this.selectedAfat.getDataMbylljes(), DateTimeFormatter.ISO_LOCAL_DATE);
-//        this.dateOpenDate.setValue(dateHapjes);
-//        this.dateClosedDate.setValue(dateMbylljes);
-//        this.choiseChoseLevel.setValue(this.selectedAfat.getNiveli());
-
-
 
     private void enableForms(){
-        this.txtYear.setEditable(true);
-//        this.choiseChoseLevel.setDisable(false);
-//        this.dateOpenDate.setDisable(false);
-//        this.dateClosedDate.setDisable(false);
+        this.piket.setEditable(true);
     }
     private void disableForms() {
-        this.txtYear.setEditable(false);
+        this.piket.setEditable(false);
 //        this.choiseChoseLevel.setDisable(true);
 //        this.dateOpenDate.setDisable(true);
 //        this.dateClosedDate.setDisable(true);

@@ -2,7 +2,7 @@ package repository.Supervisor;
 
 import model.SupervisorTableModel;
 import model.dto.Admin.ChangePasswordOnDb;
-import model.dto.ResetPasswordOnDb;
+import model.dto.Admin.ResetPasswordOnDb;
 import model.dto.Supervisor.SupervisorCreateModelDto;
 import model.dto.Supervisor.SupervisorEditDto;
 import service.DBConnector;
@@ -95,7 +95,7 @@ public class SupervisorRepository {
                 String mbiemri = result.getString("mbiemri");
                 String salt = result.getString("salt");
                 String passwordHash = result.getString("passwordHash");
-                array.add(new SupervisorTableModel(mbikqyresiId, email, emri, mbiemri, salt, passwordHash));
+                array.add(new SupervisorTableModel(mbikqyresiId, emri, mbiemri, email,salt, passwordHash));
             }
         } catch (SQLException e) {
             e.printStackTrace();

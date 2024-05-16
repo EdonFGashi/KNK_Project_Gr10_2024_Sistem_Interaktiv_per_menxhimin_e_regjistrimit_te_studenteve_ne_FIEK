@@ -108,6 +108,10 @@ public class SupervisorService {
         };
     }
 
+    public static SupervisorTableModel getSupervisorByEmail(String email){
+        return SupervisorRepository.getSupervisorByEmail(email);
+    }
+
 
 
 }
