@@ -5,7 +5,6 @@ import controller.Animations.UpLogoAnimate;
 import controller.BackAndForth;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -37,12 +36,14 @@ public class RibbonController {
     @FXML
     private ImageView imgInfoIcon;
 
-    @FXML
-    private Button btnBack;
-    @FXML
-    private Button btnForth;
+
 
     private UpLogoAnimate logo = new UpLogoAnimate(50, "FIEK Management", 5, 1);
+
+    @FXML
+    private ImageView imgGoBack;
+    @FXML
+    private ImageView imgGoForward;
 
     @FXML
     private void initialize(){
@@ -73,6 +74,7 @@ public class RibbonController {
 
         Tooltip.install(imgInfoIcon, tooltip);
 
+        this.setButtons();
     }
 
     @FXML
@@ -137,7 +139,7 @@ public class RibbonController {
 
 
     @FXML
-    void handleBackClick(ActionEvent event) {
+    void handleBackClick(MouseEvent me) {
 
         String currentPage =BackAndForth.gotoPreviousPage();
         if(currentPage !=null) {
@@ -169,7 +171,7 @@ public class RibbonController {
     }
 
     @FXML
-    void handleForthClick(ActionEvent event) {
+    void handleForthClick(MouseEvent me) {
 
         String currentPage =BackAndForth.gotoForthPage();
         System.out.println("U Ekzekutu Forth Click");
@@ -225,20 +227,29 @@ public class RibbonController {
 
     }
 
-    private void setButtons(){
+    private void setButtons() {
+       try {
+           if (BackAndForth.getIndex() <= 0) {
+               this.imgGoBack.setImage(new Image(new FileInputStream("src/main/resources/Images/grayBackArrow.png")));
+               System.out.println("Disable executed");
+               this.imgGoBack.setDisable(true);
+           } else {
+               this.imgGoBack.setImage(new Image(new FileInputStream("src/main/resources/Images/backArrow.png")));
+               System.out.println("Enable button");
+               this.imgGoBack.setDisable(false);
+           }
 
-        if(BackAndForth.getIndex() <= 0){
-            this.btnBack.setDisable(true);
-            System.out.println("U ekzekutu diable");
-        }else{
-            this.btnBack.setDisable(false);
-            System.out.println("U Ba enable button");
-        }
-        if(BackAndForth.getIndex() == BackAndForth.getMaxIndex()){
-            this.btnForth.setDisable(true);
-        }else{
-            this.btnForth.setDisable(false);
-        }
+           if (BackAndForth.getIndex() == BackAndForth.getMaxIndex()) {
+               this.imgGoForward.setImage(new Image(new FileInputStream("src/main/resources/Images/grayForwardArrow.png")));
+               this.imgGoForward.setDisable(true);
+           } else {
+               this.imgGoForward.setImage(new Image(new FileInputStream("src/main/resources/Images/forwardArrow.png")));
+               this.imgGoForward.setDisable(false);
+           }
+
+       }catch(Exception e){
+           //
+       }
     }
 
 }
