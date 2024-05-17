@@ -7,10 +7,7 @@ import model.SupervisorTableModel;
 import model.dto.Admin.AdminProfileToControllerDto;
 import model.dto.Admin.ChangePasswordOnDb;
 import model.dto.Overall.ChangePasswordDto;
-import model.dto.Supervisor.KonkurimetShowDto;
-import model.dto.Supervisor.SupervisorCreateInterfaceDto;
-import model.dto.Supervisor.SupervisorCreateModelDto;
-import model.dto.Supervisor.SupervisorProfileToControllerDto;
+import model.dto.Supervisor.*;
 import repository.AdminRepository;
 import repository.Supervisor.SupervisorRepository;
 import service.CustomExceptions.InvalidPassword;
@@ -143,5 +140,19 @@ public class SupervisorService {
         }
     }
 
+    public static ObservableList<KonkurimetShowDto> searchKonkurimet(String search) {
+        try {
+            if (search.isEmpty()) {
+                return FXCollections.observableArrayList(SupervisorRepository.getAllKonkurimetArray());
+
+            } else {
+//                return FXCollections.observableArrayList(SupervisorRepository.getSupervisorsSearch(search));
+                return null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return FXCollections.observableArrayList();
+        }
+    }
 
 }

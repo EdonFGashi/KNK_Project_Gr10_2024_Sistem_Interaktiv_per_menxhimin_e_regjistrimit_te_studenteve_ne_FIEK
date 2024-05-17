@@ -4,10 +4,7 @@ import controller.SESSION;
 import model.SupervisorTableModel;
 import model.dto.Admin.ChangePasswordOnDb;
 import model.dto.Admin.ResetPasswordOnDb;
-import model.dto.Supervisor.AplikimetDto;
-import model.dto.Supervisor.KonkurimetShowDto;
-import model.dto.Supervisor.SupervisorCreateModelDto;
-import model.dto.Supervisor.SupervisorEditDto;
+import model.dto.Supervisor.*;
 import service.DBConnector;
 
 import java.sql.Connection;
@@ -223,20 +220,6 @@ public class SupervisorRepository {
 //        return array;
 //    }
 
-    public static ArrayList<KonkurimetShowDto> getAllKonkurimetArray() {
-        Connection conn = DBConnector.getConnection();
-        String query = "SELECT * FROM tblMbikqyresi";
-
-        try {
-            PreparedStatement pst = conn.prepareStatement(query);
-            ResultSet result = pst.executeQuery();
-//            return getSupervisorsFromResultSet(result);
-            return null;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 
 //    public static ArrayList<KonkurimetShowDto> getKonkurimetSearch(String search){
 //        ArrayList<KonkurimetShowDto> array = new ArrayList<>();
@@ -256,7 +239,7 @@ public class SupervisorRepository {
         int mbikqyresiId = SESSION.getLoggedSupervisor().getMbikqyresiId();
         int studentiId = Integer.parseInt(search);
         int aplikimiId = getAplikimiId(search);
-        int piket = 0;
+        int piket = getPiket(Integer.toString(aplikimiId));
 
         KonkurimetShowDto konkurimet = new KonkurimetShowDto(mbikqyresiId, studentiId, aplikimiId, piket);
 
@@ -294,5 +277,94 @@ public class SupervisorRepository {
             return 0;
         }
 
+    public static ArrayList<KonkurimetShowDto> getAllKonkurimetArray() {
+
+        Connection conn = DBConnector.getConnection();
+        String query = "select * from tblkonkurimet;";
+
+        try {
+            PreparedStatement pst = conn.prepareStatement(query);
+            ResultSet result = pst.executeQuery();
+            return getKonkurimetFromResultSet(result);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private static ArrayList<KonkurimetShowDto> getKonkurimetFromResultSet(ResultSet result) {
+        ArrayList<KonkurimetShowDto> array = new ArrayList<>();
+        try {
+            while (result.next()) {
+                int mbikqyresiId = result.getInt("mbikqyresiId");
+                int aplikimiId = result.getInt("aplikimiId");
+                int piket = result.getInt("piketPranues");
+
+                int idStudenti = getStudentiId(Integer.toString(aplikimiId));
+
+                array.add(new KonkurimetShowDto(aplikimiId, idStudenti, piket, mbikqyresiId));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return array;
+    }
+
+    public static int getStudentiId(String aplikimiId){
+        Connection conn = DBConnector.getConnection();
+
+        String query = """ 
+    SELECT u.userId
+    FROM tbluserstudent u
+    JOIN tblshkollamesme s ON u.userId = s.userId
+    JOIN tblaplikimi a ON s.shkollaId = a.shkollaId
+    WHERE a.aplikimiId = ? """;
+
+        try {
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, aplikimiId);
+
+            ResultSet result = pst.executeQuery();
+
+            while (result.next()) {
+                int studentId = result.getInt("userId");
+                return studentId;
+            }
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
+
+    public static int getPiket(String aplikimiId){
+        Connection conn = DBConnector.getConnection();
+
+        String query = """ 
+    
+            SELECT piketPranues
+            FROM tblkonkurimet
+            WHERE aplikimiId = ?;""";
+
+        try {
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, aplikimiId);
+
+            ResultSet result = pst.executeQuery();
+
+            while (result.next()) {
+                int piket = result.getInt("piketPranues");
+                return piket;
+            }
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
 
 }
