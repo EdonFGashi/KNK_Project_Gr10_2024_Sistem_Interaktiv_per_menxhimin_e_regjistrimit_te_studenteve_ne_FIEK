@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import model.Afat;
 import model.SupervisorTableModel;
+import model.dto.Supervisor.KonkurimetShowDto;
 import model.dto.Supervisor.SupervisorEditDto;
 import repository.AfatRepository;
 import repository.Supervisor.SupervisorRepository;
@@ -38,6 +39,12 @@ public class GradePointsController {
 
     @FXML
     private TableView<SupervisorTableModel> tableSupervisor;
+
+    // TEMP
+    @FXML
+    private TableView<KonkurimetShowDto> tableKonkurimet;
+    private ObservableList<KonkurimetShowDto> konkurimetList;
+    private KonkurimetShowDto selectedKonkurim;
 
     @FXML
     private TableColumn<SupervisorTableModel,Integer> columnId;
@@ -115,6 +122,12 @@ public class GradePointsController {
     }
     @FXML
     private void handleSearch(ActionEvent ae){
+//        Ktu ruhen konkurimet e kerkuara
+//        this.konkurimetList = SupervisorService.searchKonkurimi(this.txtSearch.getText().trim());
+        this.selectedKonkurim = SupervisorService.searchKonkurimi(this.txtSearch.getText().trim());
+        setTextFields();
+
+
         this.supervisorList = SupervisorService.searchMbikqyresi(this.txtSearch.getText().trim());
         SESSION.setAdmin_supervisor_lastSearch(this.txtSearch.getText().trim());
         this.setColumns();
@@ -145,12 +158,19 @@ public class GradePointsController {
         this.columnLastName.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,String>("email"));
         this.tableSupervisor.setItems(this.supervisorList); }
 
+//    private void setTextFields(){
+//        this.supervisorId.setText(Integer.toString(this.selectedSupervisor.getMbikqyresiId()));
+//        this.studentId.setText(this.selectedSupervisor.getEmail());
+//        this.applicationId.setText(this.selectedSupervisor.getFirstName());
+//        this.piket.setText(this.selectedSupervisor.getLastName());
+//        }
+
     private void setTextFields(){
-        this.supervisorId.setText(Integer.toString(this.selectedSupervisor.getMbikqyresiId()));
-        this.studentId.setText(this.selectedSupervisor.getEmail());
-        this.applicationId.setText(this.selectedSupervisor.getFirstName());
-        this.piket.setText(this.selectedSupervisor.getLastName());
-        }
+        this.supervisorId.setText(Integer.toString(this.selectedKonkurim.getMbikqyresiId()));
+        this.studentId.setText(Integer.toString( this.selectedKonkurim.getStudentiId()));
+        this.applicationId.setText(Integer.toString(this.selectedKonkurim.getAplikimiId()));
+        this.piket.setText(Integer.toString(this.selectedKonkurim.getPiket()));
+    }
 
     private void enableForms(){
         this.piket.setEditable(true);

@@ -7,6 +7,7 @@ import model.SupervisorTableModel;
 import model.dto.Admin.AdminProfileToControllerDto;
 import model.dto.Admin.ChangePasswordOnDb;
 import model.dto.Overall.ChangePasswordDto;
+import model.dto.Supervisor.KonkurimetShowDto;
 import model.dto.Supervisor.SupervisorCreateInterfaceDto;
 import model.dto.Supervisor.SupervisorCreateModelDto;
 import model.dto.Supervisor.SupervisorProfileToControllerDto;
@@ -112,6 +113,35 @@ public class SupervisorService {
         return SupervisorRepository.getSupervisorByEmail(email);
     }
 
+//    public static ObservableList<KonkurimetShowDto> searchKonkurimi(String search) {
+//        try {
+//            if (search.isEmpty()) {
+//                return FXCollections.observableArrayList(SupervisorRepository.getAllKonkurimetArray());
+//
+//            } else {
+//                return FXCollections.observableArrayList(SupervisorRepository.getKonkurimetSearch(search));
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return FXCollections.observableArrayList();
+//        }
+//    }
+
+    public static KonkurimetShowDto searchKonkurimi(String search) {
+        try {
+            if (search.isEmpty()) {
+//                return FXCollections.observableArrayList(SupervisorRepository.getAllKonkurimetArray());
+                return null;
+
+            } else {
+                return (SupervisorRepository.getKonkurimetSearch(search));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+//            return FXCollections.observableArrayList();
+            return null;
+        }
+    }
 
 
 }

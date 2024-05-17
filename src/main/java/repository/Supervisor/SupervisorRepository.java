@@ -1,8 +1,11 @@
 package repository.Supervisor;
 
+import controller.SESSION;
 import model.SupervisorTableModel;
 import model.dto.Admin.ChangePasswordOnDb;
 import model.dto.Admin.ResetPasswordOnDb;
+import model.dto.Supervisor.AplikimetDto;
+import model.dto.Supervisor.KonkurimetShowDto;
 import model.dto.Supervisor.SupervisorCreateModelDto;
 import model.dto.Supervisor.SupervisorEditDto;
 import service.DBConnector;
@@ -201,4 +204,95 @@ public class SupervisorRepository {
             return false;
         }
     }
+
+//    private static ArrayList<AplikimetDto> getAplikimetFromResultSet(ResultSet result) {
+//        ArrayList<AplikimetDto> array = new ArrayList<>();
+//        try {
+//            while (result.next()) {
+//                int mbikqyresiId = result.getInt("mbikqyresiId");
+//                String email = result.getString("email");
+//                String emri = result.getString("emri");
+//                String mbiemri = result.getString("mbiemri");
+//                String salt = result.getString("salt");
+//                String passwordHash = result.getString("passwordHash");
+//                array.add(new SupervisorTableModel(mbikqyresiId, emri, mbiemri, email,salt, passwordHash));
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return array;
+//    }
+
+    public static ArrayList<KonkurimetShowDto> getAllKonkurimetArray() {
+        Connection conn = DBConnector.getConnection();
+        String query = "SELECT * FROM tblMbikqyresi";
+
+        try {
+            PreparedStatement pst = conn.prepareStatement(query);
+            ResultSet result = pst.executeQuery();
+//            return getSupervisorsFromResultSet(result);
+            return null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+//    public static ArrayList<KonkurimetShowDto> getKonkurimetSearch(String search){
+//        ArrayList<KonkurimetShowDto> array = new ArrayList<>();
+//
+//        int mbikqyresiId = SESSION.getLoggedSupervisor().getMbikqyresiId();
+//        int studentiId = Integer.parseInt(search);
+//        int aplikimiId = getAplikimiId(search);
+//        int piket = 0;
+//
+//        array.add(new KonkurimetShowDto(mbikqyresiId, studentiId, aplikimiId, piket));
+//
+//        return array;
+//    }
+
+    public static KonkurimetShowDto getKonkurimetSearch(String search){
+
+        int mbikqyresiId = SESSION.getLoggedSupervisor().getMbikqyresiId();
+        int studentiId = Integer.parseInt(search);
+        int aplikimiId = getAplikimiId(search);
+        int piket = 0;
+
+        KonkurimetShowDto konkurimet = new KonkurimetShowDto(mbikqyresiId, studentiId, aplikimiId, piket);
+
+//        array.add(new KonkurimetShowDto(mbikqyresiId, studentiId, aplikimiId, piket));
+
+        return konkurimet;
+    }
+
+    public static int getAplikimiId(String search){
+        Connection conn = DBConnector.getConnection();
+
+        String query = """ 
+                SELECT a.aplikimiId
+                FROM tbluserstudent u
+                JOIN tblshkollamesme s ON u.userId = s.userId
+                JOIN tblaplikimi a ON s.shkollaId = a.shkollaId
+                WHERE u.userId = ? """;
+
+        try {
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, search);
+
+            ResultSet result = pst.executeQuery();
+
+            while (result.next()) {
+                int aplikimiId = result.getInt("aplikimiId");
+                return aplikimiId;
+            }
+
+        }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+
+            return 0;
+        }
+
+
 }
