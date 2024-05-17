@@ -104,23 +104,28 @@ public class StudentApplicantRepository {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (ps != null) {
-                    ps.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
-
         return person;
     }
-}
+
+    public static void saveStudentAplikant(PersonDTO studentAplikant) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = DBConnector.getConnection();
+            String query = "INSERT INTO StudentAplikant (numriPersonal, emri, mbiemri, nacionaliteti, qyteti, shteti, gjinia, dataLindjes) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            ps = conn.prepareStatement(query);
+            ps.setString(1, studentAplikant.getPersonalNumber());
+            ps.setString(2, studentAplikant.getName());
+            ps.setString(3, studentAplikant.getLastName());
+            ps.setString(4, studentAplikant.getNationality());
+            ps.setString(5, studentAplikant.getCity());
+            ps.setString(6, studentAplikant.getCountry());
+            ps.setString(7, studentAplikant.getGender());
+            ps.setDate(8, studentAplikant.getBirthDate());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    }
