@@ -37,30 +37,27 @@ public class GradePointsController {
     @FXML
     private TextField piket;
 
-    @FXML
-    private TableView<SupervisorTableModel> tableSupervisor;
-
     // TEMP
     @FXML
     private TableView<KonkurimetShowDto> tableKonkurimet;
-    private ObservableList<KonkurimetShowDto> konkurimetList;
-    private KonkurimetShowDto selectedKonkurim;
+
+
 
     @FXML
-    private TableColumn<SupervisorTableModel,Integer> columnId;
+    private TableColumn<KonkurimetShowDto,Integer> columnMbikqyresi;
     @FXML
-    private TableColumn<SupervisorTableModel,String> columnEmail;
+    private TableColumn<KonkurimetShowDto,Integer> columnStudenti;
     @FXML
-    private TableColumn<SupervisorTableModel,String> columnFirstName;
+    private TableColumn<KonkurimetShowDto,Integer> columnAplikimi;
     @FXML
-    private TableColumn<SupervisorTableModel,String> columnLastName;
+    private TableColumn<KonkurimetShowDto,Integer> columnPiket;
 
     @FXML
     private Button btnEdit;
     private boolean edit;
 
-    private ObservableList<SupervisorTableModel> supervisorList;
-    private SupervisorTableModel selectedSupervisor;
+    private ObservableList<KonkurimetShowDto> konkurimetList;
+    private KonkurimetShowDto selectedKonkurim;
 
     private Afat selectedAfat;
     @FXML
@@ -72,13 +69,22 @@ public class GradePointsController {
         } catch (FileNotFoundException e) {
             System.out.println("Image not found");
         }
+//        tableKonkurimet.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+//            if (newSelection != null) {
+//                this.selectedKonkurim = newSelection;
+//                this.setTextFields();
+//            }
+//        });
 
-        tableSupervisor.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+        tableKonkurimet.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
-                this.selectedSupervisor = newSelection;
+                this.selectedKonkurim = newSelection;
+                System.out.println("The new selection: ");
+                System.out.println(newSelection);
                 this.setTextFields();
             }
         });
+
         this.disableForms();
         this.studentId.setDisable(true);
         this.supervisorId.setDisable(true);
@@ -86,7 +92,7 @@ public class GradePointsController {
 
 
         this.txtSearch.setText(SESSION.getAdmin_supervisor_lastSearch());
-        this.supervisorList = SupervisorService.searchMbikqyresi(this.txtSearch.getText());
+        this.konkurimetList = SupervisorService.searchKonkurimet(this.txtSearch.getText());
         this.setColumns();
         this.edit = true;
 
@@ -113,7 +119,7 @@ public class GradePointsController {
                 System.out.println("Edit not successful");
             }
 
-            this.supervisorList = SupervisorService.searchMbikqyresi(SESSION.getAdmin_supervisor_lastSearch());
+            this.konkurimetList = SupervisorService.searchKonkurimet(SESSION.getAdmin_supervisor_lastSearch());
             this.setColumns();
             this.disableForms();
             this.btnEdit.setText("Edit");
@@ -126,37 +132,37 @@ public class GradePointsController {
 //        this.konkurimetList = SupervisorService.searchKonkurimi(this.txtSearch.getText().trim());
         this.selectedKonkurim = SupervisorService.searchKonkurimi(this.txtSearch.getText().trim());
         setTextFields();
-
-
-        this.supervisorList = SupervisorService.searchMbikqyresi(this.txtSearch.getText().trim());
-        SESSION.setAdmin_supervisor_lastSearch(this.txtSearch.getText().trim());
-        this.setColumns();
+        this.konkurimetList = SupervisorService.searchKonkurimet(this.txtSearch.getText().trim());
+//        SESSION.setAdmin_supervisor_lastSearch(this.txtSearch.getText().trim());
+//        this.setColumns();
     }
     @FXML
     private void handleSearchClick(MouseEvent me){
-        this.supervisorList = SupervisorService.searchMbikqyresi(this.txtSearch.getText());
-        SESSION.setAdmin_supervisor_lastSearch(this.txtSearch.getText().trim());
-        this.setColumns();
+        this.selectedKonkurim = SupervisorService.searchKonkurimi(this.txtSearch.getText().trim());
+        setTextFields();
+        this.konkurimetList = SupervisorService.searchKonkurimet(this.txtSearch.getText());
+//        SESSION.setAdmin_supervisor_lastSearch(this.txtSearch.getText().trim());
+//        this.setColumns();
     }
 
     @FXML
     private void handleDelete(ActionEvent ae){
-        if(SupervisorRepository.deleteSupervisor(Integer.parseInt(this.supervisorId.getText()))){
-            PopUp.tick(150);
-            this.supervisorList = SupervisorService.searchMbikqyresi(SESSION.getAdmin_supervisor_lastSearch());
-            this.setColumns();
-    }else{
-        System.out.println("Nuk u fshi");
-    }
+//        if(SupervisorRepository.deleteSupervisor(Integer.parseInt(this.supervisorId.getText()))){
+//            PopUp.tick(150);
+////            this.konkurimetList = SupervisorService.searchMbikqyresi(SESSION.getAdmin_supervisor_lastSearch());
+//            this.setColumns();
+//    }else{
+//        System.out.println("Nuk u fshi");
+//    }
     }
 
 
     private void setColumns(){
-        this.columnId.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,Integer>("mbikqyresiId"));
-        this.columnEmail.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,String>("firstName"));
-        this.columnFirstName.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,String>("lastName"));
-        this.columnLastName.setCellValueFactory(new PropertyValueFactory<SupervisorTableModel,String>("email"));
-        this.tableSupervisor.setItems(this.supervisorList); }
+        this.columnMbikqyresi.setCellValueFactory(new PropertyValueFactory<>("piket"));
+        this.columnStudenti.setCellValueFactory(new PropertyValueFactory<>("studentiId"));
+        this.columnAplikimi.setCellValueFactory(new PropertyValueFactory<>("mbikqyresiId"));
+        this.columnPiket.setCellValueFactory(new PropertyValueFactory<>("aplikimiId"));
+        this.tableKonkurimet.setItems(this.konkurimetList); }
 
 //    private void setTextFields(){
 //        this.supervisorId.setText(Integer.toString(this.selectedSupervisor.getMbikqyresiId()));

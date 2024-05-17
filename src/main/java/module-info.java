@@ -11,6 +11,7 @@ module com.example.knk_project_gr10_2024 {
     opens controller.Student to javafx.fxml;
 
 
+
 //    opens app to javafx.fxml;
     opens app to javafx.graphics;
     exports app;
@@ -25,4 +26,5 @@ module com.example.knk_project_gr10_2024 {
 
     opens model to javafx.base;
     opens controller.Help to javafx.fxml;
+    opens model.dto.Supervisor to javafx.base;
 }

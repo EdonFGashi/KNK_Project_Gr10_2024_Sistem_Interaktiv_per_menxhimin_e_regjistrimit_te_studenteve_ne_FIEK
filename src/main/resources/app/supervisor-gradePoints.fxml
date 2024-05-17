@@ -79,12 +79,12 @@
             <content>
                 <VBox alignment="TOP_CENTER" prefHeight="572.0" prefWidth="726.0" style="-fx-background-color: white;">
                     <children>
-                        <TableView fx:id="tableSupervisor" prefHeight="552.0" prefWidth="478.0" style="-fx-background-color: transparent; -fx-border-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-border-width: 2px; -fx-border-radius: 8px;">
+                        <TableView fx:id="tableKonkurimet" prefHeight="552.0" prefWidth="478.0" style="-fx-background-color: transparent; -fx-border-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-border-width: 2px; -fx-border-radius: 8px;">
                             <columns>
-                                <TableColumn fx:id="columnId" editable="false" prefWidth="111.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-size: 40px; -fx-font-family: Arial; -fx-border-color: white;" text=" Id" />
-                                <TableColumn fx:id="columnEmail" editable="false" prefWidth="178.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="email" />
-                                <TableColumn fx:id="columnFirstName" editable="false" minWidth="0.0" prefWidth="210.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="First Name" />
-                                <TableColumn fx:id="columnLastName" editable="false" prefWidth="204.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Last Name" />
+                                <TableColumn fx:id="columnMbikqyresi" editable="false" prefWidth="111.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-size: 40px; -fx-font-family: Arial; -fx-border-color: white;" text="Mbikqyresi" />
+                                <TableColumn fx:id="columnStudenti" editable="false" prefWidth="178.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Studenti" />
+                                <TableColumn fx:id="columnAplikimi" editable="false" minWidth="0.0" prefWidth="210.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Aplikimi" />
+                                <TableColumn fx:id="columnPiket" editable="false" prefWidth="204.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Piket" />
                             </columns>
                         </TableView>
                     </children>
