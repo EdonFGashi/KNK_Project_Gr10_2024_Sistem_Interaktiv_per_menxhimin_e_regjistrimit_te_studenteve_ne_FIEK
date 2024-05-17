@@ -35,7 +35,8 @@ public class StudentMenuController {
 
     @FXML
     private ImageView imgPrsinfo;
-
+    @FXML
+    private ImageView imgUp;
 
 
     @FXML
@@ -59,14 +60,14 @@ public class StudentMenuController {
     @FXML
     private void initialize() {
 
-        this.personalinfoNavigate = Navigatior.ADMIN_PROFILE;
+        this.personalinfoNavigate = Navigatior.PERSONAL_INFO;
         this.EducationExperienceNavigate = Navigatior.EDUCATION;
         this.AcademinInterestNavigate = Navigatior.ACADEMIC;
         try {
             this.imgPrsinfo.setImage(new Image(new FileInputStream("Images/information.png")));
             this.imgEducation.setImage(new Image(new FileInputStream("Images/Education.png")));
             this.imgAcademic.setImage(new Image(new FileInputStream("Images/graduation.png")));
-//            this.imgUp.setImage(new Image(new FileInputStream("Images/Up.png")));
+            this.imgUp.setImage(new Image(new FileInputStream("Images/Up.png")));
         } catch (FileNotFoundException e) {
             System.out.println("Image not found");
         }

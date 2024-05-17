@@ -14,8 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="794.0" prefWidth="1120.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.PersonalInfoControler">
+<AnchorPane fx:id="addPane" prefHeight="794.0" prefWidth="1120.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.PersonalInfoControler">
     <children>
         <HBox layoutX="1.0" layoutY="33.0" prefHeight="102.0" prefWidth="1120.0" style="-fx-background-color: #6991bf; -fx-background-radius: 30;">
             <children>
@@ -50,7 +49,6 @@
                         <RowConstraints maxHeight="211.60001220703128" minHeight="10.0" prefHeight="71.6" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <TextField fx:id="txtPersonalNumber" editable="false" prefHeight="40.0" prefWidth="309.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" />
                         <TextField fx:id="txtName" editable="false" layoutX="269.0" layoutY="10.0" prefHeight="38.0" prefWidth="315.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField fx:id="txtLastName" editable="false" layoutX="154.0" layoutY="64.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <TextField fx:id="txtNationality" editable="false" layoutX="154.0" layoutY="64.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
@@ -113,9 +111,10 @@
                                 <Font size="16.0" />
                             </font>
                         </RadioButton>
+                  <TextField fx:id="txtPersonalNumber" prefHeight="34.0" prefWidth="337.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" />
                     </children>
                 </GridPane>
-                <Button fx:id="btnGenerateinfo" layoutX="541.0" layoutY="14.0" mnemonicParsing="false"  onMouseClicked="#handleGenerateInfo" prefHeight="46.0" prefWidth="185.0" style="-fx-background-radius: 20px; -fx-background-color: #6991bf; -fx-font-weight: bold;" text="Generate Information" textFill="WHITE">
+                <Button fx:id="btnGenerateinfo" layoutX="541.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleGenerateInfo" prefHeight="46.0" prefWidth="185.0" style="-fx-background-radius: 20px; -fx-background-color: #6991bf; -fx-font-weight: bold;" text="Generate Information" textFill="WHITE">
                     <font>
                         <Font size="15.0" />
                     </font>
@@ -127,7 +126,7 @@
                 <Font size="15.0" />
             </font>
         </Button>
-        <Button fx:id="btnGoback" layoutX="960.0" layoutY="616.0" mnemonicParsing="false"  onMouseClicked="#handleGoback" prefHeight="46.0" prefWidth="146.0" style="-fx-background-radius: 20px; -fx-background-color: #6991bf; -fx-font-weight: bold;" text="GO BACK" textFill="WHITE">
+        <Button fx:id="btnGoback" layoutX="960.0" layoutY="616.0" mnemonicParsing="false" onMouseClicked="#handleGoback" prefHeight="46.0" prefWidth="146.0" style="-fx-background-radius: 20px; -fx-background-color: #6991bf; -fx-font-weight: bold;" text="GO BACK" textFill="WHITE">
             <font>
                 <Font size="15.0" />
             </font>
