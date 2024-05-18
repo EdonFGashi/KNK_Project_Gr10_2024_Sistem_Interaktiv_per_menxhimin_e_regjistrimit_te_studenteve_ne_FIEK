@@ -3,6 +3,7 @@ package model.dto.Student;
 import java.io.File;
 
 public class StudentApplicantDto {
+    private int userId;
     private String SchoolName;
     private int MathPoints;
     private int AlbanianPoints;
@@ -17,7 +18,8 @@ public class StudentApplicantDto {
     private File fileIdentification;
     private File fileDiploma;
 
-    public StudentApplicantDto(String schoolName, int mathPoints, int albanianPoints, int englishPoints, String choosenSub, int choosenSubPoints, int totalPoints, double succesGrade10, double succesGrade11, double succesGrade12, File fileCertificate, File fileIdentification, File fileDiploma) {
+    public StudentApplicantDto(int id, String schoolName, int mathPoints, int albanianPoints, int englishPoints, String choosenSub, int choosenSubPoints, int totalPoints, double succesGrade10, double succesGrade11, double succesGrade12, File fileCertificate, File fileIdentification, File fileDiploma) {
+        userId=id;
         SchoolName = schoolName;
         MathPoints = mathPoints;
         AlbanianPoints = albanianPoints;
@@ -84,4 +86,9 @@ public class StudentApplicantDto {
     public int getEnglishPoints() {
         return EnglishPoints;
     }
+
+    public int getUserId() {
+        return userId;
+    }
+
 }

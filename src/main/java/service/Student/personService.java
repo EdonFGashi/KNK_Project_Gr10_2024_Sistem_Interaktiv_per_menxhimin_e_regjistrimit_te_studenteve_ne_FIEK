@@ -16,6 +16,8 @@ import java.sql.SQLException;
 public class personService {
 
 
+    public personService() {
+    }
 
     // Metoda për të marrë personin nga bazat e të dhënave duke përdorur numrin personal
     public static PersonDTO getPersonByPersonalNumber(String personalNumber) {
@@ -23,5 +25,9 @@ public class personService {
   PersonDTO person=  StudentApplicantRepository.SearchByPersonalNumber(personalNumber);
 
         return person;
+    }
+
+    public void saveStudentAplikant(PersonDTO studentAplikant) {
+        StudentApplicantRepository.saveStudentAplikant(studentAplikant);
     }
 }

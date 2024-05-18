@@ -86,7 +86,7 @@ public class EducationalExperienceController {
         Double Sukses11 = Double.parseDouble(txtGrade11.getText());
         Double Sukses12 = Double.parseDouble(txtGrade12.getText());
 
-        StudentApplicantDto dto = new StudentApplicantDto(ShkMesme, Matematike, Shqip, Anglisht, LendaZgjedhur, PikatLendesZgjedhur,PikatGjithsej,Sukses10,Sukses11,Sukses12,imageFile1,imageFile2,imageFile3);
+        StudentApplicantDto dto = new StudentApplicantDto(getLoggedUser().getId(), ShkMesme, Matematike, Shqip, Anglisht, LendaZgjedhur, PikatLendesZgjedhur,PikatGjithsej,Sukses10,Sukses11,Sukses12,imageFile1,imageFile2,imageFile3);
 
         try {
             service.Student.StudentApplicantService.processAndSaveData(dto);

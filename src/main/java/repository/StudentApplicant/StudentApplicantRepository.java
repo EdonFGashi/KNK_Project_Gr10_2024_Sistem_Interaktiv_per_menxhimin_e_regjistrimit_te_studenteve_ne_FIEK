@@ -22,21 +22,22 @@ public class StudentApplicantRepository {
             return false;
         }
 
-        String query = "INSERT INTO tblShkollaMesme (emriShkolles, piketMat, piketGjSh, piketAng, piketZgjedhore,lendaZgjedhore,suksesiKl10,suksesiKl11,suksesiKl12,certifikataNotave,leternjoftimi,diplomaShkolles) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO tblShkollaMesme (userId, emriShkolles, piketMat, piketGjSh, piketAng, piketZgjedhore,lendaZgjedhore,suksesiKl10,suksesiKl11,suksesiKl12,certifikataNotave,leternjoftimi,diplomaShkolles) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement statement = conn.prepareStatement(query)) {
-            statement.setString(1, dto.getSchoolName());
-            statement.setInt(2, dto.getMathPoints());
-            statement.setInt(3, dto.getAlbanianPoints());
-            statement.setInt(4, dto.getEnglishPoints());
-            statement.setInt(5, dto.getChoosenSubPoints());
-            statement.setString(6, dto.getChoosenSub());
-            statement.setDouble(7, dto.getSuccesGrade10());
-            statement.setDouble(8, dto.getSuccesGrade11());
-            statement.setDouble(9, dto.getSuccesGrade12());
-            statement.setBytes(10, convertFileToBytes(dto.getFileCertificate()));
-            statement.setBytes(11, convertFileToBytes(dto.getFileIdentification()));
-            statement.setBytes(12, convertFileToBytes(dto.getFileDiploma()));
+            statement.setInt(1, dto.getUserId());
+            statement.setString(2, dto.getSchoolName());
+            statement.setInt(3, dto.getMathPoints());
+            statement.setInt(4, dto.getAlbanianPoints());
+            statement.setInt(5, dto.getEnglishPoints());
+            statement.setInt(6, dto.getChoosenSubPoints());
+            statement.setString(7, dto.getChoosenSub());
+            statement.setDouble(8, dto.getSuccesGrade10());
+            statement.setDouble(9, dto.getSuccesGrade11());
+            statement.setDouble(10, dto.getSuccesGrade12());
+            statement.setBytes(11, convertFileToBytes(dto.getFileCertificate()));
+            statement.setBytes(12, convertFileToBytes(dto.getFileIdentification()));
+            statement.setBytes(13, convertFileToBytes(dto.getFileDiploma()));
 
             int affectedRows = statement.executeUpdate();
             if (affectedRows > 0) {
@@ -104,23 +105,28 @@ public class StudentApplicantRepository {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (ps != null) {
-                    ps.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
-
         return person;
     }
-}
+
+    public static void saveStudentAplikant(PersonDTO studentAplikant) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = DBConnector.getConnection();
+            String query = "INSERT INTO StudentAplikant (numriPersonal, emri, mbiemri, nacionaliteti, qyteti, shteti, gjinia, dataLindjes) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            ps = conn.prepareStatement(query);
+            ps.setString(1, studentAplikant.getPersonalNumber());
+            ps.setString(2, studentAplikant.getName());
+            ps.setString(3, studentAplikant.getLastName());
+            ps.setString(4, studentAplikant.getNationality());
+            ps.setString(5, studentAplikant.getCity());
+            ps.setString(6, studentAplikant.getCountry());
+            ps.setString(7, studentAplikant.getGender());
+            ps.setDate(8, studentAplikant.getBirthDate());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    }
