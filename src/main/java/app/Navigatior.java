@@ -69,7 +69,7 @@ interface StudentPages{
     public final static String PERSONAL_INFO = "PersonalInfo.fxml";
     public final static String EDUCATION = "educational-experience.fxml";
     public final static String ACADEMIC = "academic-interest.fxml";
-    public final static String STUDENT_DASHBOARD = "";
+    public final static String STUDENT_DASHBOARD = "Student-dashboard.fxml";
 }
 interface SupervisorPages{
     public final static String SUPERVISOR_RIBBON = "supervisor-ribbon.fxml";
