@@ -18,7 +18,7 @@ import java.util.Map;
 import static controller.SESSION.setDeptLevel;
 
 public class StudentDashboardController {
-    ObservableList<String> nivelet = FXCollections.observableArrayList("Bachelor", "Master", "Doctorature");
+    ObservableList<String> nivelet = FXCollections.observableArrayList("BSC", "MSC", "PHD");
 
     @FXML
     private ChoiceBox<String> choiseChoseAfat;
