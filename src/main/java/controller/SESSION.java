@@ -2,6 +2,7 @@ package controller;
 
 import model.Admin;
 import model.SupervisorTableModel;
+import model.User;
 
 public class SESSION {
     private static Admin loggedAdmin;
@@ -9,6 +10,7 @@ public class SESSION {
     private static SupervisorTableModel loggedSupervisor;
 
     private static String loggedUserEmail;
+    private static User loggedUser;
 
     private static String adminMenu = "";
     private static String admin_registration_lastSearch = "";
@@ -95,6 +97,13 @@ public class SESSION {
 
     public static void setUser(int user) {
         SESSION.user = user;
+    }
+     public static User getLoggedUser() {
+        return loggedUser;
+    }
+
+    public static void setLoggedUser(User loggedUser) {
+        SESSION.loggedUser = loggedUser;
     }
 
 
