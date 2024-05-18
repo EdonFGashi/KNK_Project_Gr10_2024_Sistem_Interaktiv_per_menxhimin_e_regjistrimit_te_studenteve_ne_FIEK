@@ -1,5 +1,6 @@
 package repository.StudentApplicant;
 
+import model.dto.Student.AcademicInterestDto;
 import model.dto.Student.PersonDTO;
 import model.dto.Student.StudentApplicantDto;
 import service.DBConnector;
@@ -12,6 +13,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import static controller.SESSION.getDeptLevel;
+import static controller.SESSION.getLoggedUser;
 
 public class StudentApplicantRepository {
 
