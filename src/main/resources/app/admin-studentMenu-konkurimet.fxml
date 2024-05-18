@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="1308.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.StudentMenuKonkurimetController">
+   <children>
+      <AnchorPane layoutX="29.0" layoutY="21.0" prefHeight="164.0" prefWidth="1232.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <ComboBox fx:id="comboAfatId" layoutX="274.0" layoutY="30.0" prefHeight="38.0" prefWidth="164.0" style="-fx-background-color: white; -fx-border-width: 2; -fx-border-color: lightgray; -fx-border-radius: 7;" />
+            <Label layoutX="14.0" layoutY="37.0" prefHeight="23.0" prefWidth="244.0" text="Chose Registration by Id:">
+               <font>
+                  <Font name="Tahoma" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="115.0" prefHeight="30.0" prefWidth="200.0" text="Chose department :">
+               <font>
+                  <Font name="Tahoma" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnApprove" layoutX="1027.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleAprove" prefHeight="50.0" prefWidth="179.0" style="-fx-background-radius: 20px; -fx-background-color: #5F9EA0; -fx-font-weight: bold;" text="Register All">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnLoadFromAfat" layoutX="474.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleLoadAfat" prefHeight="50.0" prefWidth="179.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="Load All">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSwitchTables" layoutX="830.0" layoutY="105.0" mnemonicParsing="false" onAction="#handleSwitchTables" prefHeight="50.0" prefWidth="179.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="Swich Tables">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <RadioButton fx:id="radioNormal" layoutX="438.0" layoutY="117.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="153.0" selected="true" text="Not Minority">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="minority" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="radioMinority" layoutX="631.0" layoutY="117.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="153.0" text="Minority" toggleGroup="$minority">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </RadioButton>
+            <ComboBox fx:id="comboDepartment" layoutX="232.0" layoutY="111.0" prefHeight="38.0" prefWidth="164.0" style="-fx-background-color: white; -fx-border-width: 2; -fx-border-color: lightgray; -fx-border-radius: 7;" />
+         </children>
+      </AnchorPane>
+      <ScrollPane layoutX="29.0" layoutY="210.0" prefHeight="503.0" prefWidth="1232.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <content>
+            <VBox alignment="TOP_CENTER" prefHeight="892.0" prefWidth="1212.0" style="-fx-background-color: white;">
+               <children>
+                  <TableView fx:id="tableStudents" prefHeight="885.0" prefWidth="1192.0" style="-fx-background-color: transparent; -fx-border-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-border-width: 2px; -fx-border-radius: 8px;">
+                     <columns>
+                        <TableColumn fx:id="columnNr" editable="false" prefWidth="50.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-size: 40px; -fx-font-family: Arial; -fx-border-color: white;" text="Nr" />
+                        <TableColumn fx:id="columnStudentId" editable="false" prefWidth="100.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="StudentId" />
+                        <TableColumn fx:id="columnFirstName" editable="false" prefWidth="109.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="First Name" />
+                        <TableColumn fx:id="columnLastName" editable="false" prefWidth="133.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="LastName" />
+                        <TableColumn fx:id="columnS1" editable="false" prefWidth="62.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="S1" />
+                        <TableColumn fx:id="columnS2" editable="false" prefWidth="50.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="S2" />
+                        <TableColumn fx:id="columnS3" editable="false" prefWidth="46.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="S3" />
+                        <TableColumn fx:id="columnSucces" editable="false" prefWidth="97.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Succes in %" />
+                        <TableColumn fx:id="columnMaturePoints" editable="false" prefWidth="112.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Points in Mature" />
+                        <TableColumn fx:id="columnMature" editable="false" prefWidth="99.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Mature %" />
+                        <TableColumn fx:id="columnAcceptanceTest" editable="false" prefWidth="116.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Acceptance test" />
+                        <TableColumn fx:id="columnTest" editable="false" prefWidth="89.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="test %" />
+                        <TableColumn fx:id="columnTotal" editable="false" prefWidth="130.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="total" />
+                     </columns>
+                  </TableView>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </content>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </ScrollPane>
+   </children>
+</AnchorPane>

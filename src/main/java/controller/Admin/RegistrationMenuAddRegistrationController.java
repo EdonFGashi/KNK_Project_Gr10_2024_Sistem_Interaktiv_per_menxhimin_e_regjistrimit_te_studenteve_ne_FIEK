@@ -17,7 +17,7 @@ import java.time.format.DateTimeFormatter;
 
 public class RegistrationMenuAddRegistrationController {
    ObservableList<String> nivelet =
-           FXCollections.observableArrayList("Bachelor","Master","Doctorature");
+           FXCollections.observableArrayList("BSC","MSC","PHD");
 
     @FXML
     private TextField txtYear;
