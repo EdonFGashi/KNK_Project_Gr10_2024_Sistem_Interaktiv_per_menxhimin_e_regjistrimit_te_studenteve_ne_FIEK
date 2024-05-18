@@ -35,6 +35,10 @@ public class UserService {
 
         return UserRepository.create(createUserData);
     }
+    
+    public static User getUserByEmail(String email){
+        return UserRepository.getByEmail(email);
+    }
 
     /*
     public static boolean login(LoginUserDto loginData) {
