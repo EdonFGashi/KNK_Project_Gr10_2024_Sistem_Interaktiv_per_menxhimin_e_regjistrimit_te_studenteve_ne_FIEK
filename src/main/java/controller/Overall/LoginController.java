@@ -22,6 +22,8 @@ import service.Admin.AdminService;
 import service.CustomExceptions.InvalidEmail;
 import service.CustomExceptions.InvalidPassword;
 import service.Overall.LoginService;
+import service.Student.StudentService;
+import service.Student.UserService;
 import service.Supervisor.SupervisorService;
 
 import java.io.FileInputStream;
@@ -131,7 +133,8 @@ public class LoginController {
                 Stage stage = new Stage();
                 stage.setMaximized(true);
                 Navigatior.navigate(stage, Navigatior.STUDENT_MENU);
-
+                SESSION.setLoggedUser(UserService.getUserByEmail(this.userEmail.getText()));
+                System.out.println(SESSION.getLoggedUser().getFirstName());
                 Navigatior.closeStageAfterDelay(event, Duration.millis(1));
             }
             else {
