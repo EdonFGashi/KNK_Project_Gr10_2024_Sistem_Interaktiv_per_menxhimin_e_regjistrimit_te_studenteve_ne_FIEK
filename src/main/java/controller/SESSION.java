@@ -13,6 +13,7 @@ public class SESSION {
     private static User loggedUser;
 
     private static String adminMenu = "";
+
     private static String admin_registration_lastSearch = "";
     private static String admin_supervisor_lastSearch = "";
     private static int admin_reset_PasswordId = 0;
@@ -20,6 +21,8 @@ public class SESSION {
     private static String admin_student_lastSearch = "";
 //    Temporary
     private static int user;
+    private static String UserLevel = "";
+    private static int AplicantAfatID;
     private SESSION() {}
 
     public static String getAdmin_registration_lastSearch() {
@@ -106,5 +109,18 @@ public class SESSION {
         SESSION.loggedUser = loggedUser;
     }
 
+    public static void setDeptLevel(String Level) {
+        SESSION.UserLevel = Level;
+    }
+    public static String getDeptLevel() {
+        return UserLevel;
+    }
+
+    public static void setAplicantAfatID(int Id) {
+        SESSION.AplicantAfatID = Id;
+    }
+    public static int getAplicantAfatId() {
+        return  AplicantAfatID;
+    }
 
 }
