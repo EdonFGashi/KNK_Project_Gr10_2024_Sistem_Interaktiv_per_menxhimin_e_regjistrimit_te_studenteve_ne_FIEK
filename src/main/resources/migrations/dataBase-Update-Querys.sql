@@ -109,7 +109,7 @@ MODIFY column email VARCHAR(50) UNIQUE;
 
 
 -- 18/05/2024 - Joni
-CREATE VIEW vwKonkurrimetData AS
+    CREATE VIEW vwKonkurrimetData AS
 SELECT
     tblUserStudent.userId,
     tblUserStudent.emri,
@@ -128,7 +128,8 @@ SELECT
     d4.emri as Prioriteti4,
     tblAfati.afatId,
     tblKonkurimet.mbikqyresiId,
-    tblAfati.niveli
+    tblAfati.niveli,
+    CASE WHEN tblUserStudent.nacionaliteti = 'Kosovar' THEN FALSE ELSE TRUE END AS minoritet
 FROM
     tblKonkurimet
 JOIN
@@ -149,6 +150,7 @@ LEFT JOIN
     tblDepartamenti d4 ON tblAplikimi.deptIdPrioritet4 = d4.deptId
 WHERE
     tblShkollaMesme.approved = TRUE;
+
 
 
 
