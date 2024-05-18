@@ -134,6 +134,29 @@ public class SupervisorRepository {
         }
     }
 
+    public static boolean editKonkurimi(KonkurimetSaveDto konkurimi) {
+        Connection connection = DBConnector.getConnection();
+        String query = """
+        INSERT INTO tblkonkurimet (aplikimiId, piketPranues, mbikqyresiId)
+                VALUES (?, ?, ?)
+                ON DUPLICATE KEY UPDATE
+                piketPranues = VALUES(piketPranues),
+                mbikqyresiId = VALUES(mbikqyresiId);
+""";
+        try {
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setInt(1, konkurimi.getAplikimiId());
+            pst.setInt(2, konkurimi.getPiket());
+            pst.setInt(3, konkurimi.getSupervisorId());
+            int rowsAffected = pst.executeUpdate();
+            pst.close();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
     public static boolean deleteSupervisor(int id) {
         Connection connection = DBConnector.getConnection();

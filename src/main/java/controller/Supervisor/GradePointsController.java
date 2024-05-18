@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import model.Afat;
 import model.SupervisorTableModel;
+import model.dto.Supervisor.KonkurimetSaveDto;
 import model.dto.Supervisor.KonkurimetShowDto;
 import model.dto.Supervisor.SupervisorEditDto;
 import repository.AfatRepository;
@@ -106,12 +107,11 @@ public class GradePointsController {
             this.edit = false;
         }else{
 
-            if (SupervisorRepository.editMbikqyresi(
-                    new SupervisorEditDto(
-                            Integer.parseInt(this.supervisorId.getText()),
-                            this.studentId.getText(),
-                            this.applicationId.getText(),
-                            (this.piket.getText())
+            if (SupervisorRepository.editKonkurimi(
+                    new KonkurimetSaveDto(
+                            Integer.parseInt(this.applicationId.getText()),
+                            Integer.parseInt(this.piket.getText()),
+                            SESSION.getLoggedSupervisor().getMbikqyresiId()
                     )
             )){
                 PopUp.tick(150);

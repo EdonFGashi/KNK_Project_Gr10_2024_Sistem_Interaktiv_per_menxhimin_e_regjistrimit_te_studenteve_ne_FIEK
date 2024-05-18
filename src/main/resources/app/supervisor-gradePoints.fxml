@@ -35,41 +35,36 @@
                 <DropShadow />
             </effect>
             <children>
-                <Label layoutX="151.0" layoutY="131.0" prefHeight="23.0" prefWidth="82.0" text="Student Id:">
+                <Label layoutX="151.0" layoutY="137.0" prefHeight="23.0" prefWidth="82.0" text="Student Id:">
                     <font>
                         <Font name="Tahoma" size="16.0" />
                     </font>
                 </Label>
-                <TextField fx:id="studentId" layoutX="121.0" layoutY="172.0" prefHeight="38.0" prefWidth="142.0" style="-fx-background-radius: 15;" />
-                <Label layoutX="138.0" layoutY="224.0" prefHeight="50.0" prefWidth="110.0" text="Application Id:">
+                <TextField fx:id="studentId" layoutX="121.0" layoutY="178.0" prefHeight="38.0" prefWidth="142.0" style="-fx-background-radius: 15;" />
+                <Label layoutX="138.0" layoutY="230.0" prefHeight="50.0" prefWidth="110.0" text="Application Id:">
                     <font>
                         <Font name="Tahoma" size="16.0" />
                     </font>
                 </Label>
-                <TextField fx:id="applicationId" editable="false" layoutX="122.0" layoutY="274.0" prefHeight="38.0" prefWidth="142.0" style="-fx-background-radius: 15;" />
-                <Button fx:id="btnEdit" layoutX="71.0" layoutY="519.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="50.0" prefWidth="102.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="Edit">
+                <TextField fx:id="applicationId" editable="false" layoutX="122.0" layoutY="280.0" prefHeight="38.0" prefWidth="142.0" style="-fx-background-radius: 15;" />
+                <Button fx:id="btnEdit" layoutX="141.0" layoutY="513.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="50.0" prefWidth="102.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="Edit">
                     <font>
                         <Font size="15.0" />
                     </font>
                 </Button>
-                <Button layoutX="226.0" layoutY="519.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="50.0" prefWidth="102.0" style="-fx-background-radius: 20px; -fx-background-color: #90EE90; -fx-font-weight: bold;" text="Save">
-                    <font>
-                        <Font size="15.0" />
-                    </font>
-                </Button>
-            <Line endX="146.0" layoutX="193.0" layoutY="341.0" startX="-146.0" stroke="#a5cef2" strokeWidth="2.0" />
-            <Label layoutX="87.0" layoutY="400.0" text="Vendos pikët:">
+            <Line endX="146.0" layoutX="193.0" layoutY="365.0" startX="-146.0" stroke="#a5cef2" strokeWidth="2.0" />
+            <Label layoutX="77.0" layoutY="416.0" text="Vendos pikët:">
                <font>
                   <Font name="Britannic Bold" size="22.0" />
                </font>
             </Label>
-            <TextField fx:id="piket" layoutX="236.0" layoutY="395.0" prefHeight="26.0" prefWidth="82.0" style="-fx-border-color: #a5cef2; -fx-border-width: 4px;" />
-            <Label layoutX="141.0" layoutY="31.0" prefHeight="23.0" prefWidth="102.0" text="Supervisor Id:">
+            <TextField fx:id="piket" layoutX="223.0" layoutY="415.0" prefHeight="26.0" prefWidth="82.0" style="-fx-border-color: #a5cef2; -fx-border-width: 4px;" />
+            <Label layoutX="141.0" layoutY="37.0" prefHeight="23.0" prefWidth="102.0" text="Supervisor Id:">
                <font>
                   <Font name="Tahoma" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="supervisorId" layoutX="121.0" layoutY="71.0" prefHeight="38.0" prefWidth="142.0" style="-fx-background-radius: 15;" />
+            <TextField fx:id="supervisorId" layoutX="121.0" layoutY="77.0" prefHeight="38.0" prefWidth="142.0" style="-fx-background-radius: 15;" />
             </children>
         </AnchorPane>
         <ScrollPane layoutX="51.0" layoutY="190.0" prefHeight="486.0" prefWidth="750.0" style="-fx-background-color: white; -fx-background-radius: 10;">
