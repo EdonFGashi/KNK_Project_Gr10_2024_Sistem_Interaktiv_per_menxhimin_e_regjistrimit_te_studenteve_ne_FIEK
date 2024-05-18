@@ -33,7 +33,7 @@ public class KonkurimetService {
         if (acceptanceData != null) {
             int numriPranimeveIks = acceptanceData.getIKSNormal();
             int numriPranimeveEar = acceptanceData.getEARNormal();
-            int numriPranimeveEe = acceptanceData.getEARNormal();
+            int numriPranimeveEe = acceptanceData.getEENormal();
             int numriPranimeveTik = acceptanceData.getTIKNormal();
 
             RegistrationMenager normalRegistation = new RegistrationMenager(
@@ -107,11 +107,11 @@ class RegistrationMenager {
         this.nrTik = nrTik;
         this.nrEe = nrEe;
         this.nrPapranuar = 20000;
-        this.iksList = new HashMap<>(0);
-        this.earList = new HashMap<>(0);
-        this.eeList = new HashMap<>(0);;
-        this.tikList = new HashMap<>(0);
-        this.paPranuarList = new HashMap<>(0);
+        this.iksList = new HashMap<>();
+        this.earList = new HashMap<>();
+        this.eeList = new HashMap<>();;
+        this.tikList = new HashMap<>();
+        this.paPranuarList = new HashMap<>();
     }
 
     public void addNewStudent(KonkurimetDataFromDbDto student) {
@@ -119,6 +119,11 @@ class RegistrationMenager {
     }
 
     private void setStudentOnPriority(KonkurimetDataFromDbDto student, int iteration) {
+
+        if (iteration > 4) {
+            this.paPranuarList.put(student, student.getTotal());
+            return;
+        }
 
         String priority;
         if (iteration == 1) {
@@ -157,7 +162,7 @@ class RegistrationMenager {
                 currentList.entrySet().stream().sorted(Map.Entry.<KonkurimetDataFromDbDto, Double>comparingByValue().reversed())
                         .collect(Collectors.toList());
 
-        HashMap<KonkurimetDataFromDbDto, Double> temporalArray = new HashMap<>();
+       // HashMap<KonkurimetDataFromDbDto, Double> temporalArray = new HashMap<>();
 
         //Jan sortu sipas pikeve!
 
@@ -184,25 +189,32 @@ class RegistrationMenager {
         }
     }
 
-
     public ArrayList<KonkurimetDataFromDbDto> getIksList() {
-        return new ArrayList<>(this.iksList.keySet());
+        return getSortedList(this.iksList);
     }
 
     public ArrayList<KonkurimetDataFromDbDto> getEarList() {
-        return new ArrayList<>(this.earList.keySet());
+        return getSortedList(this.earList);
     }
 
     public ArrayList<KonkurimetDataFromDbDto> getEeList() {
-        return new ArrayList<>(this.eeList.keySet());
+        return getSortedList(this.eeList);
     }
 
     public ArrayList<KonkurimetDataFromDbDto> getTikList() {
-        return new ArrayList<>(this.tikList.keySet());
+        return getSortedList(this.tikList);
     }
 
     public ArrayList<KonkurimetDataFromDbDto> getPaPranuarList() {
-        return new ArrayList<>(this.paPranuarList.keySet());
+        return getSortedList(this.paPranuarList);
+    }
+
+    // New method to sort list
+    private ArrayList<KonkurimetDataFromDbDto> getSortedList(HashMap<KonkurimetDataFromDbDto, Double> list) {
+        return list.entrySet().stream()
+                .sorted(Map.Entry.<KonkurimetDataFromDbDto, Double>comparingByValue().reversed())
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
 }
