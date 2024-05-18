@@ -121,10 +121,10 @@ public class AdminRepository {
                 int piketAng = result.getInt("piketAng");
                 int piketZgjedhore = result.getInt("piketZgjedhore");
                 int piketPranues = result.getInt("piketPranues");
-                String deptIdPrioriteti1 = result.getString("deptIdPrioriteti1");
-                String deptIdPrioriteti2 = result.getString("deptIdPrioriteti2");
-                String deptIdPrioriteti3 = result.getString("deptIdPrioriteti3");
-                String deptIdPrioriteti4 = result.getString("deptIdPrioriteti4");
+                String deptIdPrioriteti1 = result.getString("Prioriteti1");
+                String deptIdPrioriteti2 = result.getString("Prioriteti2");
+                String deptIdPrioriteti3 = result.getString("Prioriteti3");
+                String deptIdPrioriteti4 = result.getString("Prioriteti4");
                 int afatId = result.getInt("afatId");
                 int mbikqyresiId = result.getInt("mbikqyresiId");
                 String niveli = result.getString("niveli");
