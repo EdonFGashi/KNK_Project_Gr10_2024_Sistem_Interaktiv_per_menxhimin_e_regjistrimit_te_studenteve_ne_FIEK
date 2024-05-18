@@ -1,4 +1,5 @@
 package service.Student;
+import model.dto.Student.AcademicInterestDto;
 import repository.StudentApplicant.StudentApplicantRepository;
 
 import model.dto.Student.StudentApplicantDto;
@@ -6,7 +7,7 @@ import model.dto.Student.StudentApplicantDto;
 
 public class StudentApplicantService {
 
-    private final StudentApplicantRepository repository;
+    private static StudentApplicantRepository repository;
 
     public StudentApplicantService() {
         this.repository = new StudentApplicantRepository();
@@ -24,4 +25,16 @@ public class StudentApplicantService {
        
         StudentApplicantRepository.saveData(dto);
     }
+
+    public static void processAcademicInterest(AcademicInterestDto dto) {
+        
+        if (dto.getDept() == null || dto.getDept1() == null || dto.getDept2() == null || dto.getDept3() == null) {
+            throw new IllegalArgumentException("All departments must be selected.");
+        }
+
+        // dergimi i te dhenave per ruajtje ne db
+        repository.saveAcademicInterest(dto);
+    }
+
+    
 }
