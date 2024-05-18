@@ -1,5 +1,9 @@
 package service.Student;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import model.Afat;
 import model.dto.Student.AcademicInterestDto;
+import repository.AfatRepository;
 import repository.StudentApplicant.StudentApplicantRepository;
 
 import model.dto.Student.StudentApplicantDto;
@@ -34,6 +38,19 @@ public class StudentApplicantService {
 
         // dergimi i te dhenave per ruajtje ne db
         repository.saveAcademicInterest(dto);
+    }
+
+    public static ObservableList<Afat> searchAfatByLevel(String Level){
+        try {
+            if (Level.isEmpty()) {
+                return FXCollections.observableArrayList(AfatRepository.getAllAfatArray());
+            } else {
+                return FXCollections.observableArrayList(AfatRepository.getAfatArrayByDateAndLevel(Level));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return FXCollections.observableArrayList();
+        }
     }
 
     

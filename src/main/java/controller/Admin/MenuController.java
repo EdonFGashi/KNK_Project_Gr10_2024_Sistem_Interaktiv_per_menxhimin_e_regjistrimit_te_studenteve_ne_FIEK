@@ -54,7 +54,7 @@ public class MenuController {
                 this.txtOption1.setText("Aplication");
                 this.txtOption2.setText("Show and Edit");
                 this.txtOption3.setText("Statistics");
-                this.option1Navigate = Navigatior.ADMIN_PROFILE;
+                this.option1Navigate = Navigatior.ADMIN_STUDENTMENU_KONKURIMET;
                 this.option2Navigate = Navigatior.ADMIN_STUDENTMENU_SHOWANDEDIT;
                 this.option3Navigate = Navigatior.ADMIN_STUDENTMENU_STATISTICS;
                 try {
