@@ -35,22 +35,25 @@ public class ProfileController {
     private boolean toogle;
     @FXML
     private void initialize(){
+        System.out.println("U lexu initialize");
         try {
             this.imgProfilePhoto.setImage(new Image(new FileInputStream("Images/adminProfileImage.png")));
         }catch(Exception e){
             System.out.println("Image not found!");
         }
         this.cancel();
-        AdminProfileToControllerDto admin = AdminService.getProfileInfo(SESSION.getLoggedAdmin().getEmail());
 
-        if(admin != null) {
-            this.txtFirstName.setText(admin.getFirstName());
-            this.txtLastName.setText(admin.getLastName());
-            this.txtEmail.setText(admin.getEmail());
-        }else{
-            System.out.println("Data object i admin su lexu");
+        if(SESSION.getLoggedAdmin() != null) {
+            AdminProfileToControllerDto admin = AdminService.getProfileInfo(SESSION.getLoggedAdmin().getEmail());
+
+            if (admin != null) {
+                this.txtFirstName.setText(admin.getFirstName());
+                this.txtLastName.setText(admin.getLastName());
+                this.txtEmail.setText(admin.getEmail());
+            } else {
+                System.out.println("Data object i admin su lexu");
+            }
         }
-        System.out.println("U lexu initialize");
     }
 
     @FXML
