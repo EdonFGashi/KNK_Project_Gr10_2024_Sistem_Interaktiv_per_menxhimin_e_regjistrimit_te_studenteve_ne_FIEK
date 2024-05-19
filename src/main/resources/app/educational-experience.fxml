@@ -12,25 +12,25 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="794.0" prefWidth="1120.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.EducationalExperienceController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.EducationalExperienceController">
    <children>
-      <Pane layoutX="-1.0" layoutY="73.0" prefHeight="184.0" prefWidth="1123.0" style="-fx-background-color: #1e2b66;">
+      <Pane layoutX="-1.0" layoutY="73.0" prefHeight="102.0" prefWidth="1220.0" style="-fx-background-color: #3f6196;" AnchorPane.topAnchor="33.0">
          <children>
-            <Label layoutX="121.0" layoutY="70.0" text="Educational Experience" textFill="WHITE">
+            <Label layoutX="115.0" layoutY="25.0" text="Educational Experience" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="36.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <AnchorPane layoutX="2.0" layoutY="242.0" prefHeight="531.0" prefWidth="1115.0">
+      <AnchorPane layoutX="21.0" layoutY="221.0" prefHeight="525.0" prefWidth="1115.0">
          <children>
-            <AnchorPane layoutX="16.0" layoutY="31.0" prefHeight="506.0" prefWidth="1084.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+            <AnchorPane layoutX="28.0" layoutY="-41.0" prefHeight="582.0" prefWidth="1084.0" style="-fx-background-color: white; -fx-background-radius: 10;">
                <effect>
                   <DropShadow />
                </effect>
                <children>
-                  <GridPane layoutX="30.0" layoutY="18.0" prefHeight="481.0" prefWidth="565.0">
+                  <GridPane layoutX="30.0" layoutY="18.0" prefHeight="518.0" prefWidth="566.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.0000274658203" minWidth="10.0" prefWidth="217.60006408691407" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="365.3999786376953" minWidth="10.0" prefWidth="283.19993591308594" />
@@ -128,12 +128,12 @@
                         <Font name="Tahoma" size="16.0" />
                      </font>
                   </Label>
-                  <Button layoutX="645.0" layoutY="442.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 30;" text="Back" textFill="WHITE">
+                  <Button layoutX="659.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 30;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Button>
-                  <Button layoutX="871.0" layoutY="442.0" mnemonicParsing="false" onAction="#handleContinue" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #387a43; -fx-background-radius: 30;" text="Continue" textFill="WHITE">
+                  <Button layoutX="875.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleContinue" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #387a43; -fx-background-radius: 30;" text="Continue" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
