@@ -1,5 +1,6 @@
 package repository.StudentApplicant;
 
+import controller.SESSION;
 import model.dto.Student.AcademicInterestDto;
 import model.dto.Student.PersonDTO;
 import model.dto.Student.StudentApplicantDto;
@@ -159,7 +160,7 @@ public class StudentApplicantRepository {
             ps.setInt(2, deptIdPrioritet1);
             ps.setInt(3, deptIdPrioritet2);
             ps.setInt(4, deptIdPrioritet3);
-            ps.setString(5, "");
+            ps.setInt(5, SESSION.getAplicantAfatId());
 
             ps.executeUpdate();
         } catch (SQLException e) {
