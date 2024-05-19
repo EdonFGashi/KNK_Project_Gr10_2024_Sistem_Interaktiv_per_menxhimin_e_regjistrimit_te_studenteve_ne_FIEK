@@ -14,11 +14,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="addPane" prefHeight="794.0" prefWidth="1120.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.PersonalInfoControler">
+<AnchorPane fx:id="addPane" prefHeight="800.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.PersonalInfoControler">
     <children>
-        <HBox layoutX="1.0" layoutY="33.0" prefHeight="102.0" prefWidth="1120.0" style="-fx-background-color: #6991bf; -fx-background-radius: 30;">
+        <HBox layoutX="1.0" layoutY="33.0" prefHeight="102.0" prefWidth="1220.0" style="-fx-background-color: #3f6196;" AnchorPane.bottomAnchor="664.8000000000001" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
             <children>
-                <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="482.0" style="-fx-background-color: #6991bf;" text="Personal Information" textFill="WHITE">
+                <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="482.0" style="-fx-background-color: #3f6196;" text="Personal Information" textFill="WHITE">
                     <HBox.margin>
                         <Insets left="50.0" top="15.0" />
                     </HBox.margin>
@@ -28,12 +28,12 @@
                 </Button>
             </children>
         </HBox>
-        <AnchorPane layoutX="84.0" layoutY="167.0" prefHeight="590.0" prefWidth="794.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+        <AnchorPane layoutX="47.0" layoutY="177.0" prefHeight="582.0" prefWidth="1084.0" style="-fx-background-color: white; -fx-background-radius: 10;" AnchorPane.leftAnchor="47.0">
             <effect>
                 <DropShadow />
             </effect>
             <children>
-                <GridPane layoutX="24.0" layoutY="14.0" prefHeight="574.0" prefWidth="501.0">
+                <GridPane layoutX="59.0" layoutY="7.0" prefHeight="574.0" prefWidth="501.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="276.7999755859375" minWidth="10.0" prefWidth="176.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="431.7999877929687" minWidth="10.0" prefWidth="348.79999999999995" />
@@ -114,22 +114,22 @@
                   <TextField fx:id="txtPersonalNumber" prefHeight="34.0" prefWidth="337.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" />
                     </children>
                 </GridPane>
-                <Button fx:id="btnGenerateinfo" layoutX="541.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleGenerateInfo" prefHeight="46.0" prefWidth="185.0" style="-fx-background-radius: 20px; -fx-background-color: #6991bf; -fx-font-weight: bold;" text="Generate Information" textFill="WHITE">
+                <Button fx:id="btnGenerateinfo" layoutX="644.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleGenerateInfo" prefHeight="50.0" prefWidth="185.0" style="-fx-background-radius: 30; -fx-background-color: #3f7bb0; -fx-font-weight: bold;" text="Generate Information" textFill="WHITE">
                     <font>
                         <Font size="15.0" />
                     </font>
                 </Button>
+              <Button fx:id="btnGoback" layoutX="662.0" layoutY="518.0" mnemonicParsing="false" onMouseClicked="#handleGoback" prefHeight="50.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #3f7bb0; -fx-font-weight: bold;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
+                  <font>
+                      <Font size="24.0" />
+                  </font>
+              </Button>
+              <Button fx:id="btmnext" layoutX="865.0" layoutY="518.0" mnemonicParsing="false" onMouseClicked="#handleNext" prefHeight="51.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #387a43; -fx-font-weight: bold;" text="Continue" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
+                  <font>
+                      <Font size="24.0" />
+                  </font>
+              </Button>
             </children>
         </AnchorPane>
-        <Button fx:id="btmnext" layoutX="960.0" layoutY="674.0" mnemonicParsing="false" onMouseClicked="#handleNext" prefHeight="46.0" prefWidth="146.0" style="-fx-background-radius: 20px; -fx-background-color: #6991bf; -fx-font-weight: bold;" text="NEXT" textFill="WHITE">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </Button>
-        <Button fx:id="btnGoback" layoutX="960.0" layoutY="616.0" mnemonicParsing="false" onMouseClicked="#handleGoback" prefHeight="46.0" prefWidth="146.0" style="-fx-background-radius: 20px; -fx-background-color: #6991bf; -fx-font-weight: bold;" text="GO BACK" textFill="WHITE">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </Button>
     </children>
 </AnchorPane>

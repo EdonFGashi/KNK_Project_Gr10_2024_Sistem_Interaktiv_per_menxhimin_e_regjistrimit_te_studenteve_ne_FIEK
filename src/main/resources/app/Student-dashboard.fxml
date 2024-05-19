@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="720.0" prefWidth="1520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.StudentDashboardController">
+<AnchorPane prefHeight="730.0" prefWidth="1520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.StudentDashboardController">
    <children>
       <AnchorPane layoutX="227.0" layoutY="155.0" minHeight="0.0" prefHeight="530.0" prefWidth="1134.0" style="-fx-background-color: white; -fx-background-radius: 10;">
          <effect>
@@ -30,7 +30,7 @@
             </TableView>
             <HBox layoutX="100.0" layoutY="36.0" prefHeight="58.0" prefWidth="951.0" style="-fx-background-color: #4b79ad; -fx-background-radius: 30;">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="482.0" style="-fx-background-color: #4b79ad;" text="You'r Application Center" textFill="WHITE">
+                  <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="482.0" style="-fx-background-color: #4b79ad;" text="Your Application Center" textFill="WHITE">
                      <HBox.margin>
                         <Insets bottom="15.0" left="220.0" top="15.0" />
                      </HBox.margin>
