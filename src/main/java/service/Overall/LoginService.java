@@ -5,9 +5,11 @@ import controller.SESSION;
 import javafx.stage.Stage;
 import model.Admin;
 import model.SupervisorTableModel;
+import model.User;
 import model.dto.Overall.LoginDto;
 import repository.AdminRepository;
 import repository.Supervisor.SupervisorRepository;
+import repository.UserRepository;
 import service.CustomExceptions.InvalidEmail;
 import service.CustomExceptions.InvalidPassword;
 import service.PasswordHasher;
@@ -112,7 +114,20 @@ public class LoginService {
     }
 
     private static boolean loginAsStudent(LoginDto loginDto){
-        System.out.println("Eshte student");
-        return false;
+        User user = UserRepository.getByEmail(loginDto.getUserEmail());
+
+        if (user == null){
+
+            return false;
+        }
+
+        String password = loginDto.getUserPassword();
+
+        String salt = user.getSalt();
+        String passwordHash = user.getPasswordHash();
+
+        return PasswordHasher.compareSaltedHash(
+                password, salt, passwordHash
+        );
     }
 }

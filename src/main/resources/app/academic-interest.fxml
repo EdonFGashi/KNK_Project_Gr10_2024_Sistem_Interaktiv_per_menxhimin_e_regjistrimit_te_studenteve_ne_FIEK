@@ -9,35 +9,35 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="794.0" prefWidth="1120.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.AcademicInterest">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="794.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.AcademicInterestController">
    <children>
-      <Pane layoutX="-3.0" layoutY="70.0" prefHeight="184.0" prefWidth="1123.0" style="-fx-background-color: #1e2b66;">
+      <Pane layoutX="2.0" layoutY="32.8" prefHeight="102.0" prefWidth="1220.0" style="-fx-background-color: #3f6196;" AnchorPane.topAnchor="32.8">
          <children>
-            <Label layoutX="121.0" layoutY="70.0" text="Academic Interest" textFill="WHITE">
+            <Label layoutX="121.0" layoutY="25.0" text="Academic Interest" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="36.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <AnchorPane layoutX="-65.0" layoutY="265.0" prefHeight="508.0" prefWidth="1217.0">
+      <AnchorPane layoutX="43.0" layoutY="211.0" prefHeight="582.0" prefWidth="1084.0">
          <children>
-            <AnchorPane layoutX="93.0" layoutY="9.0" prefHeight="506.0" prefWidth="1065.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+            <AnchorPane layoutY="-34.0" prefHeight="582.0" prefWidth="1084.0" style="-fx-background-color: white; -fx-background-radius: 10;">
                <effect>
                   <DropShadow />
                </effect>
                <children>
-                  <Button layoutX="645.0" layoutY="442.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 30;" text="Back" textFill="WHITE">
+                  <Button layoutX="665.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 30;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Button>
-                  <Button layoutX="880.0" layoutY="439.0" mnemonicParsing="false" onAction="#handleApply" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #387a43; -fx-background-radius: 30;" text="Apply" textFill="WHITE">
+                  <Button layoutX="874.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleApply" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #387a43; -fx-background-radius: 30;" text="Apply" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Button>
-                  <HBox layoutX="-1.0" layoutY="-2.0" prefHeight="240.0" prefWidth="1074.0">
+                  <HBox layoutY="25.0" prefHeight="240.0" prefWidth="1074.0">
                      <children>
                         <AnchorPane prefHeight="240.0" prefWidth="601.0">
                            <children>
@@ -99,7 +99,7 @@
                         </AnchorPane>
                      </children>
                   </HBox>
-                  <HBox layoutY="206.0" prefHeight="240.0" prefWidth="1049.0">
+                  <HBox layoutY="238.0" prefHeight="240.0" prefWidth="1049.0">
                      <children>
                         <AnchorPane prefHeight="240.0" prefWidth="601.0">
                            <children>

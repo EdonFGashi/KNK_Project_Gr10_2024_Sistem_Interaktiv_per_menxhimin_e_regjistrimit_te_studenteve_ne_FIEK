@@ -28,7 +28,7 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <Button layoutX="133.0" layoutY="334.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="84.0" style="-fx-background-color: #FFFFFF;" text="Apliko" textFill="#0a84ff">
+            <Button layoutX="133.0" layoutY="334.0" mnemonicParsing="false" onAction="#handleApliko" prefHeight="35.0" prefWidth="84.0" style="-fx-background-color: #FFFFFF;" text="Apliko" textFill="#0a84ff">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
