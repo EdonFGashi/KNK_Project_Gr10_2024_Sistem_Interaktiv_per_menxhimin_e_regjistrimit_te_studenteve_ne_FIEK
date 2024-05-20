@@ -1,11 +1,13 @@
 package controller.Overall;
 
+import app.Navigatior;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 import model.dto.Overall.UserDto;
 import service.Student.UserService;
 
@@ -33,10 +35,6 @@ public class SignUpController {
     @FXML
     private TextField txtSurname;
 
-    @FXML
-    void handleBack(ActionEvent event) {
-
-    }
 
     @FXML
     private void handleSignUp(ActionEvent ae) throws SQLException {
@@ -55,6 +53,14 @@ public class SignUpController {
         }
 
     }
+
+    @FXML
+    public void handleBack(ActionEvent ae){
+        Navigatior.navigateNewStage(Navigatior.LOGIN);
+        Navigatior.closeStageAfterDelay(ae, Duration.millis(1));
+    }
+
+
 
     @FXML
     public void initialize() {

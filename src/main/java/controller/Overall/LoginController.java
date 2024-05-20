@@ -111,31 +111,23 @@ public class LoginController {
 
             if (Objects.equals(LoginService.login(loginDto), "admin")){
 
-                Stage stage = new Stage();
-                stage.setMaximized(true);
-                Navigatior.navigate(stage, Navigatior.ADMIN_RIBBON);
                 //Admini mu ru ne session
                 SESSION.setLoggedAdmin(AdminService.getAdminByEmail(this.userEmail.getText()));
-                System.out.println(SESSION.getLoggedAdmin().getFirstName());
-                Navigatior.closeStageAfterDelay(event, Duration.millis(1));
+                navigateToNewStage(event, Navigatior.ADMIN_RIBBON);
+
 
             } else if (Objects.equals(LoginService.login(loginDto), "supervisor")) {
 
-                Stage stage = new Stage();
-                stage.setMaximized(true);
-                Navigatior.navigate(stage, Navigatior.SUPERVISOR_MENU);
                 //Mbikqyresi mu ru ne session
                 SESSION.setLoggedSupervisor(SupervisorService.getSupervisorByEmail(this.userEmail.getText()));
-                System.out.println(SESSION.getLoggedSupervisor().getFirstName());
-                Navigatior.closeStageAfterDelay(event, Duration.millis(1));
+                navigateToNewStage(event, Navigatior.SUPERVISOR_MENU);
+//                Navigatior.navigateNewStage(Navigatior.SUPERVISOR_MENU);
+
             } else if (Objects.equals(LoginService.login(loginDto), "student")) {
 
-                Stage stage = new Stage();
-                stage.setMaximized(true);
-                Navigatior.navigate(stage, Navigatior.STUDENT_DASHBOARD);
                 SESSION.setLoggedUser(UserService.getUserByEmail(this.userEmail.getText()));
-                System.out.println(SESSION.getLoggedUser().getFirstName());
-                Navigatior.closeStageAfterDelay(event, Duration.millis(1));
+                navigateToNewStage(event, Navigatior.STUDENT_DASHBOARD);
+
             }
             else {
                 System.out.println("Nuk jeni i kyqur!");
@@ -150,6 +142,15 @@ public class LoginController {
         }
 
     }
+
+    private void navigateToNewStage(ActionEvent event, String fxmlPath) {
+        Stage stage = new Stage();
+        stage.setMaximized(true);
+        Navigatior.navigate(stage, fxmlPath);
+        Navigatior.closeStageAfterDelay(event, Duration.millis(1));
+
+    }
+
     @FXML
     void handleApliko(ActionEvent event) {
         Navigatior.navigateNewStage(Navigatior.STUDENT_SIGNUP);

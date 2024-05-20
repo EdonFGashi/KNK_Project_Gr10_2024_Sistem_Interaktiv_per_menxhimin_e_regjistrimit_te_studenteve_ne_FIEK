@@ -33,7 +33,12 @@ public class DashboardController {
     }
 
     @FXML
-    void buttoni_qasja_hover(ActionEvent event) {
+    public void handleQasja(ActionEvent event) {
+        Navigatior.navigateNewStage(Navigatior.LOGIN);
+    }
+
+    @FXML
+    public void buttoni_qasja_hover(ActionEvent event) {
         buttoni_qasja.setStyle("-fx-opacity: 0.9;");
     }
 }

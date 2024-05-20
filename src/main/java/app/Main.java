@@ -22,9 +22,9 @@ public class Main extends Application {
 //        Navigatior.navigate(stage, Navigatior.SUPERVISOR_MENU);
 
         // Per me testu Dashboardin
-//        Navigatior.navigate(stage,Navigatior.DASHBOARD);
+        Navigatior.navigate(stage,Navigatior.DASHBOARD);
 //        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
-        Navigatior.navigateNewStage(Navigatior.LOGIN);
+//        Navigatior.navigateNewStage(Navigatior.LOGIN);
 
 
 
