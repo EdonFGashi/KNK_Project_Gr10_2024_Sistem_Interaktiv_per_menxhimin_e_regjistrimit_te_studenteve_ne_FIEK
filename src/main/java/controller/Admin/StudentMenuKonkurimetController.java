@@ -1,0 +1,273 @@
+package controller.Admin;
+
+import app.PopUp;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.StringConverter;
+import model.Afat;
+import model.KonkurimetDataFromDbDto;
+import model.UserStudent;
+import model.dto.Admin.KonkurimetByAfatDto;
+import model.dto.Admin.RegistrationListsToController;
+import service.Admin.AdminService;
+import service.Admin.KonkurimetService;
+import service.AfatService;
+
+import java.util.ArrayList;
+
+public class StudentMenuKonkurimetController {
+
+    @FXML
+    private Button btnApprove;
+
+    @FXML
+    private TableColumn<KonkurimetDataFromDbDto, Integer> columnAcceptanceTest;
+
+    @FXML
+    private TableColumn<KonkurimetDataFromDbDto, String> columnFirstName;
+
+    @FXML
+    private TableColumn<KonkurimetDataFromDbDto, String> columnLastName;
+
+    @FXML
+    private TableColumn<KonkurimetDataFromDbDto, Double> columnMature;
+
+    @FXML
+    private TableColumn<KonkurimetDataFromDbDto, Integer> columnMaturePoints;
+
+    @FXML
+    private TableColumn<KonkurimetDataFromDbDto, Integer> columnNr;
+
+    @FXML
+    private TableColumn<KonkurimetDataFromDbDto, Integer> columnS1;
+
+    @FXML
+    private TableColumn<KonkurimetDataFromDbDto, Integer> columnS2;
+
+    @FXML
+    private TableColumn<KonkurimetDataFromDbDto, Integer> columnS3;
+
+    @FXML
+    private TableColumn<KonkurimetDataFromDbDto, Integer> columnStudentId;
+
+    @FXML
+    private TableColumn<KonkurimetDataFromDbDto, Double> columnSucces;
+
+    @FXML
+    private TableColumn<KonkurimetDataFromDbDto, Double> columnTest;
+
+    @FXML
+    private TableColumn<KonkurimetDataFromDbDto, Double> columnTotal;
+
+    @FXML
+    private ComboBox<Afat> comboAfatId;
+
+
+
+    @FXML
+    private TableView<KonkurimetDataFromDbDto> tableStudents;
+
+    @FXML
+    private RadioButton radioNormal;
+    @FXML
+    private RadioButton radioMinority;
+    @FXML
+    private Button btnSwitchTables;
+    @FXML
+    private ComboBox<String>comboDepartment;
+
+    private Afat selectedAfat;
+
+
+
+   private AllRegistrationObservableLists lists;
+
+
+    @FXML
+    private void initialize(){
+     this.columnStudentId.setCellValueFactory(new PropertyValueFactory<KonkurimetDataFromDbDto,Integer>("userId"));
+     this.columnFirstName.setCellValueFactory(new PropertyValueFactory<KonkurimetDataFromDbDto,String>("emri"));
+     this.columnLastName.setCellValueFactory(new PropertyValueFactory<KonkurimetDataFromDbDto,String>("mbiemri"));
+     this.columnS1.setCellValueFactory(new PropertyValueFactory<KonkurimetDataFromDbDto,Integer>("suksesiKl10"));
+     this.columnS2.setCellValueFactory(new PropertyValueFactory<KonkurimetDataFromDbDto,Integer>("suksesiKl11"));
+     this.columnS3.setCellValueFactory(new PropertyValueFactory<KonkurimetDataFromDbDto,Integer>("suksesiKl12"));
+     this.columnSucces.setCellValueFactory(new PropertyValueFactory<KonkurimetDataFromDbDto,Double>("totalSucces"));
+     this.columnMaturePoints.setCellValueFactory(new PropertyValueFactory<KonkurimetDataFromDbDto,Integer>("piketMatures"));
+     this.columnMature.setCellValueFactory(new PropertyValueFactory<KonkurimetDataFromDbDto,Double>("totalPiketMatures"));
+     this.columnAcceptanceTest.setCellValueFactory(new PropertyValueFactory<KonkurimetDataFromDbDto,Integer>("piketPranues"));
+     this.columnTest.setCellValueFactory(new PropertyValueFactory<KonkurimetDataFromDbDto,Double>("totalPranues"));
+     this.columnTotal.setCellValueFactory(new PropertyValueFactory<KonkurimetDataFromDbDto,Double>("total"));
+
+        this.columnNr.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(tableStudents.getItems().indexOf(param.getValue()) + 1));
+
+   this.btnSwitchTables.setDisable(true);
+
+   this.comboAfatId.setItems(
+           AdminService.searchAfat("")
+   );
+
+
+   //E qet veq Id:
+        comboAfatId.setCellFactory(param -> new ListCell<Afat>() {
+            @Override
+            protected void updateItem(Afat item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(String.valueOf(item.getId()));
+                }
+            }
+        });
+        comboAfatId.setConverter(new StringConverter<Afat>() {
+            @Override
+            public String toString(Afat afat) {
+                if (afat == null) {
+                    return null;
+                } else {
+                    return String.valueOf(afat.getId());
+                }
+            }
+
+            @Override
+            public Afat fromString(String string) {
+                return null;
+            }
+        });
+
+    this.comboDepartment.setItems(FXCollections.observableArrayList("IKS","EAR","EE","TIK","Un Accepted"));
+
+    }
+
+    @FXML
+    private void handleLoadAfat(ActionEvent ae){
+        Afat selectedAfat = this.comboAfatId.getValue();
+
+        RegistrationListsToController registrationListsToController = KonkurimetService.ktheKonkurimet(new KonkurimetByAfatDto(
+                selectedAfat.getId(), selectedAfat.getNiveli(), selectedAfat.getHera()
+        ));
+
+        if(registrationListsToController != null) {
+            this.lists = new AllRegistrationObservableLists(registrationListsToController);
+        }
+        this.btnSwitchTables.setDisable(false);
+    }
+
+    @FXML
+    private void handleAprove(ActionEvent event) {
+
+    }
+
+
+    @FXML
+    private void handleSwitchTables(ActionEvent ae){
+         String department = this.comboDepartment.getValue();
+
+             if(department.equals("IKS")){
+                 if(this.radioNormal.isSelected()){
+                     this.tableStudents.setItems(lists.getIksNormal());
+                 }else{
+                     this.tableStudents.setItems(lists.getIksMinoritet());
+                 }
+             }else if(department.equals("EAR")){
+                 if(this.radioNormal.isSelected()){
+                     this.tableStudents.setItems(lists.getEarNormal());
+                 }else{
+                     this.tableStudents.setItems(lists.getEarMinoritet());
+                 }
+             }else if(department.equals("TIK")){
+                 if(this.radioNormal.isSelected()){
+                     this.tableStudents.setItems(lists.getTikNormal());
+                 }else{
+                     this.tableStudents.setItems(lists.getTikMinoritet());
+                 }
+             }else if(department.equals("EE")){
+                 if(this.radioNormal.isSelected()){
+                     this.tableStudents.setItems(lists.getEeNormal());
+                 }else{
+                     this.tableStudents.setItems(lists.getEeMinoritet());
+                 }
+             }else if(department.equals("Un Accepted")){
+                 if(this.radioNormal.isSelected()){
+                     this.tableStudents.setItems(lists.getPaPranuarNormal());
+                 }else{
+                     this.tableStudents.setItems(lists.getPaPranuarMinoritet());
+                 }
+             }else{
+                 PopUp.loading("Departamenti i pa Zgjedhur",false,"");
+             }
+    }
+}
+
+
+
+class AllRegistrationObservableLists {
+    private ObservableList<KonkurimetDataFromDbDto> iksNormal;
+    private ObservableList<KonkurimetDataFromDbDto> earNormal;
+    private ObservableList<KonkurimetDataFromDbDto> eeNormal;
+    private ObservableList<KonkurimetDataFromDbDto> tikNormal;
+    private ObservableList<KonkurimetDataFromDbDto> paPranuarNormal;
+    private ObservableList<KonkurimetDataFromDbDto> iksMinoritet;
+    private ObservableList<KonkurimetDataFromDbDto> earMinoritet;
+    private ObservableList<KonkurimetDataFromDbDto> eeMinoritet;
+    private ObservableList<KonkurimetDataFromDbDto> tikMinoritet;
+    private ObservableList<KonkurimetDataFromDbDto> paPranuarMinoritet;
+
+    public AllRegistrationObservableLists(RegistrationListsToController data) {
+
+        this.iksNormal = FXCollections.observableArrayList(data.getIksNormal());
+        this.earNormal = FXCollections.observableArrayList(data.getEarNormal());
+        this.eeNormal = FXCollections.observableArrayList(data.getEeNormal());
+        this.tikNormal = FXCollections.observableArrayList(data.getTikNormal());
+        this.paPranuarNormal = FXCollections.observableArrayList(data.getPaPranuarNormal());
+        this.iksMinoritet = FXCollections.observableArrayList(data.getIksMinoritet());
+        this.earMinoritet = FXCollections.observableArrayList(data.getEarMinoritet());
+        this.eeMinoritet = FXCollections.observableArrayList(data.getEeMinoritet());
+        this.tikMinoritet = FXCollections.observableArrayList(data.getTikMinoritet());
+        this.paPranuarMinoritet = FXCollections.observableArrayList(data.getPaPranuarMinoritet());
+    }
+    public ObservableList<KonkurimetDataFromDbDto> getIksNormal() {
+        return iksNormal;
+    }
+
+    public ObservableList<KonkurimetDataFromDbDto> getEarNormal() {
+        return earNormal;
+    }
+
+    public ObservableList<KonkurimetDataFromDbDto> getEeNormal() {
+        return eeNormal;
+    }
+
+    public ObservableList<KonkurimetDataFromDbDto> getTikNormal() {
+        return tikNormal;
+    }
+
+    public ObservableList<KonkurimetDataFromDbDto> getPaPranuarNormal() {
+        return paPranuarNormal;
+    }
+
+    public ObservableList<KonkurimetDataFromDbDto> getIksMinoritet() {
+        return iksMinoritet;
+    }
+
+    public ObservableList<KonkurimetDataFromDbDto> getEarMinoritet() {
+        return earMinoritet;
+    }
+
+    public ObservableList<KonkurimetDataFromDbDto> getEeMinoritet() {
+        return eeMinoritet;
+    }
+
+    public ObservableList<KonkurimetDataFromDbDto> getTikMinoritet() {
+        return tikMinoritet;
+    }
+
+    public ObservableList<KonkurimetDataFromDbDto> getPaPranuarMinoritet() {
+        return paPranuarMinoritet;
+    }
+}

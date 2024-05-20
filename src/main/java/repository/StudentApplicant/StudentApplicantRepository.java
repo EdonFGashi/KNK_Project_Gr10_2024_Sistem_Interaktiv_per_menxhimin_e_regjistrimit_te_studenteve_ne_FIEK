@@ -1,5 +1,7 @@
 package repository.StudentApplicant;
 
+import controller.SESSION;
+import model.dto.Student.AcademicInterestDto;
 import model.dto.Student.PersonDTO;
 import model.dto.Student.StudentApplicantDto;
 import service.DBConnector;
@@ -12,6 +14,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import static controller.SESSION.getDeptLevel;
+import static controller.SESSION.getLoggedUser;
 
 public class StudentApplicantRepository {
 
@@ -129,4 +134,61 @@ public class StudentApplicantRepository {
             e.printStackTrace();
         }
     }
+    
+    
+    public void saveAcademicInterest(AcademicInterestDto dto) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DBConnector.getConnection();
+
+            // marrja e deptid per departamentin dhe prioritetet
+            int deptIdPrioritet1 = getDepartmentId(conn, dto.getDept(), getDeptLevel());
+            int deptIdPrioritet2 = getDepartmentId(conn, dto.getDept1(), getDeptLevel());
+            int deptIdPrioritet3 = getDepartmentId(conn, dto.getDept2(), getDeptLevel());
+
+            if (deptIdPrioritet1 == -1 || deptIdPrioritet2 == -1 || deptIdPrioritet3 == -1) {
+                throw new IllegalArgumentException("Invalid department or level");
+            }
+
+            
+            String query = "INSERT INTO tblAplikimi (userId, deptIdPrioritet1, deptIdPrioritet2, deptIdPrioritet3, afatId) VALUES (?, ?, ?, ?, ?)";
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, getLoggedUser().getId());
+            ps.setInt(2, deptIdPrioritet1);
+            ps.setInt(3, deptIdPrioritet2);
+            ps.setInt(4, deptIdPrioritet3);
+            ps.setInt(5, SESSION.getAplicantAfatId());
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
+
+    private int getDepartmentId(Connection conn, String departmentName, String level) throws SQLException {
+        String query = "SELECT deptId FROM tblDepartamenti WHERE emri = ? AND niveli = ?";
+        try (PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setString(1, departmentName);
+            ps.setString(2, level);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("deptId");
+                }
+            }
+        }
+        return -1; // Kthe -1 nëse departamenti nuk u gjet
+    }
+}
+
+

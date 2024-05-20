@@ -1,4 +1,9 @@
 package service.Student;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import model.Afat;
+import model.dto.Student.AcademicInterestDto;
+import repository.AfatRepository;
 import repository.StudentApplicant.StudentApplicantRepository;
 
 import model.dto.Student.StudentApplicantDto;
@@ -6,7 +11,7 @@ import model.dto.Student.StudentApplicantDto;
 
 public class StudentApplicantService {
 
-    private final StudentApplicantRepository repository;
+    private static StudentApplicantRepository repository;
 
     public StudentApplicantService() {
         this.repository = new StudentApplicantRepository();
@@ -24,4 +29,29 @@ public class StudentApplicantService {
        
         StudentApplicantRepository.saveData(dto);
     }
+
+    public static void processAcademicInterest(AcademicInterestDto dto) {
+        
+        if (dto.getDept() == null || dto.getDept1() == null || dto.getDept2() == null || dto.getDept3() == null) {
+            throw new IllegalArgumentException("All departments must be selected.");
+        }
+
+        // dergimi i te dhenave per ruajtje ne db
+        repository.saveAcademicInterest(dto);
+    }
+
+    public static ObservableList<Afat> searchAfatByLevel(String Level){
+        try {
+            if (Level.isEmpty()) {
+                return FXCollections.observableArrayList(AfatRepository.getAllAfatArray());
+            } else {
+                return FXCollections.observableArrayList(AfatRepository.getAfatArrayByDateAndLevel(Level));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return FXCollections.observableArrayList();
+        }
+    }
+
+    
 }

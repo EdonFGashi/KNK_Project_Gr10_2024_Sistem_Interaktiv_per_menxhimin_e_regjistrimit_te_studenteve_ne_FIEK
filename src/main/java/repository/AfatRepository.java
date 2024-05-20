@@ -5,6 +5,7 @@ import model.dto.Admin.AddNewAfatDto;
 import service.DBConnector;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class AfatRepository {
@@ -127,6 +128,28 @@ public class AfatRepository {
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public static ArrayList<Afat> getAfatArrayByDateAndLevel(String niveli) {
+        Connection conn = DBConnector.getConnection();
+        System.out.println("Executing getAfatArrayByDateAndLevel");
+
+        String query = "SELECT * FROM tblAfati WHERE dataMbylljes > ? AND niveli = ?";
+
+        try {
+            PreparedStatement pst = conn.prepareStatement(query);
+
+            // Set today's date and the level as parameters
+            pst.setDate(1, java.sql.Date.valueOf(LocalDate.now()));
+            pst.setString(2, niveli);
+
+            ResultSet result = pst.executeQuery();
+
+            return getAfatiFromResultSet(result);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

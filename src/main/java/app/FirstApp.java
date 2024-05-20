@@ -35,8 +35,9 @@ public class FirstApp extends Application {
 
  //SHko te Admini direkt
         stage.setMaximized(true);
-        Navigatior.navigate(stage,StudentPages.STUDENT_MENU);
-       // Navigatior.navigate(stage,AdminPages.ADMIN_RIBBON);
+      //  Navigatior.navigate(stag);
+       Navigatior.navigate(stage,AdminPages.ADMIN_RIBBON);
+       //Navigatior.navigate(stage,StudentPages.STUDENT_DASHBOARD);
 
 //    }
 

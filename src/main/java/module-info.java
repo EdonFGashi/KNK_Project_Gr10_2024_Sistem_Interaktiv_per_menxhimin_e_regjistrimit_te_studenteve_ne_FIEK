@@ -26,5 +26,5 @@ module com.example.knk_project_gr10_2024 {
 
     opens model to javafx.base;
     opens controller.Help to javafx.fxml;
-    opens model.dto.Supervisor to javafx.base;
+    opens model.dto.Admin to javafx.base;
 }

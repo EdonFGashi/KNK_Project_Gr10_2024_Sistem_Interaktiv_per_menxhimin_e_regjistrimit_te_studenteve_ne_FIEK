@@ -14,7 +14,7 @@
 
 <VBox nodeOrientation="LEFT_TO_RIGHT" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.RibbonController">
    <children>
-      <HBox style="-fx-background-radius: 0 0 15 15; -fx-background-color: linear-gradient(to right, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);">
+      <HBox style="-fx-background-radius: 0 0 15 15; -fx-background-color: linear-gradient(to right, rgb(25, 49, 108) 2.8%, rgb(1, 179, 201) 97.8%);">
          <children>
             <HBox alignment="CENTER_LEFT" maxHeight="70.0" minHeight="70.0" prefHeight="70.0" prefWidth="278.0" spacing="12.0">
                <padding>

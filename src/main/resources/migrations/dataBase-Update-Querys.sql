@@ -108,3 +108,72 @@ MODIFY column email VARCHAR(50) UNIQUE;
 
 
 
+-- 18/05/2024 - Joni
+    CREATE VIEW vwKonkurrimetData AS
+SELECT
+    tblUserStudent.userId,
+    tblUserStudent.emri,
+    tblUserStudent.mbiemri,
+    tblShkollaMesme.suksesiKl10,
+    tblShkollaMesme.suksesiKl11,
+    tblShkollaMesme.suksesiKl12,
+    tblShkollaMesme.piketMat,
+    tblShkollaMesme.piketGjSh,
+    tblShkollaMesme.piketAng,
+    tblShkollaMesme.piketZgjedhore,
+    tblKonkurimet.piketPranues,
+    d1.emri as Prioriteti1,
+    d2.emri as Prioriteti2,
+    d3.emri as Prioriteti3,
+    d4.emri as Prioriteti4,
+    tblAfati.afatId,
+    tblKonkurimet.mbikqyresiId,
+    tblAfati.niveli,
+    CASE WHEN tblUserStudent.nacionaliteti = 'Kosovar' THEN FALSE ELSE TRUE END AS minoritet
+FROM
+    tblKonkurimet
+JOIN
+    tblAplikimi ON tblKonkurimet.aplikimiId = tblAplikimi.aplikimiId
+JOIN
+    tblShkollaMesme ON tblAplikimi.shkollaId = tblShkollaMesme.shkollaId
+JOIN
+    tblUserStudent ON tblShkollaMesme.userId = tblUserStudent.userId
+JOIN
+    tblAfati ON tblAplikimi.afatId = tblAfati.afatId
+LEFT JOIN
+    tblDepartamenti d1 ON tblAplikimi.deptIdPrioritet1 = d1.deptId
+LEFT JOIN
+    tblDepartamenti d2 ON tblAplikimi.deptIdPrioritet2 = d2.deptId
+LEFT JOIN
+    tblDepartamenti d3 ON tblAplikimi.deptIdPrioritet3 = d3.deptId
+LEFT JOIN
+    tblDepartamenti d4 ON tblAplikimi.deptIdPrioritet4 = d4.deptId
+WHERE
+    tblShkollaMesme.approved = TRUE;
+
+
+
+
+INSERT INTO tblDepartamenti (emri, niveli, nrStudentaveAfat1, nrStudentaveAfat2, nrStudentaveMinoritetAfat1, nrStudentaveMinoritetAfat2)
+VALUES
+    ('IKS', 'BSC', 125, 25, 20, 5),
+    ('EAR', 'BSC', 50, 20, 5, 5),
+    ('EE', 'BSC', 40, 15, 5, 5),
+    ('TIK', 'BSC', 40, 15, 5, 5),
+    ('IKS', 'MSC', 50, 10, 0, 0),
+    ('EAR', 'MSC', 20, 10, 0, 0),
+    ('EE', 'MSC',  20, 10, 0, 0),
+    ('TIK', 'MSC', 20, 10, 0, 0),
+     ('IKS', 'PHD', 20, 10, 0, 0),
+    ('EAR', 'PHD', 5, 5, 0, 0),
+    ('EE', 'PHD', 5, 5, 0, 0),
+    ('TIK', 'PHD', 5, 5, 0, 0);
+
+
+ALTER TABLE tblKonkurimet
+DROP column provimiId;
+
+
+
+
+

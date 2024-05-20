@@ -132,7 +132,7 @@ public class LoginController {
 
                 Stage stage = new Stage();
                 stage.setMaximized(true);
-                Navigatior.navigate(stage, Navigatior.STUDENT_MENU);
+                Navigatior.navigate(stage, Navigatior.STUDENT_DASHBOARD);
                 SESSION.setLoggedUser(UserService.getUserByEmail(this.userEmail.getText()));
                 System.out.println(SESSION.getLoggedUser().getFirstName());
                 Navigatior.closeStageAfterDelay(event, Duration.millis(1));
@@ -149,6 +149,11 @@ public class LoginController {
 
         }
 
+    }
+    @FXML
+    void handleApliko(ActionEvent event) {
+        Navigatior.navigateNewStage(Navigatior.STUDENT_SIGNUP);
+        Navigatior.closeStageAfterDelay(event, Duration.millis(1));
     }
 
 

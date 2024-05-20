@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="730.0" prefWidth="1520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.StudentDashboardController">
+   <children>
+      <AnchorPane layoutX="227.0" layoutY="155.0" minHeight="0.0" prefHeight="530.0" prefWidth="1134.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <TableView fx:id="tableStudent" layoutX="114.0" layoutY="199.0" prefHeight="240.0" prefWidth="906.0" style="-fx-background-color: transparent; -fx-border-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-border-width: 2px; -fx-border-radius: 8px;">
+               <columns>
+                  <TableColumn fx:id="columnEmail" editable="false" prefWidth="186.39993286132812" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Submission Status" />
+                  <TableColumn fx:id="columnFirstName" editable="false" minWidth="0.0" prefWidth="203.20004272460938" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Aplication Name" />
+                  <TableColumn fx:id="columnLastName" editable="false" minWidth="0.0" prefWidth="267.20001220703125" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Last edited  Data/Time" />
+                  <TableColumn prefWidth="248.0" text="Edit" />
+               </columns>
+            </TableView>
+            <HBox layoutX="100.0" layoutY="36.0" prefHeight="58.0" prefWidth="951.0" style="-fx-background-color: #4b79ad; -fx-background-radius: 30;">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="482.0" style="-fx-background-color: #4b79ad;" text="Your Application Center" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets bottom="15.0" left="220.0" top="15.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <Button layoutX="479.0" layoutY="452.0" mnemonicParsing="false" style="-fx-background-color: #6481c4; -fx-background-radius: 30;" text="FILLO APLIKIMIN" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Hyperlink layoutX="840.0" layoutY="456.0" text="Return to Login Page">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Hyperlink>
+            <ChoiceBox fx:id="choiseChoseLevel" layoutX="309.0" layoutY="140.0" prefHeight="28.0" prefWidth="152.0" style="-fx-background-radius: 10; -fx-background-color: white; -fx-border-width: 1; -fx-border-color: grey; -fx-border-radius: 10;" />
+            <ChoiceBox fx:id="choiseChoseAfat" layoutX="840.0" layoutY="140.0" prefHeight="22.0" prefWidth="179.0" style="-fx-background-radius: 10; -fx-background-color: white; -fx-border-width: 1; -fx-border-color: grey; -fx-border-radius: 10;" />
+            <Label layoutX="114.0" layoutY="135.0" prefHeight="38.0" prefWidth="179.0" text="Select the level of study:">
+               <font>
+                  <Font name="Tahoma" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="708.0" layoutY="135.0" prefHeight="38.0" prefWidth="114.0" text="Zgjedh Afatin:">
+               <font>
+                  <Font name="Tahoma" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

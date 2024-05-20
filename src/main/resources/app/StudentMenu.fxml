@@ -12,9 +12,9 @@
     <children>
         <AnchorPane prefHeight="800.0" prefWidth="1520.0">
             <children>
-                <AnchorPane layoutY="2.0" prefHeight="800.0" prefWidth="400.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-background-radius: 30;" AnchorPane.topAnchor="2.0">
+                <AnchorPane layoutY="2.0" prefHeight="800.0" prefWidth="350.0" style="-fx-background-color: linear-gradient(to bottom,#385178, #3f6196,#4d71a8, #77a5ed); -fx-background-radius: 30;" AnchorPane.topAnchor="2.0">
                     <children>
-                        <HBox fx:id="hbxPersinfo" layoutX="42.0" layoutY="368.0" onMouseClicked="#handleOptionClick1" prefHeight="62.0" prefWidth="314.0">
+                        <HBox fx:id="hbxPersinfo" layoutX="16.0" layoutY="368.0" onMouseClicked="#handleOptionClick1" prefHeight="62.0" prefWidth="314.0">
                             <children>
                                 <ImageView fx:id="imgPrsinfo" fitHeight="44.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
@@ -27,7 +27,7 @@
                                 </Label>
                             </children>
                         </HBox>
-                        <HBox fx:id="hboxEducation" layoutX="35.0" layoutY="500.0" onMouseClicked="#handleOptionClick2" prefHeight="64.0" prefWidth="330.0">
+                        <HBox fx:id="hboxEducation" layoutX="14.0" layoutY="497.0" onMouseClicked="#handleOptionClick2" prefHeight="64.0" prefWidth="330.0">
                             <children>
                                 <ImageView fx:id="imgEducation" fitHeight="44.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
@@ -40,7 +40,7 @@
                                 </Label>
                             </children>
                         </HBox>
-                        <HBox fx:id="hboxAcademic" layoutX="42.0" layoutY="627.0" onMouseClicked="#handleOptionClick3" prefHeight="62.0" prefWidth="314.0">
+                        <HBox fx:id="hboxAcademic" layoutX="16.0" layoutY="625.0" onMouseClicked="#handleOptionClick3" prefHeight="62.0" prefWidth="314.0">
                             <children>
                                 <ImageView fx:id="imgAcademic" fitHeight="64.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true" />
                                 <Label fx:id="txtAcademic" prefHeight="64.0" prefWidth="257.0" text=" Academic Interest" textFill="WHITE">
@@ -50,10 +50,10 @@
                                 </Label>
                             </children>
                         </HBox>
-                  <ImageView fx:id="imgUp" fitHeight="215.0" fitWidth="236.0" layoutX="81.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imgUp" fitHeight="215.0" fitWidth="236.0" layoutX="55.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" />
                     </children>
                 </AnchorPane>
-                <HBox fx:id="hboxaddPane" layoutX="400.0" layoutY="2.0" prefHeight="800.0" prefWidth="1530.0" />
+                <HBox fx:id="hboxaddPane" layoutX="353.0" layoutY="2.0" prefHeight="800.0" prefWidth="1220.0" />
             </children>
         </AnchorPane>
     </children>

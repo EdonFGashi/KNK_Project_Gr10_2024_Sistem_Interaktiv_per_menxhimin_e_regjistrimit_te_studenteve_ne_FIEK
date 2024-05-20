@@ -14,6 +14,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 import java.io.File;
+import static controller.SESSION.getLoggedUser;
+
+import static controller.SESSION.getLoggedUser;
 
 public class EducationalExperienceController {
 

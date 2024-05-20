@@ -53,6 +53,7 @@ interface AdminPages{
     public final static String ADMIN_STUDENTMENU_EDITSTUDENT = "admin-studentMenu-editStudent.fxml";
     public final static String ADMIN_STUDENTMENU_STATISTICS = "admin-studentsMenu-statistics.fxml";
     public final static String ADMIN_STUDENTMENU_SHOWANDEDIT = "admin-studentMenu-showAndEditStudent.fxml";
+    public final static String ADMIN_STUDENTMENU_KONKURIMET = "admin-studentMenu-konkurimet.fxml";
     public final static String ADMIN_PROFILE = "admin-profile.fxml";
 
     public final static String ADMIN_REGISTRATIONMENU = "admin-registrationPeriodMenu.fxml";
@@ -69,7 +70,10 @@ interface StudentPages{
     public final static String PERSONAL_INFO = "PersonalInfo.fxml";
     public final static String EDUCATION = "educational-experience.fxml";
     public final static String ACADEMIC = "academic-interest.fxml";
-    public final static String STUDENT_DASHBOARD = "";
+    public final static String STUDENT_DASHBOARD = "Student-dashboard.fxml";
+
+    public final static String STUDENT_SIGNUP= "SignUp.fxml";
+
 }
 interface SupervisorPages{
     public final static String SUPERVISOR_RIBBON = "supervisor-ribbon.fxml";
