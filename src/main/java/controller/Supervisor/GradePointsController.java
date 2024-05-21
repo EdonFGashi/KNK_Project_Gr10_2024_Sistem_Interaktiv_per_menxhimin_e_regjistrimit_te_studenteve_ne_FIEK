@@ -24,6 +24,7 @@ import service.Supervisor.SupervisorService;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Objects;
 
 public class GradePointsController {
     @FXML
@@ -93,14 +94,22 @@ public class GradePointsController {
             }
         });
 
+        if (!SESSION.getSupervisor_lastSearch().equals("")){
+            this.selectedKonkurim = SupervisorService.searchKonkurimi(SESSION.getSupervisor_lastSearch());
+            this.setTextFields();
+            System.out.println("There is a search history!");
+        }else {
+            System.out.println("There is NO search history!");
+        }
+
+
         this.disableForms();
         this.studentId.setDisable(true);
         this.supervisorId.setDisable(true);
         this.applicationId.setDisable(true);
 
-
-        this.txtSearch.setText(SESSION.getAdmin_supervisor_lastSearch());
-        this.konkurimetList = SupervisorService.searchKonkurimet(this.txtSearch.getText());
+        this.txtSearch.setText(SESSION.getSupervisor_lastSearch());
+        this.konkurimetList = SupervisorService.searchKonkurimet("");
         this.setColumns();
         this.edit = true;
 
@@ -126,7 +135,7 @@ public class GradePointsController {
                 System.out.println("Edit not successful");
             }
 
-            this.konkurimetList = SupervisorService.searchKonkurimet(SESSION.getAdmin_supervisor_lastSearch());
+            this.konkurimetList = SupervisorService.searchKonkurimet("");
             this.setColumns();
             this.disableForms();
             this.btnEdit.setText("Edit");
@@ -152,7 +161,7 @@ public class GradePointsController {
         }
 
 
-//        SESSION.setAdmin_supervisor_lastSearch(this.txtSearch.getText().trim());
+        SESSION.setSupervisor_lastSearch(this.txtSearch.getText().trim());
     }
     @FXML
     private void handleSearchClick(MouseEvent me){
@@ -172,7 +181,7 @@ public class GradePointsController {
         }
 
 
-//        SESSION.setAdmin_supervisor_lastSearch(this.txtSearch.getText().trim());
+        SESSION.setSupervisor_lastSearch(this.txtSearch.getText().trim());
     }
 
     private void setColumns(){

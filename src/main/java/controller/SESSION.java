@@ -14,6 +14,8 @@ public class SESSION {
 
     private static String adminMenu = "";
 
+    private static String supervisor_lastSearch = "";
+
     private static String admin_registration_lastSearch = "";
     private static String admin_supervisor_lastSearch = "";
     private static int admin_reset_PasswordId = 0;
@@ -24,6 +26,11 @@ public class SESSION {
     private static String UserLevel = "";
     private static int AplicantAfatID;
     private SESSION() {}
+
+    public static String getSupervisor_lastSearch() {return supervisor_lastSearch;}
+    public static void setSupervisor_lastSearch (String supervisor_lastSearch){
+        SESSION.supervisor_lastSearch = supervisor_lastSearch;
+    }
 
     public static String getAdmin_registration_lastSearch() {
         return admin_registration_lastSearch;
