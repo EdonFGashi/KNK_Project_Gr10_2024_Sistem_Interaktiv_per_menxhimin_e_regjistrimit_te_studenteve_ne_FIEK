@@ -28,6 +28,7 @@
                <image>
                   <Image url="@../../../../Images/search.png" />
                </image></ImageView>
+            <Label fx:id="errorMessageLabel" layoutX="500.0" layoutY="36.0" prefWidth="180.0" textFill="RED" visible="false" />
             </children>
         </AnchorPane>
         <AnchorPane layoutX="850.0" layoutY="50.0" prefHeight="626.0" prefWidth="385.0" style="-fx-background-color: white; -fx-background-radius: 10;">

@@ -18,6 +18,8 @@ import repository.AfatRepository;
 import repository.Supervisor.SupervisorRepository;
 import service.Admin.AdminService;
 import controller.SESSION;
+import service.CustomExceptions.InvalidEmail;
+import service.CustomExceptions.InvalidSearch;
 import service.Supervisor.SupervisorService;
 
 import java.io.FileInputStream;
@@ -32,6 +34,8 @@ public class GradePointsController {
     private TextField supervisorId;
     @FXML
     private TextField studentId;
+    @FXML
+    private Label errorMessageLabel;
 
     @FXML
     private TextField applicationId;
@@ -63,6 +67,8 @@ public class GradePointsController {
     private Afat selectedAfat;
     @FXML
     private void initialize(){
+        errorMessageLabel.setText("");
+        errorMessageLabel.setVisible(false);
 
         try {
             this.imgSearch.setImage(new Image(new FileInputStream("Images/search.png")));
@@ -127,21 +133,45 @@ public class GradePointsController {
             this.edit = true;
         }
     }
-    @FXML
-    private void handleSearch(ActionEvent ae){
-//        Ktu ruhen konkurimet e kerkuara
-//        this.konkurimetList = SupervisorService.searchKonkurimi(this.txtSearch.getText().trim());
-        this.selectedKonkurim = SupervisorService.searchKonkurimi(this.txtSearch.getText().trim());
 
-        setTextFields();
-        this.konkurimetList = SupervisorService.searchKonkurimet(this.txtSearch.getText().trim());
+    @FXML
+    private void handleSearch(ActionEvent ae) throws InvalidSearch {
+        errorMessageLabel.setText("");
+        errorMessageLabel.setVisible(false);
+
+        try {
+            this.selectedKonkurim = SupervisorService.searchKonkurimi(this.txtSearch.getText().trim());
+            if (this.selectedKonkurim.getAplikimiId() == 0) {
+                throw new InvalidSearch("Studenti nuk u gjend!");
+            }
+            setTextFields();
+            this.konkurimetList = SupervisorService.searchKonkurimet(this.txtSearch.getText().trim());
+        }catch (InvalidSearch e) {
+            errorMessageLabel.setText(e.getMessage());
+            errorMessageLabel.setVisible(true);
+        }
+
+
 //        SESSION.setAdmin_supervisor_lastSearch(this.txtSearch.getText().trim());
     }
     @FXML
     private void handleSearchClick(MouseEvent me){
-        this.selectedKonkurim = SupervisorService.searchKonkurimi(this.txtSearch.getText().trim());
-        setTextFields();
-        this.konkurimetList = SupervisorService.searchKonkurimet(this.txtSearch.getText());
+        errorMessageLabel.setText("");
+        errorMessageLabel.setVisible(false);
+
+        try {
+            this.selectedKonkurim = SupervisorService.searchKonkurimi(this.txtSearch.getText().trim());
+            if (this.selectedKonkurim.getAplikimiId() == 0) {
+                throw new InvalidSearch("Studenti nuk u gjend!");
+            }
+            setTextFields();
+            this.konkurimetList = SupervisorService.searchKonkurimet(this.txtSearch.getText().trim());
+        }catch (InvalidSearch e) {
+            errorMessageLabel.setText(e.getMessage());
+            errorMessageLabel.setVisible(true);
+        }
+
+
 //        SESSION.setAdmin_supervisor_lastSearch(this.txtSearch.getText().trim());
     }
 
