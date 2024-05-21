@@ -51,14 +51,7 @@ public class LoginService {
                 }
                 return null;
             }
-//            case STUDENT_EMAIL_DOMAIN -> {
-//                if (loginAsStudent(loginDto)){
-//                    Stage stage = new Stage();
-//                    stage.setMaximized(true);
-//                    Navigatior.navigate(stage, "");
-//                }
-//                return null;
-//            }
+
             default -> {
 //
                 if (loginAsStudent(loginDto)){

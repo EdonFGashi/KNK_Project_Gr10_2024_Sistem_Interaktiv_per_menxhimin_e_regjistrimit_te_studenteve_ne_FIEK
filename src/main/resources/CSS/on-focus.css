@@ -1,0 +1,5 @@
+.loginBtn:focused {
+    -fx-border-color: transparent; /* Remove border */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 2);
+}
+

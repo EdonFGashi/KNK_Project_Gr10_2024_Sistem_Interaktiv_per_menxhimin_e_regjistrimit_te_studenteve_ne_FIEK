@@ -80,8 +80,12 @@ public class GradePointsController {
         tableKonkurimet.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 this.selectedKonkurim = newSelection;
+
                 System.out.println("The new selection: ");
-                System.out.println(newSelection);
+                System.out.println("MbikqyresiId: " + newSelection.getAplikimiId());
+                System.out.println("StudentiId: " + newSelection.getStudentiId());
+                System.out.println("AplikimiId: " + newSelection.getAplikimiId());
+                System.out.println("Piket: " + newSelection.getPiket());
                 this.setTextFields();
             }
         });

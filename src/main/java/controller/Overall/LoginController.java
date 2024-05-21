@@ -4,10 +4,7 @@ import app.Navigatior;
 import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -57,6 +54,8 @@ public class LoginController {
     private ImageView eyeIcon;
     @FXML
     private AnchorPane anchorPane;
+    @FXML
+    private Button loginBtn;
 
     @FXML
     private void initialize(){
