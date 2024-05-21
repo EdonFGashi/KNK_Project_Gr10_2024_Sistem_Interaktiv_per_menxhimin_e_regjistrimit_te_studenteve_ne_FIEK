@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox nodeOrientation="LEFT_TO_RIGHT" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.RibbonController">
+<VBox fx:id="vboxMainPane" nodeOrientation="LEFT_TO_RIGHT" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.RibbonController">
    <children>
       <HBox style="-fx-background-radius: 0 0 15 15; -fx-background-color: linear-gradient(to right, rgb(25, 49, 108) 2.8%, rgb(1, 179, 201) 97.8%);">
          <children>

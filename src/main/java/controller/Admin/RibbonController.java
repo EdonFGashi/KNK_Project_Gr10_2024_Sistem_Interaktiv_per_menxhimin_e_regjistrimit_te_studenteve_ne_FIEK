@@ -8,9 +8,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import controller.SESSION;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 import java.io.FileInputStream;
@@ -36,6 +38,9 @@ public class RibbonController {
     private ImageView imgRegistrationIcon;
     @FXML
     private ImageView imgInfoIcon;
+
+    @FXML
+    private VBox vboxMainPane;
 
 
 
@@ -90,6 +95,20 @@ public class RibbonController {
         Tooltip.install(imgInfoIcon, tooltip);
 
         this.setButtons();
+
+
+
+        //GO back and Forth me buttona
+        this.vboxMainPane.setOnKeyPressed(e->{
+            if(e.isControlDown()){
+                if(e.getCode() == KeyCode.Z){
+                    this.goBack();
+                }else if(e.getCode() == KeyCode.Y){
+                    this.goForth();
+                }
+            }
+        });
+        this.vboxMainPane.requestFocus();
     }
 
     @FXML
@@ -157,8 +176,47 @@ public class RibbonController {
 
     @FXML
     void handleBackClick(MouseEvent me) {
+        this.goBack();
 
+    }
+
+
+    private void goBack(){
         String currentPage =BackAndForth.gotoPreviousPage();
+        if(currentPage !=null) {
+            if(currentPage.contains("admin-Menu")) {
+                char menuChar = currentPage.charAt(currentPage.length()-1);
+                if(menuChar == 'S'){
+                    SESSION.setAdminMenu("Student");
+                } else if (menuChar == 'M') {
+                    SESSION.setAdminMenu("Supervisor");
+                }else if (menuChar == 'A') {
+                    SESSION.setAdminMenu("Afat");
+                }
+                Navigatior.navigate(this.addPane, currentPage.substring(0, currentPage.length()-1));
+            }else {
+                Navigatior.navigate(this.addPane, currentPage);
+            }
+            System.out.println("Index:" + BackAndForth.getIndex());
+        }
+
+//        System.out.println("Anetaret E linked List");
+//        System.out.println("__________________________________________________________________");
+//        for(String s:BackAndForth.getRibbonState()){
+//            System.out.println(s);
+//        }
+//        System.out.println("Indexi: "+BackAndForth.getIndex());
+//        System.out.println("__________________________________________________________________");
+
+        setButtons();
+
+    }
+
+    private void goForth(){
+
+        String currentPage =BackAndForth.gotoForthPage();
+        System.out.println("U Ekzekutu Forth Click");
+        System.out.println("Faqja current: "+currentPage);
         if(currentPage !=null) {
             if(currentPage.contains("admin-Menu")) {
                 char menuChar = currentPage.charAt(currentPage.length()-1);
@@ -189,38 +247,10 @@ public class RibbonController {
 
     @FXML
     void handleForthClick(MouseEvent me) {
-
-        String currentPage =BackAndForth.gotoForthPage();
-        System.out.println("U Ekzekutu Forth Click");
-        System.out.println("Faqja current: "+currentPage);
-        if(currentPage !=null) {
-            if(currentPage.contains("admin-Menu")) {
-                char menuChar = currentPage.charAt(currentPage.length()-1);
-                if(menuChar == 'S'){
-                    SESSION.setAdminMenu("Student");
-                } else if (menuChar == 'M') {
-                    SESSION.setAdminMenu("Supervisor");
-                }else if (menuChar == 'A') {
-                    SESSION.setAdminMenu("Afat");
-                }
-                Navigatior.navigate(this.addPane, currentPage.substring(0, currentPage.length()-1));
-            }else {
-                Navigatior.navigate(this.addPane, currentPage);
-            }
-            System.out.println("Index:" + BackAndForth.getIndex());
-        }
-
-//        System.out.println("Anetaret E linked List");
-//        System.out.println("__________________________________________________________________");
-//        for(String s:BackAndForth.getRibbonState()){
-//            System.out.println(s);
-//        }
-//        System.out.println("Indexi: "+BackAndForth.getIndex());
-//        System.out.println("__________________________________________________________________");
-
-       setButtons();
+      this.goForth();
 
     }
+
 
 
     private void navigateAndSaveState(String page){
