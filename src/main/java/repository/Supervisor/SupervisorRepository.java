@@ -303,10 +303,12 @@ public class SupervisorRepository {
     public static ArrayList<KonkurimetShowDto> getAllKonkurimetArray() {
 
         Connection conn = DBConnector.getConnection();
-        String query = "select * from tblkonkurimet;";
+        int mbikqyresiId = SESSION.getLoggedSupervisor().getMbikqyresiId();
+        String query = "select * from tblkonkurimet where mbikqyresiId = ?;";
 
         try {
             PreparedStatement pst = conn.prepareStatement(query);
+            pst.setInt(1, mbikqyresiId);
             ResultSet result = pst.executeQuery();
             return getKonkurimetFromResultSet(result);
         } catch (SQLException e) {
