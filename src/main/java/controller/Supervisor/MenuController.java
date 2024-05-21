@@ -49,6 +49,7 @@ public class MenuController {
 
     @FXML
     private void initialize() {
+        Navigatior.navigate(this.addPane, Navigatior.SUPERVISOR_GRADE_POINTS);
         this.txtMenuName.setText("Supervisor");
 
         this.txtOption1.setText("Test Grading");

@@ -78,14 +78,27 @@ public class GradePointsController {
 //        });
 
         tableKonkurimet.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            System.out.println("SelectedItemProperty: " + tableKonkurimet.getSelectionModel().selectedItemProperty().get().getPiket());
             if (newSelection != null) {
                 this.selectedKonkurim = newSelection;
+                int mbikqyresiId = newSelection.getMbikqyresiId();
+                int studentiId = newSelection.getStudentiId();
+                int aplikimiId = newSelection.getAplikimiId();
+                int piket = newSelection.getPiket();
 
+                newSelection.setMbikqyresiId(piket);
+                newSelection.setStudentiId(studentiId);
+                newSelection.setAplikimiId(mbikqyresiId);
+                newSelection.setPiket(aplikimiId);
+
+
+
+                System.out.println();
                 System.out.println("The new selection: ");
-                System.out.println("MbikqyresiId: " + newSelection.getAplikimiId());
-                System.out.println("StudentiId: " + newSelection.getStudentiId());
-                System.out.println("AplikimiId: " + newSelection.getAplikimiId());
-                System.out.println("Piket: " + newSelection.getPiket());
+                System.out.println("MbikqyresiId: " + mbikqyresiId);
+                System.out.println("StudentiId: " + studentiId);
+                System.out.println("AplikimiId: " + aplikimiId);
+                System.out.println("Piket: " + piket);
                 this.setTextFields();
             }
         });
@@ -135,6 +148,14 @@ public class GradePointsController {
 //        Ktu ruhen konkurimet e kerkuara
 //        this.konkurimetList = SupervisorService.searchKonkurimi(this.txtSearch.getText().trim());
         this.selectedKonkurim = SupervisorService.searchKonkurimi(this.txtSearch.getText().trim());
+        System.out.println("--------------------------");
+        System.out.println("konkurimetList: " + this.selectedKonkurim);
+        System.out.println("The new selection: ");
+        System.out.println("MbikqyresiId: " + this.selectedKonkurim.getMbikqyresiId());
+        System.out.println("StudentiId: " + this.selectedKonkurim.getStudentiId());
+        System.out.println("AplikimiId: " + this.selectedKonkurim.getAplikimiId());
+        System.out.println("Piket: " + this.selectedKonkurim.getPiket());
+        System.out.println("--------------------------");
         setTextFields();
         this.konkurimetList = SupervisorService.searchKonkurimet(this.txtSearch.getText().trim());
 //        SESSION.setAdmin_supervisor_lastSearch(this.txtSearch.getText().trim());
