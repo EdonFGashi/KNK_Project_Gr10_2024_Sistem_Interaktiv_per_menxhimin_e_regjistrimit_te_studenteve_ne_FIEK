@@ -53,7 +53,7 @@
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane fx:id="middle_anchor" prefHeight="379.0" prefWidth="537.0" stylesheets="@../../../../CSS/dashboard.css" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="middle_anchor" prefHeight="379.0" prefWidth="537.0"  BorderPane.alignment="CENTER">
          <children>
             <ImageView fx:id="mainImage" fitHeight="699.0" fitWidth="1230.0" pickOnBounds="true" preserveRatio="true">
                <image>

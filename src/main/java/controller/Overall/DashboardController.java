@@ -23,6 +23,7 @@ public class DashboardController {
     private ImageView infoimg;
     @FXML
     private ImageView changeLanguageIcon;
+    @FXML
     private Text txtNjoftimet;
 
     @FXML
