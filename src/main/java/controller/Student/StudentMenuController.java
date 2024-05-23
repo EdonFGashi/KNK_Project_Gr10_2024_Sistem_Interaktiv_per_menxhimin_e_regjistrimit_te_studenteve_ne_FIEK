@@ -1,6 +1,7 @@
 package controller.Student;
 
 import app.Navigatior;
+import controller.SESSION;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -59,18 +60,57 @@ public class StudentMenuController {
 
     @FXML
     private void initialize() {
+        String menu = SESSION.getDeptLevel();
 
-        this.personalinfoNavigate = Navigatior.PERSONAL_INFO;
-        this.EducationExperienceNavigate = Navigatior.EDUCATION;
-        this.AcademinInterestNavigate = Navigatior.ACADEMIC;
-        try {
-            this.imgPrsinfo.setImage(new Image(new FileInputStream("Images/information.png")));
-            this.imgEducation.setImage(new Image(new FileInputStream("Images/Education.png")));
-            this.imgAcademic.setImage(new Image(new FileInputStream("Images/graduation.png")));
-            this.imgUp.setImage(new Image(new FileInputStream("Images/Up.png")));
-        } catch (FileNotFoundException e) {
-            System.out.println("Image not found");
+        switch (menu) {
+            case "BSC" -> {
+                this.txtPrsinfo.setText("Personal Information");
+                this.txtEducation.setText("Educational Experience");
+                this.txtAcademic.setText("Academic Interest");
+                this.personalinfoNavigate = Navigatior.PERSONAL_INFO;
+                this.EducationExperienceNavigate = Navigatior.EDUCATION;
+                this.AcademinInterestNavigate = Navigatior.ACADEMIC;
+                try {
+                    this.imgPrsinfo.setImage(new Image(new FileInputStream("Images/information.png")));
+                    this.imgEducation.setImage(new Image(new FileInputStream("Images/Education.png")));
+                    this.imgAcademic.setImage(new Image(new FileInputStream("Images/graduation.png")));
+                    this.imgUp.setImage(new Image(new FileInputStream("Images/Up.png")));
+                } catch (FileNotFoundException e) {
+                    System.out.println("Image not found");
+                }
+            }
+            case "MSC" -> {
+                this.txtPrsinfo.setText("Personal Information");
+                this.txtEducation.setText("Educational Experience");
+                this.txtAcademic.setText("Academic Interest");
+                this.personalinfoNavigate = Navigatior.PERSONAL_INFO;
+                this.EducationExperienceNavigate = Navigatior.EDUCATION;
+                this.AcademinInterestNavigate = Navigatior.ACADEMIC;
+                try {
+                    this.imgPrsinfo.setImage(new Image(new FileInputStream("Images/information.png")));
+                    this.imgEducation.setImage(new Image(new FileInputStream("Images/Education.png")));
+                    this.imgAcademic.setImage(new Image(new FileInputStream("Images/graduation.png")));
+                    this.imgUp.setImage(new Image(new FileInputStream("Images/Up.png")));
+                } catch (FileNotFoundException e) {
+                    System.out.println("Image not found");
+                }}
+            case "PHD" -> {
+                this.txtPrsinfo.setText("Personal Information");
+                this.txtEducation.setText("Educational ");
+                this.txtAcademic.setText("Academic Interest");
+                this.personalinfoNavigate = Navigatior.PERSONAL_INFO;
+                this.EducationExperienceNavigate = Navigatior.EDUCATION;
+                this.AcademinInterestNavigate = Navigatior.ACADEMIC;
+                try {
+                    this.imgPrsinfo.setImage(new Image(new FileInputStream("Images/information.png")));
+                    this.imgEducation.setImage(new Image(new FileInputStream("Images/Education.png")));
+                    this.imgAcademic.setImage(new Image(new FileInputStream("Images/graduation.png")));
+                    this.imgUp.setImage(new Image(new FileInputStream("Images/Up.png")));
+                } catch (FileNotFoundException e) {
+                    System.out.println("Image not found");
+                }}
         }
+
         Navigatior.navigate(hboxaddPane,personalinfoNavigate);
         this.hbxPersinfo.setStyle(activeSection);
 
