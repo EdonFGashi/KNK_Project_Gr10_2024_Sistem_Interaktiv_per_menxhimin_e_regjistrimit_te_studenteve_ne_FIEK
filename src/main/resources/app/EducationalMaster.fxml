@@ -77,7 +77,7 @@
                   <TextField fx:id="txtDept" editable="false" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                </children>
             </GridPane>
-            <Button fx:id="btnGoback" layoutX="662.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleBack" onMouseClicked="#handleGoback" prefHeight="50.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #3f7bb0; -fx-font-weight: bold;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
+            <Button layoutX="662.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleBack" onMouseClicked="#handleGoback" prefHeight="50.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #3f7bb0; -fx-font-weight: bold;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
                <font>
                   <Font size="24.0" />
                </font>
@@ -89,12 +89,12 @@
             </Button>
             <ImageView fx:id="imgBachelorDegree" fitHeight="160.0" fitWidth="165.0" layoutX="672.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgIdeentification" fitHeight="175.0" fitWidth="165.0" layoutX="662.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="chooseImageButton1" layoutX="896.0" layoutY="132.0" mnemonicParsing="false" onAction="#handleFile1" prefHeight="50.0" prefWidth="113.0" style="-fx-background-color: purple; -fx-background-radius: 20;" text="ChooseFile" textFill="WHITE">
+            <Button fx:id="btnChooseFile1" layoutX="896.0" layoutY="132.0" mnemonicParsing="false" onAction="#handleFile1" prefHeight="50.0" prefWidth="113.0" style="-fx-background-color: purple; -fx-background-radius: 20;" text="ChooseFile" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="chooseImageButton11" layoutX="904.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleFile2" prefHeight="50.0" prefWidth="113.0" style="-fx-background-color: purple; -fx-background-radius: 20;" text="ChooseFile" textFill="WHITE">
+            <Button fx:id="btnChooseFile2" layoutX="904.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleFile2" prefHeight="50.0" prefWidth="113.0" style="-fx-background-color: purple; -fx-background-radius: 20;" text="ChooseFile" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
