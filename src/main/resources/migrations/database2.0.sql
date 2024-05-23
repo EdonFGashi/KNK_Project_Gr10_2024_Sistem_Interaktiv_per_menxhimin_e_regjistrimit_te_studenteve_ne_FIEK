@@ -10,6 +10,13 @@ CREATE TABLE tblAdmin (
     passwordHash VARCHAR(400) NOT NULL
 );
 
+CREATE TABLE tblUser(
+    userId INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(50)  NOT NULL,
+    salt VARCHAR(100) NOT NULL,
+    passwordHash VARCHAR(400) NOT NULL
+);
+
 CREATE TABLE tblPerson (
     numriPersonal VARCHAR(20) PRIMARY KEY,
     emri VARCHAR(50) NOT NULL,
@@ -50,9 +57,9 @@ CREATE TABLE tblUserStudent (
     shteti VARCHAR(50),
     gjinia VARCHAR(10),
     dataLindjes DATE,
-    salt VARCHAR(100) NOT NULL,
-    passwordHash VARCHAR(400) NOT NULL
+    FOREIGN KEY (userId) REFERENCES tblUser(userId) ON DELETE CASCADE
 );
+
 CREATE TABLE tblShkollaMesme (
     shkollaId INT AUTO_INCREMENT PRIMARY KEY,
     userId INT NOT NULL,
