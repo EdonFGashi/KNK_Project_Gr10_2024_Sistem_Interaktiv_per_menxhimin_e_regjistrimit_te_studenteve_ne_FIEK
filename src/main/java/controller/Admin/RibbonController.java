@@ -5,6 +5,9 @@ import controller.Animations.UpLogoAnimate;
 import controller.BackAndForth;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -17,6 +20,8 @@ import javafx.util.Duration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class RibbonController {
 
@@ -50,11 +55,30 @@ public class RibbonController {
     private ImageView imgGoBack;
     @FXML
     private ImageView imgGoForward;
+    private ResourceBundle bundle;
+    private Locale currentLocale = new Locale("en");
 
     private Image imageGoBackWhite;
     private Image imageGoBackGray;
     private Image imageGoForwardWhite;
     private Image imageGoForwardGray;
+
+    @FXML
+    private Label lblRegistration;
+    @FXML
+    private Label lblStudent;
+    @FXML
+    private Label lblSupervisor;
+    @FXML
+    private Label lblinbox;
+    @FXML
+    private MenuButton mbProfile;
+    @FXML
+    private MenuItem mtGoToProfile;
+    @FXML
+    private MenuItem mtChangeLanguage;
+    @FXML
+    private MenuItem mtSignOut;
 
     @FXML
     private void initialize(){
@@ -146,10 +170,28 @@ public class RibbonController {
     private void handleGoToProfile(ActionEvent ae){
         this.navigateAndSaveState(Navigatior.ADMIN_PROFILE);
     }
+
+    private void loadLanguage(String lang) {
+        Locale locale = new Locale(lang);
+        bundle = ResourceBundle.getBundle("Translations.content", locale);
+
+        lblRegistration.setText(bundle.getString("lblRegistration"));
+        lblStudent.setText(bundle.getString("lblStudent"));
+        lblSupervisor.setText(bundle.getString("lblSupervisor"));
+        lblinbox.setText(bundle.getString("lblinbox"));
+        mbProfile.setText(bundle.getString("mbProfile"));
+        mtGoToProfile.setText(bundle.getString("mtGoToProfile"));
+        mtChangeLanguage.setText(bundle.getString("mtChangeLanguage"));
+        mtSignOut.setText(bundle.getString("mtSignOut"));
+    }
     @FXML
     private void handleChangeLanguage(ActionEvent ae){
-       // Navigatior.navigate(this.addPane, "");
-        //
+        if (currentLocale.getLanguage().equals("en")) {
+            currentLocale = new Locale("sq");
+        } else {
+            currentLocale = new Locale("en");
+        }
+        loadLanguage(currentLocale.getLanguage());
     }
     @FXML
     private void handleSignOut(ActionEvent ae){
