@@ -17,6 +17,7 @@ CREATE TABLE tblUser(
     passwordHash VARCHAR(400) NOT NULL
 );
 
+
 CREATE TABLE tblPerson (
     numriPersonal VARCHAR(20) PRIMARY KEY,
     emri VARCHAR(50) NOT NULL,
@@ -59,7 +60,6 @@ CREATE TABLE tblUserStudent (
     dataLindjes DATE,
     FOREIGN KEY (userId) REFERENCES tblUser(userId) ON DELETE CASCADE
 );
-
 CREATE TABLE tblShkollaMesme (
     shkollaId INT AUTO_INCREMENT PRIMARY KEY,
     userId INT NOT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE tblShkollaMesme (
     certifikataNotave LONGBLOB,
     leternjoftimi LONGBLOB,
     diplomaShkolles LONGBLOB,
-	FOREIGN KEY (userId) REFERENCES tblUserStudent(userId) ON DELETE CASCADE
+    FOREIGN KEY (userId) REFERENCES tblUserStudent(userId) ON DELETE CASCADE
 );
 CREATE TABLE tblDepartamenti (
     deptId INT AUTO_INCREMENT PRIMARY KEY,
