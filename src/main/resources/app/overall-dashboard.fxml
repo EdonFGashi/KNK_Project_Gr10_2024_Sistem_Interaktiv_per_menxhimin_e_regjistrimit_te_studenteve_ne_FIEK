@@ -16,7 +16,7 @@
    <top>
       <AnchorPane prefHeight="76.0" prefWidth="710.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="WHITE" layoutX="539.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="Universiteti i Prishtinës">
+            <Text fx:id="txtUP" fill="WHITE" layoutX="539.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="\%Universiteti i Prishtinës">
                <font>
                   <Font size="14.0" />
                </font>
@@ -44,7 +44,7 @@
                   <Image url="@../../../../Images/info-icon.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="changeLanguageIcon" fitHeight="34.0" fitWidth="31.0" layoutX="1189.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="changeLanguageIcon" fitHeight="34.0" fitWidth="31.0" layoutX="1189.0" layoutY="33.0" onMouseClicked="#handleChangeLanguage" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Images/language-icon.png" />
                </image>
@@ -53,7 +53,7 @@
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane fx:id="middle_anchor" prefHeight="379.0" prefWidth="537.0" stylesheets="@../../../../CSS/dashboard.css" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="middle_anchor" prefHeight="379.0" prefWidth="537.0"  BorderPane.alignment="CENTER">
          <children>
             <ImageView fx:id="mainImage" fitHeight="699.0" fitWidth="1230.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -65,7 +65,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Text fill="WHITE" layoutX="590.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="Qasja">
+            <Text fx:id="txtQasja" fill="WHITE" layoutX="590.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="\%Qasja">
                <font>
                   <Font size="20.0" />
                </font>
@@ -77,7 +77,7 @@
                         <Image url="@../../../../Images/speaker.png" />
                      </image>
                   </ImageView>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="   NJOFTIM : Hapet konkursi për pranimin e studentëve në të gjitha nivelet akademike." wrappingWidth="774.9873046875">
+                  <Text fx:id="txtNjoftimet" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="   %NJOFTIM : Hapet konkursi për pranimin e studentëve në të gjitha nivelet akademike." wrappingWidth="774.9873046875">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
@@ -86,12 +86,12 @@
             </HBox>
             <Text fill="WHITE" layoutX="443.0" layoutY="654.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 800;" text="© All Rights Reserved. Powered by University of Prishtina" />
             <HBox layoutX="108.0" layoutY="114.0" prefHeight="100.0" prefWidth="200.0" />
-            <Text fill="WHITE" layoutX="324.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="Sistemi i regjistrimit të studentëve">
+            <Text fx:id="txtTitle" fill="WHITE" layoutX="324.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="\%Sistemi i regjistrimit të studentëve">
                <font>
                   <Font size="36.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="372.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-opacity: 0.8;" text="Këshilli Drejtues i Fakultetit të Inxhinierisë Elektrike dhe Kompjuterike, ka vendosur për datën e aplikimit të studentëve për vitin akademik 2024/25. Aplikimi do të jetë i hapur deri më 01.07.2024. Suksese!" textAlignment="CENTER" wrappingWidth="485.9830722808838">
+            <Text fx:id="txtNjoftimet2" fill="WHITE" layoutX="372.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-opacity: 0.8;" text="\%Këshilli Drejtues i Fakultetit të Inxhinierisë Elektrike dhe Kompjuterike, ka vendosur për datën e aplikimit të studentëve për vitin akademik 2024/25. Aplikimi do të jetë i hapur deri më 01.07.2024. Suksese!" textAlignment="CENTER" wrappingWidth="485.9830722808838">
                <font>
                   <Font size="17.0" />
                </font>
