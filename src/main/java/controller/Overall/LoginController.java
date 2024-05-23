@@ -2,6 +2,8 @@ package controller.Overall;
 
 import app.Navigatior;
 import controller.SESSION;
+import javafx.animation.AnimationTimer;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -11,20 +13,18 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import model.Admin;
 import model.dto.Overall.LoginDto;
 import controller.Animations.UpLogoAnimate;
-import org.jfree.util.Log;
 import service.Admin.AdminService;
 import service.CustomExceptions.InvalidEmail;
 import service.CustomExceptions.InvalidPassword;
 import service.Overall.LoginService;
-import service.Student.StudentService;
 import service.Student.UserService;
 import service.Supervisor.SupervisorService;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.time.LocalTime;
 import java.util.Objects;
 
 public class LoginController {
@@ -56,6 +56,16 @@ public class LoginController {
     private AnchorPane anchorPane;
     @FXML
     private Button loginBtn;
+    @FXML
+    private Label timerLabel;
+
+    private int hours;
+    private int minutes;
+    private int seconds;
+
+    private final int MAX_LOGIN_ATTEMPTS = 3;
+    private int loginAttempts = 1;
+
 
     @FXML
     private void initialize(){
@@ -97,6 +107,7 @@ public class LoginController {
 
     @FXML
     private void handleLogin(ActionEvent event) {
+        System.out.println("Login attempt: " + loginAttempts);
 
         LoginDto loginDto = new LoginDto(
                 this.userEmail.getText(),
@@ -107,31 +118,36 @@ public class LoginController {
         errorMessageLabel.setVisible(false);
 
         try {
+            loginAttempts();
 
             if (Objects.equals(LoginService.login(loginDto), "admin")){
 
                 //Admini mu ru ne session
                 SESSION.setLoggedAdmin(AdminService.getAdminByEmail(this.userEmail.getText()));
-                navigateToNewStage(event, Navigatior.ADMIN_RIBBON);
+//                navigateToNewStage(event, Navigatior.ADMIN_RIBBON);
 
 
             } else if (Objects.equals(LoginService.login(loginDto), "supervisor")) {
 
                 //Mbikqyresi mu ru ne session
                 SESSION.setLoggedSupervisor(SupervisorService.getSupervisorByEmail(this.userEmail.getText()));
-                navigateToNewStage(event, Navigatior.SUPERVISOR_MENU);
+//                navigateToNewStage(event, Navigatior.SUPERVISOR_MENU);
 //                Navigatior.navigateNewStage(Navigatior.SUPERVISOR_MENU);
+                System.out.println("Supervisor");
+                loginAttempts = 0;
 
             } else if (Objects.equals(LoginService.login(loginDto), "student")) {
 
                 SESSION.setLoggedUser(UserService.getUserByEmail(this.userEmail.getText()));
-                navigateToNewStage(event, Navigatior.STUDENT_DASHBOARD);
+//                navigateToNewStage(event, Navigatior.STUDENT_DASHBOARD);
 
             }
             else {
                 System.out.println("Nuk jeni i kyqur!");
                 System.out.println("---------------------");
+                loginAttempts++;
                 throw new InvalidEmail("Invalid credentials");
+
             }
 
         }catch (InvalidPassword | InvalidEmail e){
@@ -155,6 +171,49 @@ public class LoginController {
         Navigatior.navigateNewStage(Navigatior.STUDENT_SIGNUP);
         Navigatior.closeStageAfterDelay(event, Duration.millis(1));
     }
+
+    void loginAttempts(){
+        if (loginAttempts >= 3){
+            loginBtn.setDisable(true);
+            startCountdown();
+        }
+    }
+
+    private void startCountdown() {
+        hours = 0;
+        minutes = 5;
+        seconds = 0;
+
+
+        LocalTime end = LocalTime.now()
+                .plusHours(hours)
+                .plusMinutes(minutes)
+                .plusSeconds(seconds);
+        AnimationTimer timer = new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                java.time.Duration remaining = java.time.Duration.between(LocalTime.now(), end);
+                if (remaining.isPositive()) {
+                    timerLabel.setText(format(remaining));
+                } else {
+                    timerLabel.setText(format(java.time.Duration.ZERO));
+                    stop();
+                }
+            }
+
+            private String format(java.time.Duration remaining) {
+                return String.format("%02d:%02d:%02d",
+                        remaining.toHoursPart(),
+                        remaining.toMinutesPart(),
+                        remaining.toSecondsPart()
+                );
+            }
+        };
+
+        timer.start();
+    }
+
+
 
 
 }
