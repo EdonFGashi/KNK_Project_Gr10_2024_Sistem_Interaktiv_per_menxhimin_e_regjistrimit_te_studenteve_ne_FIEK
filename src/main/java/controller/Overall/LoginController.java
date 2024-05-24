@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -69,7 +71,6 @@ public class LoginController extends ComunicativeController {
 
 
 
-
     @FXML
     private void initialize(){
 
@@ -113,6 +114,12 @@ public class LoginController extends ComunicativeController {
 //        this.logoPaneLoginPage.getChildren().add(logo);
 //        this.logoPaneLoginPage.setTranslateX(-60);
 //        this.logoPaneLoginPage.setTranslateY(50);
+
+        anchorPane.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                handleLogin(new ActionEvent());
+            }
+        });
 
     }
 
