@@ -11,6 +11,7 @@ Metodat niher spi fshij amo besoj e ndreqi ni menyr qysh me u en kahmos.
 
 import controller.Admin.NjoftimPaneController;
 import controller.ComunicativeController;
+import controller.SESSION;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -151,11 +152,19 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
 
         Locale locale;
 
-        if(Locale.getDefault() == null) {
+//        if(Locale.getDefault() == null) {
+//            locale = Locale.of("sq");
+//        }else {
+//            locale = Locale.getDefault();
+//        }
+
+        if(SESSION.isToggleShqip()){
             locale = Locale.of("sq");
-        }else {
-            locale = Locale.getDefault();
+        }else{
+            locale = Locale.of("en");
         }
+
+
         ResourceBundle bundle = ResourceBundle.getBundle(
                 "Translations.content",locale
         );
