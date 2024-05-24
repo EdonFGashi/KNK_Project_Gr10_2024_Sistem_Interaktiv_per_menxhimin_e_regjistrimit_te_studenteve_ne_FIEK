@@ -3,6 +3,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Afat;
 import model.dto.Student.AcademicInterestDto;
+import model.dto.Student.MasterApplicantDto;
 import repository.AfatRepository;
 import repository.StudentApplicant.StudentApplicantRepository;
 
@@ -28,6 +29,19 @@ public class StudentApplicantService {
 
        
         StudentApplicantRepository.saveData(dto);
+    }
+
+    public static void processAndSaveMasterData(MasterApplicantDto dto) throws Exception {
+        // Validate data
+        if (dto.getFacultyName() == null || dto.getFacultyName().isEmpty() ||
+                dto.getFirstYear() < 0 || dto.getSecondYear() < 0 || dto.getThirdYear() < 0 ||
+                dto.getFileIdentification() == null || dto.getFileBachelorDegree() == null ||
+        dto.getDeptName() == null || dto.getDeptName().isEmpty()) {
+            throw new IllegalArgumentException("All fields must be completed.");
+        }
+
+        // Save data to repository
+        StudentApplicantRepository.saveMasterData(dto);
     }
 
     public static void processAcademicInterest(AcademicInterestDto dto) {
