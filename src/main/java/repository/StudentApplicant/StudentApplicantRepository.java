@@ -52,12 +52,6 @@ public class StudentApplicantRepository {
         } catch (SQLException e) {
             System.out.println("Gabim gjatë ruajtjes së të dhënave: " + e.getMessage());
             return false;
-        } finally {
-            try {
-                conn.close();
-            } catch (SQLException e) {
-                System.out.println("Gabim gjatë mbylljes së lidhjes me bazën e të dhënave: " + e.getMessage());
-            }
         }
     }
 
@@ -117,12 +111,6 @@ public class StudentApplicantRepository {
             } catch (SQLException e) {
                 System.out.println("Gabim gjatë ruajtjes së të dhënave në tblAplikimi: " + e.getMessage());
                 return false;
-            } finally {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    System.out.println("Gabim gjatë mbylljes së lidhjes me bazën e të dhënave: " + e.getMessage());
-                }
             }
         }
 
@@ -181,12 +169,6 @@ public class StudentApplicantRepository {
         } catch (SQLException e) {
             System.out.println("Gabim gjatë ruajtjes së të dhënave në tblAplikimi: " + e.getMessage());
             return false;
-        } finally {
-            try {
-                conn.close();
-            } catch (SQLException e) {
-                System.out.println("Gabim gjatë mbylljes së lidhjes me bazën e të dhënave: " + e.getMessage());
-            }
         }
     }
 
@@ -313,14 +295,6 @@ public class StudentApplicantRepository {
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) rs.close();
-                if (ps != null) ps.close();
-                if (conn != null) conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
     }
 

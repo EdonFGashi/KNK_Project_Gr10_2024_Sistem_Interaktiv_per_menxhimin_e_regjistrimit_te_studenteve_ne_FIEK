@@ -33,7 +33,7 @@ public class UserRepository {
             pst.execute();
             System.out.println("Katishtu");
             pst.close();
-            conn.close();
+
             System.out.println("Kati u shtu");
             return true;
         }catch (Exception e){
