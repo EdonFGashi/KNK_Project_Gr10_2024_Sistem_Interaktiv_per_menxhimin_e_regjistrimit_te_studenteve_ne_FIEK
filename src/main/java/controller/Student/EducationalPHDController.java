@@ -4,6 +4,7 @@ import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -57,9 +58,25 @@ public class EducationalPHDController {
 
     @FXML
     private TextField txtfirstYGrade;
+
+    @FXML
+    private ChoiceBox<String> choiceboxDept;
     public File imageFile1;
     public File imageFile2;
     public File imageFile3;
+
+    public void initialize() {
+        // Shtoni opsionet në ChoiceBox në momentin e inicializimit të kontrollorit
+        choiceboxDept.getItems().addAll("IKS", "EAR", "EE", "TIK");
+
+        // Për të bërë opsionin e parë si default
+        choiceboxDept.getSelectionModel().selectFirst();
+    }
+
+    // Metoda për të marrë opsionin e zgjedhur
+    public String getValue() {
+        return choiceboxDept.getValue();
+    }
     @FXML
     void handleFile1(ActionEvent event) {
         imageFile1 = chooseImage(imgViewfile1);
@@ -85,13 +102,13 @@ public class EducationalPHDController {
         String Fakulteti = txtFaculty.getText();
         Double Mesatarjaviti1 = Double.parseDouble(txtfirstYGrade.getText());
         Double Mesatarjaviti2 = Double.parseDouble(txtSecondYGrade.getText());
-        String Departamenti = txtDep.getText();
+        String deptName=this.getValue();
 
         // e shtove SESSION para getLoggedUser()
-        PHDApplicantDto dto = new PHDApplicantDto(SESSION.getLoggedUser().getId(), Fakulteti,Mesatarjaviti1,Mesatarjaviti2,imageFile2,imageFile1,imageFile3);
+        PHDApplicantDto dto = new PHDApplicantDto(SESSION.getLoggedUser().getId(), Fakulteti,Mesatarjaviti1,Mesatarjaviti2,imageFile2,imageFile1,imageFile3,deptName);
 
         try {
-
+            service.Student.StudentApplicantService.processAndSavePHDData(dto);
             // Trego një mesazh suksesi
         } catch (Exception e) {
             e.printStackTrace();
