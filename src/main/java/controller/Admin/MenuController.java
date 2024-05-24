@@ -13,7 +13,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 public class MenuController {
-
     @FXML
     private Label txtMenuName;
     @FXML
@@ -125,11 +124,11 @@ public class MenuController {
             }
         }
 
-        System.out.println("Navigimi:  ");
-        System.out.println(option1Navigate);
-        System.out.println(option2Navigate);
-        System.out.println(option3Navigate);
-        System.out.println(SESSION.getLastMenuOption());
+//        System.out.println("Navigimi:  ");
+//        System.out.println(option1Navigate);
+//        System.out.println(option2Navigate);
+//        System.out.println(option3Navigate);
+//        System.out.println(SESSION.getLastMenuOption());
 
         this.resetActiveSection();
         if(SESSION.getLastMenuOption() == 0){
@@ -193,12 +192,9 @@ public class MenuController {
     private void handleHoverOption3(MouseEvent me){
 
     }
-
     private void resetActiveSection(){
         this.hboxOption1.setStyle("");
         this.hboxOption2.setStyle("");
         this.hboxOption3.setStyle("");
     }
-
-
 }
