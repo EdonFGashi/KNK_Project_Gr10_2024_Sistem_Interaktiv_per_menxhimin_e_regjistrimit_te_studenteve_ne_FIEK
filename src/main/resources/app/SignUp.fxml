@@ -15,12 +15,7 @@
    <children>
       <AnchorPane layoutX="364.0" layoutY="38.0" prefHeight="405.0" prefWidth="306.0" style="-fx-background-color: #3f7bb0;">
          <children>
-            <TextField fx:id="txtName" layoutX="72.0" layoutY="63.0" prefHeight="24.0" prefWidth="145.0" promptText="Name" style="-fx-color: #fff; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="txtSurname" layoutX="72.0" layoutY="109.0" prefHeight="27.0" prefWidth="147.0" promptText="Surname" style="-fx-color: #fff; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;">
+            <TextField fx:id="txtUsername" layoutX="72.0" layoutY="109.0" prefHeight="27.0" prefWidth="147.0" promptText="Username" style="-fx-color: #fff; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;">
                <font>
                   <Font size="11.0" />
                </font>
@@ -46,7 +41,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label layoutX="114.0" prefHeight="37.0" prefWidth="74.0" text="Sign Up" textFill="WHITE">
+            <Label layoutX="114.0" layoutY="32.0" prefHeight="37.0" prefWidth="74.0" text="Sign Up" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

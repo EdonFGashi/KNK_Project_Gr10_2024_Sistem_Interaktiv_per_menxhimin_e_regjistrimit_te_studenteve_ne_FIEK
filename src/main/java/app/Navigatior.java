@@ -71,6 +71,8 @@ interface StudentPages{
     public final static String EDUCATION = "educational-experience.fxml";
     public final static String ACADEMIC = "academic-interest.fxml";
     public final static String STUDENT_DASHBOARD = "Student-dashboard.fxml";
+    public final static String EDUCATION_MASTER = "EducationalMaster.fxml";
+    public final static String EDUCATION_PHD = "EducationalPHD.fxml";
 
     public final static String STUDENT_SIGNUP= "SignUp.fxml";
 

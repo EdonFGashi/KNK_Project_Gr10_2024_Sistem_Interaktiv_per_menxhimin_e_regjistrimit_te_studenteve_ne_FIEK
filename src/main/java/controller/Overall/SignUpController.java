@@ -27,20 +27,18 @@ public class SignUpController {
     private TextField txtEmail;
 
     @FXML
-    private TextField txtName;
+    private TextField txtUsername;
 
     @FXML
     private PasswordField pwdPassword;
 
-    @FXML
-    private TextField txtSurname;
+
 
 
     @FXML
     private void handleSignUp(ActionEvent ae) throws SQLException {
         UserDto userSignUpData = new UserDto(
-                this.txtName.getText(),
-                this.txtSurname.getText(),
+                this.txtUsername.getText(),
                 this.txtEmail.getText(),
                 this.pwdPassword.getText(),
                 this.pwdConfirmPassword.getText()
@@ -50,6 +48,8 @@ public class SignUpController {
 
         if(response){
           System.out.println("Okej");
+            Navigatior.navigateNewStage(Navigatior.STUDENT_DASHBOARD);
+            Navigatior.closeStageAfterDelay(ae, Duration.millis(1));
         }
 
     }
