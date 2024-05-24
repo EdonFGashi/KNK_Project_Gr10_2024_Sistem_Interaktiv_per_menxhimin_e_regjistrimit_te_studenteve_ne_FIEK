@@ -61,7 +61,7 @@ public class RibbonController {
     private ImageView imgGoBack;
     @FXML
     private ImageView imgGoForward;
-//    private ResourceBundle bundle;
+    private ResourceBundle bundle;
     private Locale currentLocale = new Locale("en");
 
     private Image imageGoBackWhite;
@@ -69,14 +69,43 @@ public class RibbonController {
     private Image imageGoForwardWhite;
     private Image imageGoForwardGray;
 
+
+    @FXML
+    private Label lblRegistration;
+    @FXML
+    private Label lblStudent;
+    @FXML
+    private Label lblSupervisor;
+    @FXML
+    private Label lblinbox;
+    @FXML
+    private MenuButton mbProfile;
+    @FXML
+    private MenuItem mtGoToProfile;
+    @FXML
+    private MenuItem mtChangeLanguage;
+    @FXML
+    private MenuItem mtSignOut;
+
+    @FXML
+    private ImageView imgTranslate;
+
+
+
     @FXML
     private void initialize(){
+
+
+
         if(BackAndForth.getIndex() == -1){
+
             SESSION.setAdminMenu("Student");
             Navigatior.navigate(this.addPane, Navigatior.ADMIN_MENU);
             BackAndForth.addOnePage(Navigatior.ADMIN_MENU+"S");
+
         }else{
-            this.navigateAndSaveState(Navigatior.ADMIN_MENU+"S");
+
+            this.gotoCurrentPage();
         }
 
         try {
@@ -161,15 +190,10 @@ public class RibbonController {
     }
 
 
-    @FXML
-    private void handleChangeLanguage(ActionEvent ae){
-        if (currentLocale.getLanguage().equals("en")) {
-            currentLocale = new Locale("sq");
-        } else {
-            currentLocale = new Locale("en");
-        }
-        //loadLanguage(currentLocale.getLanguage());
-    }
+
+
+
+
     @FXML
     private void handleSignOut(ActionEvent ae){
         Navigatior.navigateNewStage(Navigatior.LOGIN);
@@ -235,6 +259,7 @@ public class RibbonController {
         String currentPage =BackAndForth.gotoForthPage();
         System.out.println("U Ekzekutu Forth Click");
         System.out.println("Faqja current: "+currentPage);
+
         if(currentPage !=null) {
             if(currentPage.contains("admin-Menu")) {
                 char menuChar = currentPage.charAt(currentPage.length()-1);
@@ -308,6 +333,37 @@ public class RibbonController {
                this.imgGoForward.setDisable(false);
            }
     }
+
+
+    private void gotoCurrentPage(){
+        String currentPage =BackAndForth.gotoCurrentPage();
+        System.out.println("Current Page");
+        if(currentPage !=null) {
+            if(currentPage.contains("admin-Menu")) {
+                char menuChar = currentPage.charAt(currentPage.length()-1);
+                if(menuChar == 'S'){
+                    SESSION.setAdminMenu("Student");
+                } else if (menuChar == 'M') {
+                    SESSION.setAdminMenu("Supervisor");
+                }else if (menuChar == 'A') {
+                    SESSION.setAdminMenu("Afat");
+                }
+                Navigatior.navigate(this.addPane, currentPage.substring(0, currentPage.length()-1));
+            }else {
+                Navigatior.navigate(this.addPane, currentPage);
+            }
+            System.out.println("Index:" + BackAndForth.getIndex());
+        }
+
+    }
+
+    @FXML
+    private void handleChangeLanguage(MouseEvent me){
+        SESSION.switchLanguage();
+        Navigatior.navigate(me,Navigatior.ADMIN_RIBBON);
+    }
+
+
 }
 
 

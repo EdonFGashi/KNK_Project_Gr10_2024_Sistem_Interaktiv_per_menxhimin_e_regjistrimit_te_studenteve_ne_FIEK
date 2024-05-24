@@ -4,12 +4,13 @@ import app.Navigatior;
 import controller.ComunicativeController;
 import controller.SESSION;
 import javafx.animation.AnimationTimer;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -75,16 +76,27 @@ public class LoginController extends ComunicativeController {
 
     private final int MAX_LOGIN_ATTEMPTS = 3;
     private int loginAttempts = 1;
-
-
+    private int INITIAL_PENALTY_TIME = 5;
 
     private DashboardController dashboardController;
 
 
 
-
     @FXML
     private void initialize(){
+
+        if (!SESSION.getLoginPenalty()){
+
+            seconds = INITIAL_PENALTY_TIME;
+        } else {
+            seconds = SESSION.getLoginPenaltyTime();
+            System.out.println("Seconds from SESSSON: " + seconds);
+            loginBtn.setDisable(true);
+            timerLabel.setVisible(true);
+            startCountdown(SESSION.getLoginRemainingPenaltyTime());
+            loginAttempts = SESSION.getLoginAttemptCount() + 1;
+        }
+
         // E vendos checboxin mi sy
         anchorPane.getChildren().remove(showHidePasswordCheckbox);
         anchorPane.getChildren().add(showHidePasswordCheckbox);
@@ -114,6 +126,12 @@ public class LoginController extends ComunicativeController {
 //        this.logoPaneLoginPage.getChildren().add(logo);
 //        this.logoPaneLoginPage.setTranslateX(-60);
 //        this.logoPaneLoginPage.setTranslateY(50);
+
+        anchorPane.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                handleLogin(new ActionEvent());
+            }
+        });
 
     }
 
@@ -145,12 +163,15 @@ public class LoginController extends ComunicativeController {
         errorMessageLabel.setVisible(false);
 
         try {
+            System.out.println("Before login attempts;");
             loginAttempts();
+            System.out.println("After login attempts;");
 
             if (Objects.equals(LoginService.login(loginDto), "admin")){
 
                 //Admini mu ru ne session
                 SESSION.setLoggedAdmin(AdminService.getAdminByEmail(this.userEmail.getText()));
+                SESSION.setLoginPenalty(false);
                 navigateToNewStage(event, Navigatior.ADMIN_RIBBON);
 
 
@@ -158,6 +179,7 @@ public class LoginController extends ComunicativeController {
 
                 //Mbikqyresi mu ru ne session
                 SESSION.setLoggedSupervisor(SupervisorService.getSupervisorByEmail(this.userEmail.getText()));
+                SESSION.setLoginPenalty(false);
                 navigateToNewStage(event, Navigatior.SUPERVISOR_MENU);
 //                Navigatior.navigateNewStage(Navigatior.SUPERVISOR_MENU);
                 System.out.println("Supervisor");
@@ -166,6 +188,7 @@ public class LoginController extends ComunicativeController {
             } else if (Objects.equals(LoginService.login(loginDto), "student")) {
 
                 SESSION.setLoggedUser(UserService.getUserByEmail(this.userEmail.getText()));
+                SESSION.setLoginPenalty(false);
                 System.out.println("Id"+SESSION.getLoggedUser().getId());
 //                Navigatior.navigateNewStage(Navigatior.STUDENT_DASHBOARD);
                 navigateToNewStage(event, Navigatior.STUDENT_DASHBOARD);
@@ -202,21 +225,25 @@ public class LoginController extends ComunicativeController {
     }
 
     void loginAttempts(){
-        if (loginAttempts >= 3){
+
+        if (loginAttempts >= MAX_LOGIN_ATTEMPTS){
+            SESSION.setLoginPenalty(true);
+            SESSION.setLoginAttemptCount(loginAttempts);
             loginBtn.setDisable(true);
-            startCountdown();
+            timerLabel.setVisible(true);
+            System.out.println("Seconds w/o attempts: " + seconds);
+            seconds *= loginAttempts;
+            SESSION.setLoginPenaltyTime(seconds);
+            System.out.println("Login attempts: " + loginAttempts);
+            System.out.println("Time here in seconds: " + seconds);
+            startCountdown(seconds);
         }
     }
 
-    private void startCountdown() {
-        hours = 0;
-        minutes = 5;
-        seconds = 0;
-
+    private void startCountdown(int seconds) {
 
         LocalTime end = LocalTime.now()
-                .plusHours(hours)
-                .plusMinutes(minutes)
+
                 .plusSeconds(seconds);
         AnimationTimer timer = new AnimationTimer() {
             @Override
@@ -224,8 +251,15 @@ public class LoginController extends ComunicativeController {
                 java.time.Duration remaining = java.time.Duration.between(LocalTime.now(), end);
                 if (remaining.isPositive()) {
                     timerLabel.setText(format(remaining));
+
+                    int remainingSeconds = (int) remaining.getSeconds();
+//                    System.out.println("Here is the remaining time: ");
+//                    System.out.println(remainingSeconds);
+                    SESSION.setLoginRemainingPenaltyTime(remainingSeconds);
                 } else {
                     timerLabel.setText(format(java.time.Duration.ZERO));
+                    System.out.println("HEREEEEEEEEEEEEEE");
+                    loginBtn.setDisable(false);
                     stop();
                 }
             }
