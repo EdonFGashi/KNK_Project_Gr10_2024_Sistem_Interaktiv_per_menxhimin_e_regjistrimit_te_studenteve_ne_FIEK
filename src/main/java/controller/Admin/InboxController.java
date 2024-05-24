@@ -1,7 +1,9 @@
 package controller.Admin;
 
 import app.Main;
+import app.Navigatior;
 import app.PopUp;
+import controller.ComunicativeController;
 import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,11 +15,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import model.Njoftim;
 import model.dto.Admin.AddNewNjoftimDto;
+import model.dto.Admin.comunicateControllerdto;
 import model.filter.NjoftimPagination;
 import service.Admin.AdminService;
 
 import java.util.ArrayList;
 import java.util.Collections;
+
+import static app.Navigatior.loadAndReturnController;
 
 public class InboxController{
 
@@ -58,12 +63,23 @@ public class InboxController{
                 contentVBox.getChildren().clear();
                 for (Njoftim njoftim : njoftimet) {
                         try {
-                                FXMLLoader loader = new FXMLLoader(Main.class.getResource("admin-inbol-njoftimPane.fxml"));
-                                Parent PaneNjoftimi = loader.load();
-                                NjoftimPaneController controller = loader.getController();
-                                controller.setNjoftimi(njoftim);
-                                controller.setController(this);
-                                contentVBox.getChildren().add(PaneNjoftimi);
+
+                               // FXMLLoader loader = new FXMLLoader(Main.class.getResource("admin-inbol-njoftimPane.fxml"));
+
+                               comunicateControllerdto data = Navigatior.loadAndReturnController(Navigatior.ADMIN_NJOFTIM_MODULE);
+
+                                if(data.getParent() != null && data.getController()!=null) {
+                                        Parent PaneNjoftimi = data.getParent();
+                                        contentVBox.getChildren().add(PaneNjoftimi);
+                                        NjoftimPaneController controller = (NjoftimPaneController) data.getController();
+                                        controller.setNjoftimi(njoftim);
+                                        controller.setController(this);
+                                        contentVBox.getChildren().add(PaneNjoftimi);
+                                }else{
+                                        System.out.println("Pane nuk u gjet!");
+                                }
+
+
                         } catch (Exception e) {
                                 e.printStackTrace();
                         }
