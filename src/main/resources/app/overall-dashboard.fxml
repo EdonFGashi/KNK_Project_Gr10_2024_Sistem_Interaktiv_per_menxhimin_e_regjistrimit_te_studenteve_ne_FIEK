@@ -3,6 +3,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,95 +13,92 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1402.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Overall.DashboardController">
-   <top>
-      <AnchorPane prefHeight="76.0" prefWidth="710.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);" BorderPane.alignment="CENTER">
-         <children>
-            <Text fill="WHITE" layoutX="716.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="%txtUP" textAlignment="CENTER">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="683.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="&quot;Hasan Prishtina&quot;">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <Hyperlink layoutX="90.0" layoutY="5.0" style="-fx-opacity: 0.7; -fx-font-weight: 700;" text="rektorati@uni-pr.edu" textFill="WHITE" />
-            <Line endX="939.0" endY="-1.0" fill="WHITE" layoutX="373.0" layoutY="26.0" startX="-318.0" startY="-1.0" stroke="WHITE" strokeLineCap="ROUND" />
-            <ImageView fitHeight="23.0" fitWidth="15.0" layoutX="75.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;">
-               <image>
-                  <Image url="@../../../../Images/mail.png" />
-               </image>
-            </ImageView>
-            <Text fill="WHITE" layoutX="1189.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 0.7; -fx-font-weight: 700;" text="+383 38 244 183 " />
-            <ImageView fitHeight="23.0" fitWidth="15.0" layoutX="1164.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;">
-               <image>
-                  <Image url="@../../../../Images/phone.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="infoimg" fitHeight="26.0" fitWidth="24.0" layoutX="1338.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../Images/info-icon.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="changeLanguageIcon" fitHeight="34.0" fitWidth="31.0" layoutX="1334.0" layoutY="31.0" onMouseClicked="#handleChangeLanguage" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../Images/language-icon.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-   </top>
-   <center>
-      <AnchorPane fx:id="middle_anchor" prefHeight="379.0" prefWidth="537.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fx:id="mainImage" fitHeight="724.0" fitWidth="1408.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../Images/fieku.png" />
-               </image>
-            </ImageView>
-            <HBox layoutX="110.0" layoutY="20.0" prefHeight="41.0" prefWidth="404.0" />
-            <Button fx:id="buttoni_qasja" layoutX="653.0" layoutY="477.0" mnemonicParsing="false" onAction="#handleQasja" onMouseEntered="#buttoni_qasja_hover" onMouseExited="#buttoni_qasja_exit" prefHeight="77.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-opacity: 0.5;">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Text fill="WHITE" layoutX="692.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="%txtQasja" textAlignment="CENTER">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <HBox layoutX="660.0" layoutY="125.0" prefHeight="31.0" prefWidth="159.0">
+
+<AnchorPane prefHeight="800.0" prefWidth="1530.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Overall.DashboardController">
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1528.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);">
+         <top>
+            <AnchorPane prefHeight="76.0" prefWidth="710.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="25.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                  <Text fill="WHITE" layoutX="716.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="%txtUP" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="683.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="&quot;Hasan Prishtina&quot;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Hyperlink layoutX="90.0" layoutY="5.0" style="-fx-opacity: 0.7; -fx-font-weight: 700;" text="rektorati@uni-pr.edu" textFill="WHITE" />
+                  <Line endX="1048.066650390625" endY="-0.9999923706054688" fill="WHITE" layoutX="373.0" layoutY="26.0" startX="-318.0" startY="-1.0" stroke="WHITE" strokeLineCap="ROUND" />
+                  <ImageView fitHeight="23.0" fitWidth="15.0" layoutX="75.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;">
                      <image>
-                        <Image url="@../../../../Images/speaker.png" />
+                        <Image url="@../../../../Images/mail.png" />
                      </image>
                   </ImageView>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtNjoftimet" textAlignment="CENTER" wrappingWidth="138.9873046875">
+                  <Text fill="WHITE" layoutX="1297.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 0.7; -fx-font-weight: 700;" text="+383 38 244 183 " />
+                  <ImageView fitHeight="23.0" fitWidth="15.0" layoutX="1164.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;">
+                     <image>
+                        <Image url="@../../../../Images/phone.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="infoimg" fitHeight="26.0" fitWidth="24.0" layoutX="1437.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/info-icon.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="changeLanguageIcon" fitHeight="34.0" fitWidth="31.0" layoutX="1466.0" layoutY="36.0" onMouseClicked="#handleChangeLanguage" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/language-icon.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </top>
+         <right>
+            <AnchorPane fx:id="middle_anchor" prefHeight="1140.0" prefWidth="1528.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="mainImage" fitHeight="751.0" fitWidth="1445.0" layoutX="41.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/fieku.png" />
+                     </image>
+                  </ImageView>
+                  <HBox layoutX="110.0" layoutY="20.0" prefHeight="41.0" prefWidth="404.0" />
+                  <Button fx:id="buttoni_qasja" layoutX="653.0" layoutY="477.0" mnemonicParsing="false" onAction="#handleQasja" onMouseEntered="#buttoni_qasja_hover" onMouseExited="#buttoni_qasja_exit" prefHeight="77.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-opacity: 0.5;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Text fill="WHITE" layoutX="692.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="%txtQasja" textAlignment="CENTER">
                      <font>
-                        <Font name="System Bold" size="19.0" />
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <HBox layoutX="465.0" layoutY="148.0" prefHeight="31.0" prefWidth="159.0">
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Images/speaker.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <Text fill="WHITE" layoutX="551.0" layoutY="696.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 800;" text="© All Rights Reserved. Powered by University of Prishtina">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <HBox layoutX="108.0" layoutY="114.0" prefHeight="100.0" prefWidth="200.0" />
+                  <Pagination fx:id="pagPagination" layoutX="328.0" layoutY="95.0" prefHeight="274.0" prefWidth="795.0" stylesheets="@../CSS/pagination.css" />
+                  <Text fill="WHITE" layoutX="261.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="%txtTitle" textAlignment="CENTER" wrappingWidth="929.5601196289062">
+                     <font>
+                        <Font size="36.0" />
                      </font>
                   </Text>
                </children>
-            </HBox>
-            <Text fill="WHITE" layoutX="551.0" layoutY="696.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 800;" text="© All Rights Reserved. Powered by University of Prishtina">
-               <font>
-                  <Font size="14.0" />
-               </font></Text>
-            <HBox layoutX="108.0" layoutY="114.0" prefHeight="100.0" prefWidth="200.0" />
-            <Text fill="WHITE" layoutX="659.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="%txtTitle" textAlignment="CENTER" wrappingWidth="163.16015625">
-               <font>
-                  <Font size="36.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="498.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-opacity: 0.8;" text="%txtNjoftimet2" textAlignment="CENTER" wrappingWidth="485.9830722808838">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Text>
-         </children>
-      </AnchorPane>
-   </center>
-</BorderPane>
+            </AnchorPane>
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>
