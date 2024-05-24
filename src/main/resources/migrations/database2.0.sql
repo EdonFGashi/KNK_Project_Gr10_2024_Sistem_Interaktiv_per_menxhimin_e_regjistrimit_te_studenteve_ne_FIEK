@@ -60,6 +60,7 @@ CREATE TABLE tblUserStudent (
     dataLindjes DATE,
     FOREIGN KEY (userId) REFERENCES tblUser(userId) ON DELETE CASCADE
 );
+
 CREATE TABLE tblShkollaMesme (
     shkollaId INT AUTO_INCREMENT PRIMARY KEY,
     userId INT NOT NULL,

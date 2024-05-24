@@ -230,3 +230,6 @@ ALTER TABLE tblArkiva;
 INSERT INTO tblArkiva (nrSerik, idStudentit, data) VALUES ('489548', '220756100002', '2004-01-04');
 SELECT * FROM tblArkiva ORDER BY documentId DESC LIMIT 1;
 SELECT * FROM tblArkiva;
+
+
+ --

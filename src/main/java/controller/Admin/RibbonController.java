@@ -163,10 +163,28 @@ public class RibbonController {
                     this.goBack();
                 }else if(e.getCode() == KeyCode.Y){
                     this.goForth();
+                }else if(e.getCode() == KeyCode.L){
+                    SESSION.switchLanguage();
+                    Navigatior.navigate(e,Navigatior.ADMIN_RIBBON);
                 }
             }
+
+            switch(e.getCode()){
+                case KeyCode.F1 -> { Navigatior.navigateNewStage(Navigatior.HELP_ADMIN);}
+                case KeyCode.F2 -> { this.goRegistrationMenu(); }
+                case KeyCode.F3 -> { this.goStudentMenu(); }
+                case KeyCode.F4 -> { this.goSupervisorMenu();}
+                case KeyCode.F5 -> { this.navigateAndSaveState(Navigatior.ADMIN_INBOX);}
+                case KeyCode.F6 -> { this.navigateAndSaveState(Navigatior.ADMIN_PROFILE);}
+
+            }
+
+
         });
         this.vboxMainPane.requestFocus();
+
+
+
     }
 
     @FXML
@@ -177,17 +195,27 @@ public class RibbonController {
 
     @FXML
     private void handleSupervisorMenagmentClick(MouseEvent me){
+       this.goSupervisorMenu();
+    }
+    private void goSupervisorMenu(){
         SESSION.setAdminMenu("Supervisor");
         this.navigateAndSaveState(Navigatior.ADMIN_MENU+"M");
-
     }
+
     @FXML
     private void handleStudentMenagmentClick(MouseEvent me){
+        this.goStudentMenu();
+    }
+    private void goStudentMenu(){
         SESSION.setAdminMenu("Student");
         this.navigateAndSaveState(Navigatior.ADMIN_MENU+"S");
     }
+
     @FXML
     private void handleRegistrationPeriodClick(MouseEvent me){
+        this.goRegistrationMenu();
+    }
+    private void goRegistrationMenu(){
         SESSION.setAdminMenu("Afat");
         this.navigateAndSaveState(Navigatior.ADMIN_MENU+"A");
     }
@@ -307,7 +335,6 @@ public class RibbonController {
     @FXML
     void handleForthClick(MouseEvent me) {
       this.goForth();
-
     }
 
 
