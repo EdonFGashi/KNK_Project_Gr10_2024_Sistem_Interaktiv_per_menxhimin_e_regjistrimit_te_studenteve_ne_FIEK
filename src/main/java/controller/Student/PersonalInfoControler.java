@@ -3,14 +3,18 @@ package controller.Student;
 
 import app.Navigatior;
 import app.PopUp;
+import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import model.dto.Student.PersonDTO;
 import service.Student.personService;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -140,6 +144,22 @@ public class PersonalInfoControler {
         personService studentService = new personService();
         studentService.saveStudentAplikant(studentAplikant);
 
+        String menu = SESSION.getDeptLevel();
+
+        switch (menu) {
+            case "BSC" -> {
+                this.EducationExperienceNavigate = Navigatior.EDUCATION;
+                Navigatior.navigate(addPane,EducationExperienceNavigate);
+            }
+            case "MSC" -> {
+                this.EducationExperienceNavigate = Navigatior.EDUCATION_MASTER;
+                Navigatior.navigate(addPane,EducationExperienceNavigate);
+               }
+            case "PHD" -> {
+                this.EducationExperienceNavigate = Navigatior.EDUCATION_PHD;
+                Navigatior.navigate(addPane,EducationExperienceNavigate);
+                }
+        }
 
        // alert("Të dhënat e studentit janë ruajtur me sukses.", "Sukses", "Sukses");
         Navigatior.navigate(addPane,EducationExperienceNavigate);

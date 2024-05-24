@@ -1,11 +1,13 @@
 package controller.Student;
 
+import app.Navigatior;
 import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.scene.image.Image;
 import model.dto.Student.StudentApplicantDto;
@@ -20,6 +22,8 @@ import static controller.SESSION.getLoggedUser;
 
 public class EducationalExperienceController {
 
+    @FXML
+    private AnchorPane addpane;
     @FXML
     private Button chooseImageButton1;
 
@@ -100,6 +104,7 @@ public class EducationalExperienceController {
             e.printStackTrace();
             // Trego një mesazh gabimi
         }
+        Navigatior.navigate(addpane,Navigatior.ACADEMIC);
 
     }
 

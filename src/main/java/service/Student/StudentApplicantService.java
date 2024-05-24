@@ -3,6 +3,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Afat;
 import model.dto.Student.AcademicInterestDto;
+import model.dto.Student.MasterApplicantDto;
+import model.dto.Student.PHDApplicantDto;
 import repository.AfatRepository;
 import repository.StudentApplicant.StudentApplicantRepository;
 
@@ -30,6 +32,33 @@ public class StudentApplicantService {
         StudentApplicantRepository.saveData(dto);
     }
 
+    public static void processAndSaveMasterData(MasterApplicantDto dto) throws Exception {
+        // Validate data
+        if (dto.getFacultyName() == null || dto.getFacultyName().isEmpty() ||
+                dto.getFirstYear() < 0 || dto.getSecondYear() < 0 || dto.getThirdYear() < 0 ||
+                dto.getFileIdentification() == null || dto.getFileBachelorDegree() == null ||
+        dto.getDeptName() == null || dto.getDeptName().isEmpty()) {
+            throw new IllegalArgumentException("All fields must be completed.");
+        }
+
+        // Save data to repository
+        StudentApplicantRepository.saveMasterData(dto);
+    }
+
+
+    public static void processAndSavePHDData(PHDApplicantDto dto) throws Exception {
+        // Validate data
+//        if (dto.getFacultyName() == null  ||
+//                dto.getSuccesGradeFirstY() < 6 || dto.getSuccesGradeSecondY() < 6 ||
+//                dto.getFileIdentification() == null || dto.getFileBachelor() == null ||
+//                dto.getFileMaster() == null || dto.getDeptName().isEmpty()) {
+//            throw new IllegalArgumentException("All fields must be completed.");
+//        }
+
+        // Save data to repository
+        StudentApplicantRepository.savePHDData(dto);
+    }
+
     public static void processAcademicInterest(AcademicInterestDto dto) {
         
         if (dto.getDept() == null || dto.getDept1() == null || dto.getDept2() == null || dto.getDept3() == null) {
@@ -37,7 +66,7 @@ public class StudentApplicantService {
         }
 
         // dergimi i te dhenave per ruajtje ne db
-        repository.saveAcademicInterest(dto);
+        StudentApplicantRepository.saveAcademicInterest(dto);
     }
 
     public static ObservableList<Afat> searchAfatByLevel(String Level){

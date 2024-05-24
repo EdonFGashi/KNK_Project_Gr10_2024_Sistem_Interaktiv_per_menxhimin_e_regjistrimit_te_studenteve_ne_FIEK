@@ -15,12 +15,7 @@
    <children>
       <AnchorPane layoutX="364.0" layoutY="38.0" prefHeight="405.0" prefWidth="306.0" style="-fx-background-color: #3f7bb0;">
          <children>
-            <TextField fx:id="txtName" layoutX="72.0" layoutY="63.0" prefHeight="24.0" prefWidth="145.0" promptText="Name" style="-fx-color: #fff; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="txtSurname" layoutX="72.0" layoutY="109.0" prefHeight="27.0" prefWidth="147.0" promptText="Surname" style="-fx-color: #fff; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;">
+            <TextField fx:id="txtUsername" layoutX="72.0" layoutY="109.0" prefHeight="27.0" prefWidth="147.0" promptText="Username" style="-fx-color: #fff; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;">
                <font>
                   <Font size="11.0" />
                </font>
@@ -46,7 +41,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label layoutX="114.0" prefHeight="37.0" prefWidth="74.0" text="Sign Up" textFill="WHITE">
+            <Label layoutX="114.0" layoutY="32.0" prefHeight="37.0" prefWidth="74.0" text="Sign Up" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -56,7 +51,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <Label layoutX="63.0" layoutY="201.0" text="Welcome to FIEK!" textFill="WHITE">
+      <Label layoutX="63.0" layoutY="243.0" text="Welcome to FIEK!" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -68,7 +63,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <HBox layoutX="96.0" layoutY="212.0" prefHeight="130.0" prefWidth="167.0">
+      <HBox layoutX="101.0" layoutY="249.0" prefHeight="130.0" prefWidth="167.0">
          <children>
             <Label prefHeight="130.0" prefWidth="150.0" text="Register in our application &#10;to apply &#10;to the university" textAlignment="CENTER" textFill="WHITE">
                <font>
@@ -77,10 +72,10 @@
             </Label>
          </children>
       </HBox>
-      <Button layoutX="122.0" layoutY="377.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 10;" text=" Back" textFill="WHITE">
+      <Button layoutX="123.0" layoutY="379.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 10;" text=" Back" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ImageView fx:id="imgIcon" fitHeight="110.0" fitWidth="115.0" layoutX="101.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgIcon" fitHeight="182.0" fitWidth="209.0" layoutX="75.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

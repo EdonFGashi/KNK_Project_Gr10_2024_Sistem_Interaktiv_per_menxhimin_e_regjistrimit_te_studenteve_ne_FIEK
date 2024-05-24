@@ -3,26 +3,20 @@ package model.dto.Overall;
 
 
 public class UserDto {
-    private String firstName;
-    private String lastName;
+    private String username;
     private String email;
     private String password;
     private String confirmPassword;
 
-    public UserDto(String firstName, String lastName, String email, String password, String confirmPassword) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public UserDto(String username, String email, String password, String confirmPassword) {
+        this.username=username;
         this.email = email;
         this.password = password;
         this.confirmPassword = confirmPassword;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
+    public String getUsername() {
+        return username;
     }
 
     public String getEmail() {

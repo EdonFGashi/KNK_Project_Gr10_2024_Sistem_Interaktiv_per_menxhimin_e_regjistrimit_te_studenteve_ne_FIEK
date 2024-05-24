@@ -10,6 +10,15 @@ CREATE TABLE tblAdmin (
     passwordHash VARCHAR(400) NOT NULL
 );
 
+CREATE TABLE tblUser(
+    userId INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(50)  NOT NULL,
+    salt VARCHAR(100) NOT NULL,
+    passwordHash VARCHAR(400) NOT NULL
+);
+
+
 CREATE TABLE tblPerson (
     numriPersonal VARCHAR(20) PRIMARY KEY,
     emri VARCHAR(50) NOT NULL,
@@ -40,9 +49,8 @@ CREATE TABLE tblMbikqyresi (
 );
 
 CREATE TABLE tblUserStudent (
-    userId INT AUTO_INCREMENT PRIMARY KEY,
+    userId INT PRIMARY KEY,
     numriPersonal VARCHAR(20) NOT NULL,
-    email VARCHAR(50) NOT NULL,
     emri VARCHAR(50),
     mbiemri VARCHAR(50),
     nacionaliteti VARCHAR(50),
@@ -50,8 +58,7 @@ CREATE TABLE tblUserStudent (
     shteti VARCHAR(50),
     gjinia VARCHAR(10),
     dataLindjes DATE,
-    salt VARCHAR(100) NOT NULL,
-    passwordHash VARCHAR(400) NOT NULL
+    FOREIGN KEY (userId) REFERENCES tblUser(userId) ON DELETE CASCADE
 );
 CREATE TABLE tblShkollaMesme (
     shkollaId INT AUTO_INCREMENT PRIMARY KEY,
@@ -68,7 +75,7 @@ CREATE TABLE tblShkollaMesme (
     certifikataNotave LONGBLOB,
     leternjoftimi LONGBLOB,
     diplomaShkolles LONGBLOB,
-	FOREIGN KEY (userId) REFERENCES tblUserStudent(userId) ON DELETE CASCADE
+    FOREIGN KEY (userId) REFERENCES tblUserStudent(userId) ON DELETE CASCADE
 );
 CREATE TABLE tblDepartamenti (
     deptId INT AUTO_INCREMENT PRIMARY KEY,

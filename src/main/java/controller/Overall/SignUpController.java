@@ -1,6 +1,7 @@
 package controller.Overall;
 
 import app.Navigatior;
+import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -27,20 +28,18 @@ public class SignUpController {
     private TextField txtEmail;
 
     @FXML
-    private TextField txtName;
+    private TextField txtUsername;
 
     @FXML
     private PasswordField pwdPassword;
 
-    @FXML
-    private TextField txtSurname;
+
 
 
     @FXML
     private void handleSignUp(ActionEvent ae) throws SQLException {
         UserDto userSignUpData = new UserDto(
-                this.txtName.getText(),
-                this.txtSurname.getText(),
+                this.txtUsername.getText(),
                 this.txtEmail.getText(),
                 this.pwdPassword.getText(),
                 this.pwdConfirmPassword.getText()
@@ -49,7 +48,10 @@ public class SignUpController {
         boolean response = UserService.signUp(userSignUpData);
 
         if(response){
+            SESSION.setLoggedUser(UserService.getUserByEmail(this.txtEmail.getText()));
           System.out.println("Okej");
+            Navigatior.navigateNewStage(Navigatior.STUDENT_DASHBOARD);
+            Navigatior.closeStageAfterDelay(ae, Duration.millis(1));
         }
 
     }
@@ -65,7 +67,7 @@ public class SignUpController {
     @FXML
     public void initialize() {
         try {
-            this.imgIcon.setImage(new Image(new FileInputStream("Images/graduation2.png")));
+            this.imgIcon.setImage(new Image(new FileInputStream("Images/UP.png")));
 
         } catch (FileNotFoundException e) {
             System.out.println("Image not found");

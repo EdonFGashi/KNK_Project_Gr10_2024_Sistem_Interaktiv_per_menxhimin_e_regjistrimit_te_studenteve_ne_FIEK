@@ -2,6 +2,7 @@ package app;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
@@ -9,6 +10,7 @@ import javafx.stage.Stage;
 import service.PasswordHasher;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 public class Main extends Application {
     @Override
@@ -23,9 +25,8 @@ public class Main extends Application {
 
         // Per me testu Dashboardin
 //        Navigatior.navigate(stage,Navigatior.DASHBOARD);
-//        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
-        Navigatior.navigateNewStage(Navigatior.LOGIN);
-
+        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
+//        Navigatior.navigateNewStage(Navigatior.LOGIN);
 
 
     }
