@@ -1,9 +1,9 @@
-use knk_project_gr10;
+use knk_project_gr10_final;
 
 
 CREATE TABLE tblAdmin (
     adminId INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL UNIQUE,
     emri VARCHAR(50)  NOT NULL,
     mbiemri VARCHAR(50) NOT NULL,
     salt VARCHAR(100) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE tblAdmin (
 CREATE TABLE tblUser(
     userId INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
-    email VARCHAR(50)  NOT NULL,
+    email VARCHAR(50)  NOT NULL UNIQUE,
     salt VARCHAR(100) NOT NULL,
     passwordHash VARCHAR(400) NOT NULL
 );
@@ -29,6 +29,7 @@ CREATE TABLE tblPerson (
     gjinia VARCHAR(10) NOT NULL,
     dataLindjes DATE NOT NULL
 );
+
 CREATE TABLE tblSemsStaf (
     stafId INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(50) NOT NULL,
@@ -41,7 +42,7 @@ CREATE TABLE tblSemsStaf (
 
 CREATE TABLE tblMbikqyresi (
     mbikqyresiId INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL UNIQUE,
     emri VARCHAR(50),
     mbiemri VARCHAR(50),
     salt VARCHAR(100) NOT NULL,
@@ -51,7 +52,6 @@ CREATE TABLE tblMbikqyresi (
 CREATE TABLE tblUserStudent (
     userId INT PRIMARY KEY,
     numriPersonal VARCHAR(20) NOT NULL,
-    email VARCHAR(50),
     emri VARCHAR(50),
     mbiemri VARCHAR(50),
     nacionaliteti VARCHAR(50),
@@ -122,7 +122,7 @@ CREATE TABLE tblKonkurimet (
 CREATE TABLE tblRegisteredStudents (
     regId INT AUTO_INCREMENT PRIMARY KEY,
     userId INT,
-    generatedEmail VARCHAR(50),
+    generatedEmail VARCHAR(50) UNIQUE,
     registeredEmail VARCHAR(50),
     emriDepartamentit VARCHAR(50),
     niveli VARCHAR(50),

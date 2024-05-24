@@ -37,10 +37,10 @@ public class FirstApp extends Application {
 
         stage.setMaximized(true);
       //  Navigatior.navigate(stag);
-     // Navigatior.navigate(stage,AdminPages.ADMIN_RIBBON);
+      Navigatior.navigate(stage,AdminPages.ADMIN_RIBBON);
 
 
-      Navigatior.navigate(stage, Navigatior.DASHBOARD);
+//      Navigatior.navigate(stage, Navigatior.DASHBOARD);
 
 
 
