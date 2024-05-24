@@ -10,8 +10,9 @@ public class PHDApplicantDto {
     private File fileBachelor;
     private File fileIdentification;
     private File fileMaster;
+    private String deptName;
 
-    public PHDApplicantDto(int id, String FacultyName, double succesGrade1, double succesGrade2, File fileBchelor, File fileIdentification, File fileMaster) {
+    public PHDApplicantDto(int id, String FacultyName, double succesGrade1, double succesGrade2, File fileBchelor, File fileIdentification, File fileMaster,String deptName) {
         this.userId=id;
         this.FacultyName= FacultyName;
         this.succesGradeFirstY = succesGrade1;
@@ -19,6 +20,7 @@ public class PHDApplicantDto {
         this.fileBachelor = fileBchelor;
         this.fileIdentification = fileIdentification;
         this.fileMaster = fileMaster;
+        this.deptName=deptName;
     }
 
     public int getUserId() {
@@ -75,5 +77,13 @@ public class PHDApplicantDto {
 
     public void setFileMaster(File fileMaster) {
         this.fileMaster = fileMaster;
+    }
+
+    public String getDeptName() {
+        return deptName;
+    }
+
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
     }
 }
