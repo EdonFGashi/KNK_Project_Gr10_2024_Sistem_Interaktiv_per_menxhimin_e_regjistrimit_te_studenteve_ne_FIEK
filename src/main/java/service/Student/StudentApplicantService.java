@@ -66,7 +66,7 @@ public class StudentApplicantService {
         }
 
         // dergimi i te dhenave per ruajtje ne db
-        repository.saveAcademicInterest(dto);
+        StudentApplicantRepository.saveAcademicInterest(dto);
     }
 
     public static ObservableList<Afat> searchAfatByLevel(String Level){

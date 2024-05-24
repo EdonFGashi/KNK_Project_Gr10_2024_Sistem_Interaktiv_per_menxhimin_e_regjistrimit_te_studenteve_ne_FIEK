@@ -139,6 +139,8 @@ public class LoginController {
             } else if (Objects.equals(LoginService.login(loginDto), "student")) {
 
                 SESSION.setLoggedUser(UserService.getUserByEmail(this.userEmail.getText()));
+                System.out.println("Id"+SESSION.getLoggedUser().getId());
+                Navigatior.navigateNewStage(Navigatior.STUDENT_DASHBOARD);
 //                navigateToNewStage(event, Navigatior.STUDENT_DASHBOARD);
 
             }

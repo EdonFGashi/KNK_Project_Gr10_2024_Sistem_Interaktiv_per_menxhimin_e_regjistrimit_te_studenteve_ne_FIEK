@@ -265,7 +265,7 @@ public class StudentApplicantRepository {
             conn = DBConnector.getConnection();
             String query = "INSERT INTO tblUserStudent (userId,numriPersonal, emri, mbiemri, nacionaliteti, qyteti, shteti, gjinia, dataLindjes) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?)";
             ps = conn.prepareStatement(query);
-            ps.setInt(1,9);
+            ps.setInt(1,SESSION.getLoggedUser().getId());
             ps.setString(2, studentAplikant.getPersonalNumber());
             ps.setString(3, studentAplikant.getName());
             ps.setString(4, studentAplikant.getLastName());
@@ -282,7 +282,7 @@ public class StudentApplicantRepository {
     }
     
     
-    public void saveAcademicInterest(AcademicInterestDto dto) {
+    public static void saveAcademicInterest(AcademicInterestDto dto) {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -301,9 +301,9 @@ public class StudentApplicantRepository {
             }
 
             
-            String query = "INSERT INTO tblAplikimi (userId, deptIdPrioritet1, deptIdPrioritet2, deptIdPrioritet3,deptIdPrioritet4, afatId) VALUES (?, ?, ?, ?, ?,?)";
+            String query = "INSERT INTO tblAplikimi (shkollaId, deptIdPrioritet1, deptIdPrioritet2, deptIdPrioritet3,deptIdPrioritet4, afatId) VALUES (?, ?, ?, ?, ?,?)";
             ps = conn.prepareStatement(query);
-            ps.setInt(1, getLoggedUser().getId());
+            ps.setInt(1, findShkollaIdByUserId(SESSION.getLoggedUser().getId(),conn));
             ps.setInt(2, deptId);
             ps.setInt(3, deptIdPrioritet1);
             ps.setInt(4, deptIdPrioritet2);
