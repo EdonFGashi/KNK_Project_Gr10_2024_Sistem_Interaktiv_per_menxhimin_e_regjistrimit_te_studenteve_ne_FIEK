@@ -23,12 +23,12 @@
                   <Image url="@../../../../Images/upLogoNoRing.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="75.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Regjistrimi për student">
+            <Text fill="WHITE" layoutX="97.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtRegPerStudent">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Button layoutX="133.0" layoutY="334.0" mnemonicParsing="false" onAction="#handleApliko" prefHeight="35.0" prefWidth="84.0" style="-fx-background-color: #FFFFFF;" text="Apliko" textFill="#0a84ff">
+            <Button layoutX="133.0" layoutY="334.0" mnemonicParsing="false" onAction="#handleApliko" prefHeight="35.0" prefWidth="84.0" style="-fx-background-color: #FFFFFF;" text="%btnApliko" textFill="#0a84ff">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
@@ -61,7 +61,7 @@
             </ImageView>
             <PasswordField fx:id="userPassword" layoutX="85.0" layoutY="265.0" prefHeight="28.0" prefWidth="180.0" promptText="password" style="-fx-background-color: transparent; -fx-border-color: #0A84FF; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.40000000000003" />
             <TextField fx:id="userPasswordVisible" layoutX="85.0" layoutY="265.0" prefHeight="28.0" prefWidth="180.0" promptText="password" style="-fx-background-color: transparent; -fx-border-color: #0A84FF; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.40000000000003" />
-            <Button fx:id="loginBtn" layoutX="133.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="35.0" prefWidth="84.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);" stylesheets="@../CSS/on-focus.css" text="Kyquni" textFill="WHITE" AnchorPane.leftAnchor="133.0" AnchorPane.rightAnchor="133.0">
+            <Button fx:id="loginBtn" layoutX="133.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="35.0" prefWidth="84.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);" stylesheets="@../CSS/on-focus.css" text="%btnKyquni" textFill="WHITE" AnchorPane.leftAnchor="133.0" AnchorPane.rightAnchor="133.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
@@ -80,7 +80,12 @@
                   <Image url="@../../../../Images/eye-icon.png" />
                </image>
             </ImageView>
-            <Label fx:id="timerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="97.0" layoutY="375.0" prefWidth="180.0" textFill="RED" visible="false" AnchorPane.rightAnchor="87.19999999999999" />
+            <Label fx:id="timerLabel" layoutX="97.0" layoutY="375.0" prefWidth="180.0" textAlignment="CENTER" textFill="RED" visible="false" AnchorPane.rightAnchor="87.19999999999999" />
+            <ImageView fx:id="langIcon" fitHeight="33.0" fitWidth="38.0" layoutX="301.0" layoutY="14.0" onMouseClicked="#handleChangeLanguage" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Images/colored-language-icon.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </center>

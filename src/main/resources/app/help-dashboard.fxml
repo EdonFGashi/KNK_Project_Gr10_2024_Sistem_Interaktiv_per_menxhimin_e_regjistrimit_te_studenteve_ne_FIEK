@@ -18,35 +18,35 @@
             <Image url="@../../../../Images/info.png" />
          </image>
       </ImageView>
-      <Label layoutX="133.0" layoutY="140.0" prefHeight="35.0" prefWidth="191.0" text="Manuali i Përdoruesit" textFill="#0a84ff">
+      <Label layoutX="123.0" layoutY="140.0" prefHeight="35.0" prefWidth="214.0" text="%lblManualiPerdoruesit" textFill="#0a84ff">
          <font>
             <Font name="Arial" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="81.0" layoutY="175.0" prefHeight="35.0" prefWidth="297.0" text="Ky manual ofron udhëzime për përdorimin e faqes!" textFill="#0a84ff">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="113.0" layoutY="175.0" prefHeight="35.0" prefWidth="234.0" text="%lblManInfo" textAlignment="CENTER" textFill="#0a84ff">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
       <Line endX="171.0" layoutX="230.0" layoutY="219.0" startX="-181.0" stroke="#a5cef2" />
-      <Label layoutX="140.0" layoutY="238.0" prefHeight="20.0" prefWidth="180.0" style="-fx-border-color: #a5cef2; -fx-border-width: 0px 0px 2px 0px;" text="Elementi 1 - BUTONI QASJA:">
+      <Label alignment="CENTER" layoutX="167.0" layoutY="241.0" prefHeight="22.0" prefWidth="124.0" style="-fx-border-color: #a5cef2; -fx-border-width: 0px 0px 2px 0px;" text="%lblElementi1" textAlignment="CENTER">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
       <HBox layoutX="100.0" layoutY="273.0" prefHeight="51.0" prefWidth="297.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kur klikohet butoni &quot;Qasja&quot;, ju transferoheni nga faqja kryesore në faqen e aplikimit dhe log-in. Ku në butonin e aplikimit mund të aplikojn të interesuarit për studime, kurse ne login kyqen personat që posedojn llogari adekuate." textAlignment="CENTER" wrappingWidth="256.13671875" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%txtElementi1info" wrappingWidth="288.13671875" />
          </children>
       </HBox>
-      <Label layoutX="136.0" layoutY="393.0" style="-fx-border-color: #a5cef2; -fx-border-width: 0px 0px 2px 0px;" text="Elemente shtesë - CONTACT:">
+      <Label alignment="CENTER" layoutX="172.0" layoutY="392.0" prefHeight="22.0" prefWidth="116.0" style="-fx-border-color: #a5cef2; -fx-border-width: 0px 0px 2px 0px;" text="%lblElementeSh" textAlignment="CENTER">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
       <HBox layoutX="100.0" layoutY="425.0" prefHeight="51.0" prefWidth="297.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Për të interesuarit për info shtesë rreth aplikacionit, regjistrimit, fakultetit etj. Në pjesën e sipërme të faqes hyrse ndodhet email dhe numri kontaktues i Universitetit të Prishtinës." textAlignment="CENTER" wrappingWidth="256.13671875" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%txtElementeShinfo" wrappingWidth="256.13671875" />
          </children>
       </HBox>
    </children>

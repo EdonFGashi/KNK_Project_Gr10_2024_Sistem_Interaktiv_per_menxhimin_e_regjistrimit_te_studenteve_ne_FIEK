@@ -67,11 +67,11 @@
                   </AnchorPane>
                   <HBox alignment="CENTER" onMouseClicked="#handleProfileClick" prefHeight="50.0" prefWidth="123.0">
                      <children>
-                        <MenuButton fx:id="mbProfile" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: none; -fx-font-weight: bold; -fx-font-size: 13;" text="%mbProfile" textFill="WHITE">
+                        <MenuButton mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: none; -fx-font-weight: bold; -fx-font-size: 13;" text="%mbProfile" textFill="WHITE">
                           <items>
-                            <MenuItem fx:id="mtGoToProfile" mnemonicParsing="false" onAction="#handleGoToProfile" text="%mtGoToProfile" />
-                            <MenuItem fx:id="mtChangeLanguage" mnemonicParsing="false" onAction="#handleChangeLanguage" text="%mtChangeLanguage" />
-                              <MenuItem fx:id="mtSignOut" mnemonicParsing="false" onAction="#handleSignOut" text="%mtSignOut" />
+                            <MenuItem mnemonicParsing="false" onAction="#handleGoToProfile" text="%mtGoToProfile" />
+                            <MenuItem mnemonicParsing="false" onAction="#handleChangeLanguage" text="%mtChangeLanguage" />
+                              <MenuItem mnemonicParsing="false" onAction="#handleSignOut" text="%mtSignOut" />
                           </items>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -85,7 +85,7 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="40.0" layoutY="20.0" onMouseClicked="#handleInboxClick" prefHeight="50.0" prefWidth="124.0">
                      <children>
-                        <Label fx:id="lblinbox" nodeOrientation="LEFT_TO_RIGHT" prefHeight="18.0" prefWidth="73.0" style="-fx-font-weight: bold;" text="%lblinbox" textFill="WHITE">
+                        <Label nodeOrientation="LEFT_TO_RIGHT" prefHeight="18.0" prefWidth="73.0" style="-fx-font-weight: bold;" text="%lblinbox" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -104,7 +104,7 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="224.0" layoutY="20.0" onMouseClicked="#handleSupervisorMenagmentClick" prefHeight="50.0" prefWidth="124.0">
                      <children>
-                        <Label fx:id="lblSupervisor" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="98.0" style="-fx-font-weight: bold;" text="%lblSupervisor" textFill="WHITE">
+                        <Label nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" prefWidth="98.0" style="-fx-font-weight: bold;" text="%lblSupervisor" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -123,7 +123,7 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="408.0" layoutY="20.0" onMouseClicked="#handleStudentMenagmentClick" prefHeight="50.0" prefWidth="124.0">
                      <children>
-                        <Label fx:id="lblStudent" nodeOrientation="LEFT_TO_RIGHT" prefHeight="18.0" prefWidth="73.0" style="-fx-font-weight: bold;" text="%lblStudent" textFill="WHITE">
+                        <Label nodeOrientation="LEFT_TO_RIGHT" prefHeight="18.0" prefWidth="73.0" style="-fx-font-weight: bold;" text="%lblStudent" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -142,7 +142,7 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="592.0" layoutY="20.0" onMouseClicked="#handleRegistrationPeriodClick" prefHeight="50.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="lblRegistration" nodeOrientation="LEFT_TO_RIGHT" prefHeight="22.0" prefWidth="130.0" style="-fx-font-weight: bold;" text="%lblRegistration" textFill="WHITE">
+                        <Label nodeOrientation="LEFT_TO_RIGHT" prefHeight="22.0" prefWidth="130.0" style="-fx-font-weight: bold;" text="%lblRegistration" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
