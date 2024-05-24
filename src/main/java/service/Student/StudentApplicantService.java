@@ -48,12 +48,12 @@ public class StudentApplicantService {
 
     public static void processAndSavePHDData(PHDApplicantDto dto) throws Exception {
         // Validate data
-        if (dto.getFacultyName() == null || dto.getFacultyName().isEmpty() ||
-                dto.getSuccesGradeFirstY() < 6 || dto.getSuccesGradeSecondY() < 6 ||
-                dto.getFileIdentification() == null || dto.getFileBachelor() == null ||
-                dto.getFileMaster() == null || dto.getDeptName().isEmpty()) {
-            throw new IllegalArgumentException("All fields must be completed.");
-        }
+//        if (dto.getFacultyName() == null  ||
+//                dto.getSuccesGradeFirstY() < 6 || dto.getSuccesGradeSecondY() < 6 ||
+//                dto.getFileIdentification() == null || dto.getFileBachelor() == null ||
+//                dto.getFileMaster() == null || dto.getDeptName().isEmpty()) {
+//            throw new IllegalArgumentException("All fields must be completed.");
+//        }
 
         // Save data to repository
         StudentApplicantRepository.savePHDData(dto);

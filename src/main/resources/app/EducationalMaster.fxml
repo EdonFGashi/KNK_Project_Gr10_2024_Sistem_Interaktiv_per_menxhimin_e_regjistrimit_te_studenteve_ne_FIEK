@@ -46,9 +46,9 @@
                   <RowConstraints maxHeight="211.60001220703128" minHeight="10.0" prefHeight="92.33330078124999" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TextField fx:id="txtFirstYear" editable="false" layoutX="269.0" layoutY="10.0" prefHeight="38.0" prefWidth="315.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="txtSecYear" editable="false" layoutX="154.0" layoutY="64.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="txtThirdYear" editable="false" layoutX="154.0" layoutY="64.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="txtFirstYear" editable="true" layoutX="269.0" layoutY="10.0" prefHeight="38.0" prefWidth="315.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtSecYear" editable="true" layoutX="154.0" layoutY="64.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtThirdYear" editable="true" layoutX="154.0" layoutY="64.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label prefHeight="30.0" prefWidth="228.0" text="Faculty:">
                      <font>
                         <Font name="Tahoma" size="18.0" />

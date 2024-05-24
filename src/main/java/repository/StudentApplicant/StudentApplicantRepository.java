@@ -96,7 +96,7 @@ public class StudentApplicantRepository {
 
 
             // Query për të ruajtur të dhënat në tabelën tblAplikimi
-            String queryAplikimi = "INSERT INTO tblAplikimi (shkollaId, deptIdPrioritet1,afatId) VALUES (?, ?, ?, ?)";
+            String queryAplikimi = "INSERT INTO tblAplikimi (shkollaId, deptIdPrioritet1,afatId) VALUES (?, ?, ?)";
 
             try (PreparedStatement statementAplikimi = conn.prepareStatement(queryAplikimi)) {
                 int deptId=getDepartmentId(conn, dto.getDeptName(),getDeptLevel());
@@ -104,7 +104,7 @@ public class StudentApplicantRepository {
                 statementAplikimi.setInt(1, findShkollaIdByUserId(dto.getUserId(),conn));
                 statementAplikimi.setInt(2, deptId);
                 statementAplikimi.setNull(3, SESSION.getAplicantAfatId());
-
+                 System.out.println("Afat id:"+SESSION.getAplicantAfatId());
 
                 int affectedRowsAplikimi = statementAplikimi.executeUpdate();
                 if (affectedRowsAplikimi > 0) {
@@ -160,7 +160,7 @@ public class StudentApplicantRepository {
 
 
         // Query për të ruajtur të dhënat në tabelën tblAplikimi
-        String queryAplikimi = "INSERT INTO tblAplikimi (shkollaId, deptIdPrioritet1,afatId) VALUES (?, ?, ?, ?)";
+        String queryAplikimi = "INSERT INTO tblAplikimi (shkollaId, deptIdPrioritet1,afatId) VALUES (?, ?, ?)";
 
         try (PreparedStatement statementAplikimi = conn.prepareStatement(queryAplikimi)) {
             int deptId=getDepartmentId(conn, dto.getDeptName(),getDeptLevel());
