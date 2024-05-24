@@ -11,11 +11,14 @@ import model.dto.Admin.ResetPasswordDto;
 import service.Admin.AdminService;
 import service.CustomExceptions.InvalidPassword;
 
+import java.util.Locale;
+
 public class ResetPasswordController {
     @FXML
     private PasswordField pwdNewPassword;
     @FXML
     private PasswordField pwdConfirmPassword;
+
 
     @FXML
     private void handleResetPassword(ActionEvent ae){

@@ -91,6 +91,7 @@ public class StudentMenuKonkurimetController {
    private AllRegistrationObservableLists lists;
 
 
+
     @FXML
     private void initialize(){
      this.columnStudentId.setCellValueFactory(new PropertyValueFactory<KonkurimetDataFromDbDto,Integer>("userId"));
