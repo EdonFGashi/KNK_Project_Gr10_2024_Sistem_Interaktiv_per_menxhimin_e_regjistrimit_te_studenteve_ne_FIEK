@@ -1,6 +1,7 @@
 package controller.Overall;
 
 import app.Navigatior;
+import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -47,6 +48,7 @@ public class SignUpController {
         boolean response = UserService.signUp(userSignUpData);
 
         if(response){
+            SESSION.setLoggedUser(UserService.getUserByEmail(this.txtEmail.getText()));
           System.out.println("Okej");
             Navigatior.navigateNewStage(Navigatior.STUDENT_DASHBOARD);
             Navigatior.closeStageAfterDelay(ae, Duration.millis(1));
