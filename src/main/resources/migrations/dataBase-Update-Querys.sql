@@ -218,7 +218,15 @@ VALUES
 ALTER TABLE tblKonkurimet
 DROP column provimiId;
 
+--24-05-2024 Edoni
+CREATE TABLE tblArkiva (
+                           documentId INT AUTO_INCREMENT PRIMARY KEY,
+                           nrSerik VARCHAR(50) NOT NULL,
+                           idStudentit VARCHAR(50) NOT NULL,
+                           data DATE NOT NULL
+);
 
-
-
-
+ALTER TABLE tblArkiva;
+INSERT INTO tblArkiva (nrSerik, idStudentit, data) VALUES ('489548', '220756100002', '2004-01-04');
+SELECT * FROM tblArkiva ORDER BY documentId DESC LIMIT 1;
+SELECT * FROM tblArkiva;
