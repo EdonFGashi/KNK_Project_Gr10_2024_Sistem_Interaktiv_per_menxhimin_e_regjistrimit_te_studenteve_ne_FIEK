@@ -22,7 +22,7 @@
                 <DropShadow />
             </effect>
             <children>
-                <TextField fx:id="txtSearch" layoutX="38.0" layoutY="26.0" prefHeight="38.0" prefWidth="335.0" promptText="search student..." style="-fx-background-radius: 15;" />
+                <TextField fx:id="txtSearch" layoutX="38.0" layoutY="26.0" prefHeight="38.0" prefWidth="335.0" promptText="%txtKerkoStudentin" style="-fx-background-radius: 15;" />
                 <Button layoutX="394.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="38.0" prefWidth="59.0" style="-fx-background-radius: 20; -fx-background-color: #A5CEF2;" />
                 <ImageView fx:id="imgSearch" fitHeight="17.0" fitWidth="22.0" layoutX="415.0" layoutY="37.0" onMouseClicked="#handleSearchClick" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -36,31 +36,31 @@
                 <DropShadow />
             </effect>
             <children>
-                <Label layoutX="151.0" layoutY="137.0" prefHeight="23.0" prefWidth="82.0" text="Student Id:">
+                <Label alignment="CENTER" layoutX="139.0" layoutY="137.0" prefHeight="23.0" prefWidth="110.0" text="%lblStudentID">
                     <font>
                         <Font name="Tahoma" size="16.0" />
                     </font>
                 </Label>
                 <TextField fx:id="studentId" layoutX="121.0" layoutY="178.0" prefHeight="38.0" prefWidth="142.0" style="-fx-background-radius: 15;" />
-                <Label layoutX="138.0" layoutY="230.0" prefHeight="50.0" prefWidth="110.0" text="Application Id:">
+                <Label alignment="CENTER" layoutX="127.0" layoutY="230.0" prefHeight="50.0" prefWidth="131.0" text="%lblApplicationID">
                     <font>
                         <Font name="Tahoma" size="16.0" />
                     </font>
                 </Label>
                 <TextField fx:id="applicationId" editable="false" layoutX="122.0" layoutY="280.0" prefHeight="38.0" prefWidth="142.0" style="-fx-background-radius: 15;" />
-                <Button fx:id="btnEdit" layoutX="141.0" layoutY="513.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="50.0" prefWidth="102.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="Edit">
+                <Button fx:id="btnEdit" alignment="CENTER" contentDisplay="CENTER" layoutX="141.0" layoutY="513.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="50.0" prefWidth="102.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="%btnEdit">
                     <font>
                         <Font size="15.0" />
                     </font>
                 </Button>
             <Line endX="146.0" layoutX="193.0" layoutY="365.0" startX="-146.0" stroke="#a5cef2" strokeWidth="2.0" />
-            <Label layoutX="77.0" layoutY="416.0" text="Vendos pikët:">
+            <Label alignment="CENTER" layoutX="67.0" layoutY="420.0" text="%lblVendosPikt">
                <font>
                   <Font name="Britannic Bold" size="22.0" />
                </font>
             </Label>
             <TextField fx:id="piket" layoutX="223.0" layoutY="415.0" prefHeight="26.0" prefWidth="82.0" style="-fx-border-color: #a5cef2; -fx-border-width: 4px;" />
-            <Label layoutX="141.0" layoutY="37.0" prefHeight="23.0" prefWidth="102.0" text="Supervisor Id:">
+            <Label alignment="CENTER" layoutX="128.0" layoutY="38.0" prefHeight="23.0" prefWidth="131.0" text="%lblSupervisorID">
                <font>
                   <Font name="Tahoma" size="16.0" />
                </font>
@@ -77,10 +77,10 @@
                     <children>
                         <TableView fx:id="tableKonkurimet" prefHeight="552.0" prefWidth="478.0" style="-fx-background-color: transparent; -fx-border-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-border-width: 2px; -fx-border-radius: 8px;">
                             <columns>
-                                <TableColumn fx:id="columnMbikqyresi" editable="false" prefWidth="111.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-size: 40px; -fx-font-family: Arial; -fx-border-color: white;" text="Mbikqyresi" />
-                                <TableColumn fx:id="columnStudenti" editable="false" prefWidth="178.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Studenti" />
-                                <TableColumn fx:id="columnAplikimi" editable="false" minWidth="0.0" prefWidth="210.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Aplikimi" />
-                                <TableColumn fx:id="columnPiket" editable="false" prefWidth="204.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Piket" />
+                                <TableColumn fx:id="columnMbikqyresi" editable="false" prefWidth="111.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-size: 40px; -fx-font-family: Arial; -fx-border-color: white;" text="%txtMbik" />
+                                <TableColumn fx:id="columnStudenti" editable="false" prefWidth="178.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="%txtStud" />
+                                <TableColumn fx:id="columnAplikimi" editable="false" minWidth="0.0" prefWidth="210.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="%txtApli" />
+                                <TableColumn fx:id="columnPiket" editable="false" prefWidth="204.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="%txtPiket" />
                             </columns>
                         </TableView>
                     </children>

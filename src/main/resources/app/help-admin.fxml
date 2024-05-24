@@ -29,7 +29,7 @@
             </font>
         </Label>
         <Line endX="171.0" layoutX="243.0" layoutY="219.0" startX="-196.0" stroke="#a5cef2" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="147.0" layoutY="237.0" prefHeight="22.0" prefWidth="163.0" style="-fx-border-color: #a5cef2; -fx-border-width: 0px 0px 2px 0px;" text="%lblElementetSiperme">
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="237.0" prefHeight="22.0" prefWidth="197.0" style="-fx-border-color: #a5cef2; -fx-border-width: 0px 0px 2px 0px;" text="%lblElementetSiperme">
             <font>
                 <Font size="14.0" />
             </font>
