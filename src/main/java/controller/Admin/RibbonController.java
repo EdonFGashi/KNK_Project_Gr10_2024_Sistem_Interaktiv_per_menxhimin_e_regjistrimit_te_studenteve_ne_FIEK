@@ -177,19 +177,7 @@ public class RibbonController {
         this.navigateAndSaveState(Navigatior.ADMIN_PROFILE);
     }
 
-    private void loadLanguage(String lang) {
-        Locale locale = new Locale(lang);
-        bundle = ResourceBundle.getBundle("Translations.content", locale);
 
-        lblRegistration.setText(bundle.getString("lblRegistration"));
-        lblStudent.setText(bundle.getString("lblStudent"));
-        lblSupervisor.setText(bundle.getString("lblSupervisor"));
-        lblinbox.setText(bundle.getString("lblinbox"));
-        mbProfile.setText(bundle.getString("mbProfile"));
-        mtGoToProfile.setText(bundle.getString("mtGoToProfile"));
-        mtChangeLanguage.setText(bundle.getString("mtChangeLanguage"));
-        mtSignOut.setText(bundle.getString("mtSignOut"));
-    }
     @FXML
     private void handleChangeLanguage(ActionEvent ae){
         if (currentLocale.getLanguage().equals("en")) {
@@ -197,7 +185,7 @@ public class RibbonController {
         } else {
             currentLocale = new Locale("en");
         }
-        loadLanguage(currentLocale.getLanguage());
+        //loadLanguage(currentLocale.getLanguage());
     }
     @FXML
     private void handleSignOut(ActionEvent ae){

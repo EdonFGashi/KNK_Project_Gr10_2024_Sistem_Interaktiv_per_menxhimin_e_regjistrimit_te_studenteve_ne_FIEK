@@ -84,6 +84,7 @@ public class StudentMenuKonkurimetController {
     private Afat selectedAfat;
 
 
+   private RegistrationListsToController allArrayLists;
 
    private AllRegistrationObservableLists lists;
 
@@ -146,14 +147,14 @@ public class StudentMenuKonkurimetController {
 
     @FXML
     private void handleLoadAfat(ActionEvent ae){
-        Afat selectedAfat = this.comboAfatId.getValue();
+        this.selectedAfat = this.comboAfatId.getValue();
 
-        RegistrationListsToController registrationListsToController = KonkurimetService.ktheKonkurimet(new KonkurimetByAfatDto(
+        this.allArrayLists = KonkurimetService.ktheKonkurimet(new KonkurimetByAfatDto(
                 selectedAfat.getId(), selectedAfat.getNiveli(), selectedAfat.getHera()
         ));
 
-        if(registrationListsToController != null) {
-            this.lists = new AllRegistrationObservableLists(registrationListsToController);
+        if(allArrayLists != null) {
+            this.lists = new AllRegistrationObservableLists(allArrayLists);
         }
         this.btnSwitchTables.setDisable(false);
     }
@@ -207,6 +208,7 @@ public class StudentMenuKonkurimetController {
 
 
 class AllRegistrationObservableLists {
+
     private ObservableList<KonkurimetDataFromDbDto> iksNormal;
     private ObservableList<KonkurimetDataFromDbDto> earNormal;
     private ObservableList<KonkurimetDataFromDbDto> eeNormal;

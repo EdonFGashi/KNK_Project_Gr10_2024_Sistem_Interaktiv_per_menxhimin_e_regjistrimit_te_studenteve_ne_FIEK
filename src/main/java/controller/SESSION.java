@@ -4,6 +4,8 @@ import model.Admin;
 import model.SupervisorTableModel;
 import model.User;
 
+import java.util.Locale;
+
 public class SESSION {
     private static Admin loggedAdmin;
 
@@ -26,6 +28,9 @@ public class SESSION {
     private static int user;
     private static String UserLevel = "";
     private static int AplicantAfatID;
+
+
+    private static boolean toggleShqip = true;
     private SESSION() {}
 
     public static String getSupervisor_lastSearch() {return supervisor_lastSearch;}
@@ -139,4 +144,28 @@ public class SESSION {
         return  AplicantAfatID;
     }
 
+    public static String getUserLevel() {
+        return UserLevel;
+    }
+
+    public static void setUserLevel(String userLevel) {
+        UserLevel = userLevel;
+    }
+
+    public static int getAplicantAfatID() {
+        return AplicantAfatID;
+    }
+
+    public static boolean isToggleShqip() {
+        return toggleShqip;
+    }
+
+    public static void setToggleShqip(boolean toggleShqip) {
+        SESSION.toggleShqip = toggleShqip;
+        if(toggleShqip) {
+            Locale.setDefault(new Locale("sq"));
+        }else{
+            Locale.setDefault(new Locale("en"));
+        }
+    }
 }
