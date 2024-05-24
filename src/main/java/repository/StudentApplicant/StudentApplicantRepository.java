@@ -1,10 +1,7 @@
 package repository.StudentApplicant;
 
 import controller.SESSION;
-import model.dto.Student.AcademicInterestDto;
-import model.dto.Student.MasterApplicantDto;
-import model.dto.Student.PersonDTO;
-import model.dto.Student.StudentApplicantDto;
+import model.dto.Student.*;
 import service.DBConnector;
 
 import java.io.ByteArrayOutputStream;
@@ -129,6 +126,69 @@ public class StudentApplicantRepository {
             }
         }
 
+
+    public static boolean savePHDData(PHDApplicantDto dto) {
+        Connection conn = DBConnector.getConnection();
+        if (conn == null) {
+            System.out.println("Lidhja me bazën e të dhënave nuk është e mundur.");
+            return false;
+        }
+
+        // Query për të ruajtur të dhënat në tabelën tblShkollaMesme
+        String queryShkollaMesme = "INSERT INTO tblShkollaMesme (userId, emriShkolles, suksesiKl10, suksesiKl11, certifikataNotave, leternjoftimi, diplomaShkolles) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        try (PreparedStatement statementShkollaMesme = conn.prepareStatement(queryShkollaMesme)) {
+            statementShkollaMesme.setInt(1, dto.getUserId());
+            statementShkollaMesme.setString(2, dto.getFacultyName());
+            statementShkollaMesme.setDouble(3, dto.getSuccesGradeFirstY());
+            statementShkollaMesme.setDouble(4, dto.getSuccesGradeSecondY());
+            statementShkollaMesme.setBytes(5,  convertFileToBytes(dto.getFileBachelor()));
+            statementShkollaMesme.setBytes(6, convertFileToBytes(dto.getFileIdentification()));
+            statementShkollaMesme.setBytes(7, convertFileToBytes(dto.getFileMaster()));
+
+            int affectedRowsShkollaMesme = statementShkollaMesme.executeUpdate();
+            if (affectedRowsShkollaMesme > 0) {
+                System.out.println("Të dhënat në tblShkollaMesme u ruajtën me sukses.");
+            } else {
+                System.out.println("Nuk u arrit të ruajë të dhënat në tblShkollaMesme.");
+                return false;
+            }
+        } catch (SQLException e) {
+            System.out.println("Gabim gjatë ruajtjes së të dhënave në tblShkollaMesme: " + e.getMessage());
+            return false;
+        }
+
+
+        // Query për të ruajtur të dhënat në tabelën tblAplikimi
+        String queryAplikimi = "INSERT INTO tblAplikimi (shkollaId, deptIdPrioritet1,afatId) VALUES (?, ?, ?, ?)";
+
+        try (PreparedStatement statementAplikimi = conn.prepareStatement(queryAplikimi)) {
+            int deptId=getDepartmentId(conn, dto.getDeptName(),getDeptLevel());
+
+            statementAplikimi.setInt(1, findShkollaIdByUserId(dto.getUserId(),conn));
+            statementAplikimi.setInt(2, deptId);
+            statementAplikimi.setNull(3, SESSION.getAplicantAfatId());
+
+
+            int affectedRowsAplikimi = statementAplikimi.executeUpdate();
+            if (affectedRowsAplikimi > 0) {
+                System.out.println("Të dhënat në tblAplikimi u ruajtën me sukses.");
+                return true;
+            } else {
+                System.out.println("Nuk u arrit të ruajë të dhënat në tblAplikimi.");
+                return false;
+            }
+        } catch (SQLException e) {
+            System.out.println("Gabim gjatë ruajtjes së të dhënave në tblAplikimi: " + e.getMessage());
+            return false;
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                System.out.println("Gabim gjatë mbylljes së lidhjes me bazën e të dhënave: " + e.getMessage());
+            }
+        }
+    }
 
 
     private static int findShkollaIdByUserId(int userId, Connection conn) {
