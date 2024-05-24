@@ -74,7 +74,7 @@ public class InboxController{
                                         NjoftimPaneController controller = (NjoftimPaneController) data.getController();
                                         controller.setNjoftimi(njoftim);
                                         controller.setController(this);
-                                        contentVBox.getChildren().add(PaneNjoftimi);
+                                        //contentVBox.getChildren().add(PaneNjoftimi);
                                 }else{
                                         System.out.println("Pane nuk u gjet!");
                                 }

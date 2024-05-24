@@ -59,9 +59,6 @@
                            </cursor>
                         </ImageView>
                         <ImageView fx:id="imgTranslate" fitHeight="37.0" fitWidth="35.0" layoutX="5.0" layoutY="16.0" onMouseClicked="#handleChangeLanguage" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/language-sq.png" />
-                           </image>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>

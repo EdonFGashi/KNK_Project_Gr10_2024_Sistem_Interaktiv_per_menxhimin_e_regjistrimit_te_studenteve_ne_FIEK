@@ -38,7 +38,9 @@ public class SESSION {
     private static boolean toggleShqip = true;
 
 
-    private static String lastAdminMenu = "";
+    private static int lastMenuOption = 0;
+
+    private static int lastActiveOption = 0;
 
     private static String lastRibonnPage = "";
     private SESSION() {}
@@ -192,14 +194,8 @@ public class SESSION {
 
 
 
-    public static String getLastAdminMenu() {
-        return lastAdminMenu;
-    }
 
-    public static void setLastAdminMenu(String lastAdminMenu) {
-        SESSION.lastAdminMenu = lastAdminMenu;
 
-    }
 
     public static String getLastRibonnPage() {
         return lastRibonnPage;
@@ -221,5 +217,31 @@ public class SESSION {
     public static int getLoginPenaltyTime(){return loginPenaltyTime;}
     public static void setLoginPenaltyTime(int loginPenaltyTime) {SESSION.loginPenaltyTime = loginPenaltyTime;}
 
+    public static boolean isLoginPenalty() {
+        return loginPenalty;
+    }
 
+    public static int getLoginPenaltyRemainingTime() {
+        return loginPenaltyRemainingTime;
+    }
+
+    public static void setLoginPenaltyRemainingTime(int loginPenaltyRemainingTime) {
+        SESSION.loginPenaltyRemainingTime = loginPenaltyRemainingTime;
+    }
+
+    public static int getLastActiveOption() {
+        return lastActiveOption;
+    }
+
+    public static void setLastActiveOption(int lastActiveOption) {
+        SESSION.lastActiveOption = lastActiveOption;
+    }
+
+    public static int getLastMenuOption() {
+        return lastMenuOption;
+    }
+
+    public static void setLastMenuOption(int lastMenuOption) {
+        SESSION.lastMenuOption = lastMenuOption;
+    }
 }

@@ -27,9 +27,7 @@
             <HBox fx:id="hboxOption1" alignment="CENTER_LEFT" layoutX="22.0" layoutY="312.0" onMouseClicked="#handleOption1Click" onMouseEntered="#handleHoverOption1" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
                <children>
                   <ImageView fx:id="imgOption1" fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Images/showAndEditStudent.png" />
-                     </image>
+
                   </ImageView>
                   <Label fx:id="txtOption1" prefHeight="42.0" prefWidth="168.0" text="Show and Edit" textFill="WHITE">
                      <font>
