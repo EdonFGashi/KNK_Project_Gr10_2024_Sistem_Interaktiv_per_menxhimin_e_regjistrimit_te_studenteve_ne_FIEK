@@ -97,7 +97,7 @@ public class StudentApplicantRepository {
 
                 statementAplikimi.setInt(1, findShkollaIdByUserId(dto.getUserId(),conn));
                 statementAplikimi.setInt(2, deptId);
-                statementAplikimi.setNull(3, SESSION.getAplicantAfatId());
+                statementAplikimi.setInt(3, SESSION.getAplicantAfatId());
                  System.out.println("Afat id:"+SESSION.getAplicantAfatId());
 
                 int affectedRowsAplikimi = statementAplikimi.executeUpdate();
@@ -155,7 +155,7 @@ public class StudentApplicantRepository {
 
             statementAplikimi.setInt(1, findShkollaIdByUserId(dto.getUserId(),conn));
             statementAplikimi.setInt(2, deptId);
-            statementAplikimi.setNull(3, SESSION.getAplicantAfatId());
+            statementAplikimi.setInt(3, SESSION.getAplicantAfatId());
 
 
             int affectedRowsAplikimi = statementAplikimi.executeUpdate();

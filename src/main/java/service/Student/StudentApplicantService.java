@@ -19,34 +19,21 @@ public class StudentApplicantService {
         this.repository = new StudentApplicantRepository();
     }
 
-    public static void processAndSaveData(StudentApplicantDto dto) throws Exception {
-        // Validimi i të dhënave
-        if (dto.getSchoolName() == null || dto.getMathPoints()<0 ||
-                dto.getAlbanianPoints() <0 || dto.getChoosenSub().isEmpty() ||
-                dto.getChoosenSubPoints() <0 || dto. getTotalPoints() <0|| dto. getEnglishPoints() <0|| dto. getSuccesGrade10() <0 ||dto. getSuccesGrade11() <0 ||dto. getSuccesGrade12() <0 || dto.getFileCertificate() == null
-                || dto.getFileIdentification() == null|| dto.getFileDiploma() == null) {
-            throw new IllegalArgumentException("Të gjitha fushat duhet të plotësohen.");
-        }
+    public static void processAndSaveData(StudentApplicantDto dto)  {
 
-       
         StudentApplicantRepository.saveData(dto);
     }
 
-    public static void processAndSaveMasterData(MasterApplicantDto dto) throws Exception {
+    public static void processAndSaveMasterData(MasterApplicantDto dto)  {
         // Validate data
-        if (dto.getFacultyName() == null || dto.getFacultyName().isEmpty() ||
-                dto.getFirstYear() < 0 || dto.getSecondYear() < 0 || dto.getThirdYear() < 0 ||
-                dto.getFileIdentification() == null || dto.getFileBachelorDegree() == null ||
-        dto.getDeptName() == null || dto.getDeptName().isEmpty()) {
-            throw new IllegalArgumentException("All fields must be completed.");
-        }
+
 
         // Save data to repository
         StudentApplicantRepository.saveMasterData(dto);
     }
 
 
-    public static void processAndSavePHDData(PHDApplicantDto dto) throws Exception {
+    public static void processAndSavePHDData(PHDApplicantDto dto)  {
         // Validate data
 //        if (dto.getFacultyName() == null  ||
 //                dto.getSuccesGradeFirstY() < 6 || dto.getSuccesGradeSecondY() < 6 ||

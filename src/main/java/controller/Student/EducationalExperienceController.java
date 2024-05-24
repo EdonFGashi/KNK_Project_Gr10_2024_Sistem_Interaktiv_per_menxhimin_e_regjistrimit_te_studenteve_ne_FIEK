@@ -96,7 +96,9 @@ public class EducationalExperienceController {
 
         // e shtove SESSION para getLoggedUser()
         StudentApplicantDto dto = new StudentApplicantDto(SESSION.getLoggedUser().getId(), ShkMesme, Matematike, Shqip, Anglisht, LendaZgjedhur, PikatLendesZgjedhur,PikatGjithsej,Sukses10,Sukses11,Sukses12,imageFile1,imageFile2,imageFile3);
-
+        System.out.println("Admin" + SESSION.getLoggedUser().getId());
+        System.out.println(ShkMesme);
+        System.out.println(Matematike);
         try {
             service.Student.StudentApplicantService.processAndSaveData(dto);
             // Trego një mesazh suksesi
