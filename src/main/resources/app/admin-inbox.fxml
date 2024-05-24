@@ -14,33 +14,33 @@
       <AnchorPane layoutX="31.0" layoutY="66.0" prefHeight="583.0" prefWidth="486.0" style="-fx-background-radius: 5; -fx-background-color: white; -fx-border-radius: 5; -fx-border-color: lightgray;">
          <children>
             <TextField fx:id="txtAdminId" editable="false" layoutX="265.0" layoutY="376.0" prefHeight="50.0" prefWidth="176.0" style="-fx-background-radius: 15;" />
-            <Label layoutX="259.0" layoutY="325.0" prefHeight="50.0" prefWidth="140.0" text="Admin Id:">
+            <Label layoutX="270.0" layoutY="325.0" prefHeight="50.0" prefWidth="129.0" text="%lblAdminID">
                <font>
                   <Font name="Tahoma" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="24.0" layoutY="23.0" prefHeight="50.0" prefWidth="287.0" text="Njoftimi:">
+            <Label layoutX="24.0" layoutY="23.0" prefHeight="50.0" prefWidth="287.0" text="%lblNjoftimet">
                <font>
                   <Font name="Tahoma" size="18.0" />
                </font>
             </Label>
             <TextArea fx:id="fielNjoftimi" layoutX="23.0" layoutY="73.0" prefHeight="234.0" prefWidth="434.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-width: 1; -fx-border-color: lightgray;" />
-            <Button layoutX="174.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeleteNjoftim" prefHeight="43.0" prefWidth="112.0" style="-fx-background-radius: 10; -fx-background-color: #AA4A44;" text="Delete" textFill="WHITE">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="174.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeleteNjoftim" prefHeight="43.0" prefWidth="112.0" style="-fx-background-radius: 10; -fx-background-color: #AA4A44;" text="%btnDelete" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button layoutX="329.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleCreateNewNjoftim" prefHeight="43.0" prefWidth="112.0" style="-fx-background-radius: 10; -fx-background-color: #088F8F;" text="Create New" textFill="WHITE">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="329.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleCreateNewNjoftim" prefHeight="43.0" prefWidth="112.0" style="-fx-background-radius: 10; -fx-background-color: #088F8F;" text="%btnCreatNew" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button layoutX="35.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleEditNjoftim" prefHeight="43.0" prefWidth="112.0" style="-fx-background-radius: 10; -fx-background-color: #0986F1;" text="Edit" textFill="WHITE">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleEditNjoftim" prefHeight="43.0" prefWidth="112.0" style="-fx-background-radius: 10; -fx-background-color: #0986F1;" text="%btnEdit" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Label layoutX="21.0" layoutY="325.0" prefHeight="50.0" prefWidth="140.0" text="Njoftim Id:">
+            <Label layoutX="22.0" layoutY="325.0" prefHeight="50.0" prefWidth="139.0" text="%lblNjoftimID">
                <font>
                   <Font name="Tahoma" size="18.0" />
                </font>

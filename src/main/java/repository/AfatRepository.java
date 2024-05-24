@@ -152,6 +152,49 @@ public class AfatRepository {
             return null;
         }
     }
+
+
+
+    //////////////
+    public static Afat getAfatiRegjistrimitForStudent(int userId){
+        String query = """
+                SELECT DISTINCT tblAfati.*
+                FROM tblAfati
+                JOIN tblAplikimi ON tblAfati.afatId = tblAplikimi.afatId
+                JOIN tblShkollaMesme ON tblAplikimi.shkollaId = tblShkollaMesme.shkollaId
+                WHERE tblShkollaMesme.userId = ?;                   
+                          """;
+        Connection conn = DBConnector.getConnection();
+        try {
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setInt(1, userId);
+            ResultSet result = pst.executeQuery();
+            return getAfatiRegjistrimitForStudentFromResultSte(result);
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+    private static Afat getAfatiRegjistrimitForStudentFromResultSte(ResultSet result) {
+        try {
+            while(result.next()) {
+                int afatId = result.getInt("afatId");
+                String hera = result.getString("hera");
+                int viti = result.getInt("viti");
+                Date dataHapjes = result.getDate("dataHapjes");
+                Date dataMbylljes = result.getDate("dataMbylljes");
+                String niveli = result.getString("niveli");
+                return new Afat(afatId, viti, hera, dataHapjes.toString(), dataMbylljes.toString(), niveli);
+            }
+            return null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }
 
 

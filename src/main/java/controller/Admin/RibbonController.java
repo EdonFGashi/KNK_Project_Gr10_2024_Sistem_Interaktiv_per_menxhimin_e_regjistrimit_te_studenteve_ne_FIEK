@@ -8,20 +8,26 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import controller.SESSION;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
+
+//import service.StudentPdfCreatorService;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.time.LocalDate;
+import java.util.Date;
 
 public class RibbonController {
 
@@ -63,6 +69,7 @@ public class RibbonController {
     private Image imageGoForwardWhite;
     private Image imageGoForwardGray;
 
+
     @FXML
     private Label lblRegistration;
     @FXML
@@ -81,22 +88,49 @@ public class RibbonController {
     private MenuItem mtSignOut;
 
     @FXML
+    private ImageView imgTranslate;
+
+
+
+
+    @FXML
     private void initialize(){
+
+
+
         if(BackAndForth.getIndex() == -1){
+
             SESSION.setAdminMenu("Student");
             Navigatior.navigate(this.addPane, Navigatior.ADMIN_MENU);
             BackAndForth.addOnePage(Navigatior.ADMIN_MENU+"S");
+
         }else{
-            this.navigateAndSaveState(Navigatior.ADMIN_MENU+"S");
+
+            this.gotoCurrentPage();
+
         }
+
+        try {
+        if(SESSION.isToggleShqip()){
+                this.imgTranslate.setImage(new Image(new FileInputStream("src/main/resources/Images/language-en.png")));
+        }
+        else {
+            this.imgTranslate.setImage(new Image(new FileInputStream("src/main/resources/Images/language-sq.png")));
+        }
+         } catch (FileNotFoundException e) {
+        throw new RuntimeException(e);
+        }
+
 
         try {
             this.imageGoBackWhite = new Image(new FileInputStream("src/main/resources/Images/backArrow.png"));
             this.imageGoBackGray = new Image(new FileInputStream("src/main/resources/Images/grayBackArrow.png"));
             this.imageGoForwardWhite = new Image(new FileInputStream("src/main/resources/Images/forwardArrow.png"));
             this.imageGoForwardGray = new Image(new FileInputStream("src/main/resources/Images/grayForwardArrow.png"));
+
         } catch (FileNotFoundException e) {
-         //
+            System.out.println("File not foundd");
+            e.printStackTrace();
         }
 
 
@@ -171,28 +205,11 @@ public class RibbonController {
         this.navigateAndSaveState(Navigatior.ADMIN_PROFILE);
     }
 
-    private void loadLanguage(String lang) {
-        Locale locale = new Locale(lang);
-        bundle = ResourceBundle.getBundle("Translations.content", locale);
 
-        lblRegistration.setText(bundle.getString("lblRegistration"));
-        lblStudent.setText(bundle.getString("lblStudent"));
-        lblSupervisor.setText(bundle.getString("lblSupervisor"));
-        lblinbox.setText(bundle.getString("lblinbox"));
-        mbProfile.setText(bundle.getString("mbProfile"));
-        mtGoToProfile.setText(bundle.getString("mtGoToProfile"));
-        mtChangeLanguage.setText(bundle.getString("mtChangeLanguage"));
-        mtSignOut.setText(bundle.getString("mtSignOut"));
-    }
-    @FXML
-    private void handleChangeLanguage(ActionEvent ae){
-        if (currentLocale.getLanguage().equals("en")) {
-            currentLocale = new Locale("sq");
-        } else {
-            currentLocale = new Locale("en");
-        }
-        loadLanguage(currentLocale.getLanguage());
-    }
+
+
+
+
     @FXML
     private void handleSignOut(ActionEvent ae){
         Navigatior.navigateNewStage(Navigatior.LOGIN);
@@ -251,7 +268,6 @@ public class RibbonController {
 //        System.out.println("__________________________________________________________________");
 
         setButtons();
-
     }
 
     private void goForth(){
@@ -259,6 +275,7 @@ public class RibbonController {
         String currentPage =BackAndForth.gotoForthPage();
         System.out.println("U Ekzekutu Forth Click");
         System.out.println("Faqja current: "+currentPage);
+
         if(currentPage !=null) {
             if(currentPage.contains("admin-Menu")) {
                 char menuChar = currentPage.charAt(currentPage.length()-1);
@@ -292,7 +309,6 @@ public class RibbonController {
       this.goForth();
 
     }
-
 
 
     private void navigateAndSaveState(String page){
@@ -333,6 +349,38 @@ public class RibbonController {
                this.imgGoForward.setDisable(false);
            }
     }
+
+
+    private void gotoCurrentPage(){
+        String currentPage =BackAndForth.gotoCurrentPage();
+        System.out.println("Current Page");
+        if(currentPage !=null) {
+            if(currentPage.contains("admin-Menu")) {
+                char menuChar = currentPage.charAt(currentPage.length()-1);
+                if(menuChar == 'S'){
+                    SESSION.setAdminMenu("Student");
+                } else if (menuChar == 'M') {
+                    SESSION.setAdminMenu("Supervisor");
+                }else if (menuChar == 'A') {
+                    SESSION.setAdminMenu("Afat");
+                }
+                Navigatior.navigate(this.addPane, currentPage.substring(0, currentPage.length()-1));
+            }else {
+                Navigatior.navigate(this.addPane, currentPage);
+            }
+            System.out.println("Index:" + BackAndForth.getIndex());
+        }
+
+    }
+
+    @FXML
+    private void handleChangeLanguage(MouseEvent me){
+
+        SESSION.switchLanguage();
+        Navigatior.navigate(me,Navigatior.ADMIN_RIBBON);
+    }
+
+
 }
 
 

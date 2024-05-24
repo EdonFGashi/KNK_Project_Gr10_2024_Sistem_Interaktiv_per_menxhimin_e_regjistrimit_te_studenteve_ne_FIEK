@@ -4,6 +4,7 @@ package service.Admin;
 import model.KonkurimetDataFromDbDto;
 import model.dto.Admin.*;
 import repository.AdminRepository;
+import repository.StudentRepository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -73,6 +74,36 @@ public class KonkurimetService {
 
         }
         return null;
+    }
+
+    public static String gjeneroId(String vitiAfatit, String numriFakultetit, String numriDepartamentit, int idFundit){
+        String idStudentit = "";
+        idStudentit += vitiAfatit;
+        idStudentit += numriFakultetit;
+        idStudentit += numriDepartamentit;
+//        idFundit++;
+        idStudentit += Integer.toString(idFundit);
+        return idStudentit;
+    }
+
+    public static String gjeneroEmail(String emri, String mbiemri){
+        int numriStudenteveMeEmerTeNjejt = StudentRepository.numriStudenteveMeEmerTeNjejt(emri, mbiemri);
+        String email = "";
+        email += emri;
+        email += ".";
+        email += mbiemri;
+        if(numriStudenteveMeEmerTeNjejt == 0){
+
+        } else if (numriStudenteveMeEmerTeNjejt > 0) {
+            email += Integer.toString(numriStudenteveMeEmerTeNjejt);
+        }
+
+        email += "@student.uni-pr.edu";
+        return email;
+    }
+
+    public static void regjistroStudentin(KonkurimetDataFromDbDto studenti){
+
     }
 
 }
@@ -216,5 +247,7 @@ class RegistrationMenager {
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toCollection(ArrayList::new));
     }
+
+
 
 }

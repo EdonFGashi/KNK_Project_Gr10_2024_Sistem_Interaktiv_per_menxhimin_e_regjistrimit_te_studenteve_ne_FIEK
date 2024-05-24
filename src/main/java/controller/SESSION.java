@@ -4,6 +4,8 @@ import model.Admin;
 import model.SupervisorTableModel;
 import model.User;
 
+import java.util.Locale;
+
 public class SESSION {
     private static Admin loggedAdmin;
 
@@ -18,6 +20,7 @@ public class SESSION {
 
     private static String admin_registration_lastSearch = "";
     private static String admin_supervisor_lastSearch = "";
+    private static String admin_semsStaf_lastSearch = "";
     private static int admin_reset_PasswordId = 0;
     private static String admin_reset_type = "";
     private static String admin_student_lastSearch = "";
@@ -25,6 +28,21 @@ public class SESSION {
     private static int user;
     private static String UserLevel = "";
     private static int AplicantAfatID;
+    private static boolean loginPenalty = false;
+    private static int loginPenaltyRemainingTime;
+    private static int loginAttemptCount;
+    private static int loginPenaltyTime;
+
+
+
+    private static boolean toggleShqip = true;
+
+
+    private static int lastMenuOption = 0;
+
+    private static int lastActiveOption = 0;
+
+    private static String lastRibonnPage = "";
     private SESSION() {}
 
     public static String getSupervisor_lastSearch() {return supervisor_lastSearch;}
@@ -66,6 +84,14 @@ public class SESSION {
 
     public static void setAdmin_supervisor_lastSearch(String admin_supervisor_lastSearch) {
         SESSION.admin_supervisor_lastSearch = admin_supervisor_lastSearch;
+    }
+
+    public static String getAdmin_semsStaf_lastSearch() {
+        return admin_semsStaf_lastSearch;
+    }
+
+    public static void setAdmin_semsStaf_lastSearch(String admin_semsStaf_lastSearch) {
+        SESSION.admin_semsStaf_lastSearch = admin_semsStaf_lastSearch;
     }
 
     public static void setAdmin_reset_type(String admin_reset_type) {
@@ -130,4 +156,92 @@ public class SESSION {
         return  AplicantAfatID;
     }
 
+    public static String getUserLevel() {
+        return UserLevel;
+    }
+
+    public static void setUserLevel(String userLevel) {
+        UserLevel = userLevel;
+    }
+
+    public static int getAplicantAfatID() {
+        return AplicantAfatID;
+    }
+
+    public static boolean isToggleShqip() {
+        return toggleShqip;
+    }
+
+    public static void setToggleShqip(boolean toggleShqip) {
+        SESSION.toggleShqip = toggleShqip;
+        if(toggleShqip) {
+            Locale.setDefault(new Locale("sq"));
+        }else{
+            Locale.setDefault(new Locale("en"));
+        }
+    }
+
+
+    public static void switchLanguage(){
+        if(toggleShqip) {
+            SESSION.toggleShqip = false;
+            Locale.setDefault(new Locale("sq"));
+        }else{
+            SESSION.toggleShqip = true;
+            Locale.setDefault(new Locale("en"));
+        }
+    }
+
+
+
+
+
+
+    public static String getLastRibonnPage() {
+        return lastRibonnPage;
+    }
+
+    public static void setLastRibonnPage(String lastRibonnPage) {
+        SESSION.lastRibonnPage = lastRibonnPage;
+    }
+
+    public static boolean getLoginPenalty(){return loginPenalty;}
+    public static void setLoginPenalty(boolean loginPenalty) {SESSION.loginPenalty = loginPenalty;}
+
+    public static int getLoginRemainingPenaltyTime(){return loginPenaltyRemainingTime;}
+    public static void setLoginRemainingPenaltyTime(int loginPenaltyTime) {SESSION.loginPenaltyRemainingTime = loginPenaltyTime;}
+
+    public static int getLoginAttemptCount(){return loginAttemptCount;}
+    public static void setLoginAttemptCount(int loginAttemptCount) {SESSION.loginAttemptCount = loginAttemptCount;}
+
+    public static int getLoginPenaltyTime(){return loginPenaltyTime;}
+    public static void setLoginPenaltyTime(int loginPenaltyTime) {SESSION.loginPenaltyTime = loginPenaltyTime;}
+
+    public static boolean isLoginPenalty() {
+        return loginPenalty;
+    }
+
+    public static int getLoginPenaltyRemainingTime() {
+        return loginPenaltyRemainingTime;
+    }
+
+    public static void setLoginPenaltyRemainingTime(int loginPenaltyRemainingTime) {
+        SESSION.loginPenaltyRemainingTime = loginPenaltyRemainingTime;
+    }
+
+    public static int getLastActiveOption() {
+        return lastActiveOption;
+    }
+
+    public static void setLastActiveOption(int lastActiveOption) {
+        SESSION.lastActiveOption = lastActiveOption;
+    }
+
+    public static int getLastMenuOption() {
+        return lastMenuOption;
+    }
+
+    public static void setLastMenuOption(int lastMenuOption) {
+        SESSION.lastMenuOption = lastMenuOption;
+    }
 }

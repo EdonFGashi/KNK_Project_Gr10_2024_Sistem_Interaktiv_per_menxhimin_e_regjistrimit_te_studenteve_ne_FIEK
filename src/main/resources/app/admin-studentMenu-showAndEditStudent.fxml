@@ -7,6 +7,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.ImageView?>
@@ -15,13 +16,14 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.StudentMenuShowAndEditController">
+<AnchorPane prefWidth="1270.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.StudentMenuShowAndEditController">
    <children>
-      <ScrollPane prefHeight="710.0" prefWidth="1269.0">
+      <ScrollPane prefHeight="710.0" prefWidth="1270.0">
          <content>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="1600.0" minWidth="-Infinity" prefHeight="836.0" prefWidth="1260.0">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="1600.0" minWidth="-Infinity" prefHeight="2122.0" prefWidth="1260.0">
                <children>
                   <ScrollPane layoutX="39.0" layoutY="120.0" prefHeight="318.0" prefWidth="1217.0" style="-fx-background-color: white; -fx-background-radius: 10;">
                      <effect>
@@ -179,7 +181,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="40.0" layoutY="1100.0" prefHeight="402.0" prefWidth="1154.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                  <AnchorPane layoutX="40.0" layoutY="1100.0" prefHeight="338.0" prefWidth="1154.0" style="-fx-background-color: white; -fx-background-radius: 10;">
                      <effect>
                         <DropShadow />
                      </effect>
@@ -293,6 +295,84 @@
                               <Font size="22.0" />
                            </font>
                         </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="40.0" layoutY="1491.0" prefHeight="557.0" prefWidth="1154.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <children>
+                        <Label layoutX="36.0" layoutY="74.0" prefHeight="30.0" prefWidth="315.0" text="Arsyeja e lëshimit të vërtetimit:" AnchorPane.leftAnchor="30.0">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="27.0" layoutY="239.0" prefHeight="30.0" prefWidth="315.0" text="Lokacioni i shkarkimit:" AnchorPane.leftAnchor="30.0">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtDownloadPath" layoutX="41.0" layoutY="272.0" prefHeight="45.0" prefWidth="803.0" promptText="C:\\Users\\Dell\\Desktop\\" style="-fx-background-radius: 15;" text="C:\\Users\\Dell\\Desktop\\" AnchorPane.leftAnchor="30.0" />
+                        <Label layoutX="426.0" layoutY="20.0" prefHeight="38.0" prefWidth="288.0" style="-fx-font-weight: bold;" text="Gjenero vërtetimin e studentit" textFill="#0a85ff">
+                           <font>
+                              <Font name="Tahoma" size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnEdit1" layoutX="903.0" layoutY="268.0" mnemonicParsing="false" onAction="#handleDownload" prefHeight="50.0" prefWidth="174.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="Shkarko vërtetimin">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <TextArea fx:id="txtIssueReason" layoutX="38.0" layoutY="116.0" prefHeight="101.0" prefWidth="1042.0" AnchorPane.leftAnchor="30.0" />
+                        <Line endX="932.5999755859375" endY="-1.220703125E-4" layoutX="153.0" layoutY="366.0" startX="-100.0" stroke="#001aff" />
+                        <Label layoutX="20.0" layoutY="434.0" prefHeight="30.0" prefWidth="148.0" text="Numri rendor:" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtNumriRendor" layoutX="20.0" layoutY="470.0" prefHeight="38.0" prefWidth="200.0" style="-fx-background-radius: 15;" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                        <Label layoutX="244.0" layoutY="435.0" prefHeight="30.0" prefWidth="169.0" text="Numri serik:">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtNumriSerik" layoutX="244.0" layoutY="471.0" prefHeight="38.0" prefWidth="200.0" style="-fx-background-radius: 15;">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                        <Button fx:id="btnVerifyDocument" layoutX="904.0" layoutY="458.0" mnemonicParsing="false" onAction="#handleVerify" prefHeight="50.0" prefWidth="174.0" style="-fx-background-radius: 20px; -fx-background-color: AA4A44; -fx-font-weight: bold;" text="Verifiko vërtetimin">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="472.0" layoutY="372.0" prefHeight="38.0" prefWidth="220.0" style="-fx-font-weight: bold;" text="Verifikimi i vërtetimeve" textFill="#0a85ff">
+                           <font>
+                              <Font name="Tahoma" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="470.0" layoutY="434.0" prefHeight="30.0" prefWidth="169.0" text="Id e studentit:">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtIdStudentit" layoutX="470.0" layoutY="470.0" prefHeight="38.0" prefWidth="200.0" style="-fx-background-radius: 15;">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="692.0" layoutY="433.0" prefHeight="30.0" prefWidth="169.0" text="Data e lëshimit:">
+                           <font>
+                              <Font name="Tahoma" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtDataLeshimit" layoutX="692.0" layoutY="469.0" prefHeight="38.0" prefWidth="150.0" style="-fx-background-radius: 15;">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
                      </children>
                   </AnchorPane>
                </children>

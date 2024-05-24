@@ -5,15 +5,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <VBox prefHeight="846.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.SupervisorMenuAddController">
    <children>
-      <HBox prefHeight="36.0" prefWidth="1920.0" />
+      <HBox prefHeight="70.0" prefWidth="1920.0" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <VBox.margin>
             <Insets />
@@ -24,31 +24,23 @@
          <children>
             <FlowPane alignment="CENTER" prefHeight="119.0" prefWidth="1488.0">
                <children>
-                  <FlowPane alignment="CENTER" prefHeight="63.0" prefWidth="478.0">
+                  <FlowPane alignment="CENTER" prefHeight="66.0" prefWidth="546.0">
                      <children>
                         <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="215.0" text="First Name:  ">
                            <font>
                               <Font name="Arial" size="23.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtFirstname" prefHeight="26.0" prefWidth="255.0" />
-                     </children>
-                  </FlowPane>
-                  <FlowPane alignment="CENTER" prefHeight="63.0" prefWidth="524.0">
-                     <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="210.0" text="Last Name:  ">
-                           <font>
-                              <Font name="Arial" size="23.0" />
-                           </font>
-                           <FlowPane.margin>
-                              <Insets />
-                           </FlowPane.margin>
-                        </Label>
-                        <TextField fx:id="txtLastname" prefHeight="26.0" prefWidth="251.0" />
+                        <TextField fx:id="txtFirstname" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" />
                      </children>
                   </FlowPane>
                </children>
             </FlowPane>
+            <AnchorPane prefHeight="200.0" prefWidth="300.0">
+               <children>
+                  <Label layoutX="13.0" layoutY="24.0" prefHeight="20.0" prefWidth="273.0" />
+               </children>
+            </AnchorPane>
          </children>
          <opaqueInsets>
             <Insets />
@@ -58,22 +50,55 @@
          <padding>
             <Insets bottom="20.0" left="10.0" right="50.0" top="10.0" />
          </padding>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
          <children>
-            <Pane fx:id="animationPane" prefHeight="73.0" prefWidth="80.0" />
-            <FlowPane alignment="CENTER" prefHeight="119.0" prefWidth="1488.0">
+            <FlowPane alignment="CENTER" prefHeight="70.0" prefWidth="566.0">
                <children>
-                  <FlowPane alignment="CENTER" prefHeight="63.0" prefWidth="478.0">
+                  <FlowPane alignment="CENTER" prefHeight="66.0" prefWidth="591.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="215.0" text="Last Name:  ">
+                           <font>
+                              <Font name="Arial" size="23.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtLastname" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" />
+                     </children>
+                  </FlowPane>
+               </children>
+            </FlowPane>
+            <AnchorPane prefHeight="200.0" prefWidth="300.0">
+               <children>
+                  <Label layoutX="12.0" layoutY="22.0" prefHeight="20.0" prefWidth="273.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <padding>
+            <Insets bottom="20.0" left="10.0" right="50.0" top="10.0" />
+         </padding>
+         <children>
+            <FlowPane alignment="CENTER" prefHeight="70.0" prefWidth="1462.0">
+               <children>
+                  <FlowPane alignment="CENTER" prefHeight="66.0" prefWidth="517.0">
                      <children>
                         <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="215.0" text="Email:  ">
                            <font>
                               <Font name="Arial" size="23.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtEmail" prefHeight="26.0" prefWidth="255.0" />
+                        <TextField fx:id="txtEmail" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" />
                      </children>
                   </FlowPane>
                </children>
             </FlowPane>
+            <AnchorPane prefHeight="200.0" prefWidth="300.0">
+               <children>
+                  <Label layoutX="10.0" layoutY="26.0" prefHeight="20.0" prefWidth="273.0" />
+               </children>
+            </AnchorPane>
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="90.0" prefWidth="1920.0">
@@ -83,16 +108,32 @@
          <children>
             <FlowPane alignment="CENTER" prefHeight="119.0" prefWidth="1488.0">
                <children>
-                  <FlowPane alignment="CENTER" prefHeight="63.0" prefWidth="478.0">
+                  <FlowPane alignment="CENTER" prefHeight="66.0" prefWidth="530.0">
                      <children>
                         <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="215.0" text="Password:  ">
                            <font>
                               <Font name="Arial" size="23.0" />
                            </font>
                         </Label>
-                        <PasswordField fx:id="pwdPasswordSupervisorSignUp" prefHeight="26.0" prefWidth="263.0" />
+                        <PasswordField fx:id="pwdPasswordSupervisorSignUp" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" />
                      </children>
                   </FlowPane>
+               </children>
+            </FlowPane>
+            <AnchorPane prefHeight="200.0" prefWidth="300.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="24.0" prefHeight="20.0" prefWidth="273.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="430.0" prefHeight="90.0" prefWidth="1920.0">
+         <padding>
+            <Insets bottom="20.0" left="10.0" right="50.0" top="10.0" />
+         </padding>
+         <children>
+            <FlowPane alignment="CENTER" prefHeight="119.0" prefWidth="1488.0">
+               <children>
                   <FlowPane alignment="CENTER" prefHeight="63.0" prefWidth="524.0">
                      <children>
                         <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="210.0" text="Confirm Password:  ">
@@ -103,27 +144,34 @@
                               <Insets />
                            </FlowPane.margin>
                         </Label>
-                        <PasswordField fx:id="pwdConfirmPasswordSupervisorSignUp" prefHeight="26.0" prefWidth="263.0" />
+                        <PasswordField fx:id="pwdConfirmPasswordSupervisorSignUp" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" />
                      </children>
                   </FlowPane>
                </children>
             </FlowPane>
+            <AnchorPane prefHeight="200.0" prefWidth="300.0">
+               <children>
+                  <Label layoutX="18.0" layoutY="22.0" prefHeight="20.0" prefWidth="273.0" />
+               </children>
+            </AnchorPane>
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="10.0" layoutY="310.0" prefHeight="100.0" prefWidth="200.0">
          <children>
             <FlowPane alignment="CENTER" prefHeight="71.0" prefWidth="1860.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#handleSignUpSupervisor" prefHeight="40.0" prefWidth="117.0" text="Sign Up">
-                     <FlowPane.margin>
-                        <Insets left="50.0" right="50.0" />
-                     </FlowPane.margin>
-                     <padding>
-                        <Insets right="5.0" />
-                     </padding>
+                  <Button mnemonicParsing="false" onAction="#handleSignUpSupervisor" prefHeight="40.0" prefWidth="218.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="Sign Up">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
                   </Button>
                </children>
             </FlowPane>
+            <AnchorPane prefHeight="200.0" prefWidth="300.0">
+               <children>
+                  <Label layoutX="-13.0" layoutY="1.0" prefHeight="20.0" prefWidth="273.0" />
+               </children>
+            </AnchorPane>
          </children>
          <padding>
             <Insets bottom="50.0" left="10.0" right="50.0" top="10.0" />

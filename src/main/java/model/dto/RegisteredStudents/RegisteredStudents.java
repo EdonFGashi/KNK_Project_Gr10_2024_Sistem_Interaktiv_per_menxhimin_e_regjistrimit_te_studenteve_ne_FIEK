@@ -3,14 +3,14 @@ package model.dto.RegisteredStudents;
 public class RegisteredStudents {
     private int userId;
     private String generatedEmail;
-    private String registeredEmail;
+    private String generatedId;
     private String emriDepartamentit;
     private String niveli;
 
-    public RegisteredStudents(int userId, String generatedEmail, String registeredEmail, String emriDepartamentit, String niveli) {
+    public RegisteredStudents(int userId, String generatedEmail, String generatedId, String emriDepartamentit, String niveli) {
         this.userId = userId;
         this.generatedEmail = generatedEmail;
-        this.registeredEmail = registeredEmail;
+        this.generatedId = generatedId;
         this.emriDepartamentit = emriDepartamentit;
         this.niveli = niveli;
     }
@@ -28,8 +28,8 @@ public class RegisteredStudents {
         return generatedEmail;
     }
 
-    public String getRegisteredEmail() {
-        return registeredEmail;
+    public String getGeneratedId() {
+        return generatedId;
     }
 
     public String getEmriDepartamentit() {

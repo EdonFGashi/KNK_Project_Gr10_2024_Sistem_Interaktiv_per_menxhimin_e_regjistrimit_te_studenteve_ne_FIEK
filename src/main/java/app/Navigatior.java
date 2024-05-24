@@ -9,6 +9,9 @@ Metodat niher spi fshij amo besoj e ndreqi ni menyr qysh me u en kahmos.
 
 */
 
+import controller.Admin.NjoftimPaneController;
+import controller.ComunicativeController;
+import controller.SESSION;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -16,16 +19,20 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.dto.Admin.comunicateControllerdto;
 
 import java.io.IOException;
-
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 
 interface OverallPages{
@@ -62,6 +69,7 @@ interface AdminPages{
     public final static String ADMIN_RESETPASSWORD = "admin-resetPassword.fxml";
 
     public final static String ADMIN_INBOX = "admin-inbox.fxml";
+    public final static String ADMIN_NJOFTIM_MODULE = "admin-inbol-njoftimPane.fxml";
 
 
 }
@@ -87,6 +95,7 @@ interface SupervisorPages{
     public final static String ADMIN_SUPERVISORMENU = "admin-supervisorMenu.fxml";
     public final static String ADMIN_SUPERVISORMENU_ADDSUPERVISOR = "admin-supervisorMenu-addSupervisor.fxml";
     public final static String ADMIN_SUPERVISORMENU_EDITSUPERVISOR = "admin-superVisorMenu-showAndEditSupervisor.fxml";
+    public final static String ADMIN_SUPERVISORMENU_APPROVESUPERVISORFROMSEMS = "admin-supervisorMenu-approveSupervisor.fxml";
 
 }
 
@@ -96,7 +105,6 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
 
     public static void navigate(Event event, String form){
         Node eventNode = (Node) event.getSource();
-
         Stage stage = (Stage) eventNode.getScene().getWindow();
         navigate(stage, form);
     }
@@ -106,6 +114,7 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         stage.setWidth(stage.getWidth());
         stage.setHeight(stage.getHeight());
         Scene newScene = new Scene(formPane);
+        //newScene.setFill(Color.BLUE);
         stage.setScene(newScene);
         stage.show();
     }
@@ -116,6 +125,7 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         stage.setHeight(stage.getHeight());
         Scene newScene = new Scene(mainPane);
         stage.setScene(newScene);
+       // newScene.setFill(Color.BLUE);
         stage.show();
     }
 
@@ -137,13 +147,37 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         return pane;
     }
 
+
+
     private static Pane loadPane(String page){
-        FXMLLoader loader = new FXMLLoader(
-                Navigatior.class.getResource(page)
+        //Locale.setDefault(new Locale("en"));
+
+        Locale locale;
+
+//        if(Locale.getDefault() == null) {
+//            locale = Locale.of("sq");
+//        }else {
+//            locale = Locale.getDefault();
+//        }
+
+        if(SESSION.isToggleShqip()){
+            locale = Locale.of("sq");
+        }else{
+            locale = Locale.of("en");
+        }
+
+
+        ResourceBundle bundle = ResourceBundle.getBundle(
+                "Translations.content",locale
         );
+        FXMLLoader loader = new FXMLLoader(
+                Navigatior.class.getResource(page), bundle
+        );
+
         try {
             return loader.load();
-        }catch (IOException ioe){
+        }catch (Exception ioe){
+            //ioe.printStackTrace();
             System.out.println("Error ne load");
             try {
                 StackPane pane = (new FXMLLoader(Navigatior.class.getResource(Navigatior.ERROR404))).load();
@@ -157,6 +191,9 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
 
         }
     }
+
+
+
     public static void closeStageAfterDelay(Event event, Duration delay) {
         Node eventNode = (Node) event.getSource();
         Stage stage = (Stage) eventNode.getScene().getWindow();
@@ -173,12 +210,66 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
     public static void navigateNewStage(String page){
          Scene scene = new Scene(loadPane(page));
         Stage stage = new Stage();
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+    public static void navigateNewMaxStage(String page){
+        Scene scene = new Scene(loadPane(page));
+        Stage stage = new Stage();
         stage.setMaximized(true);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
 
     }
+
+
+    public static comunicateControllerdto loadAndReturnController(String page){
+
+
+        try {
+
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource(page));
+
+            Parent MainPane = loader.load();
+
+            ComunicativeController controller = loader.getController();
+
+
+            return new comunicateControllerdto(
+                    controller, MainPane
+            );
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+       return null;
+    }
+
+    public static void navigateNewStageByPane(Parent loginPane) {
+        Scene scene = new Scene(loginPane);
+        Stage stage = new Stage();
+        stage.setMaximized(false);
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -231,5 +322,7 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         navigate(stage,mainPane);
 
     }
+
+
 }
 

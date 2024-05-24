@@ -76,4 +76,9 @@ public class BackAndForth {
     public static void setMaxIndex(int maxIndex) {
         BackAndForth.maxIndex = maxIndex;
     }
+    public static String gotoCurrentPage(){
+        return ribbonState.get(currentIndex);
+    }
+
+
 }

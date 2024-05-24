@@ -83,6 +83,14 @@ ADD FOREIGN KEY (mbikqyresiId) REFERENCES tblMbikqyresi(mbikqyresiId) ON DELETE 
 DROP table tblProvimiPranues;
 
 
+--15/05/2024 - Edoni
+CREATE TABLE tblArkiva (
+     documentId INT AUTO_INCREMENT PRIMARY KEY,
+     nrSerik VARCHAR(50) NOT NULL,
+     idStudentit VARCHAR(50) NOT NULL,
+     data DATE NOT NULL
+);
+
 -- 15/05/2024 - Joni
 ALTER TABLE tblNjoftimet
 MODIFY COLUMN text VARCHAR(2000);
@@ -107,6 +115,43 @@ ALTER TABLE tblAdmin
 MODIFY column email VARCHAR(50) UNIQUE;
 
 
+
+--18/05/2024 - Edoni
+--Ekzekutoni qita constrains
+ALTER TABLE tblSemsStaf
+    ADD CONSTRAINT unique_email UNIQUE (email);
+ALTER TABLE tblSemsStaf MODIFY COLUMN passwordHash VARCHAR(300);
+INSERT INTO tblSemsStaf (email, emri, mbiemri, salt, passwordHash, facultyId) VALUES
+                                                                                  ('blerim.rexha@uni-pr.edu', 'Blerim', 'Rexha', 'j3h2Cx8TuSOpYHGky0b0MO2M8LgUssjV0HrIh1swJ+U=',
+                                                                                   '6a3368324378385475534f705948476b793062304d4f324d384c675573736a5630487249683173774a2b553d394652fc5ab4fa9557a3fae5306ac417a3d356f883c2c85a7f329b79c29cba71', 220939),
+                                                                                  ('valon.raça@uni-pr.edu', 'Valon', 'Raça', 'j3h2Cx8TuSOpYHGky0b0MO2M8LgUssjV0HrIh1swJ+U=',
+                                                                                   '6a3368324378385475534f705948476b793062304d4f324d384c675573736a5630487249683173774a2b553d394652fc5ab4fa9557a3fae5306ac417a3d356f883c2c85a7f329b79c29cba71', 220109),
+                                                                                  ('qamil.kabashi@uni-pr.edu', 'Qamil', 'Kabashi', 'j3h2Cx8TuSOpYHGky0b0MO2M8LgUssjV0HrIh1swJ+U=',
+                                                                                   '6a3368324378385475534f705948476b793062304d4f324d384c675573736a5630487249683173774a2b553d394652fc5ab4fa9557a3fae5306ac417a3d356f883c2c85a7f329b79c29cba71', 220589),
+                                                                                  ('valon.veliu@uni-pr.edu', 'Valon', 'Veliu', 'j3h2Cx8TuSOpYHGky0b0MO2M8LgUssjV0HrIh1swJ+U=',
+                                                                                   '6a3368324378385475534f705948476b793062304d4f324d384c675573736a5630487249683173774a2b553d394652fc5ab4fa9557a3fae5306ac417a3d356f883c2c85a7f329b79c29cba71', 210548),
+                                                                                  ('milaim.zabeli@uni-pr.edu', 'Milaim', 'Zabeli', 'j3h2Cx8TuSOpYHGky0b0MO2M8LgUssjV0HrIh1swJ+U=',
+                                                                                   '6a3368324378385475534f705948476b793062304d4f324d384c675573736a5630487249683173774a2b553d394652fc5ab4fa9557a3fae5306ac417a3d356f883c2c85a7f329b79c29cba71', 220325),
+                                                                                  ('isak.shabani@uni-pr.edu', 'Isak', 'Shabani', 'j3h2Cx8TuSOpYHGky0b0MO2M8LgUssjV0HrIh1swJ+U=',
+                                                                                   '6a3368324378385475534f705948476b793062304d4f324d384c675573736a5630487249683173774a2b553d394652fc5ab4fa9557a3fae5306ac417a3d356f883c2c85a7f329b79c29cba71', 220547),
+                                                                                  ('kadri.sylejmani@uni-pr.edu', 'Kadri', 'Sylejmani', 'j3h2Cx8TuSOpYHGky0b0MO2M8LgUssjV0HrIh1swJ+U=',
+                                                                                   '6a3368324378385475534f705948476b793062304d4f324d384c675573736a5630487249683173774a2b553d394652fc5ab4fa9557a3fae5306ac417a3d356f883c2c85a7f329b79c29cba71', 220841),
+                                                                                  ('vjosa.shatri@uni-pr.edu', 'Vjosa', 'Shatri', 'j3h2Cx8TuSOpYHGky0b0MO2M8LgUssjV0HrIh1swJ+U=',
+                                                                                   '6a3368324378385475534f705948476b793062304d4f324d384c675573736a5630487249683173774a2b553d394652fc5ab4fa9557a3fae5306ac417a3d356f883c2c85a7f329b79c29cba71', 220874),
+                                                                                  ('valdete.rexhbeqajhamiti@uni-pr.edu', 'Valdete', 'Rexhbeqaj-Hamiti', 'j3h2Cx8TuSOpYHGky0b0MO2M8LgUssjV0HrIh1swJ+U=',
+                                                                                   '6a3368324378385475534f705948476b793062304d4f324d384c675573736a5630487249683173774a2b553d394652fc5ab4fa9557a3fae5306ac417a3d356f883c2c85a7f329b79c29cba71', 220125),
+                                                                                  ('blend.arifaj@uni-pr.edu', 'Blend', 'Arifaj', 'j3h2Cx8TuSOpYHGky0b0MO2M8LgUssjV0HrIh1swJ+U=',
+                                                                                   '6a3368324378385475534f705948476b793062304d4f324d384c675573736a5630487249683173774a2b553d394652fc5ab4fa9557a3fae5306ac417a3d356f883c2c85a7f329b79c29cba71', 220458),
+                                                                                  ('labeat.arbneshi@uni-pr.edu', 'Labeat', 'Arbneshi', 'j3h2Cx8TuSOpYHGky0b0MO2M8LgUssjV0HrIh1swJ+U=',
+                                                                                   '6a3368324378385475534f705948476b793062304d4f324d384c675573736a5630487249683173774a2b553d394652fc5ab4fa9557a3fae5306ac417a3d356f883c2c85a7f329b79c29cba71', 220458),
+                                                                                  ('synim.selimi@uni-pr.edu', 'Synim', 'Selimi', 'j3h2Cx8TuSOpYHGky0b0MO2M8LgUssjV0HrIh1swJ+U=',
+                                                                                   '6a3368324378385475534f705948476b793062304d4f324d384c675573736a5630487249683173774a2b553d394652fc5ab4fa9557a3fae5306ac417a3d356f883c2c85a7f329b79c29cba71', 220879),
+                                                                                  ('artan.mazrekaj@uni-pr.edu', 'Artan', 'Mazrekaj', 'j3h2Cx8TuSOpYHGky0b0MO2M8LgUssjV0HrIh1swJ+U=',
+                                                                                   '6a3368324378385475534f705948476b793062304d4f324d384c675573736a5630487249683173774a2b553d394652fc5ab4fa9557a3fae5306ac417a3d356f883c2c85a7f329b79c29cba71', 220412),
+                                                                                  ('dalina.vranoci@uni-pr.edu', 'Dalina', 'Vranoci', 'j3h2Cx8TuSOpYHGky0b0MO2M8LgUssjV0HrIh1swJ+U=',
+                                                                                   '6a3368324378385475534f705948476b793062304d4f324d384c675573736a5630487249683173774a2b553d394652fc5ab4fa9557a3fae5306ac417a3d356f883c2c85a7f329b79c29cba71', 220852),
+                                                                                  ('arbnor.halili@uni-pr.edu', 'Arbnor', 'Halili', 'j3h2Cx8TuSOpYHGky0b0MO2M8LgUssjV0HrIh1swJ+U=',
+                                                                                   '6a3368324378385475534f705948476b793062304d4f324d384c675573736a5630487249683173774a2b553d394652fc5ab4fa9557a3fae5306ac417a3d356f883c2c85a7f329b79c29cba71', 220659);
 
 -- 18/05/2024 - Joni
     CREATE VIEW vwKonkurrimetData AS
@@ -164,7 +209,7 @@ VALUES
     ('EAR', 'MSC', 20, 10, 0, 0),
     ('EE', 'MSC',  20, 10, 0, 0),
     ('TIK', 'MSC', 20, 10, 0, 0),
-     ('IKS', 'PHD', 20, 10, 0, 0),
+    ('IKS', 'PHD', 20, 10, 0, 0),
     ('EAR', 'PHD', 5, 5, 0, 0),
     ('EE', 'PHD', 5, 5, 0, 0),
     ('TIK', 'PHD', 5, 5, 0, 0);
@@ -173,7 +218,31 @@ VALUES
 ALTER TABLE tblKonkurimet
 DROP column provimiId;
 
+--24-05-2024 Edoni
+CREATE TABLE tblArkiva (
+                           documentId INT AUTO_INCREMENT PRIMARY KEY,
+                           nrSerik VARCHAR(50) NOT NULL,
+                           idStudentit VARCHAR(50) NOT NULL,
+                           data DATE NOT NULL
+);
+
+ALTER TABLE tblArkiva;
+INSERT INTO tblArkiva (nrSerik, idStudentit, data) VALUES ('489548', '220756100002', '2004-01-04');
+SELECT * FROM tblArkiva ORDER BY documentId DESC LIMIT 1;
+SELECT * FROM tblArkiva;
 
 
+CREATE TABLE tblUser(
+userId INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(50) NOT NULL,
+email VARCHAR(50)  NOT NULL,
+salt VARCHAR(100) NOT NULL,
+passwordHash VARCHAR(400) NOT NULL
+);
 
+ALTER TABLE tblUserStudent
+drop column salt;
+
+ALTER TABLE tblUserStudent
+drop column passwordHash;
 

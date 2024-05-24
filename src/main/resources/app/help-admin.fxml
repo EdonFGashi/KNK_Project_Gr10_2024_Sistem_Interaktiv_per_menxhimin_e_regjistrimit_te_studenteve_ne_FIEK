@@ -18,40 +18,40 @@
                 <Image url="@../../../../Images/info.png" />
             </image>
         </ImageView>
-        <Label layoutX="147.0" layoutY="140.0" prefHeight="35.0" prefWidth="191.0" text="Manuali i Adminit" textFill="#0a84ff">
+        <Label alignment="CENTER" layoutX="142.0" layoutY="140.0" prefHeight="35.0" prefWidth="177.0" text="%lblManualiAdminit" textFill="#0a84ff">
             <font>
                 <Font name="Arial" size="20.0" />
             </font>
         </Label>
-        <Label layoutX="80.0" layoutY="175.0" prefHeight="35.0" prefWidth="297.0" text="Ky manual ofron udhëzime për përdorimin e faqes!" textFill="#0a84ff">
+        <Label alignment="CENTER" layoutX="128.0" layoutY="175.0" prefHeight="35.0" prefWidth="197.0" text="%lblManInfo" textFill="#0a84ff">
             <font>
                 <Font size="13.0" />
             </font>
         </Label>
         <Line endX="171.0" layoutX="243.0" layoutY="219.0" startX="-196.0" stroke="#a5cef2" />
-        <Label layoutX="131.0" layoutY="237.0" prefHeight="22.0" prefWidth="197.0" style="-fx-border-color: #a5cef2; -fx-border-width: 0px 0px 2px 0px;" text="Elementet në pjesën e sipërme:">
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="237.0" prefHeight="22.0" prefWidth="197.0" style="-fx-border-color: #a5cef2; -fx-border-width: 0px 0px 2px 0px;" text="%lblElementetSiperme">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
         <HBox layoutX="68.0" layoutY="273.0" prefHeight="35.0" prefWidth="349.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTRATION - Faqja që mundson regjistrimin dhe modifikimin e afatit të vitit të ri akademik." textAlignment="JUSTIFY" wrappingWidth="340.13671875" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%txtRegInfo" textAlignment="JUSTIFY" wrappingWidth="340.13671875" />
          </children>
         </HBox>
       <HBox layoutX="68.0" layoutY="308.0" prefHeight="53.0" prefWidth="341.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="STUDENT - Pjesa ku mundësohet modifikimi i të dhënave të studentit, pjesa ku ndodhen të dhënat e plota të studentit dhe statistikat totale rreth studentëve përkatës." textAlignment="JUSTIFY" wrappingWidth="343.13671875" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%txtStudentInfo" textAlignment="JUSTIFY" wrappingWidth="343.13671875" />
          </children>
       </HBox>
       <HBox layoutX="66.0" layoutY="361.0" prefHeight="22.0" prefWidth="348.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SUPERVISOR - Pjesa ku mundësohet qasja në llogarit e mbikëqyrësve dhe shtimi/aprovimi i mbikëqyrësve të rinj." textAlignment="JUSTIFY" wrappingWidth="341.13671875" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%txtSupervisorInfo" textAlignment="JUSTIFY" wrappingWidth="341.13671875" />
          </children>
       </HBox>
       <HBox layoutX="66.0" layoutY="395.0" prefHeight="22.0" prefWidth="339.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="PROFILE - Mundëson qkyqjen nga llogaria dhe gjithashtu ndrrimin e gjuhës." textAlignment="JUSTIFY" wrappingWidth="343.41796875" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%txtProfileInfo" textAlignment="JUSTIFY" wrappingWidth="343.41796875" />
          </children>
       </HBox>
       <ImageView fx:id="helpProfileImg" fitHeight="91.0" fitWidth="375.0" layoutX="41.0" layoutY="442.0" pickOnBounds="true" preserveRatio="true">

@@ -14,9 +14,12 @@ import model.KonkurimetDataFromDbDto;
 import model.UserStudent;
 import model.dto.Admin.KonkurimetByAfatDto;
 import model.dto.Admin.RegistrationListsToController;
+import model.dto.RegisteredStudents.RegisteredStudents;
+import repository.StudentRepository;
 import service.Admin.AdminService;
 import service.Admin.KonkurimetService;
 import service.AfatService;
+import service.Student.StudentService;
 
 import java.util.ArrayList;
 
@@ -82,8 +85,8 @@ public class StudentMenuKonkurimetController {
     private ComboBox<String>comboDepartment;
 
     private Afat selectedAfat;
-
-
+    private String selectedDepartment;
+   private RegistrationListsToController allArrayLists;
 
    private AllRegistrationObservableLists lists;
 
@@ -146,21 +149,71 @@ public class StudentMenuKonkurimetController {
 
     @FXML
     private void handleLoadAfat(ActionEvent ae){
-        Afat selectedAfat = this.comboAfatId.getValue();
+        this.selectedAfat = this.comboAfatId.getValue();
 
-        RegistrationListsToController registrationListsToController = KonkurimetService.ktheKonkurimet(new KonkurimetByAfatDto(
+        this.allArrayLists = KonkurimetService.ktheKonkurimet(new KonkurimetByAfatDto(
                 selectedAfat.getId(), selectedAfat.getNiveli(), selectedAfat.getHera()
         ));
 
-        if(registrationListsToController != null) {
-            this.lists = new AllRegistrationObservableLists(registrationListsToController);
+        if(allArrayLists != null) {
+            this.lists = new AllRegistrationObservableLists(allArrayLists);
         }
         this.btnSwitchTables.setDisable(false);
     }
 
     @FXML
     private void handleAprove(ActionEvent event) {
+        String vitiAfatit = Integer.toString(selectedAfat.getYear()).substring(2);
+        String nrFakultetit = "07";
 
+        String numriDepartamentit = "";
+        this.selectedDepartment = this.comboDepartment.getValue();
+        if(selectedDepartment.equals("IKS")){
+            numriDepartamentit = "56";
+        } else if(selectedDepartment.equals("EE")){
+            numriDepartamentit = "18";
+        } else if(selectedDepartment.equals("TIK")){
+            numriDepartamentit = "58";
+        } else if(selectedDepartment.equals("EAR")){
+            numriDepartamentit = "57";
+        }
+        numriDepartamentit += "1";
+        System.out.println("Viti afatit: " + vitiAfatit);
+        System.out.println("Numri fakultetit: " + nrFakultetit);
+        System.out.println("Numri departamentit: " + selectedDepartment + numriDepartamentit);
+
+
+        ArrayList<KonkurimetDataFromDbDto> konkurimetList = allArrayLists.getIksNormal();
+        if(comboDepartment.getValue().equals("IKS") && radioNormal.isSelected()){
+            konkurimetList = allArrayLists.getIksNormal();
+        } else if(comboDepartment.getValue().equals("IKS") && radioMinority.isSelected()){
+            konkurimetList = allArrayLists.getIksMinoritet();
+        } else if(comboDepartment.getValue().equals("EE") && radioNormal.isSelected()){
+            konkurimetList = allArrayLists.getEeNormal();
+        } else if(comboDepartment.getValue().equals("EE") && radioMinority.isSelected()){
+            konkurimetList = allArrayLists.getEeMinoritet();
+        } else if(comboDepartment.getValue().equals("TIK") && radioNormal.isSelected()){
+            konkurimetList = allArrayLists.getTikNormal();
+        } else if(comboDepartment.getValue().equals("TIK") && radioMinority.isSelected()){
+            konkurimetList = allArrayLists.getTikMinoritet();
+        } if(comboDepartment.getValue().equals("EAR") && radioNormal.isSelected()){
+            konkurimetList = allArrayLists.getEarNormal();
+        } else if(comboDepartment.getValue().equals("EAR") && radioMinority.isSelected()){
+            konkurimetList = allArrayLists.getEarMinoritet();
+        }
+
+        int idCounter = 0;
+        for(KonkurimetDataFromDbDto studenti : konkurimetList){
+            String id = KonkurimetService.gjeneroId(vitiAfatit, nrFakultetit, numriDepartamentit, idCounter);
+            System.out.println("Id-ja: " + id);
+            idCounter++;
+
+            String email = KonkurimetService.gjeneroEmail(studenti.getEmri(), studenti.getMbiemri());
+            RegisteredStudents student = new RegisteredStudents(studenti.getUserId(), email, id, selectedDepartment, studenti.getNiveli());
+
+            boolean uRegjistrua = StudentService.registerStundent(student);
+            System.out.println(uRegjistrua);
+        }
     }
 
 
@@ -207,6 +260,7 @@ public class StudentMenuKonkurimetController {
 
 
 class AllRegistrationObservableLists {
+
     private ObservableList<KonkurimetDataFromDbDto> iksNormal;
     private ObservableList<KonkurimetDataFromDbDto> earNormal;
     private ObservableList<KonkurimetDataFromDbDto> eeNormal;

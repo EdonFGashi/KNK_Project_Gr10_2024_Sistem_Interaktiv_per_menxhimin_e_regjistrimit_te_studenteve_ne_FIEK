@@ -17,14 +17,28 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SupervisorService {
-    public static boolean signUp(SupervisorCreateInterfaceDto supervisorData) {
+    public static boolean signUp(SupervisorCreateInterfaceDto supervisorData) throws InvalidPassword {
+
+        SupervisorTableModel supervisor = SupervisorRepository.getSupervisorByEmail(supervisorData.getEmail());
         String password = supervisorData.getPassword();
         String confirmPassword = supervisorData.getConfirmPassword();
+            if((supervisorData.getFirstName().isEmpty()) ||
+                (supervisorData.getLastName().isEmpty()) ||
+                (supervisorData.getEmail().isEmpty()) ||
+                (supervisorData.getPassword().isEmpty()) ||
+                (supervisorData.getConfirmPassword().isEmpty())) {
+               throw new InvalidPassword("Mbushni të gjitha rubrikat !");
+              }
+            if(supervisor != null){
+                throw new InvalidPassword("Mbikqyrësi ekziston !");
+            }
 
-        if(!password.equals(confirmPassword)){
-            return false;
-        }
-
+            if(supervisorData.getPassword().length() < 8){
+                throw new InvalidPassword("Fjalëkalim shumë i shkurtë");
+            }
+            if(!password.equals(confirmPassword)){
+                throw new InvalidPassword("Fjalëkalimet nuk përputhen !");
+            }
 
         String salt = PasswordHasher.generateSalt();
         String passwordHash = PasswordHasher.generateSaltedHash(password, salt);
@@ -42,6 +56,9 @@ public class SupervisorService {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    public static boolean addSupervisorFromSems(SupervisorTableModel newSupervisorFromSems){
+        return SupervisorRepository.addSupervisorFromSems(newSupervisorFromSems);
     }
 
     public static boolean supervisorIsFoundByEmail(String email){

@@ -19,25 +19,25 @@
                 <HBox HBox.hgrow="ALWAYS" />
                 <AnchorPane prefHeight="574.0" prefWidth="845.0" style="-fx-background-color: white; -fx-background-radius: 5;">
                     <children>
-                        <Label layoutX="80.0" layoutY="78.0" prefHeight="35.0" prefWidth="136.0" text="First Name:">
+                        <Label layoutX="80.0" layoutY="78.0" prefHeight="35.0" prefWidth="136.0" text="%lblFirstName">
                             <font>
                                 <Font name="Tahoma" size="18.0" />
                             </font>
                         </Label>
                         <TextField fx:id="txtFirstName" layoutX="80.0" layoutY="113.0" prefHeight="35.0" prefWidth="312.0" style="-fx-background-radius: 15;" />
-                        <Label layoutX="80.0" layoutY="167.0" prefHeight="35.0" prefWidth="136.0" text="Last Name:">
+                        <Label layoutX="80.0" layoutY="167.0" prefHeight="35.0" prefWidth="136.0" text="%lblLastName">
                             <font>
                                 <Font name="Tahoma" size="18.0" />
                             </font>
                         </Label>
                         <TextField fx:id="txtLastName" layoutX="80.0" layoutY="203.0" prefHeight="35.0" prefWidth="312.0" style="-fx-background-radius: 15;" />
                         <TextField fx:id="txtEmail" layoutX="80.0" layoutY="296.0" prefHeight="35.0" prefWidth="312.0" style="-fx-background-radius: 15;" />
-                        <Label layoutX="80.0" layoutY="251.0" prefHeight="35.0" prefWidth="136.0" text="Email:">
+                        <Label layoutX="80.0" layoutY="251.0" prefHeight="35.0" prefWidth="136.0" text="%lblEmaili">
                             <font>
                                 <Font name="Tahoma" size="18.0" />
                             </font>
                         </Label>
-                        <Button layoutX="80.0" layoutY="387.0" mnemonicParsing="false" onAction="#handleChangePassword" prefHeight="42.0" prefWidth="158.0" style="-fx-background-radius: 15; -fx-background-color: #A5CEF2; -fx-border-width: 0.5; -fx-border-color: black; -fx-border-radius: 15;" text="Change Password">
+                        <Button layoutX="80.0" layoutY="387.0" mnemonicParsing="false" onAction="#handleChangePassword" prefHeight="42.0" prefWidth="172.0" style="-fx-background-radius: 15; -fx-background-color: #A5CEF2; -fx-border-width: 0.5; -fx-border-color: black; -fx-border-radius: 15;" text="%btnChangePassword">
                             <font>
                                 <Font name="Tahoma" size="15.0" />
                             </font>
