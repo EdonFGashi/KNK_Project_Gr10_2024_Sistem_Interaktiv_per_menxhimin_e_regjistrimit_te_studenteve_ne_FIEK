@@ -61,10 +61,11 @@
                </image>
             </ImageView>
             <HBox layoutX="110.0" layoutY="20.0" prefHeight="41.0" prefWidth="404.0" />
-            <Button fx:id="buttoni_qasja" layoutX="653.0" layoutY="477.0" mnemonicParsing="false" onAction="#handleQasja" onMouseEntered="#buttoni_qasja_hover" prefHeight="77.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-opacity: 0.5;">
+            <Button fx:id="buttoni_qasja" layoutX="653.0" layoutY="477.0" mnemonicParsing="false" onAction="#handleQasja" onMouseEntered="#buttoni_qasja_hover" onMouseExited="#buttoni_qasja_exit" prefHeight="77.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-opacity: 0.5;">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
+               </cursor>
+            </Button>
             <Text fx:id="txtQasja" fill="WHITE" layoutX="715.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="Qasja">
                <font>
                   <Font size="20.0" />
