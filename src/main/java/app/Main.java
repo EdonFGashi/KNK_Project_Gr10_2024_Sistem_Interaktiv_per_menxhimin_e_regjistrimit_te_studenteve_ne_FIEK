@@ -19,6 +19,7 @@ public class Main extends Application {
         stage.getIcons().add(new Image("upLogoNoRing.png"));
         stage.setTitle("Fiek Registration Menagment");
 
+
         Navigatior.navigate(stage,Navigatior.ADMIN_RIBBON);
 //
         // Per me testu ribbonin e mbikqyrsve
