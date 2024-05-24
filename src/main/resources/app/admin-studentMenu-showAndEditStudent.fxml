@@ -174,7 +174,7 @@
                               <Font name="Tahoma" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="663.0" layoutY="335.0" prefHeight="23.0" prefWidth="178.0" text="%DiplomeOfHighSchool">
+                        <Label layoutX="663.0" layoutY="335.0" prefHeight="23.0" prefWidth="220.0" text="%DiplomeOfHighSchool" textAlignment="CENTER">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
@@ -313,7 +313,7 @@
                            </font>
                         </Label>
                         <TextField fx:id="txtDownloadPath" layoutX="41.0" layoutY="272.0" prefHeight="45.0" prefWidth="803.0" promptText="C:\\Users\\Dell\\Desktop\\" style="-fx-background-radius: 15;" text="C:\\Users\\Dell\\Desktop\\" AnchorPane.leftAnchor="30.0" />
-                        <Label layoutX="426.0" layoutY="20.0" prefHeight="38.0" prefWidth="288.0" style="-fx-font-weight: bold;" text="%lblGjeneroVertet" textFill="#0a85ff">
+                        <Label layoutX="426.0" layoutY="20.0" prefHeight="38.0" prefWidth="288.0" style="-fx-font-weight: bold;" text="%lblGjeneroVertet" textAlignment="CENTER" textFill="#0a85ff">
                            <font>
                               <Font name="Tahoma" size="18.0" />
                            </font>
