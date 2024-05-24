@@ -41,22 +41,22 @@
                               <TableView fx:id="tableStudent" prefHeight="552.0" prefWidth="478.0" style="-fx-background-color: transparent; -fx-border-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-border-width: 2px; -fx-border-radius: 8px;">
                                  <columns>
                                     <TableColumn fx:id="columnId" editable="false" prefWidth="56.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-size: 40px; -fx-font-family: Arial; -fx-border-color: white;" text=" Id" />
-                                    <TableColumn fx:id="columnPersonalNumber" prefWidth="75.0" text="Personal num" />
-                                    <TableColumn fx:id="columnEmail" editable="false" prefWidth="135.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="email" />
-                                    <TableColumn fx:id="columnFirstName" editable="false" minWidth="0.0" prefWidth="114.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="First Name" />
-                                    <TableColumn fx:id="columnLastName" editable="false" minWidth="0.0" prefWidth="125.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Last Name" />
-                                    <TableColumn fx:id="columnNationality" editable="false" minWidth="0.0" prefWidth="134.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Nationality" />
-                                    <TableColumn fx:id="columnCity" editable="false" minWidth="0.0" prefWidth="128.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="City" />
-                                    <TableColumn fx:id="columnNation" editable="false" minWidth="0.0" prefWidth="146.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Nation" />
-                                    <TableColumn fx:id="columnGender" editable="false" minWidth="0.0" prefWidth="142.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Gender" />
-                                    <TableColumn fx:id="columnBirthDate" editable="false" minWidth="0.0" prefWidth="169.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Birth Date" />
+                                    <TableColumn fx:id="columnPersonalNumber" prefWidth="94.0" text="Personal num" />
+                                    <TableColumn fx:id="columnEmail" editable="false" prefWidth="116.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="email" />
+                                    <TableColumn fx:id="columnFirstName" editable="false" minWidth="0.0" prefWidth="114.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="%lblFirstName" />
+                                    <TableColumn fx:id="columnLastName" editable="false" minWidth="0.0" prefWidth="125.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="%lblLastName" />
+                                    <TableColumn fx:id="columnNationality" editable="false" minWidth="0.0" prefWidth="134.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="%txtNationality" />
+                                    <TableColumn fx:id="columnCity" editable="false" minWidth="0.0" prefWidth="128.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="%txtCity" />
+                                    <TableColumn fx:id="columnNation" editable="false" minWidth="0.0" prefWidth="146.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="%txtNation" />
+                                    <TableColumn fx:id="columnGender" editable="false" minWidth="0.0" prefWidth="142.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="%txtGender" />
+                                    <TableColumn fx:id="columnBirthDate" editable="false" minWidth="0.0" prefWidth="169.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="%txtBirthDate" />
                                  </columns>
                               </TableView>
                            </children>
                         </VBox>
                      </content>
                   </ScrollPane>
-                  <Label fx:id="txtSchoolName1" layoutX="34.0" layoutY="474.0" prefHeight="30.0" prefWidth="315.0" text="Student Has these Aplicant credentials">
+                  <Label fx:id="txtSchoolName1" layoutX="34.0" layoutY="474.0" prefHeight="30.0" prefWidth="315.0" text="%lblStudentCred">
                      <font>
                         <Font name="Tahoma" size="16.0" />
                      </font>
@@ -66,17 +66,17 @@
                         <DropShadow />
                      </effect>
                      <children>
-                        <Button fx:id="btnApprove" layoutX="617.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleAprove" prefHeight="50.0" prefWidth="121.0" style="-fx-background-radius: 20px; -fx-background-color: #5F9EA0; -fx-font-weight: bold;" text="Aprove">
+                        <Button fx:id="btnApprove" layoutX="617.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleAprove" prefHeight="50.0" prefWidth="121.0" style="-fx-background-radius: 20px; -fx-background-color: #5F9EA0; -fx-font-weight: bold;" text="%btnAprovo">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="762.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="50.0" prefWidth="210.0" style="-fx-background-radius: 20px; -fx-background-color: AA4A44; -fx-font-weight: bold;" text="Delete Selected Student">
+                        <Button layoutX="762.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="50.0" prefWidth="210.0" style="-fx-background-radius: 20px; -fx-background-color: AA4A44; -fx-font-weight: bold;" text="%btnDeleteSelectedStudent">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnResetPassword" layoutX="988.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleResetPassword" prefHeight="50.0" prefWidth="152.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="Reset Password">
+                        <Button fx:id="btnResetPassword" layoutX="988.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleResetPassword" prefHeight="50.0" prefWidth="152.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="%btnReset">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -103,55 +103,55 @@
                               <TextField fx:id="txtMath" editable="false" layoutX="269.0" layoutY="10.0" prefHeight="38.0" prefWidth="315.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <TextField fx:id="txtAlbanian" editable="false" layoutX="154.0" layoutY="64.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <TextField fx:id="txtEnglish" editable="false" layoutX="154.0" layoutY="64.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <Label prefHeight="23.0" prefWidth="134.0" text="School Name:">
+                              <Label prefHeight="23.0" prefWidth="134.0" text="%txtSchool">
                                  <font>
                                     <Font name="Tahoma" size="16.0" />
                                  </font>
                               </Label>
-                              <Label prefHeight="23.0" prefWidth="195.0" text="Mathematic Points:" GridPane.rowIndex="1">
+                              <Label prefHeight="23.0" prefWidth="195.0" text="%txtMathPoints" GridPane.rowIndex="1">
                                  <font>
                                     <Font name="Tahoma" size="16.0" />
                                  </font>
                               </Label>
-                              <Label prefHeight="23.0" prefWidth="195.0" text="Albanian points:" GridPane.rowIndex="2">
+                              <Label prefHeight="23.0" prefWidth="195.0" text="%txtAlbPoints" GridPane.rowIndex="2">
                                  <font>
                                     <Font name="Tahoma" size="16.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="10.0" layoutY="140.0" prefHeight="23.0" prefWidth="195.0" text="English points:" GridPane.rowIndex="3">
+                              <Label layoutX="10.0" layoutY="140.0" prefHeight="23.0" prefWidth="195.0" text="%txtEngPoints" GridPane.rowIndex="3">
                                  <font>
                                     <Font name="Tahoma" size="16.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="10.0" layoutY="187.0" prefHeight="23.0" prefWidth="195.0" text="Chosen Subject:" GridPane.rowIndex="4">
+                              <Label layoutX="10.0" layoutY="187.0" prefHeight="23.0" prefWidth="195.0" text="%lblChoosenSubject" GridPane.rowIndex="4">
                                  <font>
                                     <Font name="Tahoma" size="16.0" />
                                  </font>
                               </Label>
                               <TextField fx:id="txtChosenSubject" editable="false" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <Label layoutX="10.0" layoutY="209.0" prefHeight="23.0" prefWidth="195.0" text="Chosen Subject points:" GridPane.rowIndex="5">
+                              <Label layoutX="10.0" layoutY="209.0" prefHeight="23.0" prefWidth="195.0" text="%lblChosenSubjectPoints" GridPane.rowIndex="5">
                                  <font>
                                     <Font name="Tahoma" size="16.0" />
                                  </font>
                               </Label>
                               <TextField fx:id="txtChosenSubjectPoints" editable="false" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <Label prefHeight="23.0" prefWidth="222.0" text="All points on &quot;Mature&quot; test:" GridPane.rowIndex="6">
+                              <Label prefHeight="23.0" prefWidth="222.0" text="%lblAllPointsOnMatureTest" GridPane.rowIndex="6">
                                  <font>
                                     <Font name="Tahoma" size="16.0" />
                                  </font>
                               </Label>
                               <TextField fx:id="txtAllPoints" editable="false" layoutX="241.0" layoutY="256.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                              <Label prefHeight="23.0" prefWidth="222.0" text="Success in Grade 10" GridPane.rowIndex="7">
+                              <Label prefHeight="23.0" prefWidth="222.0" text="%SuccessInGrade10" GridPane.rowIndex="7">
                                  <font>
                                     <Font name="Tahoma" size="16.0" />
                                  </font>
                               </Label>
-                              <Label prefHeight="23.0" prefWidth="222.0" text="Success in Grade 11" GridPane.rowIndex="8">
+                              <Label prefHeight="23.0" prefWidth="222.0" text="%SuccessInGrade11" GridPane.rowIndex="8">
                                  <font>
                                     <Font name="Tahoma" size="16.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="10.0" layoutY="392.0" prefHeight="23.0" prefWidth="222.0" text="Success in Grade 12" GridPane.rowIndex="9">
+                              <Label layoutX="10.0" layoutY="392.0" prefHeight="23.0" prefWidth="222.0" text="%SuccessInGrade12" GridPane.rowIndex="9">
                                  <font>
                                     <Font name="Tahoma" size="16.0" />
                                  </font>
@@ -164,17 +164,17 @@
                         <ImageView fx:id="imgGradeCertificate" fitHeight="221.0" fitWidth="210.0" layoutX="628.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fx:id="imgIdentification" fitHeight="207.0" fitWidth="195.0" layoutX="929.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fx:id="imgDiplome" fitHeight="207.0" fitWidth="195.0" layoutX="891.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label layoutX="657.0" layoutY="9.0" prefHeight="23.0" prefWidth="152.0" text="Grade certificate:">
+                        <Label layoutX="657.0" layoutY="9.0" prefHeight="23.0" prefWidth="152.0" text="%GradeCertificate">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="950.0" layoutY="9.0" prefHeight="23.0" prefWidth="152.0" text="Indetification:">
+                        <Label layoutX="950.0" layoutY="9.0" prefHeight="23.0" prefWidth="152.0" text="%Identification">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="663.0" layoutY="335.0" prefHeight="23.0" prefWidth="178.0" text="Diplome of High Scool">
+                        <Label layoutX="663.0" layoutY="335.0" prefHeight="23.0" prefWidth="220.0" text="%DiplomeOfHighSchool" textAlignment="CENTER">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
@@ -186,22 +186,22 @@
                         <DropShadow />
                      </effect>
                      <children>
-                        <Label layoutX="36.0" layoutY="84.0" prefHeight="30.0" prefWidth="315.0" text="Generated Email:">
+                        <Label layoutX="36.0" layoutY="84.0" prefHeight="30.0" prefWidth="315.0" text="%lblGeneratedEmail">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="443.0" layoutY="84.0" prefHeight="30.0" prefWidth="315.0" text="Generated Id:">
+                        <Label layoutX="443.0" layoutY="84.0" prefHeight="30.0" prefWidth="315.0" text="%lblGeneratedID">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="29.0" layoutY="207.0" prefHeight="30.0" prefWidth="315.0" text="Departament Name:">
+                        <Label layoutX="29.0" layoutY="207.0" prefHeight="30.0" prefWidth="315.0" text="%lblDepName">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="443.0" layoutY="207.0" prefHeight="30.0" prefWidth="315.0" text="Level of Study:">
+                        <Label layoutX="443.0" layoutY="207.0" prefHeight="30.0" prefWidth="315.0" text="%lblLevelOfStudy">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
@@ -210,12 +210,12 @@
                         <TextField fx:id="txtGeneratedId" editable="false" layoutX="443.0" layoutY="122.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" />
                         <TextField fx:id="txtDepartment" editable="false" layoutX="35.0" layoutY="245.0" prefHeight="38.0" prefWidth="301.0" style="-fx-background-radius: 15;" />
                         <TextField fx:id="txtLevel" editable="false" layoutX="441.0" layoutY="245.0" prefHeight="38.0" prefWidth="307.0" style="-fx-background-radius: 15;" />
-                        <Label layoutX="463.0" layoutY="18.0" prefHeight="38.0" prefWidth="242.0" style="-fx-font-weight: bold;" text="Registered Details" textFill="#0a85ff">
+                        <Label layoutX="463.0" layoutY="18.0" prefHeight="38.0" prefWidth="242.0" style="-fx-font-weight: bold;" text="%lblRegisteredDetails" textFill="#0a85ff">
                            <font>
                               <Font name="Tahoma" size="18.0" />
                            </font>
                         </Label>
-                        <Button fx:id="btnEdit" layoutX="868.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="50.0" prefWidth="121.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="Edit">
+                        <Button fx:id="btnEdit" layoutX="868.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="50.0" prefWidth="121.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="%btnEdit">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -230,7 +230,7 @@
                         <TextField fx:id="txtSearch" layoutX="21.0" layoutY="10.0" prefHeight="38.0" prefWidth="335.0" promptText="Search" style="-fx-background-radius: 15;" />
                         <Button layoutX="365.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="38.0" prefWidth="59.0" style="-fx-background-radius: 20; -fx-background-color: #A5CEF2;" />
                         <ImageView fx:id="imgSearch" fitHeight="24.0" fitWidth="27.0" layoutX="381.0" layoutY="17.0" onMouseClicked="#handleSearchClick" pickOnBounds="true" preserveRatio="true" />
-                        <Button layoutX="1010.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleShowFilterStudents" prefHeight="38.0" prefWidth="158.0" style="-fx-background-color: #AA4A44; -fx-background-radius: 10;" text="Filter Students" textFill="WHITE">
+                        <Button layoutX="1010.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleShowFilterStudents" prefHeight="38.0" prefWidth="158.0" style="-fx-background-color: #AA4A44; -fx-background-radius: 10;" text="%btnFilterStudents" textFill="WHITE">
                            <font>
                               <Font name="Tahoma" size="17.0" />
                            </font>
@@ -239,58 +239,58 @@
                   </AnchorPane>
                   <AnchorPane fx:id="paneFilterShowHide" layoutX="630.0" layoutY="82.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="612.0" style="-fx-background-radius: 10; -fx-background-color: white; -fx-border-width: 1; -fx-border-color: #0986FF; -fx-border-radius: 10;" AnchorPane.leftAnchor="630.0" AnchorPane.topAnchor="82.0">
                      <children>
-                        <TextField fx:id="txtEmri" layoutX="30.0" layoutY="98.0" prefHeight="34.0" prefWidth="190.0" promptText="Emri" style="-fx-background-radius: 5; -fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #0986FF;" AnchorPane.leftAnchor="30.0">
+                        <TextField fx:id="txtEmri" layoutX="30.0" layoutY="98.0" prefHeight="34.0" prefWidth="190.0" promptText="%lblFirstName" style="-fx-background-radius: 5; -fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #0986FF;" AnchorPane.leftAnchor="30.0">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="txtMbiemri" layoutX="30.0" layoutY="168.0" prefHeight="34.0" prefWidth="190.0" promptText="Mbiemri" style="-fx-background-radius: 5; -fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #0986FF;" AnchorPane.leftAnchor="30.0">
+                        <TextField fx:id="txtMbiemri" layoutX="30.0" layoutY="168.0" prefHeight="34.0" prefWidth="190.0" promptText="%lblLastName" style="-fx-background-radius: 5; -fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #0986FF;" AnchorPane.leftAnchor="30.0">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="txtEmail" layoutX="30.0" layoutY="242.0" prefHeight="34.0" prefWidth="190.0" promptText="Email" style="-fx-background-radius: 5; -fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #0986FF;" AnchorPane.leftAnchor="30.0">
+                        <TextField fx:id="txtEmail" layoutX="30.0" layoutY="242.0" prefHeight="34.0" prefWidth="190.0" promptText="%lblEmaili" style="-fx-background-radius: 5; -fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #0986FF;" AnchorPane.leftAnchor="30.0">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="txtNumriPersonal" layoutX="30.0" layoutY="325.0" prefHeight="34.0" prefWidth="190.0" promptText="Numri Personal" style="-fx-background-radius: 5; -fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #0986FF;" AnchorPane.leftAnchor="30.0">
+                        <TextField fx:id="txtNumriPersonal" layoutX="30.0" layoutY="325.0" prefHeight="34.0" prefWidth="190.0" promptText="%lblPersonalNr" style="-fx-background-radius: 5; -fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #0986FF;" AnchorPane.leftAnchor="30.0">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="txtNacionaliteti" layoutX="337.0" layoutY="98.0" prefHeight="34.0" prefWidth="199.0" promptText="Nacionaliteti" style="-fx-background-radius: 5; -fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #0986FF;" AnchorPane.leftAnchor="337.0">
+                        <TextField fx:id="txtNacionaliteti" layoutX="337.0" layoutY="98.0" prefHeight="34.0" prefWidth="199.0" promptText="%txtNationality" style="-fx-background-radius: 5; -fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #0986FF;" AnchorPane.leftAnchor="337.0">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <Button layoutX="461.0" layoutY="412.0" mnemonicParsing="false" onAction="#handleFilter" prefHeight="43.0" prefWidth="96.0" style="-fx-background-radius: 10; -fx-background-color: #0986FF;" text="Filter" textFill="WHITE">
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="461.0" layoutY="412.0" mnemonicParsing="false" onAction="#handleFilter" prefHeight="43.0" prefWidth="96.0" style="-fx-background-radius: 10; -fx-background-color: #0986FF;" text="%btnFilter" textFill="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="txtShteti" layoutX="337.0" layoutY="168.0" prefHeight="34.0" prefWidth="199.0" promptText="Shteti" style="-fx-background-radius: 5; -fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #0986FF;" AnchorPane.leftAnchor="337.0">
+                        <TextField fx:id="txtShteti" layoutX="337.0" layoutY="168.0" prefHeight="34.0" prefWidth="199.0" promptText="%txtCountry" style="-fx-background-radius: 5; -fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #0986FF;" AnchorPane.leftAnchor="337.0">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="txtQyteti" layoutX="337.0" layoutY="242.0" prefHeight="34.0" prefWidth="199.0" promptText="Qyteti" style="-fx-background-radius: 5; -fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #0986FF;" AnchorPane.leftAnchor="337.0" AnchorPane.topAnchor="242.0">
+                        <TextField fx:id="txtQyteti" layoutX="337.0" layoutY="242.0" prefHeight="34.0" prefWidth="199.0" promptText="%txtCity" style="-fx-background-radius: 5; -fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #0986FF;" AnchorPane.leftAnchor="337.0" AnchorPane.topAnchor="242.0">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="txtGjinia" layoutX="30.0" layoutY="400.0" prefHeight="34.0" prefWidth="190.0" promptText="Gjinia" style="-fx-background-radius: 5; -fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #0986FF;" AnchorPane.leftAnchor="30.0">
+                        <TextField fx:id="txtGjinia" layoutX="30.0" layoutY="400.0" prefHeight="34.0" prefWidth="190.0" promptText="%txtGender" style="-fx-background-radius: 5; -fx-background-color: transparent; -fx-border-width: 0 0 2 0; -fx-border-color: #0986FF;" AnchorPane.leftAnchor="30.0">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <DatePicker fx:id="dataDataLindjes" layoutX="336.0" layoutY="325.0" prefHeight="34.0" prefWidth="199.0" promptText="Data Lindjes" />
-                        <Button layoutX="332.0" layoutY="412.0" mnemonicParsing="false" onAction="#handleCancelFilter" prefHeight="43.0" prefWidth="96.0" style="-fx-background-radius: 10; -fx-background-color: #AA4A44;" text="Cancel" textFill="WHITE">
+                        <DatePicker fx:id="dataDataLindjes" layoutX="336.0" layoutY="325.0" prefHeight="34.0" prefWidth="199.0" promptText="%txtBirthDate" />
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="332.0" layoutY="412.0" mnemonicParsing="false" onAction="#handleCancelFilter" prefHeight="43.0" prefWidth="96.0" style="-fx-background-radius: 10; -fx-background-color: #AA4A44;" text="%btnCancel" textFill="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Label layoutX="30.0" layoutY="33.0" prefHeight="34.0" prefWidth="190.0" style="-fx-font-style: italic;" text="Filter Student" textFill="#005cac">
+                        <Label layoutX="30.0" layoutY="33.0" prefHeight="34.0" prefWidth="190.0" style="-fx-font-style: italic;" text="%lblFilterStudent" textFill="#005cac">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -302,30 +302,30 @@
                         <DropShadow />
                      </effect>
                      <children>
-                        <Label layoutX="36.0" layoutY="74.0" prefHeight="30.0" prefWidth="315.0" text="Arsyeja e lëshimit të vërtetimit:" AnchorPane.leftAnchor="30.0">
+                        <Label layoutX="36.0" layoutY="74.0" prefHeight="30.0" prefWidth="315.0" text="%lblArsyeLeshimit" AnchorPane.leftAnchor="30.0">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="27.0" layoutY="239.0" prefHeight="30.0" prefWidth="315.0" text="Lokacioni i shkarkimit:" AnchorPane.leftAnchor="30.0">
+                        <Label layoutX="27.0" layoutY="239.0" prefHeight="30.0" prefWidth="315.0" text="%lblLokacionishkarkimit" AnchorPane.leftAnchor="30.0">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
                         </Label>
                         <TextField fx:id="txtDownloadPath" layoutX="41.0" layoutY="272.0" prefHeight="45.0" prefWidth="803.0" promptText="C:\\Users\\Dell\\Desktop\\" style="-fx-background-radius: 15;" text="C:\\Users\\Dell\\Desktop\\" AnchorPane.leftAnchor="30.0" />
-                        <Label layoutX="426.0" layoutY="20.0" prefHeight="38.0" prefWidth="288.0" style="-fx-font-weight: bold;" text="Gjenero vërtetimin e studentit" textFill="#0a85ff">
+                        <Label layoutX="426.0" layoutY="20.0" prefHeight="38.0" prefWidth="288.0" style="-fx-font-weight: bold;" text="%lblGjeneroVertet" textAlignment="CENTER" textFill="#0a85ff">
                            <font>
                               <Font name="Tahoma" size="18.0" />
                            </font>
                         </Label>
-                        <Button fx:id="btnEdit1" layoutX="903.0" layoutY="268.0" mnemonicParsing="false" onAction="#handleDownload" prefHeight="50.0" prefWidth="174.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="Shkarko vërtetimin">
+                        <Button fx:id="btnEdit1" layoutX="903.0" layoutY="268.0" mnemonicParsing="false" onAction="#handleDownload" prefHeight="50.0" prefWidth="174.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="%btnShkarkoVertetimin">
                            <font>
-                              <Font size="15.0" />
+
                            </font>
                         </Button>
                         <TextArea fx:id="txtIssueReason" layoutX="38.0" layoutY="116.0" prefHeight="101.0" prefWidth="1042.0" AnchorPane.leftAnchor="30.0" />
                         <Line endX="932.5999755859375" endY="-1.220703125E-4" layoutX="153.0" layoutY="366.0" startX="-100.0" stroke="#001aff" />
-                        <Label layoutX="20.0" layoutY="434.0" prefHeight="30.0" prefWidth="148.0" text="Numri rendor:" AnchorPane.leftAnchor="20.0">
+                        <Label layoutX="20.0" layoutY="434.0" prefHeight="30.0" prefWidth="148.0" text="%lblNrRendor" AnchorPane.leftAnchor="20.0">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
@@ -334,7 +334,7 @@
                            <font>
                               <Font size="14.0" />
                            </font></TextField>
-                        <Label layoutX="244.0" layoutY="435.0" prefHeight="30.0" prefWidth="169.0" text="Numri serik:">
+                        <Label layoutX="244.0" layoutY="435.0" prefHeight="30.0" prefWidth="169.0" text="%lblNrSerik">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
@@ -343,17 +343,17 @@
                            <font>
                               <Font size="14.0" />
                            </font></TextField>
-                        <Button fx:id="btnVerifyDocument" layoutX="904.0" layoutY="458.0" mnemonicParsing="false" onAction="#handleVerify" prefHeight="50.0" prefWidth="174.0" style="-fx-background-radius: 20px; -fx-background-color: AA4A44; -fx-font-weight: bold;" text="Verifiko vërtetimin">
+                        <Button fx:id="btnVerifyDocument" layoutX="904.0" layoutY="458.0" mnemonicParsing="false" onAction="#handleVerify" prefHeight="50.0" prefWidth="174.0" style="-fx-background-radius: 20px; -fx-background-color: AA4A44; -fx-font-weight: bold;" text="%btnVerifikoVertetimin">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Label layoutX="472.0" layoutY="372.0" prefHeight="38.0" prefWidth="220.0" style="-fx-font-weight: bold;" text="Verifikimi i vërtetimeve" textFill="#0a85ff">
+                        <Label layoutX="472.0" layoutY="372.0" prefHeight="38.0" prefWidth="240.0" style="-fx-font-weight: bold;" text="%lblVerifikimiVertetimeve" textAlignment="CENTER" textFill="#0a85ff">
                            <font>
                               <Font name="Tahoma" size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="470.0" layoutY="434.0" prefHeight="30.0" prefWidth="169.0" text="Id e studentit:">
+                        <Label layoutX="470.0" layoutY="434.0" prefHeight="30.0" prefWidth="169.0" text="%lblStudentID">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
@@ -363,7 +363,7 @@
                               <Font size="14.0" />
                            </font>
                         </TextField>
-                        <Label layoutX="692.0" layoutY="433.0" prefHeight="30.0" prefWidth="169.0" text="Data e lëshimit:">
+                        <Label layoutX="692.0" layoutY="433.0" prefHeight="30.0" prefWidth="169.0" text="%lblDataLeshimit">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
