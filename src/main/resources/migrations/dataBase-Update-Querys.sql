@@ -230,3 +230,19 @@ ALTER TABLE tblArkiva;
 INSERT INTO tblArkiva (nrSerik, idStudentit, data) VALUES ('489548', '220756100002', '2004-01-04');
 SELECT * FROM tblArkiva ORDER BY documentId DESC LIMIT 1;
 SELECT * FROM tblArkiva;
+
+
+CREATE TABLE tblUser(
+userId INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(50) NOT NULL,
+email VARCHAR(50)  NOT NULL,
+salt VARCHAR(100) NOT NULL,
+passwordHash VARCHAR(400) NOT NULL
+);
+
+ALTER TABLE tblUserStudent
+drop column salt;
+
+ALTER TABLE tblUserStudent
+drop column passwordHash;
+
