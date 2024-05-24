@@ -14,10 +14,13 @@ import service.Admin.AdminService;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class RegistrationMenuAddRegistrationController {
    ObservableList<String> nivelet =
            FXCollections.observableArrayList("BSC","MSC","PHD");
+
+
 
     @FXML
     private TextField txtYear;
@@ -64,7 +67,16 @@ public class RegistrationMenuAddRegistrationController {
        }else{
            System.out.println("Afat did not create");
        };
-
+    }
+    private Locale currentLocale = new Locale("en");
+    @FXML
+    private void handleChangeLanguage(ActionEvent ae){
+        if (currentLocale.getLanguage().equals("en")) {
+            currentLocale = new Locale("sq");
+        } else {
+            currentLocale = new Locale("en");
+        }
+        //loadLanguage(currentLocale.getLanguage());
     }
 
 }

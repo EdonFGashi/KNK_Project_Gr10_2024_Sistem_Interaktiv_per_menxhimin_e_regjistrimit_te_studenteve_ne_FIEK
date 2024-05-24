@@ -22,16 +22,6 @@ public class NjoftimPaneController extends ComunicativeController {
 
     private InboxController controller;
 
-    private Locale currentLocale = new Locale("en");
-    @FXML
-    private void handleChangeLanguage(ActionEvent ae){
-        if (currentLocale.getLanguage().equals("en")) {
-            currentLocale = new Locale("sq");
-        } else {
-            currentLocale = new Locale("en");
-        }
-        //loadLanguage(currentLocale.getLanguage());
-    }
 
     public void setController(InboxController controller) {
         this.controller = controller;
