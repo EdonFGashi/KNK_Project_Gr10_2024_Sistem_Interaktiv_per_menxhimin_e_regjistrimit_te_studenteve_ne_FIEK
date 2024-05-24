@@ -11,6 +11,7 @@ Metodat niher spi fshij amo besoj e ndreqi ni menyr qysh me u en kahmos.
 
 import controller.Admin.NjoftimPaneController;
 import controller.ComunicativeController;
+import controller.SESSION;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -29,7 +30,8 @@ import javafx.util.Duration;
 import model.dto.Admin.comunicateControllerdto;
 
 import java.io.IOException;
-
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 
 interface OverallPages{
@@ -143,10 +145,33 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         return pane;
     }
 
+
+
     private static Pane loadPane(String page){
-        FXMLLoader loader = new FXMLLoader(
-                Navigatior.class.getResource(page)
+        //Locale.setDefault(new Locale("en"));
+
+        Locale locale;
+
+//        if(Locale.getDefault() == null) {
+//            locale = Locale.of("sq");
+//        }else {
+//            locale = Locale.getDefault();
+//        }
+
+        if(SESSION.isToggleShqip()){
+            locale = Locale.of("sq");
+        }else{
+            locale = Locale.of("en");
+        }
+
+
+        ResourceBundle bundle = ResourceBundle.getBundle(
+                "Translations.content",locale
         );
+        FXMLLoader loader = new FXMLLoader(
+                Navigatior.class.getResource(page), bundle
+        );
+
         try {
             return loader.load();
         }catch (IOException ioe){
@@ -164,6 +189,9 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
 
         }
     }
+
+
+
     public static void closeStageAfterDelay(Event event, Duration delay) {
         Node eventNode = (Node) event.getSource();
         Stage stage = (Stage) eventNode.getScene().getWindow();

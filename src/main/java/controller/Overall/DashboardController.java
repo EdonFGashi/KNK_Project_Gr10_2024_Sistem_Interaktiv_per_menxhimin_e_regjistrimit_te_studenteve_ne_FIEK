@@ -1,6 +1,7 @@
 package controller.Overall;
 
 import app.Navigatior;
+import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -60,12 +61,23 @@ public class DashboardController {
 
     @FXML
     private void handleChangeLanguage() {
-        if (currentLocale.getLanguage().equals("en")) {
-            currentLocale = new Locale("sq");
-        } else {
-            currentLocale = new Locale("en");
+
+        if(SESSION.isToggleShqip()){
+            Locale.setDefault(new Locale("en"));
+            System.out.println("Language changed to English");
+            SESSION.setToggleShqip(false);
+        }else{
+            Locale.setDefault(new Locale("sq"));
+            System.out.println("Language changed to Shqip");
+            SESSION.setToggleShqip(true);
         }
-        loadLanguage(currentLocale.getLanguage());
+
+//        if (currentLocale.getLanguage().equals("en")) {
+//            currentLocale = new Locale("sq");
+//        } else {
+//            currentLocale = new Locale("en");
+//        }
+//        loadLanguage(currentLocale.getLanguage());
     }
     private void loadLanguage(String lang) {
         Locale locale = new Locale(lang);
