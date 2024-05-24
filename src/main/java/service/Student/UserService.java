@@ -1,9 +1,16 @@
 package service.Student;
 
+import model.Admin;
 import model.User;
+import model.dto.Admin.AdminProfileToControllerDto;
+import model.dto.Admin.EditAdminProfileDto;
 import model.dto.Overall.CreateUserDto;
 //import model.dto.Overall.LoginUserDto;
 import model.dto.Overall.UserDto;
+import model.dto.Student.EditUserProfileDto;
+import model.dto.Student.UserProfileDto;
+import repository.AdminRepository;
+import repository.StudentApplicant.StudentApplicantRepository;
 import repository.UserRepository;
 import service.PasswordHasher;
 
@@ -26,8 +33,7 @@ public class UserService {
         );
 
         CreateUserDto createUserData = new CreateUserDto(
-                userData.getFirstName(),
-                userData.getLastName(),
+                userData.getUsername(),
                 userData.getEmail(),
                 salt,
                 passwordHash
@@ -35,6 +41,8 @@ public class UserService {
 
         return UserRepository.create(createUserData);
     }
+
+
     
     public static User getUserByEmail(String email){
         return UserRepository.getByEmail(email);
@@ -56,5 +64,22 @@ public class UserService {
         );
     }
     */
-     
+
+    public static UserProfileDto getProfileInfo(String email) {
+        User user = UserRepository.getByEmail(email);
+        if (user == null) {
+            return null;
+        }
+        System.out.println("user eshte marre");
+        return new UserProfileDto(
+                user.getUsername(),
+                user.getEmail()
+
+        );
+    }
+
+    public static boolean savePersonalDetails(EditUserProfileDto editData) {
+        return UserRepository.savePersonalDetails(editData);
+    }
+
 }
