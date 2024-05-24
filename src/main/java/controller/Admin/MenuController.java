@@ -70,10 +70,10 @@ public class MenuController {
                 this.txtMenuName.setText("Supervisor Menagment");
                 this.txtOption1.setText("Show and Edit");
                 this.txtOption2.setText("Add Supervisor");
-                this.txtOption3.setText("Aprove Supervisor");
+                this.txtOption3.setText("SEMS Staff");
                 this.option1Navigate = Navigatior.ADMIN_SUPERVISORMENU_EDITSUPERVISOR;
                 this.option2Navigate = Navigatior.ADMIN_SUPERVISORMENU_ADDSUPERVISOR;
-                this.option3Navigate = "";
+                this.option3Navigate = Navigatior.ADMIN_SUPERVISORMENU_APPROVESUPERVISORFROMSEMS;
                 try {
                     this.imgMain.setImage(new Image(new FileInputStream("Images/supervisorMenu.png")));
                     this.imgOption1.setImage(new Image(new FileInputStream("Images/showAndEdit.png")));

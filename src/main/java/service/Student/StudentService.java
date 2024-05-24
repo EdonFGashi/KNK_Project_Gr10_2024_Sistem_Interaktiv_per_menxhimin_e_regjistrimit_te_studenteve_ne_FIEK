@@ -1,6 +1,7 @@
 package service.Student;
 
 import javafx.scene.chart.XYChart;
+import model.RegisteredStudent;
 import model.dto.RegisteredStudents.ChartInformationEnrolledStudents;
 import repository.StudentRepository;
 
@@ -39,6 +40,8 @@ public class StudentService {
         chart.setName("Aplikimet");
         return chart;
     }
-
+    public static RegisteredStudent getRegisteredStudent(int userId){
+        return StudentRepository.getRegisteredStudent(userId);
+    }
 
 }

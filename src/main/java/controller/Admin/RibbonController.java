@@ -8,20 +8,26 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import controller.SESSION;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
+
+//import service.StudentPdfCreatorService;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.time.LocalDate;
+import java.util.Date;
 
 public class RibbonController {
 
@@ -251,7 +257,6 @@ public class RibbonController {
 //        System.out.println("__________________________________________________________________");
 
         setButtons();
-
     }
 
     private void goForth(){
@@ -292,7 +297,6 @@ public class RibbonController {
       this.goForth();
 
     }
-
 
 
     private void navigateAndSaveState(String page){

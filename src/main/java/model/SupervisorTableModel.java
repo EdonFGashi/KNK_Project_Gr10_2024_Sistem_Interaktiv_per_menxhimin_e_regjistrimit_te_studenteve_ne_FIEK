@@ -16,6 +16,13 @@ public class SupervisorTableModel {
         this.salt = salt;
         this.passwordHash = passwordHash;
     }
+    public SupervisorTableModel(String firstName,String lastName, String email, String salt, String passwordHash) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.salt = salt;
+        this.passwordHash = passwordHash;
+    }
 
     public int getMbikqyresiId() {
         return mbikqyresiId;

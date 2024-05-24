@@ -18,6 +18,7 @@ public class SESSION {
 
     private static String admin_registration_lastSearch = "";
     private static String admin_supervisor_lastSearch = "";
+    private static String admin_semsStaf_lastSearch = "";
     private static int admin_reset_PasswordId = 0;
     private static String admin_reset_type = "";
     private static String admin_student_lastSearch = "";
@@ -66,6 +67,14 @@ public class SESSION {
 
     public static void setAdmin_supervisor_lastSearch(String admin_supervisor_lastSearch) {
         SESSION.admin_supervisor_lastSearch = admin_supervisor_lastSearch;
+    }
+
+    public static String getAdmin_semsStaf_lastSearch() {
+        return admin_semsStaf_lastSearch;
+    }
+
+    public static void setAdmin_semsStaf_lastSearch(String admin_semsStaf_lastSearch) {
+        SESSION.admin_semsStaf_lastSearch = admin_semsStaf_lastSearch;
     }
 
     public static void setAdmin_reset_type(String admin_reset_type) {

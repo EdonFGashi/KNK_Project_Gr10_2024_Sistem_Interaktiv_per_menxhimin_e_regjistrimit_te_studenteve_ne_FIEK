@@ -392,4 +392,23 @@ public class SupervisorRepository {
         return 0;
     }
 
+
+    public static boolean addSupervisorFromSems(SupervisorTableModel newSupervisorFromSems) {
+        Connection connection = DBConnector.getConnection();
+        String query = "INSERT INTO tblMbikqyresi (email, emri, mbiemri, salt, passwordHash) VALUES  (?,?,?,?,?)";
+        try {
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setString(1, newSupervisorFromSems.getEmail());
+            pst.setString(2, newSupervisorFromSems.getFirstName());
+            pst.setString(3, newSupervisorFromSems.getLastName());
+            pst.setString(4, newSupervisorFromSems.getSalt());
+            pst.setString(5, newSupervisorFromSems.getPasswordHash());
+            int rowsAffected = pst.executeUpdate();
+            pst.close();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

@@ -9,19 +9,21 @@ import controller.Animations.UpLogoAnimate;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
+import service.CustomExceptions.InvalidPassword;
 import service.Supervisor.SupervisorService;
 
 public class SupervisorMenuAddController {
-    @FXML
-    private Pane animationPane;
+//    @FXML
+//    private Pane animationPane;
     @FXML
     private void initialize(){
 
-      UpLogoAnimate pane1 = new UpLogoAnimate(100, "Loading...", 10, 2);
+      UpLogoAnimate pane1 = new UpLogoAnimate(130, "FIEK Management", 10, 3);
       pane1.setMaxWidth(100);
       pane1.setMaxHeight(100);
       pane1.start();
-        this.animationPane.getChildren().addAll(pane1);
+//        this.animationPane.getChildren().addAll(pane1);
+
 //        Navigatior.navigate(this.animationPane, String.valueOf(pane1));
 //        try {
 //            this.imgProfileIcon.setImage(new Image(new FileInputStream("Images/profileIcon.png")));
@@ -46,16 +48,25 @@ public class SupervisorMenuAddController {
     @FXML
     private PasswordField pwdConfirmPasswordSupervisorSignUp;
     @FXML
-    private void handleSignUpSupervisor(ActionEvent ae){
-        SupervisorCreateInterfaceDto addNewSupervisor = new SupervisorCreateInterfaceDto(
-                this.txtFirstname.getText(),
-                this.txtLastname.getText(),
-                this.txtEmail.getText(),
-                this.pwdPasswordSupervisorSignUp.getText(),
-                this.pwdConfirmPasswordSupervisorSignUp.getText()
-        );
-        boolean supervisorCreated = SupervisorService.signUp(addNewSupervisor);
-        PopUp.tick(250);
+    private void handleSignUpSupervisor(ActionEvent ae) {
+        try {
+            SupervisorCreateInterfaceDto addNewSupervisor = new SupervisorCreateInterfaceDto(
+                    this.txtFirstname.getText(),
+                    this.txtLastname.getText(),
+                    this.txtEmail.getText(),
+                    this.pwdPasswordSupervisorSignUp.getText(),
+                    this.pwdConfirmPasswordSupervisorSignUp.getText()
+            );
+
+            boolean supervisorCreated = SupervisorService.signUp(addNewSupervisor);
+
+            if (!supervisorCreated) {
+                PopUp.tick(250);
+            }
+
+        }catch (InvalidPassword e){
+            PopUp.loading(e.getMessage(),false, "");
+        }
 
     }
 
