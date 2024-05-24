@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -187,6 +188,7 @@ public class StudentMenuShowAndEditController {
        }
 
 
+
    }
 
 
@@ -231,16 +233,26 @@ public class StudentMenuShowAndEditController {
         this.edit = true;
 
         this.paneFilterShowHide.setVisible(false);
+
+
+        this.txtSearch.setOnKeyPressed( e -> {
+                 if(e.getCode()== KeyCode.ENTER){
+                  this.search();
+                 }
+        });
+
     }
 
     @FXML
     private void handleSearch(ActionEvent ae) {
-        this.userStudentsList = StudentFromAdminService.searchStudent(this.txtSearch.getText());
-        SESSION.setAdmin_student_lastSearch(this.txtSearch.getText().trim());
-        this.tableStudent.setItems(this.userStudentsList);
+       this.search();
     }
     @FXML
     private void handleSearchClick(MouseEvent me){
+        this.search();
+    }
+
+    private void search(){
         this.userStudentsList = StudentFromAdminService.searchStudent(this.txtSearch.getText());
         SESSION.setAdmin_student_lastSearch(this.txtSearch.getText().trim());
         this.tableStudent.setItems(this.userStudentsList);

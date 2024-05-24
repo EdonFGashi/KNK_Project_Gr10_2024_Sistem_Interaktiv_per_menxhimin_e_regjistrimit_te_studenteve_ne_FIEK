@@ -8,6 +8,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import model.Afat;
 import model.SupervisorTableModel;
@@ -19,6 +21,7 @@ import repository.Supervisor.SupervisorRepository;
 import service.Admin.AdminService;
 import controller.SESSION;
 import service.CustomExceptions.InvalidEmail;
+import service.CustomExceptions.InvalidPiketValue;
 import service.CustomExceptions.InvalidSearch;
 import service.Supervisor.SupervisorService;
 
@@ -78,6 +81,9 @@ public class GradePointsController {
     }
 
     private Afat selectedAfat;
+
+    private int MAX_POINTS = 20;
+
     @FXML
     private void initialize(){
         errorMessageLabel.setText("");
@@ -125,15 +131,46 @@ public class GradePointsController {
         this.setColumns();
         this.edit = true;
 
+        txtSearch.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                try {
+                    handleSearch(new ActionEvent());
+                } catch (InvalidSearch e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+
+        piket.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                try {
+                    handleEdit(new ActionEvent());
+                } catch (InvalidPiketValue e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+
     }
 
     @FXML
-    private void handleEdit(ActionEvent ae){
+    private void handleEdit(ActionEvent ae) throws InvalidPiketValue {
         if(edit){
             this.enableForms();
             this.btnEdit.setText("Save");
             this.edit = false;
         }else{
+            try {if (Integer.parseInt(this.piket.getText()) > MAX_POINTS || Integer.parseInt(this.piket.getText()) < 0) {
+                    throw new InvalidPiketValue("Piket duhet te jene mes 0-20");
+                }
+            } catch (InvalidPiketValue e){
+                errorMessageLabel.setText(e.getMessage());
+                errorMessageLabel.setVisible(true);
+                return;
+            }
+
+            errorMessageLabel.setText("");
+            errorMessageLabel.setVisible(false);
 
             if (SupervisorRepository.editKonkurimi(
                     new KonkurimetSaveDto(

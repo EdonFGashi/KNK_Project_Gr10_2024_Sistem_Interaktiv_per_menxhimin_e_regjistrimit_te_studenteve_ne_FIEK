@@ -77,5 +77,6 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <ImageView fx:id="imgIcon" fitHeight="164.0" fitWidth="199.0" layoutX="81.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="errorMessageLabel" layoutX="420.0" layoutY="340.0" prefWidth="180.0" textFill="RED" visible="false" />
    </children>
 </AnchorPane>

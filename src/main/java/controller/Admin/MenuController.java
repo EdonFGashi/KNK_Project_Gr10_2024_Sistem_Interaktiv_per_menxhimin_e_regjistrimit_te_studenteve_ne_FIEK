@@ -109,7 +109,9 @@ public class MenuController {
                     this.txtOption1.setText("Show and Edit");
                     this.txtOption2.setText("Add new");
                     this.txtOption3.setText("Statistics");
+
                 }
+                this.hboxOption3.setVisible(false);
                 this.option1Navigate = Navigatior.ADMIN_REGISTRATIONMENU_SHOWANDEDIT;
                 this.option2Navigate = Navigatior.ADMIN_REGISTRATIONMENU_ADDREGISTRATION;
                 this.option3Navigate = "";
@@ -124,11 +126,6 @@ public class MenuController {
             }
         }
 
-//        System.out.println("Navigimi:  ");
-//        System.out.println(option1Navigate);
-//        System.out.println(option2Navigate);
-//        System.out.println(option3Navigate);
-//        System.out.println(SESSION.getLastMenuOption());
 
         this.resetActiveSection();
         if(SESSION.getLastMenuOption() == 0){

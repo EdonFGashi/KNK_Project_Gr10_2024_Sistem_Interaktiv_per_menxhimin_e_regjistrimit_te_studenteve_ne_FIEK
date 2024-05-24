@@ -37,11 +37,11 @@ public class FirstApp extends Application {
 
         stage.setMaximized(true);
       //  Navigatior.navigate(stag);
-       Navigatior.navigate(stage,AdminPages.ADMIN_RIBBON);
-       //Navigatior.navigate(stage,StudentPages.STUDENT_MENU);
-      //  Navigatior.navigate(stage, Navigatior.DASHBOARD);
+     // Navigatior.navigate(stage,AdminPages.ADMIN_RIBBON);
 
-//    }
+
+      Navigatior.navigate(stage, Navigatior.DASHBOARD);
+
 
 
 //    public static void main(String[] args) {

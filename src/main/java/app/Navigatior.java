@@ -230,8 +230,20 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
 
 
         try {
+            Locale locale;
+            if(SESSION.isToggleShqip()){
+                locale = Locale.of("sq");
+            }else{
+                locale = Locale.of("en");
+            }
 
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource(page));
+
+            ResourceBundle bundle = ResourceBundle.getBundle(
+                    "Translations.content",locale
+            );
+            FXMLLoader loader = new FXMLLoader(
+                    Navigatior.class.getResource(page), bundle
+            );
 
             Parent MainPane = loader.load();
 
