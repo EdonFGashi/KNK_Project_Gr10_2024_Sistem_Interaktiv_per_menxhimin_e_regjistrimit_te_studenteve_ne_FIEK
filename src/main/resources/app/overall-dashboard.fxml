@@ -16,7 +16,7 @@
    <top>
       <AnchorPane prefHeight="76.0" prefWidth="710.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);" BorderPane.alignment="CENTER">
          <children>
-            <Text fx:id="txtUP" fill="WHITE" layoutX="659.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="\%Universiteti i Prishtinës">
+            <Text fx:id="txtUP" fill="WHITE" layoutX="665.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="Universiteti i Prishtinës">
                <font>
                   <Font size="14.0" />
                </font>
@@ -65,7 +65,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Text fx:id="txtQasja" fill="WHITE" layoutX="706.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="\%Qasja">
+            <Text fx:id="txtQasja" fill="WHITE" layoutX="715.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="Qasja">
                <font>
                   <Font size="20.0" />
                </font>
@@ -77,7 +77,7 @@
                         <Image url="@../../../../Images/speaker.png" />
                      </image>
                   </ImageView>
-                  <Text fx:id="txtNjoftimet" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="   %NJOFTIM : Hapet konkursi për pranimin e studentëve në të gjitha nivelet akademike." wrappingWidth="788.9873046875">
+                  <Text fx:id="txtNjoftimet" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="   NJOFTIM : Hapet konkursi për pranimin e studentëve në të gjitha nivelet akademike." wrappingWidth="788.9873046875">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
@@ -89,12 +89,12 @@
                   <Font size="14.0" />
                </font></Text>
             <HBox layoutX="108.0" layoutY="114.0" prefHeight="100.0" prefWidth="200.0" />
-            <Text fx:id="txtTitle" fill="WHITE" layoutX="434.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="\%Sistemi i regjistrimit të studentëve">
+            <Text fx:id="txtTitle" fill="WHITE" layoutX="449.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="Sistemi i regjistrimit të studentëve">
                <font>
                   <Font size="36.0" />
                </font>
             </Text>
-            <Text fx:id="txtNjoftimet2" fill="WHITE" layoutX="498.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-opacity: 0.8;" text="\%Këshilli Drejtues i Fakultetit të Inxhinierisë Elektrike dhe Kompjuterike, ka vendosur për datën e aplikimit të studentëve për vitin akademik 2024/25. Aplikimi do të jetë i hapur deri më 01.07.2024. Suksese!" textAlignment="CENTER" wrappingWidth="485.9830722808838">
+            <Text fx:id="txtNjoftimet2" fill="WHITE" layoutX="498.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-opacity: 0.8;" text="Këshilli Drejtues i Fakultetit të Inxhinierisë Elektrike dhe Kompjuterike, ka vendosur për datën e aplikimit të studentëve për vitin akademik 2024/25. Aplikimi do të jetë i hapur deri më 01.07.2024. Suksese!" textAlignment="CENTER" wrappingWidth="485.9830722808838">
                <font>
                   <Font size="17.0" />
                </font>
