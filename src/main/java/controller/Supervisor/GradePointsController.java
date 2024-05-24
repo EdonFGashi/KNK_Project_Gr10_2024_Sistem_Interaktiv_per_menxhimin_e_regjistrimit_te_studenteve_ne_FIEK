@@ -8,6 +8,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import model.Afat;
 import model.SupervisorTableModel;
@@ -124,6 +126,16 @@ public class GradePointsController {
         this.konkurimetList = SupervisorService.searchKonkurimet("");
         this.setColumns();
         this.edit = true;
+
+        txtSearch.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                try {
+                    handleSearch(new ActionEvent());
+                } catch (InvalidSearch e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
 
     }
 
