@@ -51,6 +51,7 @@ CREATE TABLE tblMbikqyresi (
 CREATE TABLE tblUserStudent (
     userId INT PRIMARY KEY,
     numriPersonal VARCHAR(20) NOT NULL,
+    email VARCHAR(50),
     emri VARCHAR(50),
     mbiemri VARCHAR(50),
     nacionaliteti VARCHAR(50),
