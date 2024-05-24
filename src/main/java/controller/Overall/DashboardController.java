@@ -3,9 +3,12 @@ package controller.Overall;
 import app.Navigatior;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import model.dto.Admin.comunicateControllerdto;
+
 import javafx.scene.text.Text;
 
 import java.io.FileInputStream;
@@ -77,7 +80,17 @@ public class DashboardController {
 
     @FXML
     public void handleQasja(ActionEvent event) {
-        Navigatior.navigateNewStage(Navigatior.LOGIN);
+
+        comunicateControllerdto data = Navigatior.loadAndReturnController(Navigatior.LOGIN);
+
+        Parent loginPane = data.getParent();
+
+        LoginController controller = (LoginController) data.getController();
+
+        controller.setDashboardController(this);
+
+        Navigatior.navigateNewStageByPane(loginPane);
+
     }
 
     @FXML

@@ -17,6 +17,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         stage.setMaximized(true);
         stage.getIcons().add(new Image("upLogoNoRing.png"));
+        stage.setTitle("Fiek Registration Menagment");
 
 //        Navigatior.navigate(stage,Navigatior.ADMIN_RIBBON);
 //
