@@ -138,21 +138,19 @@ public class MenuController {
             SESSION.setLastMenuOption(1);
 
         }else{
-
-
             switch(SESSION.getLastMenuOption()){
-                case 1:{
+                case 1 ->{
                     Navigatior.navigate(addPane,this.option1Navigate);
                     this.hboxOption1.setStyle(activeSection);
-                }break;
-                case 2:{
+                }
+                case 2 -> {
                     Navigatior.navigate(addPane,this.option2Navigate);
                     this.hboxOption2.setStyle(activeSection);
-                }break;
-                case 3:{
+                }
+                case 3 -> {
                     Navigatior.navigate(addPane,this.option3Navigate);
                     this.hboxOption3.setStyle(activeSection);
-                }break;
+                }
             }
 
         }
