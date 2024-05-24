@@ -36,6 +36,11 @@ public class SESSION {
 
 
     private static boolean toggleShqip = true;
+
+
+    private static String lastAdminMenu = "";
+
+    private static String lastRibonnPage = "";
     private SESSION() {}
 
     public static String getSupervisor_lastSearch() {return supervisor_lastSearch;}
@@ -173,17 +178,34 @@ public class SESSION {
             Locale.setDefault(new Locale("en"));
         }
     }
-    public static boolean getLoginPenalty(){return loginPenalty;}
-    public static void setLoginPenalty(boolean loginPenalty) {SESSION.loginPenalty = loginPenalty;}
-
-    public static int getLoginRemainingPenaltyTime(){return loginPenaltyRemainingTime;}
-    public static void setLoginRemainingPenaltyTime(int loginPenaltyTime) {SESSION.loginPenaltyRemainingTime = loginPenaltyTime;}
-
-    public static int getLoginAttemptCount(){return loginAttemptCount;}
-    public static void setLoginAttemptCount(int loginAttemptCount) {SESSION.loginAttemptCount = loginAttemptCount;}
-
-    public static int getLoginPenaltyTime(){return loginPenaltyTime;}
-    public static void setLoginPenaltyTime(int loginPenaltyTime) {SESSION.loginPenaltyTime = loginPenaltyTime;}
 
 
+    public static void switchLanguage(){
+        if(toggleShqip) {
+            SESSION.toggleShqip = false;
+            Locale.setDefault(new Locale("sq"));
+        }else{
+            SESSION.toggleShqip = true;
+            Locale.setDefault(new Locale("en"));
+        }
+    }
+
+
+
+    public static String getLastAdminMenu() {
+        return lastAdminMenu;
+    }
+
+    public static void setLastAdminMenu(String lastAdminMenu) {
+        SESSION.lastAdminMenu = lastAdminMenu;
+
+    }
+
+    public static String getLastRibonnPage() {
+        return lastRibonnPage;
+    }
+
+    public static void setLastRibonnPage(String lastRibonnPage) {
+        SESSION.lastRibonnPage = lastRibonnPage;
+    }
 }

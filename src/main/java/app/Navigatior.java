@@ -104,7 +104,6 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
 
     public static void navigate(Event event, String form){
         Node eventNode = (Node) event.getSource();
-
         Stage stage = (Stage) eventNode.getScene().getWindow();
         navigate(stage, form);
     }

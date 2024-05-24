@@ -48,14 +48,26 @@
                   <Insets bottom="10.0" left="30.0" right="20.0" top="10.0" />
                </padding>
                <children>
-                  <ImageView fx:id="imgInfoIcon" fitHeight="34.0" fitWidth="47.0" onMouseClicked="#handleInfoIconClicked" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Images/info-icon.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
+                  <AnchorPane prefHeight="54.0" prefWidth="74.0">
+                     <children>
+                        <ImageView fx:id="imgInfoIcon" fitHeight="25.0" fitWidth="26.0" layoutX="54.0" layoutY="1.0" onMouseClicked="#handleInfoIconClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Images/info-icon.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="imgTranslate" fitHeight="37.0" fitWidth="35.0" layoutX="5.0" layoutY="16.0" onMouseClicked="#handleChangeLanguage" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/language-sq.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
                   <HBox alignment="CENTER" onMouseClicked="#handleProfileClick" prefHeight="50.0" prefWidth="123.0">
                      <children>
                         <MenuButton fx:id="mbProfile" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: none; -fx-font-weight: bold; -fx-font-size: 13;" text="%mbProfile" textFill="WHITE">
