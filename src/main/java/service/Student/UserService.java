@@ -82,4 +82,8 @@ public class UserService {
         return UserRepository.savePersonalDetails(editData);
     }
 
+     public static void saveAplicStatus(ApplicationStatusDto appstatus) {
+        UserRepository.saveApplicationStatus(appstatus);
+    }
+
 }
