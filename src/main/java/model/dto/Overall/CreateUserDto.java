@@ -2,27 +2,20 @@ package model.dto.Overall;
 
 
 public class CreateUserDto {
-    private String firstName;
-    private String lastName;
+    private String username;
     private String email;
     private String salt;
     private String passwordHash;
 
-    public CreateUserDto(String firstName, String lastName, String email, String salt, String passwordHash) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public CreateUserDto(String username, String email, String salt, String passwordHash) {
+        this.username=username;
         this.email = email;
         this.salt = salt;
         this.passwordHash = passwordHash;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
+    public String getUsername() {
+        return username;}
 
     public String getEmail() {
         return email;
