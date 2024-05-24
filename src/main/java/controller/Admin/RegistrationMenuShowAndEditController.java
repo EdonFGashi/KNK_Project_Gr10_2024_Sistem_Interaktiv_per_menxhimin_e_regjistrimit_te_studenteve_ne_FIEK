@@ -19,6 +19,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class RegistrationMenuShowAndEditController {
     @FXML
@@ -62,6 +63,8 @@ public class RegistrationMenuShowAndEditController {
     private ObservableList<Afat> afatList;
 
     private Afat selectedAfat;
+
+
     @FXML
     private void initialize(){
         choiseChoseLevel.setItems(FXCollections.observableArrayList("Bachelor", "Master", "Doctorature"));
@@ -88,6 +91,16 @@ public class RegistrationMenuShowAndEditController {
 
     }
 
+    private Locale currentLocale = new Locale("en");
+    @FXML
+    private void handleChangeLanguage(ActionEvent ae){
+        if (currentLocale.getLanguage().equals("en")) {
+            currentLocale = new Locale("sq");
+        } else {
+            currentLocale = new Locale("en");
+        }
+        //loadLanguage(currentLocale.getLanguage());
+    }
     @FXML
     private void handleEdit(ActionEvent ae){
         if(edit){

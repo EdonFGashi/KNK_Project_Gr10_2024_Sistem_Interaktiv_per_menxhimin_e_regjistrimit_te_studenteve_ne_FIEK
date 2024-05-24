@@ -24,7 +24,7 @@
             <DropShadow />
          </effect>
          <children>
-            <TextField fx:id="txtSearch" layoutX="38.0" layoutY="26.0" prefHeight="38.0" prefWidth="335.0" promptText="Search" style="-fx-background-radius: 15;" />
+            <TextField fx:id="txtSearch" layoutX="38.0" layoutY="26.0" prefHeight="38.0" prefWidth="335.0" promptText="%ptKerko" style="-fx-background-radius: 15;" />
             <Button layoutX="394.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="38.0" prefWidth="59.0" style="-fx-background-radius: 20; -fx-background-color: #A5CEF2;" />
             <ImageView fx:id="imgSearch" fitHeight="17.0" fitWidth="22.0" layoutX="413.0" layoutY="37.0" onMouseClicked="#handleSearchClick" pickOnBounds="true" preserveRatio="true" />
          </children>
@@ -34,19 +34,19 @@
             <DropShadow />
          </effect>
          <children>
-            <Label layoutX="39.0" layoutY="44.0" prefHeight="23.0" prefWidth="48.0" text="Id:">
+            <Label layoutX="39.0" layoutY="44.0" prefHeight="23.0" prefWidth="48.0" text="%Id">
                <font>
                   <Font name="Tahoma" size="16.0" />
                </font>
             </Label>
             <TextField fx:id="txtId" layoutX="36.0" layoutY="75.0" prefHeight="38.0" prefWidth="142.0" style="-fx-background-radius: 15;" />
-            <Label layoutX="225.0" layoutY="31.0" prefHeight="50.0" prefWidth="142.0" text="Year:">
+            <Label layoutX="225.0" layoutY="31.0" prefHeight="50.0" prefWidth="142.0" text="%Viti">
                <font>
                   <Font name="Tahoma" size="16.0" />
                </font>
             </Label>
             <TextField fx:id="txtYear" editable="false" layoutX="225.0" layoutY="75.0" prefHeight="38.0" prefWidth="142.0" style="-fx-background-radius: 15;" />
-            <RadioButton fx:id="radioFirst" layoutX="63.0" layoutY="153.0" mnemonicParsing="false" selected="true" text="First">
+            <RadioButton fx:id="radioFirst" layoutX="63.0" layoutY="153.0" mnemonicParsing="false" selected="true" text="%rbtnPar">
                <font>
                   <Font size="16.0" />
                </font>
@@ -54,35 +54,35 @@
                   <ToggleGroup fx:id="hera" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="radioSecond" layoutX="225.0" layoutY="153.0" mnemonicParsing="false" text="Second" toggleGroup="$hera">
+            <RadioButton fx:id="radioSecond" layoutX="225.0" layoutY="153.0" mnemonicParsing="false" text="%rbtnDyt" toggleGroup="$hera">
                <font>
                   <Font size="16.0" />
                </font>
             </RadioButton>
-            <Label layoutX="47.0" layoutY="322.0" prefHeight="50.0" prefWidth="162.0" text="Open date:">
+            <Label layoutX="47.0" layoutY="322.0" prefHeight="50.0" prefWidth="162.0" text="%lblDataehapjes">
                <font>
                   <Font name="Tahoma" size="16.0" />
                </font>
             </Label>
             <DatePicker fx:id="dateClosedDate" editable="false" layoutX="49.0" layoutY="481.0" prefHeight="38.0" prefWidth="306.0" promptText="Enter date" />
             <DatePicker fx:id="dateOpenDate" editable="false" layoutX="49.0" layoutY="373.0" prefHeight="38.0" prefWidth="306.0" promptText="Enter date" style="-fx-background-radius: 5;" />
-            <Label layoutX="47.0" layoutY="435.0" prefHeight="38.0" prefWidth="162.0" text="Close date:">
+            <Label layoutX="47.0" layoutY="435.0" prefHeight="38.0" prefWidth="162.0" text="%lblDataembylljes">
                <font>
                   <Font name="Tahoma" size="16.0" />
                </font>
             </Label>
             <ChoiceBox fx:id="choiseChoseLevel" disable="true" layoutX="49.0" layoutY="262.0" prefHeight="38.0" prefWidth="247.0" style="-fx-background-radius: 10; -fx-background-color: white; -fx-border-width: 1; -fx-border-color: grey; -fx-border-radius: 10;" />
-            <Label layoutX="49.0" layoutY="212.0" prefHeight="50.0" prefWidth="258.0" text="Level Of Study:">
+            <Label layoutX="49.0" layoutY="212.0" prefHeight="50.0" prefWidth="258.0" text="%lblNiveliStudimit">
                <font>
                   <Font name="Tahoma" size="16.0" />
                </font>
             </Label>
-            <Button fx:id="btnEdit" layoutX="71.0" layoutY="544.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="50.0" prefWidth="102.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="Edit">
+            <Button fx:id="btnEdit" alignment="CENTER" contentDisplay="CENTER" layoutX="71.0" layoutY="544.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="50.0" prefWidth="110.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="%btnEdit">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="225.0" layoutY="544.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="50.0" prefWidth="102.0" style="-fx-background-radius: 20px; -fx-background-color: AA4A44; -fx-font-weight: bold;" text="Delete">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="225.0" layoutY="544.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="50.0" prefWidth="110.0" style="-fx-background-radius: 20px; -fx-background-color: AA4A44; -fx-font-weight: bold;" text="%btnDelete">
                <font>
                   <Font size="15.0" />
                </font>
@@ -98,12 +98,12 @@
                <children>
                   <TableView fx:id="tableAfat" prefHeight="552.0" prefWidth="478.0" style="-fx-background-color: transparent; -fx-border-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-border-width: 2px; -fx-border-radius: 8px;">
                      <columns>
-                        <TableColumn fx:id="columnId" editable="false" prefWidth="75.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-size: 40px; -fx-font-family: Arial; -fx-border-color: white;" text=" Id" />
-                        <TableColumn fx:id="columnYear" editable="false" prefWidth="105.60001373291016" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Year" />
-                        <TableColumn fx:id="columnTime" editable="false" prefWidth="111.19998168945312" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Time" />
-                        <TableColumn fx:id="columnOpenDate" editable="false" prefWidth="143.20001220703125" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Open Date" />
-                        <TableColumn fx:id="columnCloseDate" editable="false" prefWidth="137.60000610351562" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Close Date" />
-                        <TableColumn fx:id="columnLevel" editable="false" prefWidth="150.4000244140625" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Level" />
+                        <TableColumn fx:id="columnId" editable="false" prefWidth="75.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-size: 40px; -fx-font-family: Arial; -fx-border-color: white;" text="%Id" />
+                        <TableColumn fx:id="columnYear" editable="false" prefWidth="105.60001373291016" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="%Viti" />
+                        <TableColumn fx:id="columnTime" editable="false" prefWidth="111.19998168945312" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="%Hera" />
+                        <TableColumn fx:id="columnOpenDate" editable="false" prefWidth="143.20001220703125" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="%lblDataehapjes" />
+                        <TableColumn fx:id="columnCloseDate" editable="false" prefWidth="137.60000610351562" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="%lblDataembylljes" />
+                        <TableColumn fx:id="columnLevel" editable="false" prefWidth="150.4000244140625" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="%Niveli" />
                      </columns>
                   </TableView>
                </children>

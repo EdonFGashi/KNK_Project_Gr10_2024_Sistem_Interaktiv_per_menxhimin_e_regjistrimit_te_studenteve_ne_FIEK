@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.RegistrationMenuAddRegistrationController">
    <children>
       <AnchorPane layoutX="80.0" layoutY="66.0" prefHeight="602.0" prefWidth="1121.0" style="-fx-background-radius: 10; -fx-background-color: white;">
@@ -24,36 +23,36 @@
             </BoxBlur>
          </effect>
       </AnchorPane>
-      <Label layoutX="169.0" layoutY="428.0" prefHeight="50.0" prefWidth="162.0" text="Open date:">
+      <Label layoutX="169.0" layoutY="428.0" prefHeight="50.0" prefWidth="162.0" text="%lblDataehapjes">
          <font>
             <Font name="Tahoma" size="18.0" />
          </font>
       </Label>
       <DatePicker fx:id="dateClosedDate" layoutX="586.0" layoutY="478.0" prefHeight="38.0" prefWidth="226.0" promptText="Enter date" />
       <DatePicker fx:id="dateOpenDate" layoutX="167.0" layoutY="478.0" prefHeight="38.0" prefWidth="226.0" promptText="Enter date" style="-fx-background-radius: 5;" />
-      <Label layoutX="586.0" layoutY="434.0" prefHeight="38.0" prefWidth="162.0" text="Close date:">
+      <Label layoutX="586.0" layoutY="434.0" prefHeight="38.0" prefWidth="162.0" text="%lblDataembylljes">
          <font>
             <Font name="Tahoma" size="18.0" />
          </font>
       </Label>
       <TextField fx:id="txtYear" layoutX="167.0" layoutY="250.0" prefHeight="50.0" prefWidth="258.0" style="-fx-background-radius: 15;" />
-      <Label layoutX="167.0" layoutY="191.0" prefHeight="50.0" prefWidth="287.0" text="Year:">
+      <Label layoutX="167.0" layoutY="191.0" prefHeight="50.0" prefWidth="287.0" text="%Viti">
          <font>
             <Font name="Tahoma" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="153.0" layoutY="87.0" prefHeight="66.0" prefWidth="412.0" style="-fx-font-weight: bold;" text="New Registration Period" textFill="#0a84ff">
+      <Label layoutX="153.0" layoutY="87.0" prefHeight="66.0" prefWidth="412.0" style="-fx-font-weight: bold;" text="%NewRegPeriod" textFill="#0a84ff">
          <font>
             <Font name="Tahoma" size="27.0" />
          </font>
       </Label>
-      <Button layoutX="697.0" layoutY="561.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="50.0" prefWidth="102.0" style="-fx-background-radius: 20px; -fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-font-weight: bold;" text="Save" textFill="WHITE">
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="697.0" layoutY="561.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="50.0" prefWidth="102.0" style="-fx-background-radius: 20px; -fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-font-weight: bold;" text="%btnSave" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
       <ChoiceBox fx:id="choiseChoseLevel" layoutX="575.0" layoutY="250.0" prefHeight="50.0" prefWidth="243.0" style="-fx-background-radius: 10; -fx-background-color: white; -fx-border-width: 1; -fx-border-color: grey; -fx-border-radius: 10;" />
-      <RadioButton fx:id="radioFirst" layoutX="169.0" layoutY="332.0" mnemonicParsing="false" selected="true" text="First">
+      <RadioButton fx:id="radioFirst" layoutX="169.0" layoutY="332.0" mnemonicParsing="false" selected="true" text="%rbtnPar">
          <font>
             <Font size="18.0" />
          </font>
@@ -61,12 +60,12 @@
             <ToggleGroup fx:id="hera" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="radioSecond" layoutX="331.0" layoutY="332.0" mnemonicParsing="false" text="Second" toggleGroup="$hera">
+      <RadioButton fx:id="radioSecond" layoutX="331.0" layoutY="332.0" mnemonicParsing="false" text="%rbtnDyt" toggleGroup="$hera">
          <font>
             <Font size="18.0" />
          </font>
       </RadioButton>
-      <Label layoutX="586.0" layoutY="191.0" prefHeight="50.0" prefWidth="287.0" text="Level Of Study:">
+      <Label layoutX="586.0" layoutY="191.0" prefHeight="50.0" prefWidth="287.0" text="%lblNiveliStudimit">
          <font>
             <Font name="Tahoma" size="18.0" />
          </font>

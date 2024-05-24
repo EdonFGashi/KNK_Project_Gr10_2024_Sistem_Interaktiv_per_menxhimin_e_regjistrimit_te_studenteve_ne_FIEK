@@ -21,6 +21,7 @@ import service.Admin.AdminService;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Locale;
 
 import static app.Navigatior.loadAndReturnController;
 
@@ -47,6 +48,7 @@ public class InboxController{
         private void setPagination(){
 
         }
+
 
         @FXML
         protected void initialize() {
