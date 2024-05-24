@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import model.Afat;
 import repository.AfatRepository;
@@ -89,6 +90,12 @@ public class RegistrationMenuShowAndEditController {
         this.tableAfat.setItems(this.afatList);
         this.edit = true;
 
+        this.txtSearch.setOnKeyPressed( e -> {
+            if(e.getCode()== KeyCode.ENTER){
+                this.search();
+            }
+        });
+
     }
 
     private Locale currentLocale = new Locale("en");
@@ -141,12 +148,13 @@ public class RegistrationMenuShowAndEditController {
     }
     @FXML
     private void handleSearch(ActionEvent ae){
-        this.afatList = AdminService.searchAfat(this.txtSearch.getText().trim());
-        SESSION.setAdmin_registration_lastSearch(this.txtSearch.getText().trim());
-        this.tableAfat.setItems(this.afatList);
+        this.search();
     }
     @FXML
     private void handleSearchClick(MouseEvent me){
+        this.search();
+    }
+    private void search(){
         this.afatList = AdminService.searchAfat(this.txtSearch.getText().trim());
         SESSION.setAdmin_registration_lastSearch(this.txtSearch.getText().trim());
         this.tableAfat.setItems(this.afatList);

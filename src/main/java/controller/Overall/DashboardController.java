@@ -1,21 +1,29 @@
 package controller.Overall;
 
 import app.Navigatior;
+import controller.Admin.NjoftimPaneController;
 import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Pagination;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
+import model.Njoftim;
 import model.dto.Admin.comunicateControllerdto;
 
 import javafx.scene.text.Text;
+import model.filter.NjoftimPagination;
+import service.Admin.AdminService;
 
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -29,12 +37,23 @@ public class DashboardController {
     private ImageView infoimg;
     @FXML
     private ImageView changeLanguageIcon;
+    @FXML
+    private Pagination pagPagination;
 
-//    private ResourceBundle bundle;
-    private Locale currentLocale = new Locale("en");
+    private VBox contentVBox = new VBox();
+    private final int njoftimePerPage = 1;
+    private int totalNjoftime = AdminService.getTotalNjoftime();
+
+    private Njoftim selectedNjoftim;
+
+    private void setPagination(){
+
+    }
+
 
     @FXML
-    private void initialize(){
+    protected void initialize() {
+
         try {
             this.mainImage.setImage(new Image(new FileInputStream("Images/fieku.png")));
             this.infoimg.setImage(new Image(new FileInputStream("Images/info-icon.png")));
@@ -42,7 +61,59 @@ public class DashboardController {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
+        pagPagination.setPageCount((int) Math.ceil((double) totalNjoftime / njoftimePerPage));
+        pagPagination.setPageFactory(this::createPage);
+        this.contentVBox.setStyle("-fx-background-color:transparent");
     }
+
+    private VBox createPage(int pageIndex) {
+
+        int offset = (totalNjoftime - pageIndex*this.njoftimePerPage -this.njoftimePerPage);
+
+        ArrayList<Njoftim> njoftimet = merrNjoftimWithPagination(offset, njoftimePerPage);
+        Collections.reverse(njoftimet);
+        contentVBox.getChildren().clear();
+        for (Njoftim njoftim : njoftimet) {
+            try {
+
+                // FXMLLoader loader = new FXMLLoader(Main.class.getResource("admin-inbol-njoftimPane.fxml"));
+
+                comunicateControllerdto data = Navigatior.loadAndReturnController(Navigatior.ADMIN_NJOFTIM_MODULE);
+
+                if(data.getParent() != null && data.getController()!=null) {
+                    Parent PaneNjoftimi = data.getParent();
+                    contentVBox.getChildren().add(PaneNjoftimi);
+                    NjoftimPaneController controller = (NjoftimPaneController) data.getController();
+                    controller.setNjoftimi(njoftim);
+                    //controller.setController(this);
+                    //contentVBox.getChildren().add(PaneNjoftimi);
+                }else{
+                    System.out.println("Pane nuk u gjet!");
+                }
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return contentVBox;
+    }
+
+
+    private ArrayList<Njoftim> merrNjoftimWithPagination(int offset, int size) {
+        if(offset == -1 ){
+            offset = 0;
+            size = 1;
+        }
+        NjoftimPagination pagination = new NjoftimPagination(offset, size);
+        return AdminService.getNjoftimiWithPagination(pagination);
+    }
+
+
+    //    private ResourceBundle bundle;
+    private Locale currentLocale = new Locale("en");
+
+
 
     @FXML
     private void handleChangeLanguage(ActionEvent ae){
@@ -81,4 +152,6 @@ public class DashboardController {
         buttoni_qasja.setStyle("-fx-opacity: 0.5;" +
                 "-fx-background-color:  linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5)");
     }
+
+
 }

@@ -111,14 +111,8 @@ CREATE TABLE tblAplikimi (
 	FOREIGN KEY (deptIdPrioritet4) REFERENCES tblDepartamenti(deptId) ON DELETE SET NULL,
 	FOREIGN KEY (afatId) REFERENCES tblAfati(afatId) ON DELETE SET NULL
 );
-CREATE TABLE tblProvimiPranues (
-    provimiId INT AUTO_INCREMENT PRIMARY KEY,
-    userId INT,
-    mbikqyresiId INT,
-    piket INT NOT NULL,
-	FOREIGN KEY (userId) REFERENCES tblUserStudent(userId) ON DELETE SET NULL,
-	FOREIGN KEY (mbikqyresiId) REFERENCES tblMbikqyresi(mbikqyresiId) ON DELETE SET NULL
-);
+
+
 CREATE TABLE tblKonkurimet (
     konkurronId INT AUTO_INCREMENT PRIMARY KEY,
     aplikimiId INT,

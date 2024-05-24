@@ -58,7 +58,7 @@ public class InboxController{
 
         private VBox createPage(int pageIndex) {
 
-                int offset = (totalNjoftime - pageIndex*this.njoftimePerPage -2);
+                int offset = (totalNjoftime - pageIndex*this.njoftimePerPage -this.njoftimePerPage);
 
                 ArrayList<Njoftim> njoftimet = merrNjoftimWithPagination(offset, njoftimePerPage);
                 Collections.reverse(njoftimet);
