@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 import model.dto.Overall.LoginDto;
 import controller.Animations.UpLogoAnimate;
@@ -26,7 +27,9 @@ import service.Supervisor.SupervisorService;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.time.LocalTime;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class LoginController extends ComunicativeController {
     @FXML
@@ -59,6 +62,12 @@ public class LoginController extends ComunicativeController {
     private Button loginBtn;
     @FXML
     private Label timerLabel;
+
+
+    @FXML
+    private ImageView langIcon;
+    private Locale currentLocale = new Locale("en");
+
 
     private int hours;
     private int minutes;
@@ -97,6 +106,7 @@ public class LoginController extends ComunicativeController {
             this.usernameLogo.setImage(new Image(new FileInputStream("Images/blue-user.png")));
             this.passwordLogo.setImage(new Image(new FileInputStream("Images/blue-key.png")));
             this.eyeIcon.setImage(new Image(new FileInputStream("Images/eye-icon.png")));
+            this.langIcon.setImage(new Image(new FileInputStream("Images/colored-language-icon.png")));
 
         } catch (FileNotFoundException fnfe){
             System.out.println("Image not found");
@@ -105,6 +115,16 @@ public class LoginController extends ComunicativeController {
 //        this.logoPaneLoginPage.setTranslateX(-60);
 //        this.logoPaneLoginPage.setTranslateY(50);
 
+    }
+
+    @FXML
+    private void handleChangeLanguage(ActionEvent ae){
+        if (currentLocale.getLanguage().equals("en")) {
+            currentLocale = new Locale("sq");
+        } else {
+            currentLocale = new Locale("en");
+        }
+        //loadLanguage(currentLocale.getLanguage());
     }
 
     @FXML
@@ -219,10 +239,9 @@ public class LoginController extends ComunicativeController {
             }
         };
 
+
         timer.start();
     }
-
-
 
 
     public void setDashboardController(DashboardController dashboardController) {
