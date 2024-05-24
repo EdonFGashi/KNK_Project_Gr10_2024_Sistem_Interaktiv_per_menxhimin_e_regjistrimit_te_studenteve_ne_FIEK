@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="addPane" prefHeight="800.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.EducationalDocController">
+<AnchorPane fx:id="addPane" prefHeight="800.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.EducationalPHDController">
     <children>
         <HBox layoutX="1.0" layoutY="33.0" prefHeight="102.0" prefWidth="1220.0" style="-fx-background-color: #416f73;" AnchorPane.bottomAnchor="664.8000000000001" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
             <children>
@@ -44,8 +44,8 @@
                         <RowConstraints maxHeight="211.60001220703128" minHeight="10.0" prefHeight="92.33330078124999" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <TextField fx:id="txtName" editable="false" layoutX="269.0" layoutY="10.0" prefHeight="38.0" prefWidth="315.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="txtLastName" editable="false" layoutX="154.0" layoutY="64.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtfirstYGrade" editable="false" layoutX="269.0" layoutY="10.0" prefHeight="38.0" prefWidth="315.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtSecondYGrade" editable="false" layoutX="154.0" layoutY="64.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label prefHeight="30.0" prefWidth="228.0" text="Faculty:">
                             <font>
                                 <Font name="Tahoma" size="18.0" />
@@ -61,13 +61,13 @@
                                 <Font name="Tahoma" size="18.0" />
                             </font>
                         </Label>
-                        <TextField prefHeight="34.0" prefWidth="337.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtFaculty" prefHeight="34.0" prefWidth="337.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" />
                         <Label prefHeight="23.0" prefWidth="271.0" text="Department applying for:" GridPane.rowIndex="3">
                             <font>
                                 <Font name="Tahoma" size="18.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="txtNationality1" editable="false" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="txtDep" editable="false" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                     </children>
                 </GridPane>
                 <Button fx:id="btnGoback" layoutX="679.0" layoutY="518.0" mnemonicParsing="false" onMouseClicked="#handleGoback" prefHeight="50.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #3f7bb0; -fx-font-weight: bold;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
@@ -75,19 +75,19 @@
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button fx:id="btmnext" layoutX="877.0" layoutY="518.0" mnemonicParsing="false" onMouseClicked="#handleNext" prefHeight="51.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #387a43; -fx-font-weight: bold;" text="Continue" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
+                <Button fx:id="btnApply" layoutX="877.0" layoutY="518.0" mnemonicParsing="false" onMouseClicked="#handleNext" prefHeight="51.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #387a43; -fx-font-weight: bold;" text="Apply" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <ImageView fitHeight="160.0" fitWidth="165.0" layoutX="870.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" />
-                <ImageView fitHeight="160.0" fitWidth="165.0" layoutX="654.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true" />
+                <ImageView fx:id="imgViewfile2" fitHeight="160.0" fitWidth="165.0" layoutX="870.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" />
+                <ImageView fx:id="imgViewfile1" fitHeight="160.0" fitWidth="165.0" layoutX="654.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true" />
                 <Button fx:id="chooseImageButton1" layoutX="679.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleFile1" prefHeight="14.0" prefWidth="114.0" style="-fx-background-color: #416f73; -fx-background-radius: 20;" text="ChooseFile" textFill="WHITE">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="chooseImageButton11" layoutX="678.0" layoutY="334.0" mnemonicParsing="false" onAction="#handleFile2" prefHeight="0.0" prefWidth="114.0" style="-fx-background-color: #416f73; -fx-background-radius: 20;" text="ChooseFile" textFill="WHITE">
+                <Button fx:id="chooseImageButton3" layoutX="678.0" layoutY="334.0" mnemonicParsing="false" onAction="#handleFile3" prefHeight="0.0" prefWidth="114.0" style="-fx-background-color: #416f73; -fx-background-radius: 20;" text="ChooseFile" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -102,8 +102,8 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <ImageView fitHeight="165.0" fitWidth="171.0" layoutX="865.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true" />
-                <Button fx:id="chooseImageButton12" layoutX="894.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleFile1" prefHeight="0.0" prefWidth="114.0" style="-fx-background-color: #416f73; -fx-background-radius: 20;" text="ChooseFile" textFill="WHITE">
+                <ImageView fx:id="imgViewfile3" fitHeight="165.0" fitWidth="171.0" layoutX="865.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true" />
+                <Button fx:id="chooseImageButton2" layoutX="894.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleFile2" prefHeight="0.0" prefWidth="114.0" style="-fx-background-color: #416f73; -fx-background-radius: 20;" text="ChooseFile" textFill="WHITE">
                     <font>
                         <Font size="14.0" />
                     </font>

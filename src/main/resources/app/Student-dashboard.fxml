@@ -12,8 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="730.0" prefWidth="1520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.StudentDashboardController">
+<AnchorPane fx:id="addPane" prefHeight="730.0" prefWidth="1520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.StudentDashboardController">
    <children>
       <AnchorPane layoutX="227.0" layoutY="155.0" minHeight="0.0" prefHeight="530.0" prefWidth="1134.0" style="-fx-background-color: white; -fx-background-radius: 10;">
          <effect>
@@ -40,7 +39,7 @@
                   </Button>
                </children>
             </HBox>
-            <Button layoutX="479.0" layoutY="452.0" mnemonicParsing="false" style="-fx-background-color: #6481c4; -fx-background-radius: 30;" text="FILLO APLIKIMIN" textFill="WHITE">
+            <Button fx:id="btnFilloAplikimin" layoutX="479.0" layoutY="452.0" mnemonicParsing="false" onAction="#handleFilloAplikimin" style="-fx-background-color: #6481c4; -fx-background-radius: 30;" text="FILLO APLIKIMIN" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
