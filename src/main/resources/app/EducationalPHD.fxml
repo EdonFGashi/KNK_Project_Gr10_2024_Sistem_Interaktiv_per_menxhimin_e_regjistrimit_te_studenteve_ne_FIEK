@@ -71,12 +71,12 @@
                   <ChoiceBox fx:id="choiseboxDept" prefHeight="34.0" prefWidth="289.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                     </children>
                 </GridPane>
-                <Button fx:id="btnGoback" layoutX="679.0" layoutY="518.0" mnemonicParsing="false" onMouseClicked="#handleGoback" prefHeight="50.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #3f7bb0; -fx-font-weight: bold;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
+                <Button layoutX="679.0" layoutY="518.0" mnemonicParsing="false" onMouseClicked="#handleGoback" prefHeight="50.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #3f7bb0; -fx-font-weight: bold;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button fx:id="btnApply" layoutX="877.0" layoutY="518.0" mnemonicParsing="false" onMouseClicked="#handleNext" prefHeight="51.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #387a43; -fx-font-weight: bold;" text="Apply" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
+                <Button layoutX="877.0" layoutY="518.0" mnemonicParsing="false" onMouseClicked="#handleNext" prefHeight="51.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #387a43; -fx-font-weight: bold;" text="Apply" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
                     <font>
                         <Font size="24.0" />
                     </font>

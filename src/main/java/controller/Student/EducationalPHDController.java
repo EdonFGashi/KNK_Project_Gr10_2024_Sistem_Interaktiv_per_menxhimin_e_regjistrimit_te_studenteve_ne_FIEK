@@ -47,8 +47,7 @@ public class EducationalPHDController {
     @FXML
     private ImageView imgViewfile3;
 
-    @FXML
-    private TextField txtDep;
+
 
     @FXML
     private TextField txtFaculty;
@@ -133,6 +132,8 @@ public class EducationalPHDController {
         }
         return selectedFile;
     }
+
+
 
 
 }
