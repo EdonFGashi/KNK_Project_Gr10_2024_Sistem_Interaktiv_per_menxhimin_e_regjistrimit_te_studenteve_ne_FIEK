@@ -263,18 +263,20 @@ public class StudentApplicantRepository {
         PreparedStatement ps = null;
         try {
             conn = DBConnector.getConnection();
-            String query = "INSERT INTO StudentAplikant (numriPersonal, emri, mbiemri, nacionaliteti, qyteti, shteti, gjinia, dataLindjes) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO tblUserStudent (userId,numriPersonal, emri, mbiemri, nacionaliteti, qyteti, shteti, gjinia, dataLindjes) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?)";
             ps = conn.prepareStatement(query);
-            ps.setString(1, studentAplikant.getPersonalNumber());
-            ps.setString(2, studentAplikant.getName());
-            ps.setString(3, studentAplikant.getLastName());
-            ps.setString(4, studentAplikant.getNationality());
-            ps.setString(5, studentAplikant.getCity());
-            ps.setString(6, studentAplikant.getCountry());
-            ps.setString(7, studentAplikant.getGender());
-            ps.setDate(8, studentAplikant.getBirthDate());
+            ps.setInt(1,9);
+            ps.setString(2, studentAplikant.getPersonalNumber());
+            ps.setString(3, studentAplikant.getName());
+            ps.setString(4, studentAplikant.getLastName());
+            ps.setString(5, studentAplikant.getNationality());
+            ps.setString(6, studentAplikant.getCity());
+            ps.setString(7, studentAplikant.getCountry());
+            ps.setString(8, studentAplikant.getGender());
+            ps.setDate(9, studentAplikant.getBirthDate());
             ps.executeUpdate();
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }

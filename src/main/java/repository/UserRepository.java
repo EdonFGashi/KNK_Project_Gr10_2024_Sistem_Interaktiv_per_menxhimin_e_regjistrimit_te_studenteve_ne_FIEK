@@ -1,6 +1,7 @@
 package repository;
 import model.User;
 import model.dto.Overall.CreateUserDto;
+import model.dto.Student.ApplicationStatusDto;
 import model.dto.Student.EditUserProfileDto;
 import service.DBConnector;
 
@@ -98,4 +99,19 @@ public class UserRepository {
         }
     }
 
+    public static void saveApplicationStatus(ApplicationStatusDto applicationStatus) {
+        Connection conn = DBConnector.getConnection();
+        String sql = "INSERT INTO tblApplicationStatus (UserID, SubmissionStatus, EditTime, ApplicationName) VALUES (?, ?, ?, ?)";
+
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, applicationStatus.getUserID());
+            pstmt.setString(2, applicationStatus.getSubmissionStatus());
+            pstmt.setTimestamp(3, java.sql.Timestamp.valueOf(applicationStatus.getEditTime()));
+            pstmt.setString(4, applicationStatus.getApplicationName());
+            pstmt.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Nuk u ruajten te dhenat!");
+        }
+    }
 }
