@@ -15,6 +15,7 @@ import service.Admin.AdminService;
 import controller.SESSION;
 
 import java.io.FileInputStream;
+import java.util.Locale;
 
 public class ProfileController {
 
@@ -33,6 +34,17 @@ public class ProfileController {
     @FXML
     private Button buttonSave;
     private boolean toogle;
+
+    private Locale currentLocale = new Locale("en");
+    @FXML
+    private void handleChangeLanguage(ActionEvent ae){
+        if (currentLocale.getLanguage().equals("en")) {
+            currentLocale = new Locale("sq");
+        } else {
+            currentLocale = new Locale("en");
+        }
+        //loadLanguage(currentLocale.getLanguage());
+    }
     @FXML
     private void initialize(){
         System.out.println("U lexu initialize");

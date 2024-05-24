@@ -16,7 +16,7 @@
    <top>
       <AnchorPane prefHeight="76.0" prefWidth="710.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="WHITE" layoutX="716.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="%txtUP">
+            <Text fill="WHITE" layoutX="716.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="%txtUP" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
@@ -66,7 +66,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Text fill="WHITE" layoutX="692.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="%txtQasja">
+            <Text fill="WHITE" layoutX="692.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="%txtQasja" textAlignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>
@@ -78,7 +78,7 @@
                         <Image url="@../../../../Images/speaker.png" />
                      </image>
                   </ImageView>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtNjoftimet" wrappingWidth="138.9873046875">
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtNjoftimet" textAlignment="CENTER" wrappingWidth="138.9873046875">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
@@ -90,7 +90,7 @@
                   <Font size="14.0" />
                </font></Text>
             <HBox layoutX="108.0" layoutY="114.0" prefHeight="100.0" prefWidth="200.0" />
-            <Text fill="WHITE" layoutX="659.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="%txtTitle" wrappingWidth="163.16015625">
+            <Text fill="WHITE" layoutX="659.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="%txtTitle" textAlignment="CENTER" wrappingWidth="163.16015625">
                <font>
                   <Font size="36.0" />
                </font>
