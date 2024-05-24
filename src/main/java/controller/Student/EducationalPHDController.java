@@ -11,83 +11,103 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
-import model.dto.Student.MasterApplicantDto;
+import model.dto.Student.PHDApplicantDto;
 import model.dto.Student.StudentApplicantDto;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class EducationalMasterController {
+public class EducationalPHDController {
 
     @FXML
     private AnchorPane addPane;
 
     @FXML
-    private Button btnChooseFile1;
+    private Button btnApply;
 
     @FXML
-    private Button btnChooseFile2;
+    private Button btnGoback;
 
     @FXML
-    private ImageView imgBachelorDegree;
+    private Button chooseImageButton1;
 
     @FXML
-    private ImageView imgIdeentification;
+    private Button chooseImageButton2;
 
     @FXML
-    private TextField txtDept;
+    private Button chooseImageButton3;
+
+    @FXML
+    private ImageView imgViewfile1;
+
+    @FXML
+    private ImageView imgViewfile2;
+
+    @FXML
+    private ImageView imgViewfile3;
+
+
 
     @FXML
     private TextField txtFaculty;
 
     @FXML
-    private TextField txtFirstYear;
+    private TextField txtSecondYGrade;
 
     @FXML
-    private TextField txtSecYear;
+    private TextField txtfirstYGrade;
 
     @FXML
-    private TextField txtThirdYear;
-
-    @FXML
-    private ChoiceBox<String> choiceBoxDept;
-
+    private ChoiceBox<String> choiceboxDept;
     public File imageFile1;
     public File imageFile2;
+    public File imageFile3;
 
-    @FXML
     public void initialize() {
         // Shtoni opsionet në ChoiceBox në momentin e inicializimit të kontrollorit
-        choiceBoxDept.getItems().addAll("IKS", "EAR", "EE", "TIK");
+        choiceboxDept.getItems().addAll("IKS", "EAR", "EE", "TIK");
 
         // Për të bërë opsionin e parë si default
-        choiceBoxDept.getSelectionModel().selectFirst();
+        choiceboxDept.getSelectionModel().selectFirst();
     }
 
     // Metoda për të marrë opsionin e zgjedhur
     public String getValue() {
-        return choiceBoxDept.getValue();
+        return choiceboxDept.getValue();
+    }
+    @FXML
+    void handleFile1(ActionEvent event) {
+        imageFile1 = chooseImage(imgViewfile1);
     }
 
     @FXML
-    void handleBack(ActionEvent event) {
+    void handleFile2(ActionEvent event) {
+        imageFile2 = chooseImage(imgViewfile2);
+    }
+
+    @FXML
+    void handleFile3(ActionEvent event) {
+        imageFile2 = chooseImage(imgViewfile3);
+    }
+
+    @FXML
+    void handleGoback(MouseEvent event) {
 
     }
 
     @FXML
-    void handleContinue(ActionEvent event) {
-        String faculty = txtFaculty.getText();
-        Double firstYear = Double.parseDouble(txtFirstYear.getText());
-        Double secondYear = Double.parseDouble(txtSecYear.getText());
-        Double thirdYear = Double.parseDouble(txtThirdYear.getText());
+    void handleNext(MouseEvent event) {
+        String Fakulteti = txtFaculty.getText();
+        Double Mesatarjaviti1 = Double.parseDouble(txtfirstYGrade.getText());
+        Double Mesatarjaviti2 = Double.parseDouble(txtSecondYGrade.getText());
         String deptName=this.getValue();
 
         // e shtove SESSION para getLoggedUser()
-        MasterApplicantDto dto = new MasterApplicantDto(SESSION.getLoggedUser().getId(),faculty,firstYear,secondYear,thirdYear,imageFile1,imageFile2,deptName);
+        PHDApplicantDto dto = new PHDApplicantDto(SESSION.getLoggedUser().getId(), Fakulteti,Mesatarjaviti1,Mesatarjaviti2,imageFile2,imageFile1,imageFile3,deptName);
 
         try {
-            service.Student.StudentApplicantService.processAndSaveMasterData(dto);
+            service.Student.StudentApplicantService.processAndSavePHDData(dto);
             // Trego një mesazh suksesi
         } catch (Exception e) {
             e.printStackTrace();
@@ -96,21 +116,9 @@ public class EducationalMasterController {
 
     }
 
-    @FXML
-    void handleFile1(ActionEvent event) {
-        imageFile1 = chooseImage(imgIdeentification);
-
-    }
-
-    @FXML
-    void handleFile2(ActionEvent event) {
-        imageFile2 = chooseImage(imgBachelorDegree);
-
-    }
-
     private File chooseImage(ImageView imageView) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Zgjidh një Foto");
+        fileChooser.setTitle("Zgjidh Foton");
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
         File selectedFile = fileChooser.showOpenDialog(null);
@@ -124,6 +132,8 @@ public class EducationalMasterController {
         }
         return selectedFile;
     }
+
+
 
 
 }

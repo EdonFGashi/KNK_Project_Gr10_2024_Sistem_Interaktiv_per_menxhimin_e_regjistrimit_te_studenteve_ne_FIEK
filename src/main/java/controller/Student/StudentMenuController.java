@@ -82,29 +82,27 @@ public class StudentMenuController {
             case "MSC" -> {
                 this.txtPrsinfo.setText("Personal Information");
                 this.txtEducation.setText("Educational Experience");
-                this.txtAcademic.setText("Academic Interest");
+                this.txtAcademic.setText("");
                 this.personalinfoNavigate = Navigatior.PERSONAL_INFO;
-                this.EducationExperienceNavigate = Navigatior.EDUCATION;
-                this.AcademinInterestNavigate = Navigatior.ACADEMIC;
+                this.EducationExperienceNavigate = Navigatior.EDUCATION_MASTER;
+
                 try {
                     this.imgPrsinfo.setImage(new Image(new FileInputStream("Images/information.png")));
                     this.imgEducation.setImage(new Image(new FileInputStream("Images/Education.png")));
-                    this.imgAcademic.setImage(new Image(new FileInputStream("Images/graduation.png")));
                     this.imgUp.setImage(new Image(new FileInputStream("Images/Up.png")));
                 } catch (FileNotFoundException e) {
                     System.out.println("Image not found");
                 }}
             case "PHD" -> {
                 this.txtPrsinfo.setText("Personal Information");
-                this.txtEducation.setText("Educational ");
-                this.txtAcademic.setText("Academic Interest");
+                this.txtEducation.setText("Educational Experience");
+                this.txtAcademic.setText("");
                 this.personalinfoNavigate = Navigatior.PERSONAL_INFO;
-                this.EducationExperienceNavigate = Navigatior.EDUCATION;
-                this.AcademinInterestNavigate = Navigatior.ACADEMIC;
+                this.EducationExperienceNavigate = Navigatior.EDUCATION_PHD;
+
                 try {
                     this.imgPrsinfo.setImage(new Image(new FileInputStream("Images/information.png")));
                     this.imgEducation.setImage(new Image(new FileInputStream("Images/Education.png")));
-                    this.imgAcademic.setImage(new Image(new FileInputStream("Images/graduation.png")));
                     this.imgUp.setImage(new Image(new FileInputStream("Images/Up.png")));
                 } catch (FileNotFoundException e) {
                     System.out.println("Image not found");

@@ -12,8 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="730.0" prefWidth="1520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.StudentDashboardController">
+<AnchorPane fx:id="addPane" prefHeight="730.0" prefWidth="1520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.StudentDashboardController">
    <children>
       <AnchorPane layoutX="227.0" layoutY="155.0" minHeight="0.0" prefHeight="530.0" prefWidth="1134.0" style="-fx-background-color: white; -fx-background-radius: 10;">
          <effect>
@@ -22,10 +21,10 @@
          <children>
             <TableView fx:id="tableStudent" layoutX="114.0" layoutY="199.0" prefHeight="240.0" prefWidth="906.0" style="-fx-background-color: transparent; -fx-border-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-border-width: 2px; -fx-border-radius: 8px;">
                <columns>
-                  <TableColumn fx:id="columnEmail" editable="false" prefWidth="186.39993286132812" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Submission Status" />
-                  <TableColumn fx:id="columnFirstName" editable="false" minWidth="0.0" prefWidth="203.20004272460938" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Aplication Name" />
-                  <TableColumn fx:id="columnLastName" editable="false" minWidth="0.0" prefWidth="267.20001220703125" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Last edited  Data/Time" />
-                  <TableColumn prefWidth="248.0" text="Edit" />
+                  <TableColumn fx:id="columnStatus" editable="false" prefWidth="186.39993286132812" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Submission Status" />
+                  <TableColumn fx:id="columnApplicationName" editable="false" minWidth="0.0" prefWidth="203.20004272460938" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Aplication Name" />
+                  <TableColumn fx:id="columnLastEdited" editable="false" minWidth="0.0" prefWidth="267.20001220703125" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Last edited  Data/Time" />
+                  <TableColumn fx:id="columnedit" prefWidth="248.0" text="Edit" />
                </columns>
             </TableView>
             <HBox layoutX="100.0" layoutY="36.0" prefHeight="58.0" prefWidth="951.0" style="-fx-background-color: #4b79ad; -fx-background-radius: 30;">
@@ -40,7 +39,7 @@
                   </Button>
                </children>
             </HBox>
-            <Button layoutX="479.0" layoutY="452.0" mnemonicParsing="false" style="-fx-background-color: #6481c4; -fx-background-radius: 30;" text="FILLO APLIKIMIN" textFill="WHITE">
+            <Button fx:id="btnFilloAplikimin" layoutX="479.0" layoutY="452.0" mnemonicParsing="false" onAction="#handleFilloAplikimin" style="-fx-background-color: #6481c4; -fx-background-radius: 30;" text="FILLO APLIKIMIN" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>

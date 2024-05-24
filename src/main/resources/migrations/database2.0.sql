@@ -12,6 +12,7 @@ CREATE TABLE tblAdmin (
 
 CREATE TABLE tblUser(
     userId INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
     email VARCHAR(50)  NOT NULL,
     salt VARCHAR(100) NOT NULL,
     passwordHash VARCHAR(400) NOT NULL
@@ -48,9 +49,8 @@ CREATE TABLE tblMbikqyresi (
 );
 
 CREATE TABLE tblUserStudent (
-    userId INT AUTO_INCREMENT PRIMARY KEY,
+    userId INT PRIMARY KEY,
     numriPersonal VARCHAR(20) NOT NULL,
-    email VARCHAR(50) NOT NULL,
     emri VARCHAR(50),
     mbiemri VARCHAR(50),
     nacionaliteti VARCHAR(50),

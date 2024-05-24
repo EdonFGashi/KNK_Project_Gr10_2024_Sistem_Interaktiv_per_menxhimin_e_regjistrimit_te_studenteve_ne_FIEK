@@ -71,6 +71,8 @@ interface StudentPages{
     public final static String EDUCATION = "educational-experience.fxml";
     public final static String ACADEMIC = "academic-interest.fxml";
     public final static String STUDENT_DASHBOARD = "Student-dashboard.fxml";
+    public final static String EDUCATION_MASTER = "EducationalMaster.fxml";
+    public final static String EDUCATION_PHD = "EducationalPhd2.fxml";
 
     public final static String STUDENT_SIGNUP= "SignUp.fxml";
 
@@ -171,7 +173,7 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
     public static void navigateNewStage(String page){
          Scene scene = new Scene(loadPane(page));
         Stage stage = new Stage();
-        stage.setMaximized(false);
+        stage.setMaximized(true);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
