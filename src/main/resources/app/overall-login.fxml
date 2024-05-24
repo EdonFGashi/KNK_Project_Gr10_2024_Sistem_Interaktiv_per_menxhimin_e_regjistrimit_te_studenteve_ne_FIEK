@@ -80,7 +80,7 @@
                   <Image url="@../../../../Images/eye-icon.png" />
                </image>
             </ImageView>
-            <Label fx:id="timerLabel" layoutX="97.0" layoutY="375.0" prefWidth="180.0" textAlignment="CENTER" textFill="RED" visible="false" AnchorPane.rightAnchor="87.19999999999999" />
+            <Label fx:id="timerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="97.0" layoutY="375.0" prefWidth="180.0" textFill="RED" visible="false" AnchorPane.rightAnchor="87.19999999999999" />
          </children>
       </AnchorPane>
    </center>
