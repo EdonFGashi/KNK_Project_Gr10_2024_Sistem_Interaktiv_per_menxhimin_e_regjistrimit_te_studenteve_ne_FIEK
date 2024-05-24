@@ -59,7 +59,7 @@ public class SupervisorMenuController {
 
     @FXML
     private void handleApproveSupervisorClick(MouseEvent me){
-        Navigatior.navigate(this.addPane, "");
+        Navigatior.navigate(this.addPane, Navigatior.ADMIN_SUPERVISORMENU_APPROVESUPERVISORFROMSEMS);
         refreshActiveSection();
         hboxAproveSupervisor.setStyle(cssForActiveSection);
     }

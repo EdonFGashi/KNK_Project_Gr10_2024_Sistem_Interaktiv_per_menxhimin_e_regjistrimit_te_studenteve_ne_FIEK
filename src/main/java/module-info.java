@@ -24,6 +24,8 @@ module com.example.knk_project_gr10_2024 {
     requires jfreechart;
     requires jcommon;
 
+    requires itextpdf;
+
     opens model to javafx.base;
     opens controller.Help to javafx.fxml;
     opens model.dto.Admin to javafx.base;

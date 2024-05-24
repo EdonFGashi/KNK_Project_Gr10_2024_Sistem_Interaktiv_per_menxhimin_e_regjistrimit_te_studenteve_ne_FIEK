@@ -20,13 +20,20 @@ import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import model.ShkollaMesme;
 import model.UserStudent;
+import model.*;
+import model.dto.Admin.AdminProfileToControllerDto;
 import model.dto.Admin.ApproveStudentsDto;
 import model.dto.Admin.EditRegisteredStudentDetailsOnDbDto;
 import model.dto.Admin.RegisteredStudentDetailsToControllerDto;
 import model.filter.StudentFilter;
 import repository.StudentRepository;
+import service.Admin.AdminService;
 import service.Admin.StudentFromAdminService;
 import controller.SESSION;
+import service.AfatService;
+import service.ArkivaDokumenteveService;
+import service.Student.StudentService;
+import service.StudentPdfCreatorService;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -96,6 +103,25 @@ public class StudentMenuShowAndEditController {
     @FXML
     private Button btnApprove;
     private boolean approve = true;
+
+
+//Gjenerimi i vertetimit pdf
+    @FXML
+    private TextField txtNumriRendor;
+
+    @FXML
+    private TextField txtNumriSerik;
+    @FXML
+    private TextField txtDownloadPath;
+
+    @FXML
+    private TextArea txtIssueReason;
+
+    @FXML
+    private TextField txtIdStudentit;
+
+    @FXML
+    private TextField txtDataLeshimit;
 
 
     @FXML
@@ -372,6 +398,62 @@ public class StudentMenuShowAndEditController {
     @FXML
     private void handleCancelFilter(ActionEvent ae){
         this.paneFilterShowHide.setVisible(false);
+    }
+    @FXML
+    void handleDownload(ActionEvent event) {
+        int nrSerik = (int)(Math.random() * (999999 - 100000 + 1)) + 100000;
+
+        LocalDate dataTanishme = LocalDate.now();
+
+        RegisteredStudent studenti = StudentService.getRegisteredStudent(this.selectedUser.getUserId());
+        Afat afatiRegjistrimit = AfatService.getAfatiRegjistrimitForStudent(this.selectedUser.getUserId());
+        RegisteredStudentDetailsToControllerDto studentData = StudentFromAdminService.getRegisteredStudent(this.selectedUser.getUserId());
+        AdminProfileToControllerDto admin = AdminService.getProfileInfo(SESSION.getLoggedUserEmail());
+        StudentPdfCreatorService.generatePdf(
+                ArkivaDokumenteveService.getLastDocumentId() + 1,
+                nrSerik,
+                dataTanishme,
+                studenti.getGeneratedId(),
+                studenti.getEmri(),
+                studenti.getMbiemri(),
+                studenti.getDataLindjes(),
+                studenti.getQyteti(),
+                "I rregullt",
+                afatiRegjistrimit.getYear(),
+                afatiRegjistrimit.getNiveli(),
+                studentData.getDepartmentName(),
+                studentData.getDepartmentName(),
+                this.txtIssueReason.getText(),
+                admin.getFirstName() + " " + admin.getLastName(),
+                this.txtDownloadPath.getText()
+        );
+
+        Arkiva arkivimi = new Arkiva(String.valueOf(nrSerik), studenti.getGeneratedId(), dataTanishme);
+        boolean uGjenerua = ArkivaDokumenteveService.arkivoDokumentin(arkivimi);
+        if(!uGjenerua){
+            PopUp.tick(200);
+        } else {
+            PopUp.loading("Vërtetimi nuk u gjenerua!",false, "");
+        }
+    }
+
+    @FXML
+    void handleVerify(ActionEvent event) {
+        String nrRendorString = this.txtNumriRendor.getText();
+        int nrRendor = Integer.parseInt(nrRendorString);
+        String nrSerik = this.txtNumriSerik.getText();
+        String idStudentit = this.txtIdStudentit.getText();
+        String dataLeshimitString = this.txtDataLeshimit.getText();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate dataLeshimit = LocalDate.parse(dataLeshimitString, formatter);
+
+        Arkiva arkivPerVerifikim = new Arkiva(nrRendor, nrSerik, idStudentit, dataLeshimit);
+        boolean eshteOrigjinal = ArkivaDokumenteveService.verifiko(arkivPerVerifikim);
+        if(eshteOrigjinal){
+            PopUp.loading("Vërtetimi është origjinal",true, "");
+        } else {
+            PopUp.loading("Vërtetimi nuk është origjinal",false, "");
+        }
     }
 
 }
