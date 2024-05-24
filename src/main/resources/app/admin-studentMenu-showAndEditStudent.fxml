@@ -348,7 +348,7 @@
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Label layoutX="472.0" layoutY="372.0" prefHeight="38.0" prefWidth="220.0" style="-fx-font-weight: bold;" text="%lblVerifikimiVertetimeve" textFill="#0a85ff">
+                        <Label layoutX="472.0" layoutY="372.0" prefHeight="38.0" prefWidth="230.0" style="-fx-font-weight: bold;" text="%lblVerifikimiVertetimeve" textAlignment="CENTER" textFill="#0a85ff">
                            <font>
                               <Font name="Tahoma" size="18.0" />
                            </font>
