@@ -197,6 +197,31 @@ public class AdminRepository {
         }
         return new DepartmentAcceptanceDto(IKSNormal, IKSMinoritet, EARNormal, EARMinoritet, EENormal, EEMinoritet, TIKNormal, TIKMinoritet);
     }
+    public static int getLastDocumentIdFromDb(){
+        String query = "SELECT * FROM tblArkiva ORDER BY documentId DESC LIMIT 1;";
+        Connection connection = DBConnector.getConnection();
+        try{
+            PreparedStatement pst = connection.prepareStatement(query);
+            ResultSet result = pst.executeQuery();
+            if(result.next()){
+                return getLastDocumentIdFromResultSet(result);
+            }
+        }catch(Exception e){
+//            e.printStackTrace();
+            return 5;
+        }
+        return 0;
+    }
+
+    private static int getLastDocumentIdFromResultSet(ResultSet result){
+        try{
+            int id = result.getInt("documentId");
+            return id;
+        }catch(Exception e){
+            return 0;
+        }
+    }
+
 }
 
 
