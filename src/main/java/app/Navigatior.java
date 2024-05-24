@@ -25,6 +25,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.dto.Admin.comunicateControllerdto;
@@ -113,6 +114,7 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         stage.setWidth(stage.getWidth());
         stage.setHeight(stage.getHeight());
         Scene newScene = new Scene(formPane);
+        //newScene.setFill(Color.BLUE);
         stage.setScene(newScene);
         stage.show();
     }
@@ -123,6 +125,7 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         stage.setHeight(stage.getHeight());
         Scene newScene = new Scene(mainPane);
         stage.setScene(newScene);
+       // newScene.setFill(Color.BLUE);
         stage.show();
     }
 
@@ -173,8 +176,8 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
 
         try {
             return loader.load();
-        }catch (IOException ioe){
-            ioe.printStackTrace();
+        }catch (Exception ioe){
+            //ioe.printStackTrace();
             System.out.println("Error ne load");
             try {
                 StackPane pane = (new FXMLLoader(Navigatior.class.getResource(Navigatior.ERROR404))).load();

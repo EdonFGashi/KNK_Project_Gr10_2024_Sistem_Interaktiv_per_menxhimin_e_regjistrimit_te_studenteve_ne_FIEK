@@ -15,6 +15,7 @@ import service.Student.UserService;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
+import java.util.Locale;
 
 public class SignUpController {
 
@@ -33,8 +34,16 @@ public class SignUpController {
     @FXML
     private PasswordField pwdPassword;
 
-
-
+    private Locale currentLocale = new Locale("en");
+    @FXML
+    private void handleChangeLanguage(ActionEvent ae){
+        if (currentLocale.getLanguage().equals("en")) {
+            currentLocale = new Locale("sq");
+        } else {
+            currentLocale = new Locale("en");
+        }
+        //loadLanguage(currentLocale.getLanguage());
+    }
 
     @FXML
     private void handleSignUp(ActionEvent ae) throws SQLException {

@@ -19,14 +19,15 @@ public class Main extends Application {
         stage.getIcons().add(new Image("upLogoNoRing.png"));
         stage.setTitle("Fiek Registration Menagment");
 
-//        Navigatior.navigate(stage,Navigatior.ADMIN_RIBBON);
+
+        Navigatior.navigate(stage,Navigatior.ADMIN_RIBBON);
 //
         // Per me testu ribbonin e mbikqyrsve
 //        Navigatior.navigate(stage, Navigatior.SUPERVISOR_MENU);
 
         // Per me testu Dashboardin
 //        Navigatior.navigate(stage,Navigatior.DASHBOARD);
-       Navigatior.navigateNewStage(Navigatior.DASHBOARD);
+//        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
 //        Navigatior.navigateNewStage(Navigatior.LOGIN);
 
 

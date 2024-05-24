@@ -13,7 +13,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 public class MenuController {
-
     @FXML
     private Label txtMenuName;
     @FXML
@@ -42,14 +41,13 @@ public class MenuController {
     private String option1Navigate= "";
     private String option2Navigate ="";
     private String option3Navigate ="";
+     private String menu;
 
     private final String activeSection = "-fx-border-color: white; -fx-border-radius: 15;-fx-border-width: 1.5; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0.0, 0, 1);";
     @FXML
     private void initialize(){
 
-
-        String menu = SESSION.getAdminMenu();
-
+        this.menu = SESSION.getAdminMenu();
 
         switch (menu) {
             case "Student" -> {
@@ -126,10 +124,36 @@ public class MenuController {
             }
         }
 
+//        System.out.println("Navigimi:  ");
+//        System.out.println(option1Navigate);
+//        System.out.println(option2Navigate);
+//        System.out.println(option3Navigate);
+//        System.out.println(SESSION.getLastMenuOption());
 
+        this.resetActiveSection();
+        if(SESSION.getLastMenuOption() == 0){
+            Navigatior.navigate(addPane,option1Navigate);
+            this.hboxOption1.setStyle(activeSection);
+            SESSION.setLastMenuOption(1);
 
-        Navigatior.navigate(addPane,option1Navigate);
-        this.hboxOption1.setStyle(activeSection);
+        }else{
+            switch(SESSION.getLastMenuOption()){
+                case 1 ->{
+                    Navigatior.navigate(addPane,this.option1Navigate);
+                    this.hboxOption1.setStyle(activeSection);
+                }
+                case 2 -> {
+                    Navigatior.navigate(addPane,this.option2Navigate);
+                    this.hboxOption2.setStyle(activeSection);
+                }
+                case 3 -> {
+                    Navigatior.navigate(addPane,this.option3Navigate);
+                    this.hboxOption3.setStyle(activeSection);
+                }
+            }
+
+        }
+
     }
 
 
@@ -139,18 +163,21 @@ public class MenuController {
           this.resetActiveSection();
           this.hboxOption1.setStyle(activeSection);
           Navigatior.navigate(this.addPane,option1Navigate);
+          SESSION.setLastMenuOption(1);
     }
     @FXML
     private void handleOption2Click(MouseEvent me){
         this.resetActiveSection();
         this.hboxOption2.setStyle(activeSection);
         Navigatior.navigate(this.addPane,option2Navigate);
+        SESSION.setLastMenuOption(2);
     }
     @FXML
     private void handleOption3Click(MouseEvent me){
         this.resetActiveSection();
         this.hboxOption3.setStyle(activeSection);
         Navigatior.navigate(this.addPane,option3Navigate);
+        SESSION.setLastMenuOption(3);
     }
 
     @FXML
@@ -165,12 +192,9 @@ public class MenuController {
     private void handleHoverOption3(MouseEvent me){
 
     }
-
     private void resetActiveSection(){
         this.hboxOption1.setStyle("");
         this.hboxOption2.setStyle("");
         this.hboxOption3.setStyle("");
     }
-
-
 }

@@ -92,6 +92,7 @@ public class RibbonController {
 
 
 
+
     @FXML
     private void initialize(){
 
@@ -106,15 +107,30 @@ public class RibbonController {
         }else{
 
             this.gotoCurrentPage();
+
         }
+
+        try {
+        if(SESSION.isToggleShqip()){
+                this.imgTranslate.setImage(new Image(new FileInputStream("src/main/resources/Images/language-en.png")));
+        }
+        else {
+            this.imgTranslate.setImage(new Image(new FileInputStream("src/main/resources/Images/language-sq.png")));
+        }
+         } catch (FileNotFoundException e) {
+        throw new RuntimeException(e);
+        }
+
 
         try {
             this.imageGoBackWhite = new Image(new FileInputStream("src/main/resources/Images/backArrow.png"));
             this.imageGoBackGray = new Image(new FileInputStream("src/main/resources/Images/grayBackArrow.png"));
             this.imageGoForwardWhite = new Image(new FileInputStream("src/main/resources/Images/forwardArrow.png"));
             this.imageGoForwardGray = new Image(new FileInputStream("src/main/resources/Images/grayForwardArrow.png"));
+
         } catch (FileNotFoundException e) {
-         //
+            System.out.println("File not foundd");
+            e.printStackTrace();
         }
 
 
@@ -359,6 +375,7 @@ public class RibbonController {
 
     @FXML
     private void handleChangeLanguage(MouseEvent me){
+
         SESSION.switchLanguage();
         Navigatior.navigate(me,Navigatior.ADMIN_RIBBON);
     }

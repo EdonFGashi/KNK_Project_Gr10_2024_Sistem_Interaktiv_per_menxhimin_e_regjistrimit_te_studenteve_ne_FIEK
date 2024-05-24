@@ -29,27 +29,12 @@ public class DashboardController {
     private ImageView infoimg;
     @FXML
     private ImageView changeLanguageIcon;
-    @FXML
-    private Text txtNjoftimet;
 
-    @FXML
-    private Text txtNjoftimet2;
-
-    @FXML
-    private Text txtQasja;
-
-    @FXML
-    private Text txtTitle;
-
-    @FXML
-    private Text txtUP;
-
-    private ResourceBundle bundle;
+//    private ResourceBundle bundle;
     private Locale currentLocale = new Locale("en");
 
     @FXML
     private void initialize(){
-        loadLanguage(currentLocale.getLanguage());
         try {
             this.mainImage.setImage(new Image(new FileInputStream("Images/fieku.png")));
             this.infoimg.setImage(new Image(new FileInputStream("Images/info-icon.png")));
@@ -60,37 +45,14 @@ public class DashboardController {
     }
 
     @FXML
-    private void handleChangeLanguage() {
-
-        if(SESSION.isToggleShqip()){
-            Locale.setDefault(new Locale("en"));
-            System.out.println("Language changed to English");
-            SESSION.setToggleShqip(false);
-        }else{
-            Locale.setDefault(new Locale("sq"));
-            System.out.println("Language changed to Shqip");
-            SESSION.setToggleShqip(true);
+    private void handleChangeLanguage(ActionEvent ae){
+        if (currentLocale.getLanguage().equals("en")) {
+            currentLocale = new Locale("sq");
+        } else {
+            currentLocale = new Locale("en");
         }
-
-//        if (currentLocale.getLanguage().equals("en")) {
-//            currentLocale = new Locale("sq");
-//        } else {
-//            currentLocale = new Locale("en");
-//        }
-//        loadLanguage(currentLocale.getLanguage());
+        //loadLanguage(currentLocale.getLanguage());
     }
-    private void loadLanguage(String lang) {
-        Locale locale = new Locale(lang);
-        bundle = ResourceBundle.getBundle("Translations.content", locale);
-
-        txtTitle.setText(bundle.getString("txtTitle"));
-        txtNjoftimet.setText(bundle.getString("txtNjoftimet"));
-        txtNjoftimet2.setText(bundle.getString("txtNjoftimet2"));
-        txtUP.setText(bundle.getString("txtUP"));
-        txtQasja.setText(bundle.getString("txtQasja"));
-    }
-
-
 
     @FXML
     public void handleQasja(ActionEvent event) {

@@ -16,6 +16,7 @@ import service.Admin.AdminService;
 import service.Supervisor.SupervisorService;
 
 import java.io.FileInputStream;
+import java.util.Locale;
 
 public class ProfileController {
 
@@ -29,6 +30,16 @@ public class ProfileController {
     @FXML
     private ImageView imgProfilePhoto;
 
+    private Locale currentLocale = new Locale("en");
+    @FXML
+    private void handleChangeLanguage(ActionEvent ae){
+        if (currentLocale.getLanguage().equals("en")) {
+            currentLocale = new Locale("sq");
+        } else {
+            currentLocale = new Locale("en");
+        }
+        //loadLanguage(currentLocale.getLanguage());
+    }
 
     @FXML
     private void initialize(){

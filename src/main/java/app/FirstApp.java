@@ -33,7 +33,8 @@ public class FirstApp extends Application {
 //        }
 
 
- //SHko te Admini direkt
+      //Shko te Admini direkt
+
         stage.setMaximized(true);
       //  Navigatior.navigate(stag);
        Navigatior.navigate(stage,AdminPages.ADMIN_RIBBON);
