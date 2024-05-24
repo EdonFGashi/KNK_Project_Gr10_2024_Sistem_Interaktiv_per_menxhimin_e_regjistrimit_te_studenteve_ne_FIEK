@@ -65,7 +65,7 @@ public class SignUpController {
     @FXML
     public void initialize() {
         try {
-            this.imgIcon.setImage(new Image(new FileInputStream("Images/graduation2.png")));
+            this.imgIcon.setImage(new Image(new FileInputStream("Images/UP.png")));
 
         } catch (FileNotFoundException e) {
             System.out.println("Image not found");
