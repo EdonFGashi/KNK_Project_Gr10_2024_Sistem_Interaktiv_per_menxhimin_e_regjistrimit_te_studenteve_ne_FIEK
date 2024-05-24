@@ -124,14 +124,14 @@ public class LoginController {
 
                 //Admini mu ru ne session
                 SESSION.setLoggedAdmin(AdminService.getAdminByEmail(this.userEmail.getText()));
-//                navigateToNewStage(event, Navigatior.ADMIN_RIBBON);
+                navigateToNewStage(event, Navigatior.ADMIN_RIBBON);
 
 
             } else if (Objects.equals(LoginService.login(loginDto), "supervisor")) {
 
                 //Mbikqyresi mu ru ne session
                 SESSION.setLoggedSupervisor(SupervisorService.getSupervisorByEmail(this.userEmail.getText()));
-//                navigateToNewStage(event, Navigatior.SUPERVISOR_MENU);
+                navigateToNewStage(event, Navigatior.SUPERVISOR_MENU);
 //                Navigatior.navigateNewStage(Navigatior.SUPERVISOR_MENU);
                 System.out.println("Supervisor");
                 loginAttempts = 0;
@@ -139,7 +139,7 @@ public class LoginController {
             } else if (Objects.equals(LoginService.login(loginDto), "student")) {
 
                 SESSION.setLoggedUser(UserService.getUserByEmail(this.userEmail.getText()));
-//                navigateToNewStage(event, Navigatior.STUDENT_DASHBOARD);
+                navigateToNewStage(event, Navigatior.STUDENT_DASHBOARD);
 
             }
             else {
