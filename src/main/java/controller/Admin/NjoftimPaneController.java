@@ -1,12 +1,13 @@
 package controller.Admin;
 
+import controller.ComunicativeController;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import model.Njoftim;
 
-public class NjoftimPaneController{
+public class NjoftimPaneController extends ComunicativeController {
 
     @FXML
     private AnchorPane paneNjoftim;

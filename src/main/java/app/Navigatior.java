@@ -9,6 +9,8 @@ Metodat niher spi fshij amo besoj e ndreqi ni menyr qysh me u en kahmos.
 
 */
 
+import controller.Admin.NjoftimPaneController;
+import controller.ComunicativeController;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -16,6 +18,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -23,6 +26,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.dto.Admin.comunicateControllerdto;
 
 import java.io.IOException;
 
@@ -62,6 +66,7 @@ interface AdminPages{
     public final static String ADMIN_RESETPASSWORD = "admin-resetPassword.fxml";
 
     public final static String ADMIN_INBOX = "admin-inbox.fxml";
+    public final static String ADMIN_NJOFTIM_MODULE = "admin-inbol-njoftimPane.fxml";
 
 
 }
@@ -179,6 +184,52 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
     }
 
 
+    public static comunicateControllerdto loadAndReturnController(String page){
+
+
+        try {
+
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource(page));
+
+            Parent MainPane = loader.load();
+
+            ComunicativeController controller = loader.getController();
+
+
+            return new comunicateControllerdto(
+                    controller, MainPane
+            );
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+       return null;
+    }
+
+    public static void navigateNewStageByPane(Parent loginPane) {
+        Scene scene = new Scene(loginPane);
+        Stage stage = new Stage();
+        stage.setMaximized(false);
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Navigatori 1.0 -Jashte perdorimit
 
@@ -229,5 +280,7 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         navigate(stage,mainPane);
 
     }
+
+
 }
 

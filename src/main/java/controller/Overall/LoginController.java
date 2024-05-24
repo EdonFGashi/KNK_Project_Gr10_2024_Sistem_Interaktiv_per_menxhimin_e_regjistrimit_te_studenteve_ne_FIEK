@@ -1,6 +1,7 @@
 package controller.Overall;
 
 import app.Navigatior;
+import controller.ComunicativeController;
 import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,7 +28,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Objects;
 
-public class LoginController {
+public class LoginController extends ComunicativeController {
     @FXML
     private ImageView imgUpLogo;
     @FXML
@@ -56,6 +57,12 @@ public class LoginController {
     private AnchorPane anchorPane;
     @FXML
     private Button loginBtn;
+
+
+    private DashboardController dashboardController;
+
+
+
 
     @FXML
     private void initialize(){
@@ -139,8 +146,8 @@ public class LoginController {
             errorMessageLabel.setVisible(true);
 
         }
-
     }
+
 
     private void navigateToNewStage(ActionEvent event, String fxmlPath) {
         Stage stage = new Stage();
@@ -157,4 +164,7 @@ public class LoginController {
     }
 
 
+    public void setDashboardController(DashboardController dashboardController) {
+        this.dashboardController = dashboardController;
+    }
 }
