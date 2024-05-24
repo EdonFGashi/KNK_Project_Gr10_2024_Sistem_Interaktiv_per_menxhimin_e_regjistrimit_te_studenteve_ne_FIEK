@@ -73,7 +73,7 @@ public class SignUpController {
             if(response){
                 SESSION.setLoggedUser(UserService.getUserByEmail(this.txtEmail.getText()));
                 System.out.println("Okej");
-                Navigatior.navigateNewStage(Navigatior.STUDENT_DASHBOARD);
+                Navigatior.navigateNewMaxStage(Navigatior.STUDENT_DASHBOARD);
                 Navigatior.closeStageAfterDelay(ae, Duration.millis(1));
             }
         } catch (SQLException | InvalidEmail | InvalidPassword e){
