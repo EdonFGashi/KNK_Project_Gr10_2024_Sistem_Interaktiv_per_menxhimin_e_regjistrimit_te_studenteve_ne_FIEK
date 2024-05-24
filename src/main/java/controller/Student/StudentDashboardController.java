@@ -1,14 +1,17 @@
 package controller.Student;
 
+import app.Navigatior;
 import controller.SESSION;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.layout.AnchorPane;
 import model.Afat;
 import service.Student.StudentApplicantService;
 
@@ -19,7 +22,8 @@ import static controller.SESSION.setDeptLevel;
 
 public class StudentDashboardController {
     ObservableList<String> nivelet = FXCollections.observableArrayList("BSC", "MSC", "PHD");
-
+    @FXML
+    private AnchorPane addPane;
     @FXML
     private ChoiceBox<String> choiseChoseAfat;
 
@@ -103,5 +107,9 @@ public class StudentDashboardController {
     private String formatAfat(Afat afat) {
         String heraDescription = afat.getHera().equals("1") ? "afat i parë" : "afat i dytë";
         return afat.getNiveli() + " - " + heraDescription;
+    }
+    @FXML
+    void handleFilloAplikimin(ActionEvent event) {
+        Navigatior.navigate(addPane,"StudentMenu.fxml");
     }
 }

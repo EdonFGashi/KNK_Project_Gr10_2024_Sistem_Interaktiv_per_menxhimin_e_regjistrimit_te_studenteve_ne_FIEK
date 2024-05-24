@@ -4,6 +4,7 @@ import javafx.collections.ObservableList;
 import model.Afat;
 import model.dto.Student.AcademicInterestDto;
 import model.dto.Student.MasterApplicantDto;
+import model.dto.Student.PHDApplicantDto;
 import repository.AfatRepository;
 import repository.StudentApplicant.StudentApplicantRepository;
 
@@ -42,6 +43,20 @@ public class StudentApplicantService {
 
         // Save data to repository
         StudentApplicantRepository.saveMasterData(dto);
+    }
+
+
+    public static void processAndSavePHDData(PHDApplicantDto dto) throws Exception {
+        // Validate data
+        if (dto.getFacultyName() == null || dto.getFacultyName().isEmpty() ||
+                dto.getSuccesGradeFirstY() < 6 || dto.getSuccesGradeSecondY() < 6 ||
+                dto.getFileIdentification() == null || dto.getFileBachelor() == null ||
+                dto.getFileMaster() == null || dto.getDeptName().isEmpty()) {
+            throw new IllegalArgumentException("All fields must be completed.");
+        }
+
+        // Save data to repository
+        StudentApplicantRepository.savePHDData(dto);
     }
 
     public static void processAcademicInterest(AcademicInterestDto dto) {
