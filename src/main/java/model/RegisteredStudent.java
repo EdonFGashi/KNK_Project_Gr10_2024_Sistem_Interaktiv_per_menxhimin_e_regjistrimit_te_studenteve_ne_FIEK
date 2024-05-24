@@ -6,6 +6,8 @@ public class RegisteredStudent extends UserStudent{
     private String emriDepartamentit;
     private String niveli;
 
+    private int userIdd;
+
     public RegisteredStudent(int userId, String numriPersonal, String email, String emri, String mbiemri, String nacionaliteti, String qyteti, String shteti, String gjinia, String dataLindjes, String salt, String passwordHash, String generatedEmail, String registeredEmail, String emriDepartamentit, String niveli) {
         super(userId, numriPersonal, email, emri, mbiemri, nacionaliteti, qyteti, shteti, gjinia, dataLindjes, salt, passwordHash);
         this.generatedEmail = generatedEmail;

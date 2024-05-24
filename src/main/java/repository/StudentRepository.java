@@ -4,9 +4,11 @@ import javafx.scene.image.Image;
 import model.RegisteredStudent;
 import model.ShkollaMesme;
 import model.UserStudent;
+import model.dto.Admin.AddNewAfatDto;
 import model.dto.Admin.ApproveStudentsDto;
 import model.dto.Admin.EditRegisteredStudentDetailsOnDbDto;
 import model.dto.Admin.ResetPasswordOnDb;
+import model.dto.RegisteredStudents.RegisteredStudents;
 import model.filter.StudentFilter;
 import service.DBConnector;
 
@@ -330,5 +332,54 @@ public class StudentRepository {
             return null;
         }
 
+    }
+
+    public static int numriStudenteveMeEmerTeNjejt(String emri, String mbiemri){
+        Connection conn = DBConnector.getConnection();
+        int total = 0;
+        String query = """
+                        SELECT COUNT(*) AS num_students
+                        FROM tblUserStudent
+                        JOIN tblRegisteredStudents ON tblUserStudent.userId = tblRegisteredStudents.userId
+                        WHERE tblUserStudent.emri = ? AND 
+                        tblUserStudent.mbiemri = ?;
+                        """;
+
+        try {
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, emri);
+            pst.setString(2, mbiemri);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                total = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return total;
+    }
+
+    public static boolean registerStundentInDb(RegisteredStudents student) {
+
+        Connection conn= DBConnector.getConnection();
+        String query = """
+                INSERT INTO tblRegisteredStudents (userId, generatedEmail, generatedId, emriDepartamentit, niveli)
+                VALUE (? ,? ,? ,? ,?)
+                """;
+
+        try {
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setInt(1, student.getUserId());
+            pst.setString(2, student.getGeneratedEmail());
+            pst.setString(3, student.getGeneratedId());
+            pst.setString(4, student.getEmriDepartamentit());
+            pst.setString(5, student.getNiveli());
+
+            pst.execute();
+            return true;
+        }catch(Exception e){
+            return false;
+        }
     }
 }

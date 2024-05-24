@@ -3,6 +3,8 @@ package service.Student;
 import javafx.scene.chart.XYChart;
 import model.RegisteredStudent;
 import model.dto.RegisteredStudents.ChartInformationEnrolledStudents;
+import model.dto.RegisteredStudents.RegisteredStudents;
+import repository.AdminRepository;
 import repository.StudentRepository;
 
 import java.util.ArrayList;
@@ -44,4 +46,8 @@ public class StudentService {
         return StudentRepository.getRegisteredStudent(userId);
     }
 
+
+    public static boolean registerStundent(RegisteredStudents student){
+        return StudentRepository.registerStundentInDb(student);
+    }
 }
