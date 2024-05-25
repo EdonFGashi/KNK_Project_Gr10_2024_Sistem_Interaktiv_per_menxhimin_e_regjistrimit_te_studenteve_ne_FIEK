@@ -29,9 +29,8 @@ public class Main extends Application {
 
         // Per me testu Dashboardin
 //        Navigatior.navigate(stage,Navigatior.DASHBOARD);
-        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
-//        Navigatior.navigateNewStage(Navigatior.LOGIN);
-//        Navigatior.navigate(stage, Navigatior.SUPERVISOR_PROFILE);
+//        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
+        Navigatior.navigateNewStage(Navigatior.LOGIN);
 
     }
 }

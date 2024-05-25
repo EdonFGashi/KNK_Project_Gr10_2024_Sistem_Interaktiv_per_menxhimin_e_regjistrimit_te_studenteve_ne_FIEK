@@ -1,13 +1,17 @@
 package controller.Supervisor;
 
 import app.Navigatior;
+import controller.SESSION;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.util.Duration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -37,10 +41,11 @@ public class MenuController {
     @FXML
     private HBox hboxOption3;
     @FXML
-
     private HBox addPane;
     @FXML
     private ImageView imgInfoIcon;
+    @FXML
+    private Button buttonDummy;
 
     private String option1Navigate = "";
     private String option2Navigate = "";
@@ -95,9 +100,7 @@ public class MenuController {
     }
     @FXML
     private void handleOption3Click(MouseEvent me){
-        this.resetActiveSection();
-        this.hboxOption3.setStyle(activeSection);
-        Navigatior.navigate(this.addPane,option3Navigate);
+       this.buttonDummy.fire();
     }
 
 
@@ -126,5 +129,12 @@ public class MenuController {
         this.hboxOption1.setStyle("");
         this.hboxOption2.setStyle("");
         this.hboxOption3.setStyle("");
+    }
+
+    @FXML
+    private void handleLogOut(ActionEvent ae){
+        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
+        SESSION.setLoggedSupervisor(null);
+        Navigatior.closeStageAfterDelay(ae, Duration.millis(10));
     }
 }
