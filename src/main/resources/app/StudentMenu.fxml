@@ -20,7 +20,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" top="10.0" />
                            </HBox.margin></ImageView>
-                                <Label fx:id="txtPrsinfo" prefHeight="64.0" prefWidth="257.0" text=" Personal Information" textFill="WHITE">
+                                <Label fx:id="txtPrsinfo" prefHeight="64.0" prefWidth="257.0" text="%lblPersInfo" textFill="WHITE">
                                     <font>
                                         <Font size="24.0" />
                                     </font>
@@ -33,7 +33,7 @@
                            <HBox.margin>
                               <Insets left="10.0" top="10.0" />
                            </HBox.margin></ImageView>
-                                <Label fx:id="txtEducation" prefHeight="64.0" prefWidth="257.0" text=" Educational Experience" textFill="WHITE">
+                                <Label fx:id="txtEducation" prefHeight="64.0" prefWidth="257.0" text="%lblEduExp" textFill="WHITE">
                                     <font>
                                         <Font size="24.0" />
                                     </font>
@@ -43,7 +43,7 @@
                         <HBox fx:id="hboxAcademic" layoutX="16.0" layoutY="625.0" onMouseClicked="#handleOptionClick3" prefHeight="62.0" prefWidth="314.0">
                             <children>
                                 <ImageView fx:id="imgAcademic" fitHeight="64.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true" />
-                                <Label fx:id="txtAcademic" prefHeight="64.0" prefWidth="257.0" text=" Academic Interest" textFill="WHITE">
+                                <Label fx:id="txtAcademic" prefHeight="64.0" prefWidth="257.0" text="%lblAcaInt" textFill="WHITE">
                                     <font>
                                         <Font size="24.0" />
                                     </font>
