@@ -54,16 +54,11 @@ interface AdminPages{
     public final static String ADMIN_MENU = "admin-Menu.fxml";
 
 
-    public final static String ADMIN_STUDENTMENU = "admin-studentMenu.fxml";
-    public final static String ADMIN_STUDENTMENU_ADDSTUDENT = "admin-studentMenu-addStudent.fxml";
-
-    public final static String ADMIN_STUDENTMENU_EDITSTUDENT = "admin-studentMenu-editStudent.fxml";
     public final static String ADMIN_STUDENTMENU_STATISTICS = "admin-studentsMenu-statistics.fxml";
     public final static String ADMIN_STUDENTMENU_SHOWANDEDIT = "admin-studentMenu-showAndEditStudent.fxml";
     public final static String ADMIN_STUDENTMENU_KONKURIMET = "admin-studentMenu-konkurimet.fxml";
     public final static String ADMIN_PROFILE = "admin-profile.fxml";
 
-    public final static String ADMIN_REGISTRATIONMENU = "admin-registrationPeriodMenu.fxml";
     public final static String ADMIN_REGISTRATIONMENU_ADDREGISTRATION = "admin-registrationPeriodMenu-addRegistration.fxml";
     public final static String ADMIN_REGISTRATIONMENU_SHOWANDEDIT = "admin-registrationMenu-showAndEdit.fxml";
     public final static String ADMIN_RESETPASSWORD = "admin-resetPassword.fxml";
@@ -94,7 +89,6 @@ interface SupervisorPages{
     public final static String SUPERVISOR_GRADE_POINTS = "supervisor-gradePoints.fxml";
     public final static String SUPERVISOR_INBOX = "supervisor-inbox.fxml";
     public final static String SUPERVISOR_STATISTICS = "supervisor-statistics.fxml";
-    public final static String ADMIN_SUPERVISORMENU = "admin-supervisorMenu.fxml";
     public final static String ADMIN_SUPERVISORMENU_ADDSUPERVISOR = "admin-supervisorMenu-addSupervisor.fxml";
     public final static String ADMIN_SUPERVISORMENU_EDITSUPERVISOR = "admin-superVisorMenu-showAndEditSupervisor.fxml";
     public final static String ADMIN_SUPERVISORMENU_APPROVESUPERVISORFROMSEMS = "admin-supervisorMenu-approveSupervisor.fxml";
@@ -275,19 +269,8 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 //Navigatori 1.0 -Jashte perdorimit
+     //Nuk perdoret por masi eshte kodi i shkruar mire Kemi vendos me Lene!
 
     //kur navigojmeNeMenu qojme Pane
     public static Pane getRibbonWithSection(String ribbon, Pane section){

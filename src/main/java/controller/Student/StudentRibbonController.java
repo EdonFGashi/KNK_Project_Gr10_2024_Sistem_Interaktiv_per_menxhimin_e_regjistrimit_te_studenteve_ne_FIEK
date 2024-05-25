@@ -117,9 +117,8 @@ public class StudentRibbonController {
     }
     @FXML
     private void handleChangeLanguage(MouseEvent me){
-
         SESSION.switchLanguage();
-        Navigatior.navigate(me,Navigatior.ADMIN_RIBBON);
+        Navigatior.navigate(me,Navigatior.STUDENT_RIBBON);
     }
 
 
