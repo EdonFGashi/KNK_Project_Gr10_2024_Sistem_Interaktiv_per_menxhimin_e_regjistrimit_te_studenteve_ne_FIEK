@@ -127,6 +127,7 @@ public class StudentMenuController {
 
 
         Navigatior.navigate(hboxaddPane,personalinfoNavigate);
+        SESSION.setCurrentPage(personalinfoNavigate);
 
 
 
@@ -136,6 +137,7 @@ public class StudentMenuController {
    private void handleTranslate(MouseEvent me){
        SESSION.switchLanguage();
        Navigatior.navigate(me, Navigatior.STUDENT_MENU);
+       SESSION.setCurrentPage(Navigatior.STUDENT_MENU);
    }
 
     @FXML

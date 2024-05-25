@@ -84,7 +84,14 @@ public class AcademicInterestController {
         String dept1 = getSelectedToggleText(tgDept1);
         String dept2 = getSelectedToggleText(tgDept2);
         String dept3 = getSelectedToggleText(tgDept3);
-
+        if (dept == null || dept1 == null || dept2 == null || dept3 == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("Please make a selection in each radio button group before applying!");
+            alert.showAndWait();
+            return;
+        }
         
         if (hasDuplicateSelection(dept, dept1, dept2, dept3)) {
           
@@ -106,6 +113,7 @@ public class AcademicInterestController {
 
         }}
         navigateToNewStage(event, Navigatior.STUDENT_RIBBON);
+       SESSION.setCurrentPage(Navigatior.STUDENT_RIBBON);
 
     }
 
@@ -128,6 +136,7 @@ public class AcademicInterestController {
     @FXML
     void handleBack(ActionEvent event) {
         Navigatior.navigate(addPane,Navigatior.EDUCATION);
+        SESSION.setCurrentPage(Navigatior.EDUCATION);
     }
     private void navigateToNewStage(ActionEvent event, String fxmlPath) {
         Stage stage = new Stage();

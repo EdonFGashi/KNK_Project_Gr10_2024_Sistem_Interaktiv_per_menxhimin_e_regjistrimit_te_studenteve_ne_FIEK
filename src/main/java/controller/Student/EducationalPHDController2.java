@@ -117,11 +117,13 @@ public class EducationalPHDController2 {
             // Trego një mesazh gabimi
         }
         navigateToNewStage(event, Navigatior.STUDENT_RIBBON);
+        SESSION.setCurrentPage(Navigatior.STUDENT_RIBBON);
     }
 
     @FXML
     void handleGoback(ActionEvent event) {
 Navigatior.navigate(addPane,Navigatior.PERSONAL_INFO);
+        SESSION.setCurrentPage(Navigatior.PERSONAL_INFO);
     }
 
     private File chooseImage(ImageView imageView) {

@@ -80,6 +80,7 @@ public class EducationalMasterController {
     @FXML
     void handleBack(ActionEvent event) {
 Navigatior.navigate(addPane,Navigatior.PERSONAL_INFO);
+        SESSION.setCurrentPage(Navigatior.PERSONAL_INFO);
     }
 
     @FXML
@@ -113,6 +114,7 @@ Navigatior.navigate(addPane,Navigatior.PERSONAL_INFO);
             e.printStackTrace();
         }
         navigateToNewStage(event, Navigatior.STUDENT_RIBBON);
+        SESSION.setCurrentPage(Navigatior.STUDENT_RIBBON);
 
     }
 

@@ -155,6 +155,7 @@ public class StudentDashboardController {
             // Handle exception (e.g., show error message to user)
         }}
         navigateToNewStage(event, Navigatior.STUDENT_MENU);
+        SESSION.setCurrentPage(Navigatior.STUDENT_MENU);
     }
 
     private void loadExistingApplications() {
@@ -231,6 +232,7 @@ public class StudentDashboardController {
         stage.setMaximized(true);
         Navigatior.navigate(stage, fxmlPath);
         Navigatior.closeStageAfterDelay(event, Duration.millis(1));
+        SESSION.setCurrentPage(fxmlPath);
 
     }
 

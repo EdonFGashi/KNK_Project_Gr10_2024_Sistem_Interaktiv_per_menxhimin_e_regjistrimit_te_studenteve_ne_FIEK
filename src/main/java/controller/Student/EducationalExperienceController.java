@@ -100,10 +100,17 @@ public class EducationalExperienceController {
     @FXML
     void handleBack(ActionEvent event) {
 Navigatior.navigate(addpane,Navigatior.PERSONAL_INFO);
+SESSION.setCurrentPage(Navigatior.PERSONAL_INFO);
     }
 
     @FXML
     void handleContinue(ActionEvent event) {
+
+        if(this.txtSchoolName.isDisabled()){
+            Navigatior.navigate(addpane, Navigatior.ACADEMIC);
+            SESSION.setCurrentPage(Navigatior.ACADEMIC);
+            return;
+        }
        if (!allFieldsAreFilled()) {
            Alert alert = new Alert(Alert.AlertType.WARNING);
            alert.setTitle("Warning");
@@ -132,6 +139,7 @@ if(this.Save){
             e.printStackTrace();
         }}
         Navigatior.navigate(addpane, Navigatior.ACADEMIC);
+SESSION.setCurrentPage(Navigatior.ACADEMIC);
     }
 
     @FXML

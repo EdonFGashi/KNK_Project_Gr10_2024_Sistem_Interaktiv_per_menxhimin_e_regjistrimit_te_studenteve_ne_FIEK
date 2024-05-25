@@ -130,6 +130,7 @@ public class PersonalInfoControler {
     void handleGoback(ActionEvent event) {
         try{
             navigateToNewStage(event, Navigatior.STUDENT_RIBBON);
+            SESSION.setCurrentPage(Navigatior.STUDENT_RIBBON);
         }catch (Exception e){
             System.out.println("Error go back"+e.getMessage());
         }
@@ -137,16 +138,29 @@ public class PersonalInfoControler {
     @FXML
     void handleNext(MouseEvent event) {
 
-        this.EducationExperienceNavigate = Navigatior.EDUCATION;
-if(btnGenerateinfo.isDisable())
 
+        if (!allFieldsAreFilled()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill in all fields before continuing!");
+            alert.showAndWait();
+            return;
+        }
+
+        this.EducationExperienceNavigate = Navigatior.EDUCATION;
+
+if(btnGenerateinfo.isDisable())
 {
     switch (SESSION.getDeptLevel()) {
         case "BSC" : Navigatior.navigate(addPane, Navigatior.EDUCATION);
+        SESSION.setCurrentPage( Navigatior.EDUCATION);
             break;
         case "MSC" : Navigatior.navigate(addPane, Navigatior.EDUCATION_MASTER);
+            SESSION.setCurrentPage( Navigatior.EDUCATION_MASTER);
             break;
         case "PHD" : Navigatior.navigate(addPane, Navigatior.EDUCATION_PHD);
+            SESSION.setCurrentPage(Navigatior.EDUCATION_PHD);
     }
    return;
 }
@@ -171,10 +185,13 @@ if(btnGenerateinfo.isDisable())
         System.out.println("session dept"+SESSION.getDeptLevel());
         switch (SESSION.getDeptLevel()) {
             case "BSC" : Navigatior.navigate(addPane, Navigatior.EDUCATION);
+                SESSION.setCurrentPage( Navigatior.EDUCATION);
             break;
             case "MSC" : Navigatior.navigate(addPane, Navigatior.EDUCATION_MASTER);
+                SESSION.setCurrentPage( Navigatior.EDUCATION_MASTER);
             break;
             case "PHD" : Navigatior.navigate(addPane, Navigatior.EDUCATION_PHD);
+                SESSION.setCurrentPage(Navigatior.EDUCATION_PHD);
         }
 
        // alert("Të dhënat e studentit janë ruajtur me sukses.", "Sukses", "Sukses");
@@ -197,7 +214,16 @@ if(btnGenerateinfo.isDisable())
 
         selectBirthday.setValue(person.getDataLindjes());
     }
+    private boolean allFieldsAreFilled() {
+        return !txtPersonalNumber.getText().isEmpty() &&
+                !txtName.getText().isEmpty() &&
+                !txtLastName.getText().isEmpty() &&
+                !txtNationality.getText().isEmpty() &&
+                !txtCity.getText().isEmpty() &&
+                !txtCountry.getText().isEmpty() &&
+               (rbuttonFemale.isSelected() || rdbuttonMale.isSelected());
 
+    }
     private void resetFields() {
         txtName.clear();
         txtLastName.clear();
