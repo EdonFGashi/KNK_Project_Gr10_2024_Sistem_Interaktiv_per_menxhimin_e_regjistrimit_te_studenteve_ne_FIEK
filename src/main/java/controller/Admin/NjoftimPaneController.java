@@ -47,7 +47,9 @@ public class NjoftimPaneController extends ComunicativeController {
     }
     @FXML
     void handeTextClicked(MouseEvent event) {
-        this.controller.setFormsNjoftimi(njoftimi);
+        if(this.controller!=null) {
+            this.controller.setFormsNjoftimi(njoftimi);
+        }
     }
 
 

@@ -8,7 +8,7 @@
 
 <AnchorPane fx:id="paneNjoftim" onMouseClicked="#handleNjoftimClick" prefHeight="234.0" prefWidth="863.0" style="-fx-background-color: transparent\;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.NjoftimPaneController">
    <children>
-      <TextArea fx:id="txtTextNjoftim" layoutX="29.0" layoutY="52.0" onMouseClicked="#handeTextClicked" opacity="0.94" prefHeight="166.0" prefWidth="806.0" style="-fx-background-radius: 5; -fx-border-color: transparent; -fx-border-width: 0; -fx-opacity: 0.7; -fx-background-color: transparent; -fx-alignment: center-left;" text="Hellooo">
+      <TextArea fx:id="txtTextNjoftim" editable="false" layoutX="29.0" layoutY="52.0" onMouseClicked="#handeTextClicked" opacity="0.94" prefHeight="166.0" prefWidth="806.0" style="-fx-background-radius: 5; -fx-border-color: transparent; -fx-border-width: 0; -fx-opacity: 0.7; -fx-background-color: transparent; -fx-alignment: center-left;" text="Hellooo">
          <font>
             <Font name="Tahoma" size="17.0" />
          </font></TextArea>

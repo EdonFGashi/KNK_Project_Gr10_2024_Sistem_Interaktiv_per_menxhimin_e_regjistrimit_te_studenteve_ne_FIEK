@@ -65,7 +65,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Text fill="WHITE" layoutX="691.0" layoutY="473.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="%txtQasja" textAlignment="CENTER" wrappingWidth="151.2587890625">
+            <Text fill="WHITE" layoutX="691.0" layoutY="473.0" onMouseClicked="#handleTextQasja" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="%txtQasja" textAlignment="CENTER" wrappingWidth="151.2587890625">
                <font>
                   <Font size="20.0" />
                </font>
@@ -91,7 +91,7 @@
             </Text>
             <AnchorPane layoutX="-9.0" layoutY="641.0" prefHeight="67.0" prefWidth="1542.0" style="-fx-background-color: linear-gradient(to top, #19316C 2.8%, #01B3C9 97.8%);">
                <children>
-                  <ImageView fitHeight="23.0" fitWidth="15.0" layoutX="75.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;">
+                  <ImageView fitHeight="23.0" fitWidth="15.0" layoutX="29.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;">
                      <image>
                         <Image url="@../../../../Images/mail.png" />
                      </image>
