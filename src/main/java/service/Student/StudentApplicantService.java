@@ -59,7 +59,7 @@ private static void validateMasterData(MasterApplicantDto dto) {
 //                dto.getFileMaster() == null || dto.getDeptName().isEmpty()) {
 //            throw new IllegalArgumentException("All fields must be completed.");
 //        }
-        validatePHPData(dto);
+        validatePHDData(dto);
 
         // Save data to repository
         return StudentApplicantRepository.savePHDData(dto);
