@@ -82,7 +82,7 @@ public class KonkurimetService {
         idStudentit += numriFakultetit;
         idStudentit += numriDepartamentit;
 //        idFundit++;
-        idStudentit += Integer.toString(idFundit);
+        idStudentit += String.format("%04d", idFundit);
         return idStudentit;
     }
 
