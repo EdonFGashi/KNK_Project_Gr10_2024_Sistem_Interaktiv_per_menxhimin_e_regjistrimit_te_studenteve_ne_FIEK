@@ -13,7 +13,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.scene.image.Image;
+import model.ShkollaMesme;
 import model.dto.Student.StudentApplicantDto;
+import repository.StudentRepository;
 import service.Student.StudentApplicantService;
 
 import java.io.FileInputStream;
@@ -35,6 +37,11 @@ public class EducationalExperienceController {
 
     @FXML
     private Button chooseImageButton3;
+    @FXML
+    private Button btnBack;
+
+    @FXML
+    private Button btnContinue;
 
     @FXML
     private ImageView imgDiplome;
@@ -79,9 +86,14 @@ public class EducationalExperienceController {
     public File imageFile2;
     public File imageFile3;
 
+    private boolean Save=true;
+
     @FXML
     void initialize() {
+
+
         addTextFieldListeners();
+        this.setTextFields();
     }
 
     @FXML
@@ -91,15 +103,15 @@ public class EducationalExperienceController {
 
     @FXML
     void handleContinue(ActionEvent event) {
-        if (!allFieldsAreFilled()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText(null);
-            alert.setContentText("Please fill in all fields before continuing!");
-            alert.showAndWait();
-            return;
-        }
-
+//        if (allFieldsAreFilled()) {
+//            Alert alert = new Alert(Alert.AlertType.WARNING);
+//            alert.setTitle("Warning");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Please fill in all fields before continuing!");
+//            alert.showAndWait();
+//            return;
+//        }
+if(this.Save){
         String ShkMesme = txtSchoolName.getText();
         int Matematike = Integer.parseInt(txtMath.getText());
         int Shqip = Integer.parseInt(txtAlbanian.getText());
@@ -117,7 +129,7 @@ public class EducationalExperienceController {
             StudentApplicantService.processAndSaveData(dto);
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }}
         Navigatior.navigate(addpane, Navigatior.ACADEMIC);
     }
 
@@ -173,18 +185,89 @@ public class EducationalExperienceController {
         }
     }
 
-    private boolean allFieldsAreFilled() {
-        return !txtSchoolName.getText().isEmpty() &&
-                !txtMath.getText().isEmpty() &&
-                !txtAlbanian.getText().isEmpty() &&
-                !txtEnglish.getText().isEmpty() &&
-                !txtChosenSubject.getText().isEmpty() &&
-                !txtChosenSubjectPoints.getText().isEmpty() &&
-                !txtGrade10.getText().isEmpty() &&
-                !txtGrade11.getText().isEmpty() &&
-                !txtGrade12.getText().isEmpty() &&
-                imageFile1 != null &&
-                imageFile2 != null &&
-                imageFile3 != null;
+//    private boolean allFieldsAreFilled() {
+//        return !txtSchoolName.getText().isEmpty() &&
+//                !txtMath.getText().isEmpty() &&
+//                !txtAlbanian.getText().isEmpty() &&
+//                !txtEnglish.getText().isEmpty() &&
+//                !txtChosenSubject.getText().isEmpty() &&
+//                !txtChosenSubjectPoints.getText().isEmpty() &&
+//                !txtGrade10.getText().isEmpty() &&
+//                !txtGrade11.getText().isEmpty() &&
+//                !txtGrade12.getText().isEmpty() &&
+//                imageFile1 != null &&
+//                imageFile2 != null &&
+//                imageFile3 != null;
+//    }
+
+    private void setTextFields(){
+
+        ShkollaMesme shkollaMesme = StudentRepository.getShkollaMeme(SESSION.getLoggedUser().getId());
+
+        if(shkollaMesme != null){
+            this.txtSchoolName.setText(shkollaMesme.getEmriShkolles());
+            this.txtMath.setText(Integer.toString(shkollaMesme.getPiketMat()));
+            this.txtAlbanian.setText(Integer.toString(shkollaMesme.getPiketGjSh()));
+            this.txtEnglish.setText(Integer.toString(shkollaMesme.getPiketAng()));
+            this.txtChosenSubject.setText(shkollaMesme.getLendaZgjedhore());
+            this.txtChosenSubjectPoints.setText(Integer.toString(shkollaMesme.getPiketZgjedhore()));
+            int total = shkollaMesme.getPiketAng()+ shkollaMesme.getPiketGjSh()+ shkollaMesme.getPiketMat()+ shkollaMesme.getPiketZgjedhore();
+            this.txtAllPoints.setText(Integer.toString(total));
+            this.txtGrade10.setText(Integer.toString(shkollaMesme.getSuksesiKl10()));
+            this.txtGrade11.setText(Integer.toString(shkollaMesme.getSuksesiKl11()));
+            this.txtGrade12.setText(Integer.toString(shkollaMesme.getSuksesiKl12()));
+
+            setImageToImageView(shkollaMesme.getCertifikataNotave(), this.imgGradeCertificate);
+            setImageToImageView(shkollaMesme.getLeternjoftimi(), this.imgIdentification);
+            setImageToImageView(shkollaMesme.getDiplomashkolles(), this.imgDiplome);
+            this.disableAllFieldsAndButtons();
+            this.Save=false;
+
+        }else{
+            this.txtSchoolName.setText("");
+            this.txtMath.setText("");
+            this.txtAlbanian.setText("");
+            this.txtEnglish.setText("");
+            this.txtChosenSubject.setText("");
+            this.txtChosenSubjectPoints.setText("");
+            this.txtAllPoints.setText("");
+            this.txtGrade10.setText("");
+            this.txtGrade11.setText("");
+            this.txtGrade12.setText("");
+
+            this.imgGradeCertificate.setImage(null);
+            this.imgIdentification.setImage(null);
+            this.imgDiplome.setImage(null);
+
+        }
+
+    }
+    private void setImageToImageView(Image image, ImageView imageView) {
+        if (image != null) {
+            imageView.setImage(image);
+        } else {
+            try {
+                imageView.setImage(new Image(new FileInputStream("Images/Error404")));
+            }catch(Exception e){
+                //
+            }
+        }
+    }
+
+    private void disableAllFieldsAndButtons() {
+        chooseImageButton1.setDisable(true);
+        chooseImageButton2.setDisable(true);
+        chooseImageButton3.setDisable(true);
+        txtAlbanian.setDisable(true);
+        txtAllPoints.setDisable(true);
+        txtChosenSubject.setDisable(true);
+        txtChosenSubjectPoints.setDisable(true);
+        txtEnglish.setDisable(true);
+        txtGrade10.setDisable(true);
+        txtGrade11.setDisable(true);
+        txtGrade12.setDisable(true);
+        txtMath.setDisable(true);
+        txtSchoolName.setDisable(true);
+
     }
 }

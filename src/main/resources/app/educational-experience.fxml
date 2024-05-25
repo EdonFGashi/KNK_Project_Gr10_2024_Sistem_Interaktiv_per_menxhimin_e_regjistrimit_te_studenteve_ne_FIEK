@@ -128,12 +128,12 @@
                         <Font name="Tahoma" size="16.0" />
                      </font>
                   </Label>
-                  <Button layoutX="659.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 30;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
+                  <Button fx:id="btnBack" layoutX="659.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 30;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Button>
-                  <Button layoutX="875.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleContinue" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #387a43; -fx-background-radius: 30;" text="Continue" textFill="WHITE">
+                  <Button fx:id="btnContinue" layoutX="875.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleContinue" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #387a43; -fx-background-radius: 30;" text="Continue" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
