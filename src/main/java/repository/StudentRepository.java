@@ -166,7 +166,11 @@ public class StudentRepository {
 
     public static ArrayList<UserStudent> getUserStudents() {
         Connection conn = DBConnector.getConnection();
-        String query = "SELECT * FROM tblUserStudent";
+        String query = """
+    SELECT u.userId, u.numriPersonal, us.email, u.emri, u.mbiemri, u.nacionaliteti, u.qyteti, u.shteti, u.gjinia, u.dataLindjes, us.salt, us.passwordHash
+    FROM tblUserStudent u
+    JOIN tblUser us ON u.userId = us.userId
+    """;
 
         try {
             PreparedStatement pst = conn.prepareStatement(query);
@@ -266,7 +270,7 @@ public class StudentRepository {
     }
 
     public static boolean deleteStudent(int userId) {
-        String query = "DELETE FROM tblUserStudent WHERE userId = ?";
+        String query = "DELETE FROM tblUser WHERE userId = ?";
         Connection connection = DBConnector.getConnection();
         try{
             PreparedStatement pst = connection.prepareStatement(query);
@@ -281,7 +285,7 @@ public class StudentRepository {
 
     public static boolean resetPassword(ResetPasswordOnDb data) {
         Connection connection = DBConnector.getConnection();
-        String query = "UPDATE tblUserStudent SET salt = ?, passwordHash = ? WHERE userId = ?";
+        String query = "UPDATE tblUser SET salt = ?, passwordHash = ? WHERE userId = ?";
         try {
             PreparedStatement pst = connection.prepareStatement(query);
             pst.setString(1, data.getSalt());
@@ -319,7 +323,11 @@ public class StudentRepository {
     }
     public static ArrayList<UserStudent> getFilteredStudents(StudentFilter studentFilter){
         Connection conn = DBConnector.getConnection();
-        String query = "SELECT * FROM tblUserStudent WHERE 1 = 1";
+        String query = """
+          SELECT u.userId, u.numriPersonal, us.email, u.emri, u.mbiemri, u.nacionaliteti, u.qyteti, u.shteti, u.gjinia, u.dataLindjes, us.salt, us.passwordHash
+    FROM tblUserStudent u
+    JOIN tblUser us ON u.userId = us.userId WHERE 1 = 1
+        """;
 
         query += studentFilter.buildQuery();
        // System.out.println(query);
