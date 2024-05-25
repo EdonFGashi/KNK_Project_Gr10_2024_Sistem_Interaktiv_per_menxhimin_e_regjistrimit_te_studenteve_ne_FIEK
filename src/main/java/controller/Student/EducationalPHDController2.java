@@ -1,5 +1,6 @@
 package controller.Student;
 
+import app.Navigatior;
 import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.dto.Student.PHDApplicantDto;
 import repository.StudentApplicant.StudentApplicantRepository;
 import service.Student.StudentApplicantService;
@@ -115,6 +118,7 @@ public class EducationalPHDController2 {
             e.printStackTrace();
             // Trego një mesazh gabimi
         }
+        navigateToNewStage(event, Navigatior.STUDENT_RIBBON);
     }
 
     @FXML
@@ -146,5 +150,12 @@ public class EducationalPHDController2 {
                 imageFile1 != null &&
                 imageFile2 != null &&
                 imageFile3 != null;
+    }
+    private void navigateToNewStage(ActionEvent event, String fxmlPath) {
+        Stage stage = new Stage();
+        stage.setMaximized(true);
+        Navigatior.navigate(stage, fxmlPath);
+        Navigatior.closeStageAfterDelay(event, Duration.millis(1));
+
     }
 }

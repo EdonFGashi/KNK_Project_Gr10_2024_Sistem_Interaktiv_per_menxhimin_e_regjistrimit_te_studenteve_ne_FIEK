@@ -11,6 +11,8 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.Afat;
 import model.User;
 import model.ApplicationStatus;
@@ -149,7 +151,7 @@ public class StudentDashboardController {
             e.printStackTrace();
             // Handle exception (e.g., show error message to user)
         }}
-        Navigatior.navigate(addPane,Navigatior.STUDENT_MENU);
+        navigateToNewStage(event, Navigatior.STUDENT_MENU);
     }
 
     private void loadExistingApplications() {
@@ -220,6 +222,13 @@ public class StudentDashboardController {
             choiseChoseAfat.setDisable(true);
             break; // Ndalo pasi të gjeni një aplikacion me tekst "Vazhdo Aplikimin"
         }
+    }
+    private void navigateToNewStage(ActionEvent event, String fxmlPath) {
+        Stage stage = new Stage();
+        stage.setMaximized(true);
+        Navigatior.navigate(stage, fxmlPath);
+        Navigatior.closeStageAfterDelay(event, Duration.millis(1));
+
     }
 
 }
