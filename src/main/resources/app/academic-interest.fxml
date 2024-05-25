@@ -14,7 +14,7 @@
    <children>
       <Pane layoutX="2.0" layoutY="32.8" prefHeight="102.0" prefWidth="1220.0" style="-fx-background-color: linear-gradient(to right, #19316C 2.8%, #01B3C9 97.8%);" AnchorPane.topAnchor="32.8">
          <children>
-            <Label layoutX="121.0" layoutY="25.0" text="Academic Interest" textFill="WHITE">
+            <Label layoutX="121.0" layoutY="25.0" text="%lblAcaInterest" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="36.0" />
                </font>
@@ -28,12 +28,12 @@
                   <DropShadow />
                </effect>
                <children>
-                  <Button layoutX="665.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 30;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
+                  <Button layoutX="665.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 30;" text="%btnBack" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Button>
-                  <Button layoutX="874.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleApply" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #387a43; -fx-background-radius: 30;" text="Apply" textFill="WHITE">
+                  <Button layoutX="857.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleApply" prefHeight="51.0" prefWidth="167.0" style="-fx-background-color: #387a43; -fx-background-radius: 30;" text="%btnApliko" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -42,7 +42,7 @@
                      <children>
                         <AnchorPane prefHeight="240.0" prefWidth="601.0">
                            <children>
-                              <Label layoutX="40.0" layoutY="31.0" text="Department:">
+                              <Label layoutX="40.0" layoutY="31.0" text="%lblDep">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -74,7 +74,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="240.0" prefWidth="455.0">
                            <children>
-                              <Label layoutX="40.0" layoutY="31.0" text="Prioritet 1:">
+                              <Label layoutX="40.0" layoutY="31.0" text="%lblPriority1">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -110,7 +110,7 @@
                      <children>
                         <AnchorPane prefHeight="240.0" prefWidth="601.0">
                            <children>
-                              <Label layoutX="40.0" layoutY="31.0" text="Prioritet 2:">
+                              <Label layoutX="40.0" layoutY="31.0" text="%lblPriority2">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -142,7 +142,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="240.0" prefWidth="417.0">
                            <children>
-                              <Label layoutX="40.0" layoutY="31.0" text="Prioritet 3:">
+                              <Label layoutX="40.0" layoutY="31.0" text="%lblPriority3">
                                  <font>
                                     <Font size="18.0" />
                                  </font>

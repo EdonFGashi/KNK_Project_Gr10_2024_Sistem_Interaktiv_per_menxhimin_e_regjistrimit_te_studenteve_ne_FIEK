@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane  fx:id="addpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.EducationalExperienceController">
+<AnchorPane fx:id="addpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.EducationalExperienceController">
    <children>
       <Pane layoutX="-1.0" layoutY="73.0" prefHeight="102.0" prefWidth="1220.0" style="-fx-background-color: #3f6196;" AnchorPane.topAnchor="33.0">
          <children>
-            <Label layoutX="115.0" layoutY="25.0" text="Educational Experience" textFill="WHITE">
+            <Label layoutX="115.0" layoutY="25.0" text="%lblTITULLI" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="36.0" />
                </font>
@@ -52,55 +52,55 @@
                         <TextField fx:id="txtMath" editable="true" layoutX="269.0" layoutY="10.0" prefHeight="38.0" prefWidth="315.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField fx:id="txtAlbanian" editable="true" layoutX="154.0" layoutY="64.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <TextField fx:id="txtEnglish" editable="true" layoutX="154.0" layoutY="64.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label prefHeight="23.0" prefWidth="134.0" text="School Name:">
+                        <Label prefHeight="23.0" prefWidth="134.0" text="%txtSchool">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="23.0" prefWidth="195.0" text="Mathematic Points:" GridPane.rowIndex="1">
+                        <Label prefHeight="23.0" prefWidth="195.0" text="%txtMathPoints" GridPane.rowIndex="1">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="23.0" prefWidth="195.0" text="Albanian points:" GridPane.rowIndex="2">
+                        <Label prefHeight="23.0" prefWidth="195.0" text="%txtAlbPoints" GridPane.rowIndex="2">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="10.0" layoutY="140.0" prefHeight="23.0" prefWidth="195.0" text="English points:" GridPane.rowIndex="3">
+                        <Label layoutX="10.0" layoutY="140.0" prefHeight="23.0" prefWidth="195.0" text="%txtEngPoints" GridPane.rowIndex="3">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="10.0" layoutY="187.0" prefHeight="23.0" prefWidth="195.0" text="Chosen Subject:" GridPane.rowIndex="4">
+                        <Label layoutX="10.0" layoutY="187.0" prefHeight="23.0" prefWidth="195.0" text="%lblChoosenSubject" GridPane.rowIndex="4">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
                         </Label>
                         <TextField fx:id="txtChosenSubject" editable="true" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label layoutX="10.0" layoutY="209.0" prefHeight="23.0" prefWidth="195.0" text="Chosen Subject points:" GridPane.rowIndex="5">
+                        <Label layoutX="10.0" layoutY="209.0" prefHeight="23.0" prefWidth="195.0" text="%lblChosenSubjectPoints" GridPane.rowIndex="5">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
                         </Label>
                         <TextField fx:id="txtChosenSubjectPoints" editable="true" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label prefHeight="23.0" prefWidth="222.0" text="All points on &quot;Mature&quot; test:" GridPane.rowIndex="6">
+                        <Label prefHeight="23.0" prefWidth="222.0" text="%lblAllPointsOnMatureTest" GridPane.rowIndex="6">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
                         </Label>
                         <TextField fx:id="txtAllPoints" editable="false" layoutX="241.0" layoutY="256.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <Label prefHeight="23.0" prefWidth="222.0" text="Success in Grade 10" GridPane.rowIndex="7">
+                        <Label prefHeight="23.0" prefWidth="222.0" text="%SuccessInGrade10" GridPane.rowIndex="7">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="23.0" prefWidth="222.0" text="Success in Grade 11" GridPane.rowIndex="8">
+                        <Label prefHeight="23.0" prefWidth="222.0" text="%SuccessInGrade11" GridPane.rowIndex="8">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="10.0" layoutY="392.0" prefHeight="23.0" prefWidth="222.0" text="Success in Grade 12" GridPane.rowIndex="9">
+                        <Label layoutX="10.0" layoutY="392.0" prefHeight="23.0" prefWidth="222.0" text="%SuccessInGrade12" GridPane.rowIndex="9">
                            <font>
                               <Font name="Tahoma" size="16.0" />
                            </font>
@@ -113,34 +113,34 @@
                   <ImageView fx:id="imgGradeCertificate" fitHeight="150.0" fitWidth="150.0" layoutX="645.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fx:id="imgIdentification" fitHeight="150.0" fitWidth="150.0" layoutX="911.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fx:id="imgDiplome" fitHeight="150.0" fitWidth="150.0" layoutX="911.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label layoutX="657.0" layoutY="9.0" prefHeight="23.0" prefWidth="152.0" text="Grade certificate:">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="658.0" layoutY="9.0" prefHeight="23.0" prefWidth="152.0" text="%lblGradeCertificate" textAlignment="CENTER">
                      <font>
                         <Font name="Tahoma" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="950.0" layoutY="9.0" prefHeight="23.0" prefWidth="133.0" text="Identification:">
+                  <Label alignment="CENTER" layoutX="950.0" layoutY="9.0" prefHeight="23.0" prefWidth="133.0" text="%Identification">
                      <font>
                         <Font name="Tahoma" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="663.0" layoutY="335.0" prefHeight="23.0" prefWidth="178.0" text="High School Diploma">
+                  <Label alignment="CENTER" layoutX="663.0" layoutY="335.0" prefHeight="23.0" prefWidth="178.0" text="%DiplomeOfHighSchool">
                      <font>
                         <Font name="Tahoma" size="16.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnBack"  layoutX="659.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 30;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
+                  <Button fx:id="btnBack" layoutX="659.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 30;" text="%btnBack" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnContinue"  layoutX="875.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleContinue" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #387a43; -fx-background-radius: 30;" text="Continue" textFill="WHITE">
+                  <Button fx:id="btnContinue" layoutX="875.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleContinue" prefHeight="51.0" prefWidth="195.0" style="-fx-background-color: #387a43; -fx-background-radius: 30;" text="%btnContinue" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="chooseImageButton1" layoutX="683.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleFile1" style="-fx-background-color: pink; -fx-background-radius: 20;" text="ChooseFile" />
-                  <Button fx:id="chooseImageButton2" layoutX="960.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleFile2" style="-fx-background-color: pink; -fx-background-radius: 20;" text="ChooseFile" />
-                  <Button fx:id="chooseImageButton3" layoutX="698.0" layoutY="369.0" mnemonicParsing="false" onAction="#handleFile3" style="-fx-background-color: pink; -fx-background-radius: 20;" text="ChooseFile" />
+                  <Button fx:id="chooseImageButton1" layoutX="683.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleFile1" style="-fx-background-color: pink; -fx-background-radius: 20;" text="%btnChooseFile" />
+                  <Button fx:id="chooseImageButton2" layoutX="960.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleFile2" style="-fx-background-color: pink; -fx-background-radius: 20;" text="%btnChooseFile" />
+                  <Button fx:id="chooseImageButton3" layoutX="698.0" layoutY="369.0" mnemonicParsing="false" onAction="#handleFile3" style="-fx-background-color: pink; -fx-background-radius: 20;" text="%btnChooseFile" />
                </children>
             </AnchorPane>
          </children>

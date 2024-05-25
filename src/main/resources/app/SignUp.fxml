@@ -64,7 +64,7 @@
          </children>
       </AnchorPane>
       <HBox layoutX="111.0" layoutY="256.0" prefHeight="123.0" prefWidth="148.0" />
-      <Button layoutX="125.0" layoutY="377.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 10;" text="%btnBack" textFill="WHITE">
+      <Button layoutX="125.0" layoutY="377.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: linear-gradient(to bottom, #19316C 2.8%, #01B3C9 97.8%); -fx-background-radius: 10;" text="%btnBack" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>

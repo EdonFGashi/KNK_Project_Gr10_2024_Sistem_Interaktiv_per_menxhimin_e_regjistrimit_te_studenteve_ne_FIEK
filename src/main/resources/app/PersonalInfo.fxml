@@ -81,17 +81,18 @@
                             </font>
                         </Label>
                         <TextField fx:id="txtCountry" editable="false" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label prefHeight="23.0" prefWidth="222.0" text="Gendre:" GridPane.rowIndex="6">
+                        <Label prefHeight="23.0" prefWidth="222.0" text="%txtGender" GridPane.rowIndex="6">
                             <font>
                                 <Font name="Tahoma" size="16.0" />
                             </font>
                         </Label>
-                        <Label prefHeight="23.0" prefWidth="222.0" text="Birthday:" GridPane.rowIndex="7">
+                        <Label prefHeight="23.0" prefWidth="222.0" text="%txtBirthDate" GridPane.rowIndex="7">
                             <font>
                                 <Font name="Tahoma" size="16.0" />
                             </font>
                         </Label>
                         <DatePicker fx:id="selectBirthday" prefHeight="34.0" prefWidth="324.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <RadioButton fx:id="rbuttonFemale" mnemonicParsing="false" prefHeight="30.0" prefWidth="134.0" text="%rbtnFemale" GridPane.columnIndex="1" GridPane.rowIndex="6">
                         <RadioButton fx:id="rbuttonFemale" mnemonicParsing="false" prefHeight="30.0" prefWidth="117.0" text="F" GridPane.columnIndex="1" GridPane.rowIndex="6">
                             <font>
                                 <Font size="16.0" />
@@ -100,7 +101,7 @@
                                 <Insets left="20.0" />
                             </GridPane.margin>
                         </RadioButton>
-                        <RadioButton fx:id="rdbuttonMale" mnemonicParsing="false" text="M" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                        <RadioButton fx:id="rdbuttonMale" mnemonicParsing="false" text="Male" GridPane.columnIndex="1" GridPane.rowIndex="6">
                             <GridPane.margin>
                                 <Insets left="250.0" />
                             </GridPane.margin>
