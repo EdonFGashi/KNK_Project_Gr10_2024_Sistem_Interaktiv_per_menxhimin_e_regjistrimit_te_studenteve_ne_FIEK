@@ -85,14 +85,7 @@ Navigatior.navigate(addPane,Navigatior.PERSONAL_INFO);
 
     @FXML
     void handleContinue(ActionEvent event) {
-       if (!allFieldsAreFilled()) {
-           Alert alert = new Alert(Alert.AlertType.WARNING);
-           alert.setTitle("Warning");
-           alert.setHeaderText(null);
-           alert.setContentText("Please fill in all fields before continuing!");
-           alert.showAndWait();
-           return;
-       }
+
 
         String faculty = txtFaculty.getText();
         Double firstYear = Double.parseDouble(txtFirstYear.getText());
@@ -145,14 +138,7 @@ Navigatior.navigate(addPane,Navigatior.PERSONAL_INFO);
         return selectedFile;
     }
 
-    private boolean allFieldsAreFilled() {
-        return !txtFaculty.getText().isEmpty() &&
-                !txtFirstYear.getText().isEmpty() &&
-                !txtSecYear.getText().isEmpty() &&
-                !txtThirdYear.getText().isEmpty() &&
-                imageFile1 != null &&
-                imageFile2 != null;
-    }
+
     private void navigateToNewStage(ActionEvent event, String fxmlPath) {
         Stage stage = new Stage();
         stage.setMaximized(true);
