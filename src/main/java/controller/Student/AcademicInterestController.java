@@ -113,6 +113,7 @@ public class AcademicInterestController {
 
         }}
         navigateToNewStage(event, Navigatior.STUDENT_RIBBON);
+         Navigatior.closeStageAfterDelay(event, Duration.millis(10));
        SESSION.setCurrentPage(Navigatior.STUDENT_RIBBON);
 
     }
