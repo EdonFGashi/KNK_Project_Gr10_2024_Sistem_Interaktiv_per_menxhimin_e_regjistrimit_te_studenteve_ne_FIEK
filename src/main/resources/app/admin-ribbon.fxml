@@ -74,7 +74,6 @@
                         <MenuButton mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: none; -fx-font-weight: bold; -fx-font-size: 13;" text="%mbProfile" textFill="WHITE">
                           <items>
                             <MenuItem mnemonicParsing="false" onAction="#handleGoToProfile" text="%mtGoToProfile" />
-                            <MenuItem mnemonicParsing="false" onAction="#handleChangeLanguage" text="%mtChangeLanguage" />
                               <MenuItem mnemonicParsing="false" onAction="#handleSignOut" text="%mtSignOut" />
                           </items>
                            <cursor>
