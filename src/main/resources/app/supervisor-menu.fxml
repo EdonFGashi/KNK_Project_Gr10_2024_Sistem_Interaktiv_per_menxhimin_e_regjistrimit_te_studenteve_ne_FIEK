@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -59,10 +60,13 @@
                </padding>
             </HBox>
             <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="16.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgInfoIcon" fitHeight="37.0" fitWidth="35.0" layoutX="16.0" layoutY="14.0" onMouseClicked="#handleInfoIconClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Images/info-icon.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <HBox fx:id="hboxOption12" alignment="CENTER_LEFT" layoutX="21.0" layoutY="515.0" onMouseClicked="#handleOption1Click" onMouseEntered="#handleHoverOption1" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
                <children>

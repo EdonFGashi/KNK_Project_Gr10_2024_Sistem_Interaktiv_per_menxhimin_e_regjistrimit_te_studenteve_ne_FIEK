@@ -3,6 +3,7 @@ package controller.Supervisor;
 import app.Navigatior;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -39,6 +40,8 @@ public class MenuController {
     private HBox hboxOption4;
     @FXML
     private HBox addPane;
+    @FXML
+    private ImageView imgInfoIcon;
 
     private String option1Navigate = "";
     private String option2Navigate = "";
@@ -64,10 +67,21 @@ public class MenuController {
             this.imgOption1.setImage(new Image(new FileInputStream("Images/showAndEdit.png")));
             this.imgOption2.setImage(new Image(new FileInputStream("Images/application.png")));
             this.imgOption3.setImage(new Image(new FileInputStream("Images/statistics.png")));
+            this.imgInfoIcon.setImage(new Image(new FileInputStream("Images/info-icon.png")));
         } catch (FileNotFoundException e) {
             System.out.println("Image not found");
         }
 
+        // E bon display ni text kur tbohet hover logo e infos
+        Tooltip tooltip = new Tooltip("Info");
+
+        Tooltip.install(imgInfoIcon, tooltip);
+
+    }
+
+    @FXML
+    private void handleInfoIconClicked(MouseEvent me){
+        Navigatior.navigateNewStage(Navigatior.HELP_SUPERVISOR);
     }
 
     @FXML
