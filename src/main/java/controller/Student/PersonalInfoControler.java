@@ -158,7 +158,7 @@ if(btnGenerateinfo.isDisable())
         String nationality = txtNationality.getText();
         String city = txtCity.getText();
         String country = txtCountry.getText();
-        String gender = rbuttonFemale.isSelected() ? "Female" : "Male";
+        String gender = rbuttonFemale.isSelected() ? "F" : "M";
         LocalDate localDate = selectBirthday.getValue();
         java.sql.Date birthDate = java.sql.Date.valueOf(localDate);
 
@@ -188,7 +188,7 @@ if(btnGenerateinfo.isDisable())
         txtCity.setText(person.getQyteti());
         txtCountry.setText(person.getShteti());
 
-        if (person.getGjinia().equalsIgnoreCase("Female")) {
+        if (person.getGjinia().equalsIgnoreCase("F")) {
             rbuttonFemale.setSelected(true);
         } else {
             rdbuttonMale.setSelected(true);
