@@ -26,9 +26,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
+import javafx.application.HostServices;
+
+import java.net.URI;
 public class DashboardController {
 
     @FXML
@@ -129,9 +130,6 @@ public class DashboardController {
     }
 
 
-    //    private ResourceBundle bundle;
-    private Locale currentLocale = new Locale("en");
-
 
 
     @FXML
@@ -188,6 +186,17 @@ public class DashboardController {
     private void handleInfo(MouseEvent me){
         Navigatior.navigateNewStage(Navigatior.HELP_DASHBOARD);
      }
+
+     @FXML
+    private void handleRektorati(ActionEvent ae){
+         String url = "https://www.example.com";
+         openWebpage(url);
+     }
+    private void openWebpage(String urlString) {
+        String url = "https://www.example.com";
+      //  getHostServices().showDocument(url);
+    }
+
 
 
 
