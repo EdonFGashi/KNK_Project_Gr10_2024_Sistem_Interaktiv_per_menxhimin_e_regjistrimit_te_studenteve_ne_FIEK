@@ -140,7 +140,7 @@ public class InboxController{
 
         private void resetFormsForNew(){
                 this.txtNjoftimId.setText("");
-                this.txtAdminId.setText(Integer.toString(SESSION.getLoggedAdmin().getId()));
+                this.txtAdminId.setText(SESSION.getLoggedAdmin().getFirstName()+" "+SESSION.getLoggedAdmin().getLastName());
 
         }
         public void setFormsNjoftimi(Njoftim njoftimi){
