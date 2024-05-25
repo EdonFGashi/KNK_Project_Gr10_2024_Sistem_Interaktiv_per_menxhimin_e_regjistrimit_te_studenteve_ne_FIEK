@@ -103,14 +103,14 @@ public class EducationalExperienceController {
 
     @FXML
     void handleContinue(ActionEvent event) {
-//        if (allFieldsAreFilled()) {
-//            Alert alert = new Alert(Alert.AlertType.WARNING);
-//            alert.setTitle("Warning");
-//            alert.setHeaderText(null);
-//            alert.setContentText("Please fill in all fields before continuing!");
-//            alert.showAndWait();
-//            return;
-//        }
+        if (!allFieldsAreFilled()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill in all fields before continuing!");
+            alert.showAndWait();
+            return;
+        }
 if(this.Save){
         String ShkMesme = txtSchoolName.getText();
         int Matematike = Integer.parseInt(txtMath.getText());
@@ -185,20 +185,20 @@ if(this.Save){
         }
     }
 
-//    private boolean allFieldsAreFilled() {
-//        return !txtSchoolName.getText().isEmpty() &&
-//                !txtMath.getText().isEmpty() &&
-//                !txtAlbanian.getText().isEmpty() &&
-//                !txtEnglish.getText().isEmpty() &&
-//                !txtChosenSubject.getText().isEmpty() &&
-//                !txtChosenSubjectPoints.getText().isEmpty() &&
-//                !txtGrade10.getText().isEmpty() &&
-//                !txtGrade11.getText().isEmpty() &&
-//                !txtGrade12.getText().isEmpty() &&
-//                imageFile1 != null &&
-//                imageFile2 != null &&
-//                imageFile3 != null;
-//    }
+    private boolean allFieldsAreFilled() {
+        return !txtSchoolName.getText().isEmpty() &&
+                !txtMath.getText().isEmpty() &&
+                !txtAlbanian.getText().isEmpty() &&
+                !txtEnglish.getText().isEmpty() &&
+                !txtChosenSubject.getText().isEmpty() &&
+                !txtChosenSubjectPoints.getText().isEmpty() &&
+                !txtGrade10.getText().isEmpty() &&
+                !txtGrade11.getText().isEmpty() &&
+                !txtGrade12.getText().isEmpty() &&
+                imageFile1 != null &&
+                imageFile2 != null &&
+                imageFile3 != null;
+    }
 
     private void setTextFields(){
 

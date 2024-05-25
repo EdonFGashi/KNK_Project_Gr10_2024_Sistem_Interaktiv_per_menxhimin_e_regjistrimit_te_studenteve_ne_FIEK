@@ -88,14 +88,14 @@ public class EducationalPHDController2 {
 
     @FXML
     void handleApply(ActionEvent event) {
-//        if (!allFieldsAreFilled()) {
-//            Alert alert = new Alert(Alert.AlertType.WARNING);
-//            alert.setTitle("Warning");
-//            alert.setHeaderText(null);
-//            alert.setContentText("Please fill in all fields before continuing!");
-//            alert.showAndWait();
-//            return;
-//        }
+        if (!allFieldsAreFilled()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill in all fields before continuing!");
+            alert.showAndWait();
+            return;
+        }
 
         String Fakulteti = txtFaculty.getText();
         Double Mesatarjaviti1 = Double.parseDouble(txtfirstYGrade.getText());

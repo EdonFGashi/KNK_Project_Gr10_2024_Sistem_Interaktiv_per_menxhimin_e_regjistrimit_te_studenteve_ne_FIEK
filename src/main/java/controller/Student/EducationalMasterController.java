@@ -80,14 +80,14 @@ public class EducationalMasterController {
 
     @FXML
     void handleContinue(ActionEvent event) {
-//        if (!allFieldsAreFilled()) {
-//            Alert alert = new Alert(Alert.AlertType.WARNING);
-//            alert.setTitle("Warning");
-//            alert.setHeaderText(null);
-//            alert.setContentText("Please fill in all fields before continuing!");
-//            alert.showAndWait();
-//            return;
-//        }
+        if (!allFieldsAreFilled()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill in all fields before continuing!");
+            alert.showAndWait();
+            return;
+        }
 
         String faculty = txtFaculty.getText();
         Double firstYear = Double.parseDouble(txtFirstYear.getText());
