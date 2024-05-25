@@ -60,10 +60,10 @@ public class StudentApplicantRepository {
 
         public static boolean saveMasterData(MasterApplicantDto dto) {
             Connection conn = DBConnector.getConnection();
-            if (conn == null) {
-                System.out.println("Lidhja me bazën e të dhënave nuk është e mundur.");
-                return false;
-            }
+//            if (conn == null) {
+//                System.out.println("Lidhja me bazën e të dhënave nuk është e mundur.");
+//                return false;
+//            }
 
             // Query për të ruajtur të dhënat në tabelën tblShkollaMesme
             String queryShkollaMesme = "INSERT INTO tblShkollaMesme (userId, emriShkolles, suksesiKl10, suksesiKl11, suksesiKl12, leternjoftimi, diplomaShkolles) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -118,10 +118,10 @@ public class StudentApplicantRepository {
 
     public static boolean savePHDData(PHDApplicantDto dto) {
         Connection conn = DBConnector.getConnection();
-        if (conn == null) {
-            System.out.println("Lidhja me bazën e të dhënave nuk është e mundur.");
-            return false;
-        }
+//        if (conn == null) {
+//            System.out.println("Lidhja me bazën e të dhënave nuk është e mundur.");
+//            return false;
+//        }
 
         // Query për të ruajtur të dhënat në tabelën tblShkollaMesme
         String queryShkollaMesme = "INSERT INTO tblShkollaMesme (userId, emriShkolles, suksesiKl10, suksesiKl11, certifikataNotave, leternjoftimi, diplomaShkolles) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -210,18 +210,16 @@ public class StudentApplicantRepository {
     }
 
    public static PersonDTO SearchByPersonalNumber(String personalNumber) {
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
+        Connection conn = DBConnector.getConnection();
+//        PreparedStatement ps = null;
+//        ResultSet rs = null;
         PersonDTO person = null;
 
         try {
-
-            conn = DBConnector.getConnection();
             String query = "SELECT * FROM tblperson WHERE numriPersonal = ?";
-            ps = conn.prepareStatement(query);
+            PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, personalNumber);
-            rs = ps.executeQuery();
+            ResultSet rs = ps.executeQuery();
 
 
             if (rs.next()) {
