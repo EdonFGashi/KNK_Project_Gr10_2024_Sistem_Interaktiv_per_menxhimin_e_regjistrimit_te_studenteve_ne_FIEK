@@ -23,7 +23,7 @@
                   <Image url="@../../../../Images/upLogoNoRing.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="97.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtRegPerStudent">
+            <Text fill="WHITE" layoutX="97.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtRegPerStudent" textAlignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>

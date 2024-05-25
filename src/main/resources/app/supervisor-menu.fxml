@@ -60,7 +60,7 @@
                   <Insets left="5.0" />
                </padding>
             </HBox>
-            <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="16.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgTranslate" fitHeight="37.0" fitWidth="35.0" layoutX="16.0" layoutY="61.0" onMouseClicked="#handleChangeLanguage" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgInfoIcon" fitHeight="37.0" fitWidth="35.0" layoutX="16.0" layoutY="14.0" onMouseClicked="#handleInfoIconClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Images/info-icon.png" />
