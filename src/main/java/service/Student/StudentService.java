@@ -18,10 +18,10 @@ public class StudentService {
             XYChart.Series<String, Integer>  chart = new XYChart.Series();
             chart.getData().clear();
             for(ChartInformationEnrolledStudents studenti : listaInformacionevePerChart){
-                if(gjinia.equals("Mashkull")){
+                if(gjinia.equals("M")){
                     System.out.println("U rrit mashkulli");
                     numriMeshkujve += studenti.getNumri();
-                } else if(gjinia.equals("Femer")){
+                } else if(gjinia.equals("F")){
                     numriFemrave += studenti.getNumri();
                     System.out.println("U rrit femra");
                 }

@@ -65,15 +65,14 @@ public class EducationalMasterController {
 
     @FXML
     public void initialize() {
-        // Shtoni opsionet në ChoiceBox në momentin e inicializimit të kontrollorit
+        
         choiceBoxDept.getItems().addAll("IKS", "EAR", "EE", "TIK");
 
-        // Për të bërë opsionin e parë si default
+       
         choiceBoxDept.getSelectionModel().selectFirst();
         addTextFieldListeners();
     }
 
-    // Metoda për të marrë opsionin e zgjedhur
     public String getValue() {
         return choiceBoxDept.getValue();
     }
@@ -112,7 +111,6 @@ Navigatior.navigate(addPane,Navigatior.PERSONAL_INFO);
 
         } catch (Exception e) {
             e.printStackTrace();
-            // Trego një mesazh gabimi
         }
         navigateToNewStage(event, Navigatior.STUDENT_RIBBON);
 

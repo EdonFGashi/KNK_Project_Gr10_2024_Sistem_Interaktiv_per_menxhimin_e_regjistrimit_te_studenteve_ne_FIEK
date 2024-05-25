@@ -56,18 +56,18 @@ public class StudentMenuStatisticsController {
         StudentService.numriFemrave = 0;
         StudentService.numriTotalIStudentve = 0;
         BSCChart.getData().clear();
-        XYChart.Series<String, Integer> chartBSCMashkull = StudentService.displayEnrolledStudentsChartByLevelAndGender("BSC", "Mashkull");
-        XYChart.Series<String, Integer> charBSCtFemer = StudentService.displayEnrolledStudentsChartByLevelAndGender("BSC", "Femer");
+        XYChart.Series<String, Integer> chartBSCMashkull = StudentService.displayEnrolledStudentsChartByLevelAndGender("BSC", "M");
+        XYChart.Series<String, Integer> charBSCtFemer = StudentService.displayEnrolledStudentsChartByLevelAndGender("BSC", "F");
         BSCChart.getData().addAll(chartBSCMashkull, charBSCtFemer);
 
         MSCChart.getData().clear();
-        XYChart.Series<String, Integer> chartMSCMashkull = StudentService.displayEnrolledStudentsChartByLevelAndGender("MSC", "Mashkull");
-        XYChart.Series<String, Integer> chartMSCFemer = StudentService.displayEnrolledStudentsChartByLevelAndGender("MSC", "Femer");
+        XYChart.Series<String, Integer> chartMSCMashkull = StudentService.displayEnrolledStudentsChartByLevelAndGender("MSC", "M");
+        XYChart.Series<String, Integer> chartMSCFemer = StudentService.displayEnrolledStudentsChartByLevelAndGender("MSC", "F");
         MSCChart.getData().addAll(chartMSCMashkull, chartMSCFemer);
 
         PHDChart.getData().clear();
-        XYChart.Series<String, Integer> charPHDMashkull = StudentService.displayEnrolledStudentsChartByLevelAndGender("PHD", "Mashkull");
-        XYChart.Series<String, Integer> chartPHDFemer = StudentService.displayEnrolledStudentsChartByLevelAndGender("PHD", "Femer");
+        XYChart.Series<String, Integer> charPHDMashkull = StudentService.displayEnrolledStudentsChartByLevelAndGender("PHD", "M");
+        XYChart.Series<String, Integer> chartPHDFemer = StudentService.displayEnrolledStudentsChartByLevelAndGender("PHD", "F");
         PHDChart.getData().addAll(charPHDMashkull, chartPHDFemer);
 
         totalChart.getData().clear();
