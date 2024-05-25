@@ -6,10 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -30,6 +27,8 @@ public class StudentDashboardController {
     ObservableList<String> nivelet = FXCollections.observableArrayList("BSC", "MSC", "PHD");
     @FXML
     private AnchorPane addPane;
+    @FXML
+    private Label lblNjoftim;
     @FXML
     private ChoiceBox<String> choiseChoseAfat;
 
@@ -128,8 +127,11 @@ public class StudentDashboardController {
         return afat.getNiveli() + " - " + heraDescription;
     }
     private void updateFilloAplikiminButtonState() {
-        btnFilloAplikimin.setDisable(choiseChoseLevel.getValue() == null || choiseChoseAfat.getValue() == null);
-    }
+        boolean shouldDisable = choiseChoseLevel.getValue() == null || choiseChoseAfat.getValue() == null || "Submitted".equals(btnFilloAplikimin.getText());
+        btnFilloAplikimin.setDisable(shouldDisable);
+        if (shouldDisable) {
+            System.out.println("Button should be disabled. Current text: " + btnFilloAplikimin.getText());
+        }}
     @FXML
     void handleFilloAplikimin(ActionEvent event) {
         if(btnFilloAplikimin.getText().equals("Fillo Aplikimin")){
@@ -171,30 +173,53 @@ public class StudentDashboardController {
             btnFilloAplikimin.setText("Fillo Aplikimin");
             btnFilloAplikimin.setDisable(true);
         } else {
-            btnFilloAplikimin.setText("Vazhdo Aplikimin");
-            btnFilloAplikimin.setDisable(false);
+            boolean isSubmitted = false;
+            for (ApplicationStatus application : tableStudent.getItems()) {
+                if ("Submitted".equals(application.getSubmissionStatus())) {
+                    lblNjoftim.setText("Your Application was Submitted successfully!");
+                    btnFilloAplikimin.setText("Submitted");
+                    btnFilloAplikimin.setDisable(true);
+                    isSubmitted = true;
+                    break;
+                }
+            }
+            if (!isSubmitted) {
+                btnFilloAplikimin.setText("Vazhdo Aplikimin");
+                btnFilloAplikimin.setDisable(false);
+            }
             selectValuesForChoiceBoxesBasedOnTableContent();
         }
+        updateFilloAplikiminButtonState();
     }
+
 
     private void selectValuesForChoiceBoxesBasedOnTableContent() {
         for (ApplicationStatus application : tableStudent.getItems()) {
-            {
-                String applicationName = application.getApplicationName();
-                // Për të gjetur vlerën e nivelit dhe afatit nga emri i aplikacionit
-                String[] parts = applicationName.split(" - ");
-                String level = parts[0]; // Niveli
-                String afat = parts[1]; // Afati (afati i parë ose i dytë)
+            String applicationName = application.getApplicationName();
+            // Për të gjetur vlerën e nivelit dhe afatit nga emri i aplikacionit
+            String[] parts = applicationName.split(" - ");
+            String level = parts[0]; // Niveli
+            String afatDescription = parts[1]; // Afati (afati i parë ose i dytë)
 
-                // Vërejtje: Kontrolloni nëse këto vlera përputhen me listat tuaja të niveleve dhe afateve
-                choiseChoseLevel.setValue(level);
-                choiseChoseAfat.setValue(afat);
-                choiseChoseLevel.setDisable(true);
-                choiseChoseAfat.setDisable(true);
-                break; // Ndalo pasi të gjeni një aplikacion me tekst "Vazhdo Aplikimin"
+            // Vërejtje: Kontrolloni nëse këto vlera përputhen me listat tuaja të niveleve dhe afateve
+            choiseChoseLevel.setValue(level);
+            choiseChoseAfat.setValue(afatDescription);
+
+            // Ruaj nivelin në SESSION
+            SESSION.setDeptLevel(level);
+
+            // Gjej dhe ruaj ID-në e afatit në SESSION
+            for (Map.Entry<String, Integer> entry : afatStringToIdMap.entrySet()) {
+                if (entry.getKey().contains(afatDescription)) {
+                    SESSION.setAplicantAfatID(entry.getValue());
+                    break;
+                }
             }
-        }
 
+            choiseChoseLevel.setDisable(true);
+            choiseChoseAfat.setDisable(true);
+            break; // Ndalo pasi të gjeni një aplikacion me tekst "Vazhdo Aplikimin"
+        }
     }
 
 }

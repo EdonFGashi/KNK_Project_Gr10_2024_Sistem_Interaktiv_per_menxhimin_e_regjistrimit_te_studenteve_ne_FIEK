@@ -71,6 +71,7 @@ public class PersonalInfoControler {
         if(user!=null){
             this.fillFields(user);
             this.disableFields();
+            this.txtPersonalNumber.setDisable(true);
             this.btnGenerateinfo.setDisable(true);
         }
 
@@ -110,6 +111,7 @@ public class PersonalInfoControler {
 
         selectBirthday.setValue(person.getBirthDate().toLocalDate());
         this.selectBirthday.setDisable(true);
+        this.txtPersonalNumber.setDisable(true);
         PopUp.tick(250);
     }
 
@@ -130,7 +132,15 @@ public class PersonalInfoControler {
 
         this.EducationExperienceNavigate = Navigatior.EDUCATION;
 if(btnGenerateinfo.isDisable())
-{ Navigatior.navigate(addPane,EducationExperienceNavigate);
+
+{
+    switch (SESSION.getDeptLevel()) {
+        case "BSC" : Navigatior.navigate(addPane, Navigatior.EDUCATION);
+            break;
+        case "MSC" : Navigatior.navigate(addPane, Navigatior.EDUCATION_MASTER);
+            break;
+        case "PHD" : Navigatior.navigate(addPane, Navigatior.EDUCATION_PHD);
+    }
    return;
 }
 
@@ -151,14 +161,17 @@ if(btnGenerateinfo.isDisable())
         personService studentService = new personService();
         studentService.saveStudentAplikant(studentAplikant);
 
+        System.out.println("session dept"+SESSION.getDeptLevel());
         switch (SESSION.getDeptLevel()) {
-            case "BSC" -> Navigatior.navigate(addPane, Navigatior.EDUCATION);
-            case "MSC" -> Navigatior.navigate(addPane, Navigatior.EDUCATION_MASTER);
-            case "PHD" -> Navigatior.navigate(addPane, Navigatior.EDUCATION_PHD);
+            case "BSC" : Navigatior.navigate(addPane, Navigatior.EDUCATION);
+            break;
+            case "MSC" : Navigatior.navigate(addPane, Navigatior.EDUCATION_MASTER);
+            break;
+            case "PHD" : Navigatior.navigate(addPane, Navigatior.EDUCATION_PHD);
         }
 
        // alert("Të dhënat e studentit janë ruajtur me sukses.", "Sukses", "Sukses");
-        Navigatior.navigate(addPane,EducationExperienceNavigate);
+
     }
     private void fillFields(UserStudent2 person) {
         txtPersonalNumber.setText(person.getNumriPersonal());
@@ -189,6 +202,7 @@ if(btnGenerateinfo.isDisable())
     }
 
     private void disableFields() {
+
         rbuttonFemale.setDisable(true);
         rdbuttonMale.setDisable(true);
         selectBirthday.setDisable(true);

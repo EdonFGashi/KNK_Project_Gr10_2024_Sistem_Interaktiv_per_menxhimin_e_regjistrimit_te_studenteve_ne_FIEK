@@ -25,16 +25,16 @@ public class StudentApplicantService {
         StudentApplicantRepository.saveData(dto);
     }
 
-    public static void processAndSaveMasterData(MasterApplicantDto dto)  {
+    public static boolean processAndSaveMasterData(MasterApplicantDto dto)  {
         // Validate data
 
 
         // Save data to repository
-        StudentApplicantRepository.saveMasterData(dto);
+        return StudentApplicantRepository.saveMasterData(dto);
     }
 
 
-    public static void processAndSavePHDData(PHDApplicantDto dto)  {
+    public static boolean processAndSavePHDData(PHDApplicantDto dto)  {
         // Validate data
 //        if (dto.getFacultyName() == null  ||
 //                dto.getSuccesGradeFirstY() < 6 || dto.getSuccesGradeSecondY() < 6 ||
@@ -44,17 +44,17 @@ public class StudentApplicantService {
 //        }
 
         // Save data to repository
-        StudentApplicantRepository.savePHDData(dto);
+        return StudentApplicantRepository.savePHDData(dto);
     }
 
-    public static void processAcademicInterest(AcademicInterestDto dto) {
+    public static boolean processAcademicInterest(AcademicInterestDto dto) {
         
         if (dto.getDept() == null || dto.getDept1() == null || dto.getDept2() == null || dto.getDept3() == null) {
             throw new IllegalArgumentException("All departments must be selected.");
         }
 
         // dergimi i te dhenave per ruajtje ne db
-        StudentApplicantRepository.saveAcademicInterest(dto);
+       return StudentApplicantRepository.saveAcademicInterest(dto);
     }
 
     public static ObservableList<Afat> searchAfatByLevel(String Level){
