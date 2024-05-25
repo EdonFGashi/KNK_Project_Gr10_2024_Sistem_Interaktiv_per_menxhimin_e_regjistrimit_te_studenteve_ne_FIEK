@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.Image?>
@@ -79,6 +80,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </HBox>
+            <Button fx:id="buttonDummy" mnemonicParsing="false" onAction="#handleLogOut" style="-fx-background-color: transparent;" text="Button" textFill="TRANSPARENT" />
          </children>
       </HBox>
       <AnchorPane fx:id="addPane" prefHeight="790.0" prefWidth="1718.0">
