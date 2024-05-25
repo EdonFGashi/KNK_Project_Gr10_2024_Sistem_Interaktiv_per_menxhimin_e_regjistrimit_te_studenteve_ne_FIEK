@@ -22,7 +22,7 @@
                            </HBox.margin></ImageView>
                                 <Label fx:id="txtPrsinfo" prefHeight="64.0" prefWidth="257.0" text="%lblPersInfo" textFill="WHITE">
                                     <font>
-                                        <Font size="24.0" />
+                                        <Font size="18.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -35,7 +35,7 @@
                            </HBox.margin></ImageView>
                                 <Label fx:id="txtEducation" prefHeight="64.0" prefWidth="257.0" text="%lblEduExp" textFill="WHITE">
                                     <font>
-                                        <Font size="24.0" />
+                                        <Font size="18.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -45,12 +45,13 @@
                                 <ImageView fx:id="imgAcademic" fitHeight="64.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true" />
                                 <Label fx:id="txtAcademic" prefHeight="64.0" prefWidth="257.0" text="%lblAcaInt" textFill="WHITE">
                                     <font>
-                                        <Font size="24.0" />
+                                        <Font size="18.0" />
                                     </font>
                                 </Label>
                             </children>
                         </HBox>
                   <ImageView fx:id="imgUp" fitHeight="215.0" fitWidth="236.0" layoutX="55.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imgTranslate" fitHeight="37.0" fitWidth="45.0" layoutX="299.0" layoutY="7.0" onMouseClicked="#handleTranslate" pickOnBounds="true" preserveRatio="true" />
                     </children>
                 </AnchorPane>
                 <HBox fx:id="hboxaddPane" layoutX="353.0" layoutY="2.0" prefHeight="800.0" prefWidth="1220.0" />

@@ -50,6 +50,9 @@ public class StudentMenuController {
     private Label txtPrsinfo;
 
     @FXML
+    private ImageView imgTranslate;
+
+    @FXML
     private AnchorPane logoPane;
     private String personalinfoNavigate="";
     private String EducationExperienceNavigate="";
@@ -58,9 +61,21 @@ public class StudentMenuController {
     private final String activeSection = "-fx-border-color: white; -fx-border-radius: 15;-fx-border-width: 1.5; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0.0, 0, 1);";
 
 
+
     @FXML
     private void initialize() {
         String menu = SESSION.getDeptLevel();
+
+        try {
+            if(SESSION.isToggleShqip()){
+                this.imgTranslate.setImage(new Image(new FileInputStream("src/main/resources/Images/language-en.png")));
+            }
+            else {
+                this.imgTranslate.setImage(new Image(new FileInputStream("src/main/resources/Images/language-sq.png")));
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
 
         switch (menu) {
@@ -110,11 +125,18 @@ public class StudentMenuController {
                 }}
         }
 
+
         Navigatior.navigate(hboxaddPane,personalinfoNavigate);
 
 
-    }
 
+
+    }
+   @FXML
+   private void handleTranslate(MouseEvent me){
+       SESSION.switchLanguage();
+       Navigatior.navigate(me, Navigatior.STUDENT_MENU);
+   }
 
     @FXML
     void handleOptionClick1(MouseEvent me) {

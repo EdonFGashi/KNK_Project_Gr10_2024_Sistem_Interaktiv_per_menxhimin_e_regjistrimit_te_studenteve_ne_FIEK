@@ -237,3 +237,11 @@ CREATE TABLE tblArkiva (
     FOREIGN KEY (UserID) REFERENCES tblUser(UserID)
 );
 
+
+--25-05-2024 - Edoni
+Alter table tblApplicationStatus
+    add constraint constraint1
+        foreign key (userId)
+            references  tblUser (userId)
+            ON DELETE CASCADE;
+

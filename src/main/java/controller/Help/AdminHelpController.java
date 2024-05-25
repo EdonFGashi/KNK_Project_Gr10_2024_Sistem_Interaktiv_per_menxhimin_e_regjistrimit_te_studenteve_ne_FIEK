@@ -17,15 +17,7 @@ public class AdminHelpController {
     private ImageView helpProfileImg;
 
     private Locale currentLocale = new Locale("en");
-    @FXML
-    private void handleChangeLanguage(ActionEvent ae){
-        if (currentLocale.getLanguage().equals("en")) {
-            currentLocale = new Locale("sq");
-        } else {
-            currentLocale = new Locale("en");
-        }
-        //loadLanguage(currentLocale.getLanguage());
-    }
+
 
     @FXML
     private void initialize(){

@@ -215,7 +215,7 @@ public class LoginController extends ComunicativeController {
 
 
     private void navigateToNewStage(ActionEvent event, String fxmlPath) {
-        this.dashboardController.close();
+//        this.dashboardController.close();
         Stage stage = new Stage();
         stage.setMaximized(true);
         try {

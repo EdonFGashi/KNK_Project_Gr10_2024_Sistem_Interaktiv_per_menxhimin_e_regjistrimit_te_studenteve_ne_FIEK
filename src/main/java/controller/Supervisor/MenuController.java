@@ -15,6 +15,7 @@ import javafx.util.Duration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Locale;
 
 public class MenuController {
 
@@ -46,6 +47,8 @@ public class MenuController {
     private ImageView imgInfoIcon;
     @FXML
     private Button buttonDummy;
+    @FXML
+    private ImageView imgTranslate;
 
     private String option1Navigate = "";
     private String option2Navigate = "";
@@ -54,6 +57,18 @@ public class MenuController {
 
     @FXML
     private void initialize() {
+
+        try {
+            if(SESSION.isToggleShqip()){
+                this.imgTranslate.setImage(new Image(new FileInputStream("src/main/resources/Images/language-en.png")));
+            }
+            else {
+                this.imgTranslate.setImage(new Image(new FileInputStream("src/main/resources/Images/language-sq.png")));
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
         Navigatior.navigate(this.addPane, Navigatior.SUPERVISOR_GRADE_POINTS);
         this.txtMenuName.setText("Supervisor Menu");
 
@@ -80,6 +95,17 @@ public class MenuController {
 
         Tooltip.install(imgInfoIcon, tooltip);
 
+    }
+
+    private Locale currentLocale = new Locale("en");
+    @FXML
+    private void handleChangeLanguage(ActionEvent ae){
+        if (currentLocale.getLanguage().equals("en")) {
+            currentLocale = new Locale("sq");
+        } else {
+            currentLocale = new Locale("en");
+        }
+        //loadLanguage(currentLocale.getLanguage());
     }
 
     @FXML
