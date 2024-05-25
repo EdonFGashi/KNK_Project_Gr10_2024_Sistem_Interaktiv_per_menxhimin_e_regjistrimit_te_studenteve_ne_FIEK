@@ -65,7 +65,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </RadioButton>
-                              <RadioButton fx:id="rbElektro" layoutX="194.0" layoutY="174.0" mnemonicParsing="false" text="Elektroenergjetike" toggleGroup="$tgDept">
+                              <RadioButton fx:id="rbElektro" layoutX="194.0" layoutY="174.0" mnemonicParsing="false" text="EE" toggleGroup="$tgDept">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -97,7 +97,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </RadioButton>
-                              <RadioButton fx:id="rbElektro1" layoutX="195.0" layoutY="172.0" mnemonicParsing="false" text="Elektroenergjetike" toggleGroup="$tgDept1">
+                              <RadioButton fx:id="rbElektro1" layoutX="195.0" layoutY="172.0" mnemonicParsing="false" text="EE" toggleGroup="$tgDept1">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -133,7 +133,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </RadioButton>
-                              <RadioButton fx:id="rbElektro2" layoutX="194.0" layoutY="175.0" mnemonicParsing="false" text="Elektroenergjetike" toggleGroup="$tgDept2">
+                              <RadioButton fx:id="rbElektro2" layoutX="194.0" layoutY="175.0" mnemonicParsing="false" text="EE" toggleGroup="$tgDept2">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -165,7 +165,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </RadioButton>
-                              <RadioButton fx:id="rbElektro3" layoutX="198.0" layoutY="175.0" mnemonicParsing="false" text="Elektroenergjetike" toggleGroup="$tgDept3">
+                              <RadioButton fx:id="rbElektro3" layoutX="198.0" layoutY="175.0" mnemonicParsing="false" text="EE" toggleGroup="$tgDept3">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
