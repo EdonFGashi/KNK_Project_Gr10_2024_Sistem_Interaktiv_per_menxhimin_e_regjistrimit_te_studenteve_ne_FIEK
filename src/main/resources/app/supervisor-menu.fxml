@@ -18,7 +18,7 @@
                   <Image url="@../../../../Images/supervisorMenu.png" />
                </image>
             </ImageView>
-            <Label fx:id="txtMenuName" alignment="CENTER" contentDisplay="CENTER" layoutY="253.0" prefHeight="38.0" prefWidth="254.0" style="-fx-font-weight: bold; -fx-text-alignment: center;" text="\%lblSupervisorMen" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="txtMenuName" alignment="CENTER" contentDisplay="CENTER" layoutY="253.0" prefHeight="38.0" prefWidth="254.0" style="-fx-font-weight: bold; -fx-text-alignment: center;" text="%lblSupervisorMen" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Tahoma" size="18.0" />
                </font>
@@ -30,7 +30,7 @@
                         <Image url="@../../../../Images/showAndEdit.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="txtOption1" prefHeight="42.0" prefWidth="168.0" text="\%lblGradePoints" textFill="WHITE">
+                  <Label fx:id="txtOption1" prefHeight="42.0" prefWidth="168.0" text="%lblGradePoints" textFill="WHITE">
                      <font>
                         <Font name="Tahoma" size="18.0" />
                      </font>
@@ -41,14 +41,14 @@
                </padding>
             </HBox>
             <Line endX="223.7999725341797" layoutX="16.0" layoutY="303.0" startX="0.5999641418457031" stroke="WHITE" />
-            <HBox fx:id="hboxOption11" alignment="CENTER_LEFT" layoutX="22.0" layoutY="432.0" onMouseClicked="#handleOption1Click" onMouseEntered="#handleHoverOption1" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
+            <HBox fx:id="hboxOption2" alignment="CENTER_LEFT" layoutX="22.0" layoutY="432.0" onMouseClicked="#handleOption1Click" onMouseEntered="#handleHoverOption1" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
                <children>
                   <ImageView fx:id="imgOption2" fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../Images/white-user.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="txtOption2" prefHeight="42.0" prefWidth="168.0" text="\%lblProfile" textFill="WHITE">
+                  <Label fx:id="txtOption2" prefHeight="42.0" prefWidth="168.0" text="%lblProfile" textFill="WHITE">
                      <font>
                         <Font name="Tahoma" size="18.0" />
                      </font>
@@ -58,20 +58,20 @@
                   <Insets left="5.0" />
                </padding>
             </HBox>
-            <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="16.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgTranslate" fitHeight="37.0" fitWidth="35.0" layoutX="16.0" layoutY="61.0" onMouseClicked="#handleChangeLanguage" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Images/info-icon.png" />
                </image>
             </ImageView>
-            <HBox fx:id="hboxOption12" alignment="CENTER_LEFT" layoutX="21.0" layoutY="515.0" onMouseClicked="#handleOption1Click" onMouseEntered="#handleHoverOption1" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
+            <HBox fx:id="hboxOption3" alignment="CENTER_LEFT" layoutX="21.0" layoutY="515.0" onMouseClicked="#handleOption1Click" onMouseEntered="#handleHoverOption1" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
                <children>
                   <ImageView fx:id="imgOption3" fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../Images/sign-out-icon.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="txtOption3" prefHeight="42.0" prefWidth="168.0" text="\%lblSignOut" textFill="WHITE">
+                  <Label fx:id="txtOption3" prefHeight="42.0" prefWidth="168.0" text="%lblSignOut" textFill="WHITE">
                      <font>
                         <Font name="Tahoma" size="18.0" />
                      </font>
