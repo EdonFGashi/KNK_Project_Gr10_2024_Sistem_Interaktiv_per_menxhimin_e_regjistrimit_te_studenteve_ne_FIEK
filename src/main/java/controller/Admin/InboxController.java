@@ -146,7 +146,9 @@ public class InboxController{
         public void setFormsNjoftimi(Njoftim njoftimi){
                 this.selectedNjoftim = njoftimi;
                 this.txtNjoftimId.setText(Integer.toString(njoftimi.getNjoftimiId()));
-                this.txtAdminId.setText(Integer.toString(njoftimi.getAdminId()));
+                this.txtAdminId.setText(
+                       AdminService.getAdminFullNameById(this.selectedNjoftim.getAdminId())
+                );
                 this.fielNjoftimi.setText(njoftimi.getText());
         }
 
