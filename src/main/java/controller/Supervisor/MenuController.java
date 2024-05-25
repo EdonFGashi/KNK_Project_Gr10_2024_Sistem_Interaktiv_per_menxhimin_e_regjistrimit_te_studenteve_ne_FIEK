@@ -63,7 +63,7 @@ public class MenuController {
         this.option1Navigate = Navigatior.SUPERVISOR_GRADE_POINTS;
         this.option2Navigate = Navigatior.SUPERVISOR_PROFILE;
         try {
-            this.imgMain.setImage(new Image(new FileInputStream("Images/studentMenu.png")));
+            this.imgMain.setImage(new Image(new FileInputStream("Images/supervisorMenu.png")));
             this.imgOption1.setImage(new Image(new FileInputStream("Images/showAndEdit.png")));
             this.imgOption2.setImage(new Image(new FileInputStream("Images/white-user.png")));
             this.imgOption3.setImage(new Image(new FileInputStream("Images/sign-out-icon.png")));
@@ -115,7 +115,7 @@ public class MenuController {
 
     @FXML
     private void handleLogOut(ActionEvent ae){
-        Navigatior.navigateNewStage(Navigatior.DASHBOARD);  
+        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
         SESSION.setLoggedSupervisor(null);
         Navigatior.closeStageAfterDelay(ae, Duration.millis(10));
     }
