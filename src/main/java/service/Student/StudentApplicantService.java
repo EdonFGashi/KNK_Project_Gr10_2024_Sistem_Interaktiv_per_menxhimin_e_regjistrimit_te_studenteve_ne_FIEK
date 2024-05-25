@@ -59,10 +59,17 @@ private static void validateMasterData(MasterApplicantDto dto) {
 //                dto.getFileMaster() == null || dto.getDeptName().isEmpty()) {
 //            throw new IllegalArgumentException("All fields must be completed.");
 //        }
+        validatePHDData(dto);
 
         // Save data to repository
         return StudentApplicantRepository.savePHDData(dto);
     }
+    private static void validatePHDData(PHDApplicantDto dto) {
+    if (dto.getSuccesGradeSecondY() < 6.0 || dto.getSuccesGradeSecondY() >10.0 ||
+            dto.getSuccesGradeFirstY() < 6.0 || dto.getSuccesGradeFirstY() >10.0) {
+        throw new IllegalArgumentException("Grades must be between 6.0 and 10.0");
+    }
+}
 
     public static boolean processAcademicInterest(AcademicInterestDto dto) {
         

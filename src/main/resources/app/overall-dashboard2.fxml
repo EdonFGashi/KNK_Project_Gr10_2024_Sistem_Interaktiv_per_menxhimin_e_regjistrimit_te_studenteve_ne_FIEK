@@ -44,6 +44,9 @@
                <image>
                   <Image url="@../../../../Images/info-icon.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <ImageView fx:id="imgTranslate" fitHeight="41.0" fitWidth="36.0" layoutX="1485.0" layoutY="36.0" onMouseClicked="#handleChangeLanguage" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -65,10 +68,13 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Text fill="WHITE" layoutX="691.0" layoutY="473.0" onMouseClicked="#handleTextQasja" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="%txtQasja" textAlignment="CENTER" wrappingWidth="151.2587890625">
+            <Text fill="WHITE" layoutX="691.0" layoutY="473.0" onMouseClicked="#handleTextQasja" onMouseEntered="#teksti_qasja_hover" onMouseExited="#teksti_qasja_exit" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="%txtQasja" textAlignment="CENTER" wrappingWidth="151.2587890625">
                <font>
                   <Font size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Text>
             <HBox layoutX="465.0" layoutY="148.0" prefHeight="31.0" prefWidth="159.0">
                <children>

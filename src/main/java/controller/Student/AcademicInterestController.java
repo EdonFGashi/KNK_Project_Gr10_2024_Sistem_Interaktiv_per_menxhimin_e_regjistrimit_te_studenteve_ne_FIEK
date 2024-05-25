@@ -85,15 +85,12 @@ public class AcademicInterestController {
         String dept2 = getSelectedToggleText(tgDept2);
         String dept3 = getSelectedToggleText(tgDept3);
 
-        // Check for duplicate selections
+        
         if (hasDuplicateSelection(dept, dept1, dept2, dept3)) {
-            // Create an Alert with the error type
+          
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            // Set the alert title
             alert.setTitle("Error");
-            // Set the alert message
             alert.setContentText("Duplicate selection is not allowed in the same radio button group!");
-            // Show the alert
             alert.showAndWait();
             return;
         }
@@ -118,7 +115,6 @@ public class AcademicInterestController {
     }
 
     private boolean hasDuplicateSelection(String... departments) {
-        // Check if any duplicate selections are found
         for (int i = 0; i < departments.length; i++) {
             for (int j = i + 1; j < departments.length; j++) {
                 if (departments[i] != null && departments[i].equals(departments[j])) {
@@ -131,7 +127,6 @@ public class AcademicInterestController {
 
     @FXML
     void handleBack(ActionEvent event) {
-        // Add functionality for handling back button action
         Navigatior.navigate(addPane,Navigatior.EDUCATION);
     }
     private void navigateToNewStage(ActionEvent event, String fxmlPath) {

@@ -65,15 +65,14 @@ public class EducationalMasterController {
 
     @FXML
     public void initialize() {
-        // Shtoni opsionet në ChoiceBox në momentin e inicializimit të kontrollorit
+        
         choiceBoxDept.getItems().addAll("IKS", "EAR", "EE", "TIK");
 
-        // Për të bërë opsionin e parë si default
+       
         choiceBoxDept.getSelectionModel().selectFirst();
         addTextFieldListeners();
     }
 
-    // Metoda për të marrë opsionin e zgjedhur
     public String getValue() {
         return choiceBoxDept.getValue();
     }
@@ -112,7 +111,6 @@ Navigatior.navigate(addPane,Navigatior.PERSONAL_INFO);
 
         } catch (Exception e) {
             e.printStackTrace();
-            // Trego një mesazh gabimi
         }
         navigateToNewStage(event, Navigatior.STUDENT_RIBBON);
 
@@ -171,9 +169,16 @@ Navigatior.navigate(addPane,Navigatior.PERSONAL_INFO);
     txtThirdYear.textProperty().addListener((observable, oldValue, newValue) -> validateTextField(txtThirdYear, 6.0, 10.0));
 }
 
+
+
 private void validateTextField(TextField textField, double min, double max) {
+    String text = textField.getText();
+    if (text.isEmpty() || text.equals(".")) {
+        applyErrorStyle(textField, min, max);
+        return;
+    }
     try {
-        double value = Double.parseDouble(textField.getText());
+        double value = Double.parseDouble(text);
         if (value < min || value > max) {
             applyErrorStyle(textField, min, max);
         } else {
@@ -186,9 +191,7 @@ private void validateTextField(TextField textField, double min, double max) {
 
 private void applyErrorStyle(TextField textField, double min, double max) {
     textField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
-    Tooltip tooltip = new Tooltip("Vlera duhet të jetë midis " + min + " dhe " + max);
-    tooltip.setStyle("-fx-background-color: red; -fx-text-fill: white;");
-    textField.setTooltip(tooltip);
+    textField.setTooltip(new Tooltip("Value must be between " + min + " and " + max));
 }
 
 private void removeErrorStyle(TextField textField) {
@@ -202,8 +205,8 @@ private TextFormatter<Double> createDoubleTextFormatter(double min, double max) 
             return change;
         }
         try {
-            double value = Double.parseDouble(change.getControlNewText());
-            if (value >= min && value <= max) {
+            String newText = change.getControlNewText();
+            if (newText.matches("^[1-9]?$|10(\\.0*)?$")) {
                 return change;
             }
         } catch (NumberFormatException e) {
@@ -211,5 +214,5 @@ private TextFormatter<Double> createDoubleTextFormatter(double min, double max) 
         }
         return null;
     });
- }
+}
 }

@@ -72,6 +72,9 @@ public class MenuController {
             System.out.println("Image not found");
         }
 
+        this.resetActiveSection();
+        this.hboxOption1.setStyle(activeSection);
+
         // E bon display ni text kur tbohet hover logo e infos
         Tooltip tooltip = new Tooltip("Info");
 
