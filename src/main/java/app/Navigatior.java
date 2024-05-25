@@ -83,6 +83,8 @@ interface StudentPages{
     public final static String EDUCATION_PHD = "EducationalPhd2.fxml";
 
     public final static String STUDENT_SIGNUP= "SignUp.fxml";
+    public final static String STUDENT_PROFILE= "profileUser.fxml";
+    public final static String STUDENT_RIBBON= "student_ribbon.fxml";
 
 }
 interface SupervisorPages{
