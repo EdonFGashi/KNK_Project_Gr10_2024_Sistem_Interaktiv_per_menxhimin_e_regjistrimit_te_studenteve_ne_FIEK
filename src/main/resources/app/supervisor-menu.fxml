@@ -13,7 +13,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Supervisor.MenuController">
    <children>
-      <AnchorPane prefHeight="720.0" prefWidth="238.0" style="-fx-background-color: linear-gradient(to bottom, #19316C 2.8%, #01B3C9 97.8%) linear-gradient(to bottom, #19316C 2.8%, #01B3C9 97.8%); -fx-background-radius: 3; -fx-border-color: beige; -fx-border-width: 0.5 0.5 0.5 0; -fx-border-radius: 3;" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
       <AnchorPane prefHeight="720.0" prefWidth="238.0" style="-fx-background-color: linear-gradient(to bottom, #19316C 2.8%, #01B3C9 97.8%); -fx-background-radius: 3; -fx-border-color: beige; -fx-border-width: 0.5 0.5 0.5 0; -fx-border-radius: 3;" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
          <children>
             <ImageView fx:id="imgMain" fitHeight="152.0" fitWidth="155.0" layoutX="51.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
@@ -89,9 +88,6 @@
             </HBox>
             <Button fx:id="buttonDummy" layoutX="73.0" layoutY="589.0" mnemonicParsing="false" onAction="#handleLogOut" style="-fx-background-color: transparent;" text="Button" textFill="TRANSPARENT" />
          </children>
-         <effect>
-            <DropShadow />
-         </effect>
       </AnchorPane>
       <HBox fx:id="addPane" layoutX="248.0" prefHeight="720.0" prefWidth="1270.0" />
    </children>
