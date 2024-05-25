@@ -216,6 +216,7 @@ public class StudentMenuKonkurimetController {
             boolean uRegjistrua = StudentService.registerStundent(student);
             //System.out.println(uRegjistrua);
         }
+        PopUp.tick(200);
     }
 
 
