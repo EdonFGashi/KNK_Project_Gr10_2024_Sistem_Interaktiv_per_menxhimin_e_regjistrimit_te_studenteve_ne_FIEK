@@ -171,13 +171,7 @@ Navigatior.navigate(addPane,Navigatior.PERSONAL_INFO);
     txtThirdYear.textProperty().addListener((observable, oldValue, newValue) -> validateTextField(txtThirdYear, 6.0, 10.0));
 }
 
-private void addTextFieldListeners() {
-    txtfirstYGrade.setTextFormatter(createDoubleTextFormatter(6.0, 10.0));
-    txtSecondYGrade.setTextFormatter(createDoubleTextFormatter(6.0, 10.0));
 
-    txtfirstYGrade.textProperty().addListener((observable, oldValue, newValue) -> validateTextField(txtfirstYGrade, 6.0, 10.0));
-    txtSecondYGrade.textProperty().addListener((observable, oldValue, newValue) -> validateTextField(txtSecondYGrade, 6.0, 10.0));
-}
 
 private void validateTextField(TextField textField, double min, double max) {
     String text = textField.getText();
