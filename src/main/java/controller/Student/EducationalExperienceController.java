@@ -6,6 +6,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -90,10 +91,10 @@ public class EducationalExperienceController {
 
     @FXML
     void initialize() {
-
-
         addTextFieldListeners();
         this.setTextFields();
+        calculateTotalPoints();  // Thirrni fillimisht për të llogaritur totalin nëse ka të dhëna të parafurnizuara
+        txtAllPoints.setDisable(true);
     }
 
     @FXML
@@ -165,12 +166,12 @@ if(this.Save){
         return selectedFile;
     }
 
-    private void addTextFieldListeners() {
-        txtAlbanian.textProperty().addListener((observable, oldValue, newValue) -> calculateTotalPoints());
-        txtEnglish.textProperty().addListener((observable, oldValue, newValue) -> calculateTotalPoints());
-        txtMath.textProperty().addListener((observable, oldValue, newValue) -> calculateTotalPoints());
-        txtChosenSubjectPoints.textProperty().addListener((observable, oldValue, newValue) -> calculateTotalPoints());
-    }
+    // private void addTextFieldListeners() {
+    //     txtAlbanian.textProperty().addListener((observable, oldValue, newValue) -> calculateTotalPoints());
+    //     txtEnglish.textProperty().addListener((observable, oldValue, newValue) -> calculateTotalPoints());
+    //     txtMath.textProperty().addListener((observable, oldValue, newValue) -> calculateTotalPoints());
+    //     txtChosenSubjectPoints.textProperty().addListener((observable, oldValue, newValue) -> calculateTotalPoints());
+    // }
 
     private void calculateTotalPoints() {
         try {
@@ -270,4 +271,92 @@ if(this.Save){
         txtSchoolName.setDisable(true);
 
     }
+
+    private void addTextFieldListeners() {
+    txtAlbanian.setTextFormatter(createIntegerTextFormatter(0, 25));
+    txtEnglish.setTextFormatter(createIntegerTextFormatter(0, 25));
+    txtMath.setTextFormatter(createIntegerTextFormatter(0, 25));
+    txtChosenSubjectPoints.setTextFormatter(createIntegerTextFormatter(0, 25));
+    txtGrade10.setTextFormatter(createDoubleTextFormatter(1.0, 5.0));
+    txtGrade11.setTextFormatter(createDoubleTextFormatter(1.0, 5.0));
+    txtGrade12.setTextFormatter(createDoubleTextFormatter(1.0, 5.0));
+
+    txtAlbanian.textProperty().addListener((observable, oldValue, newValue) -> {
+        validateTextField(txtAlbanian, 0, 25);
+        calculateTotalPoints();
+    });
+    txtEnglish.textProperty().addListener((observable, oldValue, newValue) -> {
+        validateTextField(txtEnglish, 0, 25);
+        calculateTotalPoints();
+    });
+    txtMath.textProperty().addListener((observable, oldValue, newValue) -> {
+        validateTextField(txtMath, 0, 25);
+        calculateTotalPoints();
+    });
+    txtChosenSubjectPoints.textProperty().addListener((observable, oldValue, newValue) -> {
+        validateTextField(txtChosenSubjectPoints, 0, 25);
+        calculateTotalPoints();
+    });
+    txtGrade10.textProperty().addListener((observable, oldValue, newValue) -> validateTextField(txtGrade10, 1.0, 5.0));
+    txtGrade11.textProperty().addListener((observable, oldValue, newValue) -> validateTextField(txtGrade11, 1.0, 5.0));
+    txtGrade12.textProperty().addListener((observable, oldValue, newValue) -> validateTextField(txtGrade12, 1.0, 5.0));
+}
+
+private void validateTextField(TextField textField, double min, double max) {
+    try {
+        double value = Double.parseDouble(textField.getText());
+        if (value < min || value > max) {
+            applyErrorStyle(textField, min, max);
+        } else {
+            removeErrorStyle(textField);
+        }
+    } catch (NumberFormatException e) {
+        applyErrorStyle(textField, min, max);
+    }
+}
+
+private void applyErrorStyle(TextField textField, double min, double max) {
+    textField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+    Tooltip tooltip = new Tooltip("Vlera duhet të jetë midis " + min + " dhe " + max);
+    tooltip.setStyle("-fx-background-color: red; -fx-text-fill: white;");
+    textField.setTooltip(tooltip);
+}
+
+private void removeErrorStyle(TextField textField) {
+    textField.setStyle("");
+    textField.setTooltip(null);
+}
+private TextFormatter<Integer> createIntegerTextFormatter(int min, int max) {
+    return new TextFormatter<>(change -> {
+        if (change.getControlNewText().isEmpty()) {
+            return change;
+        }
+        try {
+            int value = Integer.parseInt(change.getControlNewText());
+            if (value >= min && value <= max) {
+                return change;
+            }
+        } catch (NumberFormatException e) {
+            // Not a valid integer
+        }
+        return null;
+    });
+}
+
+private TextFormatter<Double> createDoubleTextFormatter(double min, double max) {
+    return new TextFormatter<>(change -> {
+        if (change.getControlNewText().isEmpty()) {
+            return change;
+        }
+        try {
+            double value = Double.parseDouble(change.getControlNewText());
+            if (value >= min && value <= max) {
+                return change;
+            }
+        } catch (NumberFormatException e) {
+            // Not a valid double
+        }
+        return null;
+    });
+  }
 }
