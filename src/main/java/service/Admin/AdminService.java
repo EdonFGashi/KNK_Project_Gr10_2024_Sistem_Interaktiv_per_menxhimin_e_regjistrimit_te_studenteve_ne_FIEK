@@ -168,4 +168,8 @@ public static boolean login(LoginAdminDto loginData){
     public static boolean deleteNjoftim(int njoftimiId) {
     return NjoftimRepository.deleteNjoftim(njoftimiId);
     }
+
+    public static String getAdminFullNameById(int adminId) {
+    return AdminRepository.getAdminFullNameById(adminId);
+    }
 }

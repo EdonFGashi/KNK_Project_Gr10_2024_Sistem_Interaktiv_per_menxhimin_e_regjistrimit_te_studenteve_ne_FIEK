@@ -19,7 +19,7 @@
                   <Image url="@../../../../Images/supervisorMenu.png" />
                </image>
             </ImageView>
-            <Label fx:id="txtMenuName" alignment="CENTER" contentDisplay="CENTER" layoutY="253.0" prefHeight="38.0" prefWidth="254.0" style="-fx-font-weight: bold; -fx-text-alignment: center;" text="\%lblSupervisorMen" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="txtMenuName" alignment="CENTER" contentDisplay="CENTER" layoutY="253.0" prefHeight="38.0" prefWidth="254.0" style="-fx-font-weight: bold; -fx-text-alignment: center;" text="%lblSupervisorMen" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Tahoma" size="18.0" />
                </font>
@@ -31,7 +31,7 @@
                         <Image url="@../../../../Images/showAndEdit.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="txtOption1" prefHeight="42.0" prefWidth="168.0" text="\%lblGradePoints" textFill="WHITE">
+                  <Label fx:id="txtOption1" prefHeight="42.0" prefWidth="168.0" text="%lblGradePoints" textFill="WHITE">
                      <font>
                         <Font name="Tahoma" size="18.0" />
                      </font>
@@ -49,7 +49,7 @@
                         <Image url="@../../../../Images/white-user.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="txtOption2" prefHeight="42.0" prefWidth="168.0" text="\%lblProfile" textFill="WHITE">
+                  <Label fx:id="txtOption2" prefHeight="42.0" prefWidth="168.0" text="%lblProfile" textFill="WHITE">
                      <font>
                         <Font name="Tahoma" size="18.0" />
                      </font>
@@ -75,7 +75,7 @@
                         <Image url="@../../../../Images/sign-out-icon.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="txtOption3" prefHeight="42.0" prefWidth="168.0" text="\%lblSignOut" textFill="WHITE">
+                  <Label fx:id="txtOption3" prefHeight="42.0" prefWidth="168.0" text="%lblSignOut" textFill="WHITE">
                      <font>
                         <Font name="Tahoma" size="18.0" />
                      </font>

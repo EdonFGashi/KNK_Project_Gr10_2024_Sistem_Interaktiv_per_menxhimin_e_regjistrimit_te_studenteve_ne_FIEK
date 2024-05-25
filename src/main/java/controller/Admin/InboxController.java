@@ -140,13 +140,15 @@ public class InboxController{
 
         private void resetFormsForNew(){
                 this.txtNjoftimId.setText("");
-                this.txtAdminId.setText(Integer.toString(SESSION.getLoggedAdmin().getId()));
+                this.txtAdminId.setText(SESSION.getLoggedAdmin().getFirstName()+" "+SESSION.getLoggedAdmin().getLastName());
 
         }
         public void setFormsNjoftimi(Njoftim njoftimi){
                 this.selectedNjoftim = njoftimi;
                 this.txtNjoftimId.setText(Integer.toString(njoftimi.getNjoftimiId()));
-                this.txtAdminId.setText(Integer.toString(njoftimi.getAdminId()));
+                this.txtAdminId.setText(
+                       AdminService.getAdminFullNameById(this.selectedNjoftim.getAdminId())
+                );
                 this.fielNjoftimi.setText(njoftimi.getText());
         }
 

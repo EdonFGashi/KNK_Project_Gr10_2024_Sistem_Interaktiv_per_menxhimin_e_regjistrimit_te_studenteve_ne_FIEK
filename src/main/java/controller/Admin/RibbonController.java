@@ -71,6 +71,8 @@ public class RibbonController {
     @FXML
     private ImageView imgTranslate;
 
+    @FXML
+    private Button buttonDummy;
 
 
 
@@ -222,9 +224,7 @@ public class RibbonController {
 
     @FXML
     private void handleSignOut(ActionEvent ae){
-        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
-        SESSION.setLoggedAdmin(null);
-       Navigatior.closeStageAfterDelay(ae, Duration.millis(100));
+        this.buttonDummy.fire();
     }
 
     @FXML
@@ -387,6 +387,13 @@ public class RibbonController {
 
         SESSION.switchLanguage();
         Navigatior.navigate(me,Navigatior.ADMIN_RIBBON);
+    }
+
+    @FXML
+    private void handleLogOut(ActionEvent ae){
+        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
+        SESSION.setLoggedAdmin(null);
+        Navigatior.closeStageAfterDelay(ae, Duration.millis(10));
     }
 
 

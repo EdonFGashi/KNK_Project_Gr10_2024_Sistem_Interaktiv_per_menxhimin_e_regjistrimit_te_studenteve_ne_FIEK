@@ -83,14 +83,14 @@ Navigatior.navigate(addPane,Navigatior.PERSONAL_INFO);
 
     @FXML
     void handleContinue(ActionEvent event) {
-        if (!allFieldsAreFilled()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText(null);
-            alert.setContentText("Please fill in all fields before continuing!");
-            alert.showAndWait();
-            return;
-        }
+//        if (!allFieldsAreFilled()) {
+//            Alert alert = new Alert(Alert.AlertType.WARNING);
+//            alert.setTitle("Warning");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Please fill in all fields before continuing!");
+//            alert.showAndWait();
+//            return;
+//        }
 
         String faculty = txtFaculty.getText();
         Double firstYear = Double.parseDouble(txtFirstYear.getText());
@@ -107,7 +107,7 @@ Navigatior.navigate(addPane,Navigatior.PERSONAL_INFO);
 
                }
                }
-            // Trego një mesazh suksesi
+
         } catch (Exception e) {
             e.printStackTrace();
             // Trego një mesazh gabimi
