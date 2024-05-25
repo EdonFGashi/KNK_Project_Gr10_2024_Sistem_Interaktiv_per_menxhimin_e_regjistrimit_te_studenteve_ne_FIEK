@@ -143,7 +143,14 @@ public class DashboardController {
 
     @FXML
     public void handleQasja(ActionEvent event) {
+        this.qasu();
+    }
+    @FXML
+    private void handleTextQasja(MouseEvent me){
+        this.qasu();
+    }
 
+    private void qasu(){
         comunicateControllerdto data = Navigatior.loadAndReturnController(Navigatior.LOGIN);
 
         Parent loginPane = data.getParent();
@@ -153,7 +160,6 @@ public class DashboardController {
         controller.setDashboardController(this);
 
         Navigatior.navigateNewStageByPane(loginPane);
-
     }
 
     @FXML
@@ -182,6 +188,8 @@ public class DashboardController {
     private void handleInfo(MouseEvent me){
         Navigatior.navigateNewStage(Navigatior.HELP_DASHBOARD);
      }
+
+
 
 }
 
