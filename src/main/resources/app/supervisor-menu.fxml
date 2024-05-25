@@ -42,7 +42,7 @@
                </padding>
             </HBox>
             <Line endX="223.7999725341797" layoutX="16.0" layoutY="303.0" startX="0.5999641418457031" stroke="WHITE" />
-            <HBox fx:id="hboxOption11" alignment="CENTER_LEFT" layoutX="22.0" layoutY="432.0" onMouseClicked="#handleOption1Click" onMouseEntered="#handleHoverOption1" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
+            <HBox fx:id="hboxOption2" alignment="CENTER_LEFT" layoutX="22.0" layoutY="432.0" onMouseClicked="#handleOption2Click" onMouseEntered="#handleHoverOption1" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
                <children>
                   <ImageView fx:id="imgOption2" fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -68,7 +68,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <HBox fx:id="hboxOption12" alignment="CENTER_LEFT" layoutX="21.0" layoutY="515.0" onMouseClicked="#handleOption1Click" onMouseEntered="#handleHoverOption1" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
+            <HBox fx:id="hboxOption3" alignment="CENTER_LEFT" layoutX="21.0" layoutY="515.0" onMouseClicked="#handleOption3Click" onMouseEntered="#handleHoverOption1" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
                <children>
                   <ImageView fx:id="imgOption3" fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>

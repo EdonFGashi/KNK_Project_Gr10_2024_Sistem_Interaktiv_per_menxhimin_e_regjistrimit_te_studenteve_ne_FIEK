@@ -53,7 +53,7 @@
                   <Image url="@../../../../Images/blue-user.png" />
                </image>
             </ImageView>
-            <TextField fx:id="userEmail" layoutX="84.0" layoutY="195.0" prefHeight="28.0" prefWidth="180.0" promptText="username" style="-fx-background-color: transparent; -fx-border-color: linear-gradient(to right, #19316C 2.8%, #01B3C9 97.8%); -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="86.40000000000003" />
+            <TextField fx:id="userEmail" layoutX="84.0" layoutY="195.0" prefHeight="28.0" prefWidth="180.0" promptText="email" style="-fx-background-color: transparent; -fx-border-color: linear-gradient(to right, #19316C 2.8%, #01B3C9 97.8%); -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="86.40000000000003" />
             <ImageView fx:id="passwordLogo" fitHeight="27.0" fitWidth="27.0" layoutX="39.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="287.6">
                <image>
                   <Image url="@../../../../Images/blue-key.png" />
