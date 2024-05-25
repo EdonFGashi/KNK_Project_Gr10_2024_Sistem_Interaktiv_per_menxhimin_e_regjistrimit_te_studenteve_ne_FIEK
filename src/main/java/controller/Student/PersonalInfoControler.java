@@ -190,6 +190,7 @@ if(btnGenerateinfo.isDisable())
 
         if (person.getGjinia().equalsIgnoreCase("F")) {
             rbuttonFemale.setSelected(true);
+            //F
         } else {
             rdbuttonMale.setSelected(true);
         }
