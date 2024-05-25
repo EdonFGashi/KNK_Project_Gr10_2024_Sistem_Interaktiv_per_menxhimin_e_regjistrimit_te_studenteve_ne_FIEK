@@ -1,7 +1,7 @@
 package repository;
 import model.User;
 import model.dto.Overall.CreateUserDto;
-import model.dto.Student.ApplicationStatusDto;
+import model.ApplicationStatus;
 import model.dto.Student.EditUserProfileDto;
 import service.DBConnector;
 
@@ -99,7 +99,7 @@ public class UserRepository {
         }
     }
 
-    public static void saveApplicationStatus(ApplicationStatusDto applicationStatus) {
+    public static void saveApplicationStatus(ApplicationStatus applicationStatus) {
         Connection conn = DBConnector.getConnection();
         String sql = "INSERT INTO tblApplicationStatus (UserID, SubmissionStatus, EditTime, ApplicationName) VALUES (?, ?, ?, ?)";
 
@@ -110,8 +110,33 @@ public class UserRepository {
             pstmt.setTimestamp(3, java.sql.Timestamp.valueOf(applicationStatus.getEditTime()));
             pstmt.setString(4, applicationStatus.getApplicationName());
             pstmt.executeUpdate();
+            System.out.println("U rujten ne dashboard");
         } catch (Exception e) {
             System.out.println("Nuk u ruajten te dhenat!");
         }
+    }
+
+    public static ArrayList<ApplicationStatus> getApplicationsForUser(int userID) {
+        Connection conn = DBConnector.getConnection();
+        String sql = "SELECT * FROM tblApplicationStatus WHERE UserID = ?";
+        ArrayList<ApplicationStatus> applications = new ArrayList<>();
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, userID);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                ApplicationStatus application = new ApplicationStatus(
+                        rs.getInt("UserID"),
+                        rs.getString("SubmissionStatus"),
+                        rs.getTimestamp("EditTime").toLocalDateTime(),
+                        rs.getString("ApplicationName")
+                );
+                applications.add(application);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Nuk u morën të dhënat e aplikimeve!");
+        }
+        return applications;
     }
 }
