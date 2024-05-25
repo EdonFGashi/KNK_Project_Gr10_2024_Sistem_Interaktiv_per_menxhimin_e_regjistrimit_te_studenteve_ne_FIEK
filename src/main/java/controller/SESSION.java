@@ -37,7 +37,7 @@ public class SESSION {
     private static int loginAttemptCount;
     private static int loginPenaltyTime;
 
-
+    private static int lastCurretnSupervisor = 0;
 
     private static boolean toggleShqip = true;
 
@@ -248,10 +248,17 @@ public class SESSION {
     public static void setLastMenuOption(int lastMenuOption) {
         SESSION.lastMenuOption = lastMenuOption;
     }
-    public static String getCurrentPage() {
-        return CurrentPage;
+
+    public static int getLastCurretnSupervisor() {
+        return lastCurretnSupervisor;
     }
+
+    public static void setLastCurretnSupervisor(int lastCurretnSupervisor) {
+        SESSION.lastCurretnSupervisor = lastCurretnSupervisor;
+    }
+
 
     public static void setCurrentPage(String currentPage) {
         CurrentPage = currentPage;
-    }}
+    }
+}
