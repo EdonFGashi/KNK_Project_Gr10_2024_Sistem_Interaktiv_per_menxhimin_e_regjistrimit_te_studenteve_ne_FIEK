@@ -1,13 +1,17 @@
 package controller.Supervisor;
 
 import app.Navigatior;
+import controller.SESSION;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.util.Duration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -37,14 +41,14 @@ public class MenuController {
     @FXML
     private HBox hboxOption3;
     @FXML
-
     private HBox addPane;
     @FXML
     private ImageView imgInfoIcon;
+    @FXML
+    private Button buttonDummy;
 
     private String option1Navigate = "";
     private String option2Navigate = "";
-    private String option3Navigate = "";
 
     private final String activeSection = "-fx-border-color: white; -fx-border-radius: 15;-fx-border-width: 1.5; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0.0, 0, 1);";
 
@@ -58,12 +62,11 @@ public class MenuController {
         this.txtOption3.setText("Sign Out");
         this.option1Navigate = Navigatior.SUPERVISOR_GRADE_POINTS;
         this.option2Navigate = Navigatior.SUPERVISOR_PROFILE;
-        this.option3Navigate = Navigatior.SUPERVISOR_STATISTICS;
         try {
-            this.imgMain.setImage(new Image(new FileInputStream("Images/studentMenu.png")));
+            this.imgMain.setImage(new Image(new FileInputStream("Images/supervisorMenu.png")));
             this.imgOption1.setImage(new Image(new FileInputStream("Images/showAndEdit.png")));
-            this.imgOption2.setImage(new Image(new FileInputStream("Images/application.png")));
-            this.imgOption3.setImage(new Image(new FileInputStream("Images/statistics.png")));
+            this.imgOption2.setImage(new Image(new FileInputStream("Images/white-user.png")));
+            this.imgOption3.setImage(new Image(new FileInputStream("Images/sign-out-icon.png")));
             this.imgInfoIcon.setImage(new Image(new FileInputStream("Images/info-icon.png")));
         } catch (FileNotFoundException e) {
             System.out.println("Image not found");
@@ -95,28 +98,10 @@ public class MenuController {
     }
     @FXML
     private void handleOption3Click(MouseEvent me){
-        this.resetActiveSection();
-        this.hboxOption3.setStyle(activeSection);
-        Navigatior.navigate(this.addPane,option3Navigate);
+       this.buttonDummy.fire();
     }
 
 
-    @FXML
-    private void handleHoverOption1(MouseEvent me){
-
-    }
-    @FXML
-    private void handleHoverOption2(MouseEvent me){
-
-    }
-    @FXML
-    private void handleHoverOption3(MouseEvent me){
-
-    }
-    @FXML
-    private void handleHoverOption4(MouseEvent me){
-
-    }
     @FXML
     void handleChangeLanguage(MouseEvent event) {
 
@@ -126,5 +111,12 @@ public class MenuController {
         this.hboxOption1.setStyle("");
         this.hboxOption2.setStyle("");
         this.hboxOption3.setStyle("");
+    }
+
+    @FXML
+    private void handleLogOut(ActionEvent ae){
+        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
+        SESSION.setLoggedSupervisor(null);
+        Navigatior.closeStageAfterDelay(ae, Duration.millis(10));
     }
 }
