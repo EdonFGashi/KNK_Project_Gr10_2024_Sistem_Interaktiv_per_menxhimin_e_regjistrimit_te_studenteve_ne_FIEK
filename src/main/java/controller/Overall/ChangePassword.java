@@ -10,7 +10,7 @@ import javafx.util.Duration;
 import model.dto.Overall.ChangePasswordDto;
 import service.Admin.AdminService;
 import service.CustomExceptions.InvalidPassword;
-import service.Student.StudentService;
+import service.Student.UserService;
 import service.Supervisor.SupervisorService;
 
 public class ChangePassword {
@@ -41,7 +41,8 @@ public class ChangePassword {
             } else if (user == 2){
                 SupervisorService.changePassword(change);
             } else if (user == 3){
-                System.out.println(" ");
+                UserService.changePassword(change);
+               // System.out.println(" ");
             } else {
                 System.out.println("ERROR");
             }

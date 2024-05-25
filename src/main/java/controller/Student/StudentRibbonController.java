@@ -82,7 +82,7 @@ public class StudentRibbonController {
 
     @FXML
     private void handleGoToProfile(ActionEvent ae){
-        Navigatior.navigate(addPane,Navigatior.ADMIN_PROFILE);
+        Navigatior.navigate(addPane,Navigatior.STUDENT_PROFILE);
     }
 
 
@@ -105,7 +105,7 @@ public class StudentRibbonController {
 
     @FXML
     private void handleProfileClick(MouseEvent me){
-        Navigatior.navigate(addPane,Navigatior.ADMIN_PROFILE);
+        Navigatior.navigate(addPane,Navigatior.STUDENT_PROFILE);
     }
 
 
