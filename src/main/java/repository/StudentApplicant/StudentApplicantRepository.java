@@ -1,6 +1,7 @@
 package repository.StudentApplicant;
 
 import controller.SESSION;
+import model.UserStudent2;
 import model.dto.Student.*;
 import service.DBConnector;
 
@@ -12,6 +13,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.Date;
 
 import static controller.SESSION.*;
 
@@ -310,6 +313,32 @@ public class StudentApplicantRepository {
             }
         }
         return -1; // Kthe -1 nëse departamenti nuk u gjet
+    }
+
+    public static UserStudent2 getUserById(int userId) {
+       Connection conn = DBConnector.getConnection();
+
+        String query = "SELECT * FROM tblUserStudent WHERE userId = ?";
+        try (PreparedStatement statement = conn.prepareStatement(query)) {
+            statement.setInt(1, userId);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                int userIdResult = resultSet.getInt("userId");
+                String numriPersonal = resultSet.getString("numriPersonal");
+                String emri = resultSet.getString("emri");
+                String mbiemri = resultSet.getString("mbiemri");
+                String nacionaliteti = resultSet.getString("nacionaliteti");
+                String qyteti = resultSet.getString("qyteti");
+                String shteti = resultSet.getString("shteti");
+                String gjinia = resultSet.getString("gjinia");
+                LocalDate dataLindjes = resultSet.getDate("dataLindjes").toLocalDate();
+
+                return new UserStudent2(userIdResult, numriPersonal, emri, mbiemri, nacionaliteti, qyteti, shteti, gjinia, dataLindjes);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null; // Kthe null nëse nuk gjen përdoruesin me këtë ID
     }
 }
 

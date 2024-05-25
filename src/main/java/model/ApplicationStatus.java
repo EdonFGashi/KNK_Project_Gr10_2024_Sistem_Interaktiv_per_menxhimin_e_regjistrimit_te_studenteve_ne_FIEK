@@ -1,15 +1,17 @@
-package model.dto.Student;
+package model;
+
+
 
 import java.time.LocalDateTime;
 
-public class ApplicationStatusDto {
+public class ApplicationStatus {
     private int userID;
     private String submissionStatus;
     private LocalDateTime editTime;
     private String applicationName;
 
     // Constructor, getters and setters
-    public ApplicationStatusDto(int userID, String submissionStatus, LocalDateTime editTime, String applicationName) {
+    public ApplicationStatus(int userID, String submissionStatus, LocalDateTime editTime, String applicationName) {
         this.userID = userID;
         this.submissionStatus = submissionStatus;
         this.editTime = editTime;
@@ -48,4 +50,5 @@ public class ApplicationStatusDto {
         this.applicationName = applicationName;
     }
 }
+
 

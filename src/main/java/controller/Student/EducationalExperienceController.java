@@ -6,6 +6,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -13,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.scene.image.Image;
 import model.dto.Student.StudentApplicantDto;
+import service.Student.StudentApplicantService;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -24,36 +26,52 @@ public class EducationalExperienceController {
 
     @FXML
     private AnchorPane addpane;
+
     @FXML
     private Button chooseImageButton1;
+
     @FXML
     private Button chooseImageButton2;
+
     @FXML
     private Button chooseImageButton3;
+
     @FXML
     private ImageView imgDiplome;
+
     @FXML
     private ImageView imgGradeCertificate;
+
     @FXML
     private ImageView imgIdentification;
+
     @FXML
     private TextField txtAlbanian;
+
     @FXML
     private TextField txtAllPoints;
+
     @FXML
     private TextField txtChosenSubject;
+
     @FXML
     private TextField txtChosenSubjectPoints;
+
     @FXML
     private TextField txtEnglish;
+
     @FXML
     private TextField txtGrade10;
+
     @FXML
     private TextField txtGrade11;
+
     @FXML
     private TextField txtGrade12;
+
     @FXML
     private TextField txtMath;
+
     @FXML
     private TextField txtSchoolName;
 
@@ -73,6 +91,15 @@ public class EducationalExperienceController {
 
     @FXML
     void handleContinue(ActionEvent event) {
+        if (!allFieldsAreFilled()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill in all fields before continuing!");
+            alert.showAndWait();
+            return;
+        }
+
         String ShkMesme = txtSchoolName.getText();
         int Matematike = Integer.parseInt(txtMath.getText());
         int Shqip = Integer.parseInt(txtAlbanian.getText());
@@ -84,15 +111,12 @@ public class EducationalExperienceController {
         Double Sukses11 = Double.parseDouble(txtGrade11.getText());
         Double Sukses12 = Double.parseDouble(txtGrade12.getText());
 
-
         StudentApplicantDto dto = new StudentApplicantDto(SESSION.getLoggedUser().getId(), ShkMesme, Matematike, Shqip, Anglisht, LendaZgjedhur, PikatLendesZgjedhur, PikatGjithsej, Sukses10, Sukses11, Sukses12, imageFile1, imageFile2, imageFile3);
 
         try {
-            service.Student.StudentApplicantService.processAndSaveData(dto);
-
+            StudentApplicantService.processAndSaveData(dto);
         } catch (Exception e) {
             e.printStackTrace();
-
         }
         Navigatior.navigate(addpane, Navigatior.ACADEMIC);
     }
@@ -114,7 +138,7 @@ public class EducationalExperienceController {
 
     private File chooseImage(ImageView imageView) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Zgjidh një Foto");
+        fileChooser.setTitle("Choose an Image");
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
         File selectedFile = fileChooser.showOpenDialog(null);
@@ -130,12 +154,10 @@ public class EducationalExperienceController {
     }
 
     private void addTextFieldListeners() {
-        ChangeListener<String> changeListener = (observable, oldValue, newValue) -> calculateTotalPoints();
-
-        txtAlbanian.textProperty().addListener(changeListener);
-        txtEnglish.textProperty().addListener(changeListener);
-        txtMath.textProperty().addListener(changeListener);
-        txtChosenSubjectPoints.textProperty().addListener(changeListener);
+        txtAlbanian.textProperty().addListener((observable, oldValue, newValue) -> calculateTotalPoints());
+        txtEnglish.textProperty().addListener((observable, oldValue, newValue) -> calculateTotalPoints());
+        txtMath.textProperty().addListener((observable, oldValue, newValue) -> calculateTotalPoints());
+        txtChosenSubjectPoints.textProperty().addListener((observable, oldValue, newValue) -> calculateTotalPoints());
     }
 
     private void calculateTotalPoints() {
@@ -144,12 +166,25 @@ public class EducationalExperienceController {
             int englishPoints = Integer.parseInt(txtEnglish.getText());
             int mathPoints = Integer.parseInt(txtMath.getText());
             int chosenSubjectPoints = Integer.parseInt(txtChosenSubjectPoints.getText());
-
             int totalPoints = albanianPoints + englishPoints + mathPoints + chosenSubjectPoints;
             txtAllPoints.setText(String.valueOf(totalPoints));
         } catch (NumberFormatException e) {
-
             txtAllPoints.setText("");
         }
+    }
+
+    private boolean allFieldsAreFilled() {
+        return !txtSchoolName.getText().isEmpty() &&
+                !txtMath.getText().isEmpty() &&
+                !txtAlbanian.getText().isEmpty() &&
+                !txtEnglish.getText().isEmpty() &&
+                !txtChosenSubject.getText().isEmpty() &&
+                !txtChosenSubjectPoints.getText().isEmpty() &&
+                !txtGrade10.getText().isEmpty() &&
+                !txtGrade11.getText().isEmpty() &&
+                !txtGrade12.getText().isEmpty() &&
+                imageFile1 != null &&
+                imageFile2 != null &&
+                imageFile3 != null;
     }
 }

@@ -2,6 +2,7 @@ package service.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Afat;
+import model.UserStudent2;
 import model.dto.Student.AcademicInterestDto;
 import model.dto.Student.MasterApplicantDto;
 import model.dto.Student.PHDApplicantDto;
@@ -67,6 +68,11 @@ public class StudentApplicantService {
             e.printStackTrace();
             return FXCollections.observableArrayList();
         }
+    }
+
+    public static UserStudent2 getUserById(int userId) {
+        // Kthe përdoruesin nga tabela tblUserStudent në bazë të ID-së së përdoruesit
+        return StudentApplicantRepository.getUserById(userId);
     }
 
     
