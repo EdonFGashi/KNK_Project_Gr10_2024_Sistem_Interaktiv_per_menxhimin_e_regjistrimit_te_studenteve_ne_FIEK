@@ -98,7 +98,7 @@ public class EducationalExperienceController {
 
     @FXML
     void handleBack(ActionEvent event) {
-
+Navigatior.navigate(addpane,Navigatior.PERSONAL_INFO);
     }
 
     @FXML

@@ -123,7 +123,7 @@ public class EducationalPHDController2 {
 
     @FXML
     void handleGoback(ActionEvent event) {
-
+Navigatior.navigate(addPane,Navigatior.PERSONAL_INFO);
     }
 
     private File chooseImage(ImageView imageView) {

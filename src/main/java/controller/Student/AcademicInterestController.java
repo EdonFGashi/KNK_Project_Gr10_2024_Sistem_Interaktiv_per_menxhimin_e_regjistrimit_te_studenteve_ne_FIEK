@@ -132,6 +132,7 @@ public class AcademicInterestController {
     @FXML
     void handleBack(ActionEvent event) {
         // Add functionality for handling back button action
+        Navigatior.navigate(addPane,Navigatior.EDUCATION);
     }
     private void navigateToNewStage(ActionEvent event, String fxmlPath) {
         Stage stage = new Stage();

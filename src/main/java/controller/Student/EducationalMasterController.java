@@ -78,7 +78,7 @@ public class EducationalMasterController {
 
     @FXML
     void handleBack(ActionEvent event) {
-
+Navigatior.navigate(addPane,Navigatior.PERSONAL_INFO);
     }
 
     @FXML
