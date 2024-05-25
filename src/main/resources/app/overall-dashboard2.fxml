@@ -35,7 +35,7 @@
                </image>
             </ImageView>
             <Text fill="WHITE" layoutX="1297.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 0.7; -fx-font-weight: 700;" text="+383 38 244 183 " />
-            <ImageView fitHeight="23.0" fitWidth="15.0" layoutX="1164.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;">
+            <ImageView fitHeight="23.0" fitWidth="15.0" layoutX="1282.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;">
                <image>
                   <Image url="@../../../../Images/phone.png" />
                </image>
