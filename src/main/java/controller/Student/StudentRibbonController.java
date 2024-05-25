@@ -113,7 +113,7 @@ public class StudentRibbonController {
     private void handleSignOut(ActionEvent ae){
         Navigatior.navigateNewStage(Navigatior.DASHBOARD);
         SESSION.setLoggedUser(null);
-         Navigatior.closeStageAfterDelay(ae, Duration.millis(100));
+        // Navigatior.closeStageAfterDelay(ae, Duration.millis(100));
     }
     @FXML
     private void handleChangeLanguage(MouseEvent me){

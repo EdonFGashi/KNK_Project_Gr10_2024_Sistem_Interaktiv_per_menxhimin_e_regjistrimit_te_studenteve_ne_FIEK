@@ -89,7 +89,7 @@ public class StudentDashboardController {
                 }
             }
         });
-
+        System.out.println("SESSION DEPARTAMENTI"+SESSION.getDeptLevel());
         // Initial population based on the default or initial level
         updateAfatChoiceBox(SESSION.getDeptLevel());
 
@@ -149,6 +149,7 @@ public class StudentDashboardController {
             loadExistingApplications(); // Refresh the table
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println(e.getMessage());
             // Handle exception (e.g., show error message to user)
         }}
         navigateToNewStage(event, Navigatior.STUDENT_MENU);

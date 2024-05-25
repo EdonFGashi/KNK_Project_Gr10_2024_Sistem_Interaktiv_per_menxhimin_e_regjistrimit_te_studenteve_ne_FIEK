@@ -118,10 +118,11 @@ public class UserRepository {
     }
 
     public static ArrayList<ApplicationStatus> getApplicationsForUser(int userID) {
-        Connection conn = DBConnector.getConnection();
+
         String sql = "SELECT * FROM tblApplicationStatus WHERE UserID = ?";
         ArrayList<ApplicationStatus> applications = new ArrayList<>();
         try {
+            Connection conn = DBConnector.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, userID);
             ResultSet rs = pstmt.executeQuery();
