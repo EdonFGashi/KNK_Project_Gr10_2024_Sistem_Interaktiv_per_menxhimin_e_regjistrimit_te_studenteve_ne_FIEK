@@ -1,5 +1,6 @@
 package controller.Student;
 
+import app.Navigatior;
 import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.dto.Student.PHDApplicantDto;
 import repository.StudentApplicant.StudentApplicantRepository;
 import service.Student.StudentApplicantService;
@@ -88,14 +91,14 @@ public class EducationalPHDController2 {
 
     @FXML
     void handleApply(ActionEvent event) {
-        if (!allFieldsAreFilled()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText(null);
-            alert.setContentText("Please fill in all fields before continuing!");
-            alert.showAndWait();
-            return;
-        }
+//        if (!allFieldsAreFilled()) {
+//            Alert alert = new Alert(Alert.AlertType.WARNING);
+//            alert.setTitle("Warning");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Please fill in all fields before continuing!");
+//            alert.showAndWait();
+//            return;
+//        }
 
         String Fakulteti = txtFaculty.getText();
         Double Mesatarjaviti1 = Double.parseDouble(txtfirstYGrade.getText());
@@ -115,11 +118,12 @@ public class EducationalPHDController2 {
             e.printStackTrace();
             // Trego një mesazh gabimi
         }
+        navigateToNewStage(event, Navigatior.STUDENT_RIBBON);
     }
 
     @FXML
     void handleGoback(ActionEvent event) {
-
+Navigatior.navigate(addPane,Navigatior.PERSONAL_INFO);
     }
 
     private File chooseImage(ImageView imageView) {
@@ -146,5 +150,12 @@ public class EducationalPHDController2 {
                 imageFile1 != null &&
                 imageFile2 != null &&
                 imageFile3 != null;
+    }
+    private void navigateToNewStage(ActionEvent event, String fxmlPath) {
+        Stage stage = new Stage();
+        stage.setMaximized(true);
+        Navigatior.navigate(stage, fxmlPath);
+      //  Navigatior.closeStageAfterDelay(event, Duration.millis(1));
+
     }
 }

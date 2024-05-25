@@ -9,6 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.dto.Overall.UserDto;
 import service.CustomExceptions.InvalidEmail;
@@ -73,7 +74,7 @@ public class SignUpController {
             if(response){
                 SESSION.setLoggedUser(UserService.getUserByEmail(this.txtEmail.getText()));
                 System.out.println("Okej");
-                Navigatior.navigateNewMaxStage(Navigatior.STUDENT_DASHBOARD);
+                navigateToNewStage(ae, Navigatior.STUDENT_RIBBON);
                 Navigatior.closeStageAfterDelay(ae, Duration.millis(1));
             }
         } catch (SQLException | InvalidEmail | InvalidPassword e){
@@ -101,6 +102,13 @@ public class SignUpController {
         } catch (FileNotFoundException e) {
             System.out.println("Image not found");
         }
+
+    }
+    private void navigateToNewStage(ActionEvent event, String fxmlPath) {
+        Stage stage = new Stage();
+        stage.setMaximized(true);
+        Navigatior.navigate(stage, fxmlPath);
+        Navigatior.closeStageAfterDelay(event, Duration.millis(1));
 
     }
 }

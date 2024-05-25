@@ -116,7 +116,7 @@
                         <Font size="18.0" />
                     </font>
                 </Button>
-              <Button fx:id="btnGoback" layoutX="662.0" layoutY="518.0" mnemonicParsing="false" onMouseClicked="#handleGoback" prefHeight="50.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #3f7bb0; -fx-font-weight: bold;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
+              <Button fx:id="btnGoback" layoutX="662.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleGoback" prefHeight="50.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #3f7bb0; -fx-font-weight: bold;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
                   <font>
                       <Font size="24.0" />
                   </font>

@@ -10,6 +10,8 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.UserStudent2;
 import model.dto.Student.PersonDTO;
 import service.Student.StudentApplicantService;
@@ -18,6 +20,7 @@ import service.Student.personService;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.security.spec.RSAOtherPrimeInfo;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -124,8 +127,12 @@ public class PersonalInfoControler {
     }
 
     @FXML
-    void handleGoback(MouseEvent event) {
-
+    void handleGoback(ActionEvent event) {
+        try{
+            navigateToNewStage(event, Navigatior.STUDENT_RIBBON);
+        }catch (Exception e){
+            System.out.println("Error go back"+e.getMessage());
+        }
     }
     @FXML
     void handleNext(MouseEvent event) {
@@ -206,6 +213,13 @@ if(btnGenerateinfo.isDisable())
         rbuttonFemale.setDisable(true);
         rdbuttonMale.setDisable(true);
         selectBirthday.setDisable(true);
+    }
+    private void navigateToNewStage(ActionEvent event, String fxmlPath) {
+        Stage stage = new Stage();
+        stage.setMaximized(true);
+        Navigatior.navigate(stage, fxmlPath);
+        Navigatior.closeStageAfterDelay(event, Duration.millis(1));
+
     }
 }
 

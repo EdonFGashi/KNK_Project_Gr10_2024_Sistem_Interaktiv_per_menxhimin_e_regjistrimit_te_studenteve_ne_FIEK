@@ -1,5 +1,6 @@
 package controller.Student;
 
+import app.Navigatior;
 import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.dto.Student.MasterApplicantDto;
 import model.dto.Student.StudentApplicantDto;
 import repository.StudentApplicant.StudentApplicantRepository;
@@ -75,7 +78,7 @@ public class EducationalMasterController {
 
     @FXML
     void handleBack(ActionEvent event) {
-
+Navigatior.navigate(addPane,Navigatior.PERSONAL_INFO);
     }
 
     @FXML
@@ -109,6 +112,7 @@ public class EducationalMasterController {
             e.printStackTrace();
             // Trego një mesazh gabimi
         }
+        navigateToNewStage(event, Navigatior.STUDENT_RIBBON);
 
     }
 
@@ -146,5 +150,12 @@ public class EducationalMasterController {
                 !txtThirdYear.getText().isEmpty() &&
                 imageFile1 != null &&
                 imageFile2 != null;
+    }
+    private void navigateToNewStage(ActionEvent event, String fxmlPath) {
+        Stage stage = new Stage();
+        stage.setMaximized(true);
+        Navigatior.navigate(stage, fxmlPath);
+        Navigatior.closeStageAfterDelay(event, Duration.millis(1));
+
     }
 }
