@@ -14,7 +14,7 @@
 
 <AnchorPane fx:id="addpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.EducationalExperienceController">
    <children>
-      <Pane layoutX="-1.0" layoutY="73.0" prefHeight="102.0" prefWidth="1220.0" style="-fx-background-color: #3f6196;" AnchorPane.topAnchor="33.0">
+      <Pane layoutX="-1.0" layoutY="73.0" prefHeight="102.0" prefWidth="1220.0" style="-fx-background-color: linear-gradient(to right, #19316C 2.8%, #01B3C9 97.8%);" AnchorPane.topAnchor="33.0">
          <children>
             <Label layoutX="115.0" layoutY="25.0" text="%lblTITULLI" textFill="WHITE">
                <font>
@@ -138,9 +138,9 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="chooseImageButton1" layoutX="683.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleFile1" style="-fx-background-color: pink; -fx-background-radius: 20;" text="%btnChooseFile" />
-                  <Button fx:id="chooseImageButton2" layoutX="960.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleFile2" style="-fx-background-color: pink; -fx-background-radius: 20;" text="%btnChooseFile" />
-                  <Button fx:id="chooseImageButton3" layoutX="698.0" layoutY="369.0" mnemonicParsing="false" onAction="#handleFile3" style="-fx-background-color: pink; -fx-background-radius: 20;" text="%btnChooseFile" />
+                  <Button fx:id="chooseImageButton1" layoutX="683.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleFile1" style="-fx-background-color: purple; -fx-background-radius: 20;" text="%btnChooseFile" textFill="WHITE" />
+                  <Button fx:id="chooseImageButton2" layoutX="960.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleFile2" style="-fx-background-color: purple; -fx-background-radius: 20;" text="%btnChooseFile" textFill="WHITE" />
+                  <Button fx:id="chooseImageButton3" layoutX="698.0" layoutY="369.0" mnemonicParsing="false" onAction="#handleFile3" style="-fx-background-color: purple; -fx-background-radius: 20;" text="%btnChooseFile" textFill="WHITE" />
                </children>
             </AnchorPane>
          </children>
