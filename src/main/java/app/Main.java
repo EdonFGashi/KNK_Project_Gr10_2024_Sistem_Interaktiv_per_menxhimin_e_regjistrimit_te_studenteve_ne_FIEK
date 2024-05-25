@@ -17,7 +17,13 @@ import java.util.ResourceBundle;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        //
+
+        //Startimi i aplikacionit Fiek Student Menagment System
+        //Start of Apllication Fiek Student Menagment System
+
+        // Sistem plotesisht funksional per menagjimin e studenteve
+        // Fully functional system for menaging students
+
         Navigatior.navigate(stage,Navigatior.DASHBOARD);
     }
 }
