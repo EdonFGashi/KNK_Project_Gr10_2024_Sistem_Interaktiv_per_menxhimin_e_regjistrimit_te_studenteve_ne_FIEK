@@ -26,6 +26,9 @@ public class SESSION {
     private static String admin_student_lastSearch = "";
 
 
+    public static String getCurrentPage() {
+        return CurrentPage;
+    }
 
     private static String CurrentPage = "";
 //    Temporary
@@ -261,4 +264,5 @@ public class SESSION {
     public static void setCurrentPage(String currentPage) {
         CurrentPage = currentPage;
     }
+
 }
