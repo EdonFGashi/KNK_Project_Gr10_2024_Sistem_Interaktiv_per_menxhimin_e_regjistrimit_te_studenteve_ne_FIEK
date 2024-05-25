@@ -4,7 +4,6 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,6 +14,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Supervisor.MenuController">
    <children>
       <AnchorPane prefHeight="720.0" prefWidth="238.0" style="-fx-background-color: linear-gradient(to bottom, #19316C 2.8%, #01B3C9 97.8%) linear-gradient(to bottom, #19316C 2.8%, #01B3C9 97.8%); -fx-background-radius: 3; -fx-border-color: beige; -fx-border-width: 0.5 0.5 0.5 0; -fx-border-radius: 3;" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
+      <AnchorPane prefHeight="720.0" prefWidth="238.0" style="-fx-background-color: linear-gradient(to bottom, #19316C 2.8%, #01B3C9 97.8%); -fx-background-radius: 3; -fx-border-color: beige; -fx-border-width: 0.5 0.5 0.5 0; -fx-border-radius: 3;" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
          <children>
             <ImageView fx:id="imgMain" fitHeight="152.0" fitWidth="155.0" layoutX="51.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -26,7 +26,7 @@
                   <Font name="Tahoma" size="18.0" />
                </font>
             </Label>
-            <HBox fx:id="hboxOption1" alignment="CENTER_LEFT" layoutX="22.0" layoutY="358.0" onMouseClicked="#handleOption1Click" onMouseEntered="#handleHoverOption1" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
+            <HBox fx:id="hboxOption1" alignment="CENTER_LEFT" layoutX="22.0" layoutY="358.0" onMouseClicked="#handleOption1Click" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
                <children>
                   <ImageView fx:id="imgOption1" fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -44,7 +44,7 @@
                </padding>
             </HBox>
             <Line endX="223.7999725341797" layoutX="16.0" layoutY="303.0" startX="0.5999641418457031" stroke="WHITE" />
-            <HBox fx:id="hboxOption2" alignment="CENTER_LEFT" layoutX="22.0" layoutY="432.0" onMouseClicked="#handleOption2Click" onMouseEntered="#handleHoverOption1" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
+            <HBox fx:id="hboxOption2" alignment="CENTER_LEFT" layoutX="22.0" layoutY="432.0" onMouseClicked="#handleOption2Click" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
                <children>
                   <ImageView fx:id="imgOption2" fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -70,7 +70,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <HBox fx:id="hboxOption3" alignment="CENTER_LEFT" layoutX="21.0" layoutY="515.0" onMouseClicked="#handleOption3Click" onMouseEntered="#handleHoverOption1" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
+            <HBox fx:id="hboxOption3" alignment="CENTER_LEFT" layoutX="21.0" layoutY="515.0" onMouseClicked="#handleOption3Click" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
                <children>
                   <ImageView fx:id="imgOption3" fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>

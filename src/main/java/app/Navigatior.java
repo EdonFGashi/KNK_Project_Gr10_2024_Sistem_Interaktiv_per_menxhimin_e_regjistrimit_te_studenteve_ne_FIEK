@@ -21,6 +21,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -30,6 +31,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.dto.Admin.comunicateControllerdto;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -110,6 +112,12 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         stage.setWidth(stage.getWidth());
         stage.setHeight(stage.getHeight());
         Scene newScene = new Scene(formPane);
+        try {
+            stage.getIcons().add(new Image(new FileInputStream("Images/upLogoNoRing.png")));
+        }catch(IOException e){
+          //
+        }
+        stage.setTitle("Fiek Registration Menagment System");
         //newScene.setFill(Color.BLUE);
         stage.setScene(newScene);
         stage.show();
@@ -121,6 +129,12 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         stage.setHeight(stage.getHeight());
         Scene newScene = new Scene(mainPane);
         stage.setScene(newScene);
+        try {
+            stage.getIcons().add(new Image(new FileInputStream("Images/upLogoNoRing.png")));
+        }catch(IOException e){
+            //
+        }
+        stage.setTitle("Fiek Registration Menagment System");
        // newScene.setFill(Color.BLUE);
         stage.show();
     }
@@ -206,6 +220,12 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
     public static void navigateNewStage(String page){
          Scene scene = new Scene(loadPane(page));
         Stage stage = new Stage();
+        try {
+            stage.getIcons().add(new Image(new FileInputStream("Images/upLogoNoRing.png")));
+        }catch(IOException e){
+            //
+        }
+        stage.setTitle("Fiek Registration Menagment System");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
@@ -214,6 +234,12 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
     public static void navigateNewMaxStage(String page){
         Scene scene = new Scene(loadPane(page));
         Stage stage = new Stage();
+        try {
+            stage.getIcons().add(new Image(new FileInputStream("Images/upLogoNoRing.png")));
+        }catch(IOException e){
+            //
+        }
+        stage.setTitle("Fiek Registration Menagment System");
         stage.setMaximized(true);
         stage.setResizable(false);
         stage.setScene(scene);
@@ -262,6 +288,12 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         Stage stage = new Stage();
         stage.setMaximized(false);
         stage.setResizable(false);
+        try {
+            stage.getIcons().add(new Image(new FileInputStream("Images/upLogoNoRing.png")));
+        }catch(IOException e){
+            //
+        }
+        stage.setTitle("Fiek Registration Menagment System");
         stage.setScene(scene);
         stage.show();
     }

@@ -27,6 +27,7 @@ import service.Supervisor.SupervisorService;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalTime;
 import java.util.Locale;
 import java.util.Objects;
@@ -214,8 +215,15 @@ public class LoginController extends ComunicativeController {
 
 
     private void navigateToNewStage(ActionEvent event, String fxmlPath) {
+        this.dashboardController.close();
         Stage stage = new Stage();
         stage.setMaximized(true);
+        try {
+            stage.getIcons().add(new Image(new FileInputStream("Images/upLogoNoRing.png")));
+        }catch(IOException e){
+            //
+        }
+        stage.setTitle("Fiek Registration Menagment System");
         Navigatior.navigate(stage, fxmlPath);
         Navigatior.closeStageAfterDelay(event, Duration.millis(1));
         System.out.println("Erdh deri para navigatorit");
