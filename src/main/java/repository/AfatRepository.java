@@ -109,7 +109,7 @@ public class AfatRepository {
             pst.setString(5, afat.getNiveli());
             pst.setInt(6, afat.getId());
             int rowsAffected = pst.executeUpdate();
-            pst.close();
+//            pst.close();
             return rowsAffected > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -123,7 +123,7 @@ public class AfatRepository {
             PreparedStatement pst = connection.prepareStatement(query);
             pst.setInt(1, id);
             int rowsAffected = pst.executeUpdate();
-            pst.close();
+//            pst.close();
             return rowsAffected > 0;
         } catch (SQLException e) {
             e.printStackTrace();
