@@ -86,12 +86,6 @@ public class MenuController {
         this.hboxOption3.setStyle(activeSection);
         Navigatior.navigate(this.addPane,option3Navigate);
     }
-    @FXML
-    private void handleOption4Click(MouseEvent me){
-        this.resetActiveSection();
-        this.hboxOption4.setStyle(activeSection);
-        Navigatior.navigate(this.addPane,option4Navigate);
-    }
 
     @FXML
     private void handleHoverOption1(MouseEvent me){
@@ -114,6 +108,5 @@ public class MenuController {
         this.hboxOption1.setStyle("");
         this.hboxOption2.setStyle("");
         this.hboxOption3.setStyle("");
-        this.hboxOption4.setStyle("");
     }
 }
