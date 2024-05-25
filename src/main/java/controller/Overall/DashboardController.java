@@ -178,6 +178,11 @@ public class DashboardController {
          Navigatior.closeStageAfterDelay(ae, Duration.millis(20));
      }
 
+     @FXML
+    private void handleInfo(MouseEvent me){
+        Navigatior.navigateNewStage(Navigatior.HELP_DASHBOARD);
+     }
+
 }
 
 

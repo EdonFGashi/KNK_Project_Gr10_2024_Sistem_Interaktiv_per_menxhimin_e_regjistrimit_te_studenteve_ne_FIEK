@@ -171,7 +171,8 @@ public class RibbonController {
     @FXML
     private void handleUpLogoClick(MouseEvent ae){
         //Navigu ne Dashboard
-        Navigatior.navigate(this.addPane, Navigatior.DASHBOARD);
+        Navigatior.closeStageAfterDelay(ae, Duration.millis(5));
+        Navigatior.navigateNewMaxStage(Navigatior.DASHBOARD);
     }
 
     @FXML
@@ -221,9 +222,9 @@ public class RibbonController {
 
     @FXML
     private void handleSignOut(ActionEvent ae){
-        Navigatior.navigateNewStage(Navigatior.LOGIN);
+        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
         SESSION.setLoggedAdmin(null);
-       // Navigatior.closeStageAfterDelay(ae, Duration.millis(100));
+       Navigatior.closeStageAfterDelay(ae, Duration.millis(100));
     }
 
     @FXML

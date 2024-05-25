@@ -11,26 +11,26 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Supervisor.MenuController">
    <children>
-      <AnchorPane prefHeight="720.0" prefWidth="238.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-background-radius: 30;" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
+      <AnchorPane prefHeight="720.0" prefWidth="238.0" style="-fx-background-color: linear-gradient(to right, #19316C 2.8%, #01B3C9 97.8%) linear-gradient(to right, #19316C 2.8%, #01B3C9 97.8%); -fx-background-radius: 30;" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
          <children>
-            <ImageView fx:id="imgMain" fitHeight="152.0" fitWidth="155.0" layoutX="47.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgMain" fitHeight="152.0" fitWidth="155.0" layoutX="51.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../Images/studentMenu.png" />
+                  <Image url="@../../../../Images/supervisorMenu.png" />
                </image>
             </ImageView>
-            <Label fx:id="txtMenuName" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="230.0" prefHeight="38.0" prefWidth="259.0" style="-fx-font-weight: bold; -fx-text-alignment: center;" text="Student Menagment" textFill="WHITE">
+            <Label fx:id="txtMenuName" alignment="CENTER" contentDisplay="CENTER" layoutY="253.0" prefHeight="38.0" prefWidth="254.0" style="-fx-font-weight: bold; -fx-text-alignment: center;" text="%lblSupervisorMen" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Tahoma" size="18.0" />
                </font>
             </Label>
-            <HBox fx:id="hboxOption1" alignment="CENTER_LEFT" layoutX="22.0" layoutY="312.0" onMouseClicked="#handleOption1Click" onMouseEntered="#handleHoverOption1" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
+            <HBox fx:id="hboxOption1" alignment="CENTER_LEFT" layoutX="22.0" layoutY="358.0" onMouseClicked="#handleOption1Click" onMouseEntered="#handleHoverOption1" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
                <children>
                   <ImageView fx:id="imgOption1" fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Images/showAndEditStudent.png" />
+                        <Image url="@../../../../Images/showAndEdit.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="txtOption1" prefHeight="42.0" prefWidth="168.0" text="Show and Edit" textFill="WHITE">
+                  <Label fx:id="txtOption1" prefHeight="42.0" prefWidth="168.0" text="%lblGradePoints" textFill="WHITE">
                      <font>
                         <Font name="Tahoma" size="18.0" />
                      </font>
@@ -40,10 +40,15 @@
                   <Insets left="5.0" />
                </padding>
             </HBox>
-            <HBox fx:id="hboxOption2" alignment="CENTER_LEFT" layoutX="22.0" layoutY="412.0" onMouseClicked="#handleOption2Click" onMouseEntered="#handleHoverOption2" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
+            <Line endX="223.7999725341797" layoutX="16.0" layoutY="303.0" startX="0.5999641418457031" stroke="WHITE" />
+            <HBox fx:id="hboxOption2" alignment="CENTER_LEFT" layoutX="22.0" layoutY="432.0" onMouseClicked="#handleOption1Click" onMouseEntered="#handleHoverOption1" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
                <children>
-                  <ImageView fx:id="imgOption2" fitHeight="25.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label fx:id="txtOption2" prefHeight="42.0" prefWidth="142.0" text="Statisctics" textFill="WHITE">
+                  <ImageView fx:id="imgOption2" fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/white-user.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="txtOption2" prefHeight="42.0" prefWidth="168.0" text="%lblProfile" textFill="WHITE">
                      <font>
                         <Font name="Tahoma" size="18.0" />
                      </font>
@@ -53,25 +58,20 @@
                   <Insets left="5.0" />
                </padding>
             </HBox>
-            <Line endX="223.7999725341797" layoutX="15.0" layoutY="278.0" startX="0.5999641418457031" stroke="WHITE" />
-            <HBox fx:id="hboxOption3" alignment="CENTER_LEFT" layoutX="21.0" layoutY="515.0" onMouseClicked="#handleOption3Click" onMouseEntered="#handleHoverOption3" prefHeight="43.0" prefWidth="225.0" spacing="10.0">
+            <ImageView fx:id="imgTranslate" fitHeight="37.0" fitWidth="35.0" layoutX="16.0" layoutY="61.0" onMouseClicked="#handleChangeLanguage" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Images/info-icon.png" />
+               </image>
+            </ImageView>
+            <HBox fx:id="hboxOption3" alignment="CENTER_LEFT" layoutX="21.0" layoutY="515.0" onMouseClicked="#handleOption1Click" onMouseEntered="#handleHoverOption1" prefHeight="43.0" prefWidth="224.0" spacing="10.0">
                <children>
-                  <ImageView fx:id="imgOption3" fitHeight="24.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label fx:id="txtOption3" prefHeight="42.0" prefWidth="145.0" text="hej" textFill="WHITE">
-                     <font>
-                        <Font name="Tahoma" size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets left="5.0" />
-               </padding>
-            </HBox>
-            <Line endX="247.39996337890625" endY="-1.9073486328125E-6" layoutX="11.0" layoutY="1.0" startX="-10.999987602233887" startY="-1.9073486328125E-6" stroke="WHITE" />
-            <HBox fx:id="hboxOption4" alignment="CENTER_LEFT" layoutX="16.0" layoutY="586.0" onMouseClicked="#handleOption4Click" onMouseEntered="#handleHoverOption4" prefHeight="43.0" prefWidth="225.0" spacing="10.0">
-               <children>
-                  <ImageView fx:id="imgOption31" fitHeight="24.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label fx:id="txtOption31" prefHeight="42.0" prefWidth="145.0" text="Profile (temp)" textFill="WHITE">
+                  <ImageView fx:id="imgOption3" fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/sign-out-icon.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="txtOption3" prefHeight="42.0" prefWidth="168.0" text="%lblSignOut" textFill="WHITE">
                      <font>
                         <Font name="Tahoma" size="18.0" />
                      </font>

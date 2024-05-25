@@ -36,8 +36,6 @@ public class MenuController {
     @FXML
     private HBox hboxOption3;
     @FXML
-    private HBox hboxOption4;
-    @FXML
     private HBox addPane;
 
     private String option1Navigate = "";

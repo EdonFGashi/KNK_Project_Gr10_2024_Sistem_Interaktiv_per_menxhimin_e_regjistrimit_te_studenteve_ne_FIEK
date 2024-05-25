@@ -111,15 +111,14 @@ public class StudentRibbonController {
 
     @FXML
     private void handleSignOut(ActionEvent ae){
-        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
+        Navigatior.navigateNewMaxStage(Navigatior.DASHBOARD);
         SESSION.setLoggedUser(null);
         // Navigatior.closeStageAfterDelay(ae, Duration.millis(100));
     }
     @FXML
     private void handleChangeLanguage(MouseEvent me){
-
         SESSION.switchLanguage();
-        Navigatior.navigate(me,Navigatior.ADMIN_RIBBON);
+        Navigatior.navigate(me,Navigatior.STUDENT_RIBBON);
     }
 
 

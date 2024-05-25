@@ -26,6 +26,7 @@ import java.util.Map;
 import static controller.SESSION.setDeptLevel;
 
 public class StudentDashboardController {
+
     ObservableList<String> nivelet = FXCollections.observableArrayList("BSC", "MSC", "PHD");
     @FXML
     private AnchorPane addPane;
@@ -100,6 +101,7 @@ public class StudentDashboardController {
 
         loadExistingApplications();
         // Load existing applications for the user
+
 
     }
 
