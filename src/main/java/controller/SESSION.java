@@ -261,4 +261,8 @@ public class SESSION {
     public static void setCurrentPage(String currentPage) {
         CurrentPage = currentPage;
     }
+
+    public static String getCurrentPage() {
+        return CurrentPage;
+    }
 }

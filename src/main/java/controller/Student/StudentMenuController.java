@@ -125,14 +125,21 @@ public class StudentMenuController {
                 }}
         }
 
-
         Navigatior.navigate(hboxaddPane,personalinfoNavigate);
-        SESSION.setCurrentPage(personalinfoNavigate);
 
+//      if(SESSION.getCurrentPage().isEmpty()){
+//
+//      Navigatior.navigate(hboxaddPane,personalinfoNavigate);
+//        SESSION.setCurrentPage(personalinfoNavigate);
+//     }else{
+//            Navigatior.navigate(hboxaddPane, SESSION.getCurrentPage());
+//       }
 
 
 
     }
+
+
    @FXML
    private void handleTranslate(MouseEvent me){
        SESSION.switchLanguage();
