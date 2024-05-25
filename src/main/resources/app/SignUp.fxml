@@ -65,7 +65,7 @@
       </AnchorPane>
       <HBox layoutX="22.0" layoutY="290.0" prefHeight="50.0" prefWidth="287.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="285.0" text="%%lblSignUpInfo" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="285.0" text="%lblSignUpInfo" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
