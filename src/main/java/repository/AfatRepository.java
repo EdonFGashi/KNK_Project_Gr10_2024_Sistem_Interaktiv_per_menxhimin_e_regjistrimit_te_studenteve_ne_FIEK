@@ -132,12 +132,15 @@ public class AfatRepository {
     }
 
     public static ArrayList<Afat> getAfatArrayByDateAndLevel(String niveli) {
-        Connection conn = DBConnector.getConnection();
+
         System.out.println("Executing getAfatArrayByDateAndLevel");
 
         String query = "SELECT * FROM tblAfati WHERE dataMbylljes > ? AND niveli = ?";
 
         try {
+
+            Connection conn = DBConnector.getConnection();
+            if(conn!=null) System.out.println("U lidh");
             PreparedStatement pst = conn.prepareStatement(query);
 
             // Set today's date and the level as parameters
@@ -148,6 +151,7 @@ public class AfatRepository {
 
             return getAfatiFromResultSet(result);
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             e.printStackTrace();
             return null;
         }
