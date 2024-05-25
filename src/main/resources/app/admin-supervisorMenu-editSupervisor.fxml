@@ -22,7 +22,7 @@
                <children>
                   <FlowPane alignment="CENTER" prefHeight="63.0" prefWidth="478.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="215.0" text="Search Supervisor: ">
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="215.0" text="%lblSearchSuper">
                            <font>
                               <Font name="Arial" size="23.0" />
                            </font>
@@ -32,7 +32,7 @@
                   </FlowPane>
                   <FlowPane alignment="CENTER" prefHeight="63.0" prefWidth="228.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#handleSearchSupervisorByEmail" prefHeight="40.0" prefWidth="117.0" text="Search By Email" />
+                        <Button mnemonicParsing="false" onAction="#handleSearchSupervisorByEmail" prefHeight="40.0" prefWidth="117.0" text="%btnSearchByEmail" />
                      </children>
                   </FlowPane>
                </children>
@@ -54,7 +54,7 @@
                <children>
                   <FlowPane alignment="CENTER" prefHeight="63.0" prefWidth="478.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="215.0" text="First Name:  ">
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="215.0" text="%lblFirstName">
                            <font>
                               <Font name="Arial" size="23.0" />
                            </font>
@@ -64,7 +64,7 @@
                   </FlowPane>
                   <FlowPane alignment="CENTER" prefHeight="63.0" prefWidth="524.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="210.0" text="Last Name:  ">
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="210.0" text="%lblLastName">
                            <font>
                               <Font name="Arial" size="23.0" />
                            </font>
@@ -101,7 +101,7 @@
                   </FlowPane>
                   <FlowPane alignment="CENTER" layoutX="406.0" layoutY="13.0" prefHeight="63.0" prefWidth="363.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#handleSaveInformationSupervisor" prefHeight="40.0" prefWidth="117.0" text="Save">
+                        <Button mnemonicParsing="false" onAction="#handleSaveInformationSupervisor" prefHeight="40.0" prefWidth="117.0" text="%btnSave">
                            <FlowPane.margin>
                               <Insets left="50.0" right="50.0" />
                            </FlowPane.margin>
@@ -124,7 +124,7 @@
                <children>
                   <FlowPane alignment="CENTER" prefHeight="63.0" prefWidth="459.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="178.0" text="New Password: ">
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="178.0" text="\%lblNewPassw">
                            <font>
                               <Font name="Arial" size="23.0" />
                            </font>
@@ -134,7 +134,8 @@
                   </FlowPane>
                   <FlowPane alignment="CENTER" prefHeight="63.0" prefWidth="339.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#handleResetPasswordSupervisor" prefHeight="40.0" prefWidth="117.0" text="ResetPassword">
+                        <FlowPane alignment="CENTER" prefHeight="71.0" prefWidth="1860.0" />
+                        <Button mnemonicParsing="false" onAction="#handleResetPasswordSupervisor" prefHeight="40.0" prefWidth="117.0" text="%btnResetPassword">
                            <padding>
                               <Insets right="5.0" />
                            </padding>
@@ -146,9 +147,6 @@
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <FlowPane alignment="CENTER" prefHeight="71.0" prefWidth="1860.0" />
-         </children>
          <padding>
             <Insets bottom="50.0" left="10.0" right="50.0" top="10.0" />
          </padding>
