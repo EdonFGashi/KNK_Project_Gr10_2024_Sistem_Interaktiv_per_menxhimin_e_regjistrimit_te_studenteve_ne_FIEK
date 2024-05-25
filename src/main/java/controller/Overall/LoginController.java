@@ -191,7 +191,7 @@ public class LoginController extends ComunicativeController {
                 SESSION.setLoginPenalty(false);
                 System.out.println("Id"+SESSION.getLoggedUser().getId());
 //                Navigatior.navigateNewStage(Navigatior.STUDENT_DASHBOARD);
-                navigateToNewStage(event, Navigatior.STUDENT_DASHBOARD);
+                navigateToNewStage(event, Navigatior.STUDENT_RIBBON);
 
             }
             else {
