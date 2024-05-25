@@ -381,21 +381,17 @@ public class RibbonController {
         }
 
     }
-
     @FXML
     private void handleChangeLanguage(MouseEvent me){
-
         SESSION.switchLanguage();
         Navigatior.navigate(me,Navigatior.ADMIN_RIBBON);
     }
-
     @FXML
     private void handleLogOut(ActionEvent ae){
         Navigatior.navigateNewStage(Navigatior.DASHBOARD);
         SESSION.setLoggedAdmin(null);
         Navigatior.closeStageAfterDelay(ae, Duration.millis(10));
     }
-
 
 }
 

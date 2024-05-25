@@ -112,8 +112,16 @@ public class InboxController{
                     )){
                             PopUp.tick(250);
                             //Suksess
+                    }else{
+                            if(!SESSION.isToggleShqip()){
+                                    PopUp.loading("Error in database ", false,"");
+                            }else{
+                                    PopUp.loading("Problem ne databaze ", false,"");
+                            }
                     }
-            }
+
+                    }
+
         }
 
         @FXML
@@ -122,6 +130,9 @@ public class InboxController{
                       this.selectedNjoftim.getNjoftimiId()
                 )){
                         PopUp.tick(250);
+                }else{
+                        if(SESSION.isToggleShqip())PopUp.loading("Error: Delete nuk u bë", false,"");
+                        else PopUp.loading("Error: Delete not Succesful", false,"");
                 }
         }
 
@@ -135,6 +146,9 @@ public class InboxController{
              )
            )){
                    PopUp.tick(250);
+           }else{
+                   if(SESSION.isToggleShqip())PopUp.loading("Error: Edit nuk u bë", false,"");
+                   else PopUp.loading("Error: Edit not Succesful", false,"");
            }
         }
 

@@ -2,6 +2,7 @@ package controller.Admin;
 
 import app.Navigatior;
 import app.PopUp;
+import controller.SESSION;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -65,18 +66,9 @@ public class RegistrationMenuAddRegistrationController {
        if(AdminService.addNewAfat(addNewAfatDto)){
            PopUp.tick(250);
        }else{
-           System.out.println("Afat did not create");
+           if(SESSION.isToggleShqip()) PopUp.loading("Error: Afati nuk u krijua",false,"");
+           else PopUp.loading("Error: Registration did not Create",false,"");
        };
-    }
-    private Locale currentLocale = new Locale("en");
-    @FXML
-    private void handleChangeLanguage(ActionEvent ae){
-        if (currentLocale.getLanguage().equals("en")) {
-            currentLocale = new Locale("sq");
-        } else {
-            currentLocale = new Locale("en");
-        }
-        //loadLanguage(currentLocale.getLanguage());
     }
 
 }

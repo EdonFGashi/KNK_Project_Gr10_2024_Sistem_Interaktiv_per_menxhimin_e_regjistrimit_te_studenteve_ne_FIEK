@@ -91,7 +91,10 @@ public class ProfileController {
         if(AdminService.savePersonalDetails(editAdminProfileDto)){
              PopUp.tick(200);
         }else{
-            System.out.println("Gabim");
+            if(SESSION.isToggleShqip())
+            PopUp.loading("Emaili tashme ekziston",false,"");
+            else PopUp.loading("Email already exists",false,"");
+
         };
         this.cancel();
     }

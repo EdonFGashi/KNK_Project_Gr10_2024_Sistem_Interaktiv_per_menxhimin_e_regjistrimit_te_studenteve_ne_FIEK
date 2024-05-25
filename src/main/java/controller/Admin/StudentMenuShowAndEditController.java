@@ -178,7 +178,8 @@ public class StudentMenuShowAndEditController {
                this.userStudentsList = StudentFromAdminService.searchStudent(this.txtSearch.getText());
                this.tableStudent.setItems(this.userStudentsList);
            } else {
-               System.out.println("Edit was not Done");
+               if(SESSION.isToggleShqip()) PopUp.loading("Emaili tashme ekziston",false,"");
+               else PopUp.loading("Email already exists",false,"");
            }
            this.edit = true;
        }else {
@@ -445,7 +446,9 @@ public class StudentMenuShowAndEditController {
         if(!uGjenerua){
             PopUp.tick(200);
         } else {
-            PopUp.loading("Vërtetimi nuk u gjenerua!",false, "");
+            if(SESSION.isToggleShqip()) PopUp.loading("Vërtetimi nuk u gjenerua!",false,"");
+            else PopUp.loading("Verification not succesful",false,"");
+
         }
     }
 
@@ -462,9 +465,12 @@ public class StudentMenuShowAndEditController {
         Arkiva arkivPerVerifikim = new Arkiva(nrRendor, nrSerik, idStudentit, dataLeshimit);
         boolean eshteOrigjinal = ArkivaDokumenteveService.verifiko(arkivPerVerifikim);
         if(eshteOrigjinal){
-            PopUp.loading("Vërtetimi është origjinal",true, "");
+            if(SESSION.isToggleShqip()) PopUp.loading("Vërtetimi është oregjinal!",true,"");
+            else PopUp.loading("Verification is Oreginal",true,"");
+
         } else {
-            PopUp.loading("Vërtetimi nuk është origjinal",false, "");
+            if(SESSION.isToggleShqip()) PopUp.loading("Vërtetimi NUK është oregjinal!",false,"");
+            else PopUp.loading("Verification is NOT Oreginal",false,"");
         }
     }
 

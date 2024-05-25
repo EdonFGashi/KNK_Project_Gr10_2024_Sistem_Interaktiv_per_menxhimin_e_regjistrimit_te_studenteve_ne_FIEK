@@ -122,7 +122,8 @@ public class SupervisorMenuEditController {
             ){
                 PopUp.tick(150);
             }else{
-                System.out.println("Edit not succesful");
+                if(SESSION.isToggleShqip()) PopUp.loading("Error: Email tashme ekziston!",false,"");
+                else PopUp.loading("Error: Email already exists",false,"");
             }
             this.supervisorList = SupervisorService.searchMbikqyresi(SESSION.getAdmin_supervisor_lastSearch());
             this.setColumns();
@@ -145,7 +146,8 @@ public class SupervisorMenuEditController {
             this.supervisorList = SupervisorService.searchMbikqyresi(SESSION.getAdmin_supervisor_lastSearch());
             this.setColumns();
         }else{
-            System.out.println("Nuk u fshi");
+            if(SESSION.isToggleShqip()) PopUp.loading("Error: Nuk u fshi!",false,"");
+            else PopUp.loading("Error: Delete not succesful",false,"");
         }
     }
 

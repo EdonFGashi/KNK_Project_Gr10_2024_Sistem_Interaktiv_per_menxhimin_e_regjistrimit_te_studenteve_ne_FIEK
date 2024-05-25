@@ -114,7 +114,8 @@ public class SupervisorMenuApproveController {
         ){
             PopUp.tick(150);
         }else{
-            PopUp.loading("Mbikqyrësi ekziston !",false, "");
+            if(SESSION.isToggleShqip()) PopUp.loading("Mbikqyrësi Ekziston!",false,"");
+            else PopUp.loading("Supervisor already Exists!",false,"");
         }
         this.semsStafList = SemsStafService.searchSemsStaf(SESSION.getAdmin_semsStaf_lastSearch());
         this.setColumns();

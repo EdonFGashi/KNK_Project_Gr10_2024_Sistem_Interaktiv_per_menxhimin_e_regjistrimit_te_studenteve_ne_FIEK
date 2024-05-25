@@ -47,9 +47,10 @@ public class ChangePassword {
                 System.out.println("ERROR");
             }
 
-            System.out.println("U nderrua Passwordi me sukses");
+            //System.out.println("U nderrua Passwordi me sukses");
             Navigatior.closeStageAfterDelay(ae, Duration.millis(3000));
-            PopUp.loading("   Changed Password!",true, "");
+            if(SESSION.isToggleShqip()) PopUp.loading("Paswwordi u ndrrua me sukses",true,"");
+            else PopUp.loading("Changed password succesfuly",true,"");
         }catch(InvalidPassword e){
             PopUp.loading(e.getMessage(),false, "");
         }
