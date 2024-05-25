@@ -88,24 +88,35 @@ public class MenuController {
         }
 
         this.resetActiveSection();
-        this.hboxOption1.setStyle(activeSection);
+        if(SESSION.getLastCurretnSupervisor() == 0){
+            Navigatior.navigate(addPane,option1Navigate);
+            this.hboxOption1.setStyle(activeSection);
+            SESSION.setLastCurretnSupervisor(1);
 
-        // E bon display ni text kur tbohet hover logo e infos
+        }else{
+            switch(SESSION.getLastCurretnSupervisor()){
+                case 1 ->{
+                    Navigatior.navigate(addPane,this.option1Navigate);
+                    this.hboxOption1.setStyle(activeSection);
+                }
+                case 2 -> {
+                    Navigatior.navigate(addPane,this.option2Navigate);
+                    this.hboxOption2.setStyle(activeSection);
+                }
+
+            }
+
+        }
         Tooltip tooltip = new Tooltip("Info");
-
         Tooltip.install(imgInfoIcon, tooltip);
 
     }
 
-    private Locale currentLocale = new Locale("en");
+
     @FXML
-    private void handleChangeLanguage(ActionEvent ae){
-        if (currentLocale.getLanguage().equals("en")) {
-            currentLocale = new Locale("sq");
-        } else {
-            currentLocale = new Locale("en");
-        }
-        //loadLanguage(currentLocale.getLanguage());
+    private void handleChangeLanguage(MouseEvent me){
+       SESSION.switchLanguage();
+       Navigatior.navigate(me, Navigatior.SUPERVISOR_MENU);
     }
 
     @FXML
@@ -118,12 +129,14 @@ public class MenuController {
         this.resetActiveSection();
         this.hboxOption1.setStyle(activeSection);
         Navigatior.navigate(this.addPane,option1Navigate);
+        SESSION.setLastCurretnSupervisor(1);
     }
     @FXML
     private void handleOption2Click(MouseEvent me){
         this.resetActiveSection();
         this.hboxOption2.setStyle(activeSection);
         Navigatior.navigate(this.addPane,option2Navigate);
+        SESSION.setLastCurretnSupervisor(2);
     }
     @FXML
     private void handleOption3Click(MouseEvent me){
@@ -131,10 +144,7 @@ public class MenuController {
     }
 
 
-    @FXML
-    void handleChangeLanguage(MouseEvent event) {
 
-    }
 
     private void resetActiveSection(){
         this.hboxOption1.setStyle("");
