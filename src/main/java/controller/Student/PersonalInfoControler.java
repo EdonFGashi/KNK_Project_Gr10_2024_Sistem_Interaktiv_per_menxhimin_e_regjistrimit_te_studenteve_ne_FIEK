@@ -10,7 +10,10 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import model.UserStudent2;
 import model.dto.Student.PersonDTO;
+import service.Student.StudentApplicantService;
+import service.Student.UserService;
 import service.Student.personService;
 
 import java.io.FileInputStream;
@@ -61,6 +64,17 @@ public class PersonalInfoControler {
     void handleAprove(ActionEvent event) {
 
     }
+    @FXML
+    private void initialize(){
+        int userId=SESSION.getLoggedUser().getId();
+        UserStudent2 user= StudentApplicantService.getUserById(userId);
+        if(user!=null){
+            this.fillFields(user);
+            this.disableFields();
+            this.btnGenerateinfo.setDisable(true);
+        }
+
+    }
 
     @FXML
     void handleGenerateInfo(MouseEvent event) {
@@ -69,24 +83,12 @@ public class PersonalInfoControler {
         PersonDTO person = personService.getPersonByPersonalNumber(personalNumber);
 
         if (person == null) {
-            alert("Personi nuk u gjend në bazën e të dhënave.", "Gabim", "Gabim");
-
+          //  alert("Personi nuk u gjend në bazën e të dhënave.", "Gabim", "Gabim");
             // Vendos të gjitha fushat si pa vlera
-            txtName.setText("");
-            txtLastName.setText("");
-            txtNationality.setText("");
-            txtCity.setText("");
-            txtCountry.setText("");
 
-            // Fshij selektimin e radio butonave dhe vendosi datën e lindjes si bosh
-            rbuttonFemale.setSelected(false);
-            rdbuttonMale.setSelected(false);
-            selectBirthday.setValue(null);
             alert("Personi nuk u gjend në bazën e të dhënave.", "Gabim", "Gabim");
-
-            // Kthej këtë pjesë
-
-            System.out.println("Personi nuk u gjet në bazën e të dhënave.");
+            this.disableFields();
+            this.resetFields();
             return;
         }
 
@@ -127,6 +129,11 @@ public class PersonalInfoControler {
     void handleNext(MouseEvent event) {
 
         this.EducationExperienceNavigate = Navigatior.EDUCATION;
+if(btnGenerateinfo.isDisable())
+{ Navigatior.navigate(addPane,EducationExperienceNavigate);
+   return;
+}
+
 
         String personalNumber = txtPersonalNumber.getText();
         String name = txtName.getText();
@@ -144,25 +151,47 @@ public class PersonalInfoControler {
         personService studentService = new personService();
         studentService.saveStudentAplikant(studentAplikant);
 
-        String menu = SESSION.getDeptLevel();
-
-        switch (menu) {
-            case "BSC" -> {
-                this.EducationExperienceNavigate = Navigatior.EDUCATION;
-                Navigatior.navigate(addPane,EducationExperienceNavigate);
-            }
-            case "MSC" -> {
-                this.EducationExperienceNavigate = Navigatior.EDUCATION_MASTER;
-                Navigatior.navigate(addPane,EducationExperienceNavigate);
-               }
-            case "PHD" -> {
-                this.EducationExperienceNavigate = Navigatior.EDUCATION_PHD;
-                Navigatior.navigate(addPane,EducationExperienceNavigate);
-                }
+        switch (SESSION.getDeptLevel()) {
+            case "BSC" -> Navigatior.navigate(addPane, Navigatior.EDUCATION);
+            case "MSC" -> Navigatior.navigate(addPane, Navigatior.EDUCATION_MASTER);
+            case "PHD" -> Navigatior.navigate(addPane, Navigatior.EDUCATION_PHD);
         }
 
        // alert("Të dhënat e studentit janë ruajtur me sukses.", "Sukses", "Sukses");
         Navigatior.navigate(addPane,EducationExperienceNavigate);
+    }
+    private void fillFields(UserStudent2 person) {
+        txtPersonalNumber.setText(person.getNumriPersonal());
+        txtName.setText(person.getEmri());
+        txtLastName.setText(person.getMbiemri());
+        txtNationality.setText(person.getNacionaliteti());
+        txtCity.setText(person.getQyteti());
+        txtCountry.setText(person.getShteti());
+
+        if (person.getGjinia().equalsIgnoreCase("Female")) {
+            rbuttonFemale.setSelected(true);
+        } else {
+            rdbuttonMale.setSelected(true);
+        }
+
+        selectBirthday.setValue(person.getDataLindjes());
+    }
+
+    private void resetFields() {
+        txtName.clear();
+        txtLastName.clear();
+        txtNationality.clear();
+        txtCity.clear();
+        txtCountry.clear();
+        rbuttonFemale.setSelected(false);
+        rdbuttonMale.setSelected(false);
+        selectBirthday.setValue(null);
+    }
+
+    private void disableFields() {
+        rbuttonFemale.setDisable(true);
+        rdbuttonMale.setDisable(true);
+        selectBirthday.setDisable(true);
     }
 }
 
