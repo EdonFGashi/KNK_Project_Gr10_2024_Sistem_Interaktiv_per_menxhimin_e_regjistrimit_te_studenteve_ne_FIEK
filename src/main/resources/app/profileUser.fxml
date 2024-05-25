@@ -11,12 +11,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1300.0" style="-fx-background-color: #6384b0;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.ProfileUserController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1300.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.ProfileUserController">
    <children>
       <HBox maxHeight="100.0" VBox.vgrow="ALWAYS" />
       <HBox layoutX="10.0" layoutY="10.0" prefHeight="574.0" prefWidth="1300.0">
          <children>
-            <HBox HBox.hgrow="ALWAYS" />
+            <HBox prefHeight="574.0" prefWidth="576.0" HBox.hgrow="ALWAYS" />
             <AnchorPane prefHeight="574.0" prefWidth="845.0" style="-fx-background-color: white; -fx-background-radius: 5;">
                <children>
                   <Label layoutX="80.0" layoutY="167.0" prefHeight="35.0" prefWidth="136.0" text="Username:">
@@ -41,12 +41,22 @@
                         <Image url="@../../../../../../Downloads/woman.png" />
                      </image>
                   </ImageView>
+                  <Button fx:id="buttonEdit" alignment="CENTER" contentDisplay="CENTER" layoutX="274.0" layoutY="388.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="42.0" prefWidth="119.0" style="-fx-background-radius: 15; -fx-background-color: #A5CEF2; -fx-border-width: 0.5; -fx-border-color: black; -fx-border-radius: 15;" text="Edit">
+                     <font>
+                        <Font name="Tahoma" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonSave" alignment="CENTER" contentDisplay="CENTER" layoutX="273.0" layoutY="464.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="42.0" prefWidth="119.0" style="-fx-background-radius: 15; -fx-background-color: #A5CEF2; -fx-border-width: 0.5; -fx-border-color: black; -fx-border-radius: 15;" text="Save">
+                     <font>
+                        <Font name="Tahoma" size="15.0" />
+                     </font>
+                  </Button>
                </children>
                <effect>
                   <DropShadow />
                </effect>
             </AnchorPane>
-            <HBox layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="436.0" prefWidth="341.0" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
       <HBox layoutX="10.0" layoutY="110.0" maxHeight="100.0" VBox.vgrow="ALWAYS" />
