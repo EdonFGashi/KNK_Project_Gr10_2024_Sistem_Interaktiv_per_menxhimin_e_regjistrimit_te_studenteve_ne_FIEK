@@ -1,6 +1,6 @@
 <p align="center">
   <a>
-    <img src="logo1.png" alt="Logo" height="40">
+    <img src="Images/upLogoNoRing.png" alt="Logo" height="40">
   </a>
 
 <h3 align="center">Sistemi për menaxhimin e regjistrimit të studentëve - FIEK</h3>
@@ -158,3 +158,6 @@ Faqja e Studentit është vendi ku studentët mund të aplikojnë për programe 
 - Erza Gashi
 - Dren Morina
 - Endrit Kastrati
+
+
+  <a href="#top">Shko në fillim ↑</a>
