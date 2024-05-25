@@ -164,6 +164,7 @@ public class StudentMenuKonkurimetController {
 
     @FXML
     private void handleAprove(ActionEvent event) {
+
         String vitiAfatit = Integer.toString(selectedAfat.getYear()).substring(2);
         String nrFakultetit = "07";
 
@@ -213,7 +214,7 @@ public class StudentMenuKonkurimetController {
             RegisteredStudents student = new RegisteredStudents(studenti.getUserId(), email, id, selectedDepartment, studenti.getNiveli());
 
             boolean uRegjistrua = StudentService.registerStundent(student);
-            System.out.println(uRegjistrua);
+            //System.out.println(uRegjistrua);
         }
     }
 
@@ -255,6 +256,7 @@ public class StudentMenuKonkurimetController {
              }else{
                  PopUp.loading("Departamenti i pa Zgjedhur",false,"");
              }
+        PopUp.tick(200);
     }
 }
 

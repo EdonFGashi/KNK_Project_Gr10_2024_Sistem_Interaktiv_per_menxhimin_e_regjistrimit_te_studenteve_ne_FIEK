@@ -49,13 +49,29 @@ public class KonkurimetDataFromDbDto {
         this.niveli = niveli;
         this.minoritet=minoritet;
 
-        this.piketMatures = this.piketAng+this.piketMat+this.piketGjSh+this.piketZgjedhore;
-        this.succes = this.suksesiKl10+this.suksesiKl11+this.suksesiKl12;
+        if(this.piketMat != 0) {
+            //bachelor
+            this.piketMatures = this.piketAng + this.piketMat + this.piketGjSh + this.piketZgjedhore;
+            this.succes = this.suksesiKl10 + this.suksesiKl11 + this.suksesiKl12;
 
-        this.totalPiketMatures = ((double)this.piketMatures/100)*30;
-        this.totalSucces = ((double)this.succes/15)*30;
-        this.totalPranues =((double)this.piketPranues/20)*40;
-        this.total = this.totalPiketMatures+this.totalSucces+this.totalPranues;
+            this.totalPiketMatures = ((double) this.piketMatures / 100) * 30;
+            this.totalSucces = ((double) this.succes / 15) * 30;
+            this.totalPranues = ((double) this.piketPranues / 20) * 40;
+            this.total = this.totalPiketMatures + this.totalSucces + this.totalPranues;
+
+        }else if(this.piketMat == 0 && this.suksesiKl12 != 0){
+            //Master
+            this.succes = this.suksesiKl10 + this.suksesiKl11 + this.suksesiKl12;
+            this.totalSucces = ((double) this.succes / 30) * 60;
+            this.totalPranues = ((double) this.piketPranues / 100) * 40;
+            this.total = this.totalSucces + this.totalPranues;
+        }else if(this.piketMat == 0 && this.suksesiKl12 == 0){
+            //Doktorratur
+            this.succes = this.suksesiKl10 + this.suksesiKl11;
+            this.totalSucces = ((double) this.succes / 20) * 60;
+            this.totalPranues = ((double) this.piketPranues / 100) * 40;
+            this.total = this.totalSucces + this.totalPranues;
+        }
 
     }
 

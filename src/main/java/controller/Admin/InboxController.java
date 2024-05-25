@@ -112,8 +112,16 @@ public class InboxController{
                     )){
                             PopUp.tick(250);
                             //Suksess
+                    }else{
+                            if(!SESSION.isToggleShqip()){
+                                    PopUp.loading("Error in database ", false,"");
+                            }else{
+                                    PopUp.loading("Problem ne databaze ", false,"");
+                            }
                     }
-            }
+
+                    }
+
         }
 
         @FXML
@@ -122,6 +130,9 @@ public class InboxController{
                       this.selectedNjoftim.getNjoftimiId()
                 )){
                         PopUp.tick(250);
+                }else{
+                        if(SESSION.isToggleShqip())PopUp.loading("Error: Delete nuk u bë", false,"");
+                        else PopUp.loading("Error: Delete not Succesful", false,"");
                 }
         }
 
@@ -135,18 +146,23 @@ public class InboxController{
              )
            )){
                    PopUp.tick(250);
+           }else{
+                   if(SESSION.isToggleShqip())PopUp.loading("Error: Edit nuk u bë", false,"");
+                   else PopUp.loading("Error: Edit not Succesful", false,"");
            }
         }
 
         private void resetFormsForNew(){
                 this.txtNjoftimId.setText("");
-                this.txtAdminId.setText(Integer.toString(SESSION.getLoggedAdmin().getId()));
+                this.txtAdminId.setText(SESSION.getLoggedAdmin().getFirstName()+" "+SESSION.getLoggedAdmin().getLastName());
 
         }
         public void setFormsNjoftimi(Njoftim njoftimi){
                 this.selectedNjoftim = njoftimi;
                 this.txtNjoftimId.setText(Integer.toString(njoftimi.getNjoftimiId()));
-                this.txtAdminId.setText(Integer.toString(njoftimi.getAdminId()));
+                this.txtAdminId.setText(
+                       AdminService.getAdminFullNameById(this.selectedNjoftim.getAdminId())
+                );
                 this.fielNjoftimi.setText(njoftimi.getText());
         }
 

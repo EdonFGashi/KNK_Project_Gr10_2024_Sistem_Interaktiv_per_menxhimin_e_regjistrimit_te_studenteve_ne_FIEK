@@ -20,18 +20,35 @@ public class StudentApplicantService {
         this.repository = new StudentApplicantRepository();
     }
 
+    
     public static void processAndSaveData(StudentApplicantDto dto)  {
-
-        StudentApplicantRepository.saveData(dto);
+    validateData(dto);
+    StudentApplicantRepository.saveData(dto);
+}
+private static void validateData(StudentApplicantDto dto) {
+    if (dto.getMathPoints() < 0 || dto.getMathPoints() > 25 ||
+            dto.getAlbanianPoints() < 0 || dto.getAlbanianPoints() > 25 ||
+            dto.getEnglishPoints() < 0 || dto.getEnglishPoints() > 25 ||
+            dto.getChoosenSubPoints() < 0 || dto.getChoosenSubPoints() > 25 ||
+            dto.getSuccesGrade10() < 1.0 || dto.getSuccesGrade10() > 5.0 ||
+            dto.getSuccesGrade11() < 1.0 || dto.getSuccesGrade11() > 5.0 ||
+            dto.getSuccesGrade12() < 1.0 || dto.getSuccesGrade12() > 5.0) {
+        throw new IllegalArgumentException("Invalid data values");
     }
+}
 
-    public static boolean processAndSaveMasterData(MasterApplicantDto dto)  {
-        // Validate data
+public static boolean processAndSaveMasterData(MasterApplicantDto dto)  {
+    validateMasterData(dto);
+    return StudentApplicantRepository.saveMasterData(dto);
+}
 
-
-        // Save data to repository
-        return StudentApplicantRepository.saveMasterData(dto);
+private static void validateMasterData(MasterApplicantDto dto) {
+    if (dto.getFirstYear() < 6.0 || dto.getFirstYear() > 10.0 ||
+            dto.getSecondYear() < 6.0 || dto.getSecondYear() > 10.0 ||
+            dto.getThirdYear() < 6.0 || dto.getThirdYear() > 10.0) {
+        throw new IllegalArgumentException("Invalid data values");
     }
+}
 
 
     public static boolean processAndSavePHDData(PHDApplicantDto dto)  {
@@ -66,6 +83,7 @@ public class StudentApplicantService {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println(e.getMessage());
             return FXCollections.observableArrayList();
         }
     }

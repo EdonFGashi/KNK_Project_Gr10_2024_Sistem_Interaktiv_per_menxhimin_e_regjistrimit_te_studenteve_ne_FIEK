@@ -173,7 +173,7 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
         try {
             return loader.load();
         }catch (Exception ioe){
-            //ioe.printStackTrace();
+            ioe.printStackTrace();
             System.out.println("Error ne load");
             try {
                 StackPane pane = (new FXMLLoader(Navigatior.class.getResource(Navigatior.ERROR404))).load();

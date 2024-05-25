@@ -137,7 +137,8 @@ public class RegistrationMenuShowAndEditController {
             )){
                 PopUp.tick(150);
             }else{
-                System.out.println("Edit not succesful");
+                if(SESSION.isToggleShqip()) PopUp.loading("Error: Edit nuk u be",false,"");
+                else PopUp.loading("Error: Edit not succesful",false,"");
             }
             this.afatList = AdminService.searchAfat(SESSION.getAdmin_registration_lastSearch());
             this.tableAfat.setItems(this.afatList);
@@ -167,7 +168,8 @@ public class RegistrationMenuShowAndEditController {
            this.afatList = AdminService.searchAfat(SESSION.getAdmin_registration_lastSearch());
            this.tableAfat.setItems(this.afatList);
        }else{
-           System.out.println("Nuk u fshi");
+           if(SESSION.isToggleShqip()) PopUp.loading("Error: Delete nuk u bë",false,"");
+           else PopUp.loading("Error: Delete not successful",false,"");
        }
     }
 

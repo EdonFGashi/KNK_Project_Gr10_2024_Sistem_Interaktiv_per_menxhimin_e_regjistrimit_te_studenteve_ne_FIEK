@@ -4,6 +4,7 @@ import app.Navigatior;
 import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -69,6 +70,7 @@ public class EducationalMasterController {
 
         // Për të bërë opsionin e parë si default
         choiceBoxDept.getSelectionModel().selectFirst();
+        addTextFieldListeners();
     }
 
     // Metoda për të marrë opsionin e zgjedhur
@@ -83,14 +85,14 @@ Navigatior.navigate(addPane,Navigatior.PERSONAL_INFO);
 
     @FXML
     void handleContinue(ActionEvent event) {
-        if (!allFieldsAreFilled()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText(null);
-            alert.setContentText("Please fill in all fields before continuing!");
-            alert.showAndWait();
-            return;
-        }
+       if (!allFieldsAreFilled()) {
+           Alert alert = new Alert(Alert.AlertType.WARNING);
+           alert.setTitle("Warning");
+           alert.setHeaderText(null);
+           alert.setContentText("Please fill in all fields before continuing!");
+           alert.showAndWait();
+           return;
+       }
 
         String faculty = txtFaculty.getText();
         Double firstYear = Double.parseDouble(txtFirstYear.getText());
@@ -107,7 +109,7 @@ Navigatior.navigate(addPane,Navigatior.PERSONAL_INFO);
 
                }
                }
-            // Trego një mesazh suksesi
+
         } catch (Exception e) {
             e.printStackTrace();
             // Trego një mesazh gabimi
@@ -158,4 +160,56 @@ Navigatior.navigate(addPane,Navigatior.PERSONAL_INFO);
         Navigatior.closeStageAfterDelay(event, Duration.millis(1));
 
     }
+
+    private void addTextFieldListeners() {
+    txtFirstYear.setTextFormatter(createDoubleTextFormatter(6.0, 10.0));
+    txtSecYear.setTextFormatter(createDoubleTextFormatter(6.0, 10.0));
+    txtThirdYear.setTextFormatter(createDoubleTextFormatter(6.0, 10.0));
+
+    txtFirstYear.textProperty().addListener((observable, oldValue, newValue) -> validateTextField(txtFirstYear, 6.0, 10.0));
+    txtSecYear.textProperty().addListener((observable, oldValue, newValue) -> validateTextField(txtSecYear, 6.0, 10.0));
+    txtThirdYear.textProperty().addListener((observable, oldValue, newValue) -> validateTextField(txtThirdYear, 6.0, 10.0));
+}
+
+private void validateTextField(TextField textField, double min, double max) {
+    try {
+        double value = Double.parseDouble(textField.getText());
+        if (value < min || value > max) {
+            applyErrorStyle(textField, min, max);
+        } else {
+            removeErrorStyle(textField);
+        }
+    } catch (NumberFormatException e) {
+        applyErrorStyle(textField, min, max);
+    }
+}
+
+private void applyErrorStyle(TextField textField, double min, double max) {
+    textField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+    Tooltip tooltip = new Tooltip("Vlera duhet të jetë midis " + min + " dhe " + max);
+    tooltip.setStyle("-fx-background-color: red; -fx-text-fill: white;");
+    textField.setTooltip(tooltip);
+}
+
+private void removeErrorStyle(TextField textField) {
+    textField.setStyle("");
+    textField.setTooltip(null);
+}
+
+private TextFormatter<Double> createDoubleTextFormatter(double min, double max) {
+    return new TextFormatter<>(change -> {
+        if (change.getControlNewText().isEmpty()) {
+            return change;
+        }
+        try {
+            double value = Double.parseDouble(change.getControlNewText());
+            if (value >= min && value <= max) {
+                return change;
+            }
+        } catch (NumberFormatException e) {
+            // Not a valid double
+        }
+        return null;
+    });
+ }
 }

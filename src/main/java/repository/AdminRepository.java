@@ -93,7 +93,29 @@ public class AdminRepository {
     public static ArrayList<KonkurimetDataFromDbDto> getAllKonkurimetPerAfat(int afatId) {
         System.out.println("U Ekzekutu get All Konkurimet per afat");
         Connection conn = DBConnector.getConnection();
-        String query = "SELECT * FROM vwKonkurrimetData WHERE afatId = ?";
+
+        // Update the query to use COALESCE for relevant columns
+        String query = "SELECT " +
+                "userId, " +
+                "emri, " +
+                "mbiemri, " +
+                "COALESCE(suksesiKl10, 0) AS suksesiKl10, " +
+                "COALESCE(suksesiKl11, 0) AS suksesiKl11, " +
+                "COALESCE(suksesiKl12, 0) AS suksesiKl12, " +
+                "COALESCE(piketMat, 0) AS piketMat, " +
+                "COALESCE(piketGjSh, 0) AS piketGjSh, " +
+                "COALESCE(piketAng, 0) AS piketAng, " +
+                "COALESCE(piketZgjedhore, 0) AS piketZgjedhore, " +
+                "COALESCE(piketPranues, 0) AS piketPranues, " +
+                "Prioriteti1, " +
+                "Prioriteti2, " +
+                "Prioriteti3, " +
+                "Prioriteti4, " +
+                "afatId, " +
+                "mbikqyresiId, " +
+                "niveli, " +
+                "minoritet " +
+                "FROM vwKonkurrimetData WHERE afatId = ?";
 
         try {
             PreparedStatement pst = conn.prepareStatement(query);
@@ -105,6 +127,7 @@ public class AdminRepository {
             return null;
         }
     }
+
     private static ArrayList<KonkurimetDataFromDbDto> getKonkurimetDataFromResultSet(ResultSet result) {
         ArrayList<KonkurimetDataFromDbDto> array = new ArrayList<>();
         System.out.println("U ekzekutu get KonkurimetDataFromResultSet");
@@ -222,6 +245,26 @@ public class AdminRepository {
         }
     }
 
+    public static String getAdminFullNameById(int adminId) {
+        String query = "SELECT emri, mbiemri FROM tblAdmin WHERE adminId = ? LIMIT 1";
+        Connection connection = DBConnector.getConnection();
+        try{
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setInt(1,adminId);
+            ResultSet result = pst.executeQuery();
+            if(result.next()){
+                return result.getString("emri")+" "+result.getString("mbiemri");
+            }
+
+            return null;
+
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+
+
+    }
 }
 
 

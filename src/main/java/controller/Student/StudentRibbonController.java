@@ -5,6 +5,7 @@ import controller.Animations.UpLogoAnimate;
 import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -111,9 +112,7 @@ public class StudentRibbonController {
 
     @FXML
     private void handleSignOut(ActionEvent ae){
-        Navigatior.navigateNewMaxStage(Navigatior.DASHBOARD);
-        SESSION.setLoggedUser(null);
-         Navigatior.closeStageAfterDelay(ae, Duration.millis(100));
+       this.buttonDummy.fire();
     }
     @FXML
     private void handleChangeLanguage(MouseEvent me){
@@ -121,5 +120,14 @@ public class StudentRibbonController {
         Navigatior.navigate(me,Navigatior.STUDENT_RIBBON);
     }
 
+    @FXML
+    private Button buttonDummy;
+
+    @FXML
+    private void handleLogOut(ActionEvent ae){
+        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
+        SESSION.setLoggedAdmin(null);
+        Navigatior.closeStageAfterDelay(ae, Duration.millis(10));
+    }
 
 }
