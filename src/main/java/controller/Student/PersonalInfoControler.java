@@ -102,7 +102,7 @@ public class PersonalInfoControler {
         txtCity.setText(person.getCity());
         txtCountry.setText(person.getCountry());
 
-        if (person.getGender().equals("Female")) {
+        if (person.getGender().equals("F")) {
             rbuttonFemale.setSelected(true);
             rbuttonFemale.setDisable(true); // Vendos female radio butonin si i deaktivizuar
             rdbuttonMale.setDisable(true); // Deaktivizo male radio butonin
