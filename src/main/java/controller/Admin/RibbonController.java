@@ -61,31 +61,12 @@ public class RibbonController {
     private ImageView imgGoBack;
     @FXML
     private ImageView imgGoForward;
-    private ResourceBundle bundle;
-    private Locale currentLocale = new Locale("en");
 
     private Image imageGoBackWhite;
     private Image imageGoBackGray;
     private Image imageGoForwardWhite;
     private Image imageGoForwardGray;
 
-
-    @FXML
-    private Label lblRegistration;
-    @FXML
-    private Label lblStudent;
-    @FXML
-    private Label lblSupervisor;
-    @FXML
-    private Label lblinbox;
-    @FXML
-    private MenuButton mbProfile;
-    @FXML
-    private MenuItem mtGoToProfile;
-    @FXML
-    private MenuItem mtChangeLanguage;
-    @FXML
-    private MenuItem mtSignOut;
 
     @FXML
     private ImageView imgTranslate;

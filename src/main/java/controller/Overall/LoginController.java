@@ -139,12 +139,8 @@ public class LoginController extends ComunicativeController {
 
     @FXML
     private void handleChangeLanguage(ActionEvent ae){
-        if (currentLocale.getLanguage().equals("en")) {
-            currentLocale = new Locale("sq");
-        } else {
-            currentLocale = new Locale("en");
-        }
-        //loadLanguage(currentLocale.getLanguage());
+        SESSION.switchLanguage();
+        Navigatior.navigate(ae, Navigatior.LOGIN);
     }
 
     @FXML
@@ -175,6 +171,7 @@ public class LoginController extends ComunicativeController {
                 SESSION.setLoggedAdmin(AdminService.getAdminByEmail(this.userEmail.getText()));
                 SESSION.setLoginPenalty(false);
                 navigateToNewStage(event, Navigatior.ADMIN_RIBBON);
+                this.dashboardController.close();
 
 
             } else if (Objects.equals(LoginService.login(loginDto), "supervisor")) {
@@ -186,6 +183,8 @@ public class LoginController extends ComunicativeController {
 //                Navigatior.navigateNewStage(Navigatior.SUPERVISOR_MENU);
                 System.out.println("Supervisor");
                 loginAttempts = 0;
+                this.dashboardController.close();
+
 
             } else if (Objects.equals(LoginService.login(loginDto), "student")) {
 
@@ -195,6 +194,7 @@ public class LoginController extends ComunicativeController {
                 System.out.println("Id"+SESSION.getLoggedUser().getId());
 //                Navigatior.navigateNewStage(Navigatior.STUDENT_DASHBOARD);
                 navigateToNewStage(event, Navigatior.STUDENT_RIBBON);
+                this.dashboardController.close();
 
             }
             else {

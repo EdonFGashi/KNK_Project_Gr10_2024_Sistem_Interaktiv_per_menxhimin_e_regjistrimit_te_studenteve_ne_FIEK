@@ -4,6 +4,7 @@ import app.Navigatior;
 import controller.Admin.NjoftimPaneController;
 import controller.SESSION;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -12,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 import model.Njoftim;
 import model.dto.Admin.comunicateControllerdto;
 
@@ -35,8 +37,7 @@ public class DashboardController {
     private Button buttoni_qasja;
     @FXML
     private ImageView infoimg;
-    @FXML
-    private ImageView changeLanguageIcon;
+
     @FXML
     private Pagination pagPagination;
 
@@ -44,26 +45,44 @@ public class DashboardController {
     private final int njoftimePerPage = 1;
     private int totalNjoftime = AdminService.getTotalNjoftime();
 
-    private Njoftim selectedNjoftim;
+
+    @FXML
+    private ImageView imgTranslate;
+
 
     private void setPagination(){
 
     }
+
+    @FXML
+    private Button buttonDummyButton;
 
 
     @FXML
     protected void initialize() {
 
         try {
-            this.mainImage.setImage(new Image(new FileInputStream("Images/fieku.png")));
+          //  this.mainImage.setImage(new Image(new FileInputStream("Images/fieku.png")));
             this.infoimg.setImage(new Image(new FileInputStream("Images/info-icon.png")));
-            this.changeLanguageIcon.setImage(new Image(new FileInputStream("Images/language-icon.png")));
+          //  this.changeLanguageIcon.setImage(new Image(new FileInputStream("Images/language-icon.png")));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
         pagPagination.setPageCount((int) Math.ceil((double) totalNjoftime / njoftimePerPage));
         pagPagination.setPageFactory(this::createPage);
         this.contentVBox.setStyle("-fx-background-color:transparent");
+
+        try {
+            if(SESSION.isToggleShqip()){
+                this.imgTranslate.setImage(new Image(new FileInputStream("src/main/resources/Images/language-en.png")));
+            }
+            else {
+                this.imgTranslate.setImage(new Image(new FileInputStream("src/main/resources/Images/language-sq.png")));
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     private VBox createPage(int pageIndex) {
@@ -116,13 +135,10 @@ public class DashboardController {
 
 
     @FXML
-    private void handleChangeLanguage(ActionEvent ae){
-        if (currentLocale.getLanguage().equals("en")) {
-            currentLocale = new Locale("sq");
-        } else {
-            currentLocale = new Locale("en");
-        }
-        //loadLanguage(currentLocale.getLanguage());
+    private void handleChangeLanguage(MouseEvent me){
+        SESSION.switchLanguage();
+        Navigatior.navigate(me,Navigatior.DASHBOARD);
+        System.out.println("U Ekxekutu");
     }
 
     @FXML
@@ -153,5 +169,16 @@ public class DashboardController {
                 "-fx-background-color:  linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5)");
     }
 
+    public void close(){
+        this.buttonDummyButton.fire();
+    }
+
+     @FXML
+    private void handleCloseStage(ActionEvent ae){
+         Navigatior.closeStageAfterDelay(ae, Duration.millis(20));
+     }
 
 }
+
+
+
