@@ -26,7 +26,7 @@
                <children>
                   <FlowPane alignment="CENTER" prefHeight="66.0" prefWidth="546.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="215.0" text="First Name:  ">
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="215.0" text="%lblFirstName">
                            <font>
                               <Font name="Arial" size="23.0" />
                            </font>
@@ -58,7 +58,7 @@
                <children>
                   <FlowPane alignment="CENTER" prefHeight="66.0" prefWidth="591.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="215.0" text="Last Name:  ">
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="215.0" text="%lblLastName">
                            <font>
                               <Font name="Arial" size="23.0" />
                            </font>
@@ -136,7 +136,7 @@
                <children>
                   <FlowPane alignment="CENTER" prefHeight="63.0" prefWidth="524.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="210.0" text="Confirm Password:  ">
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="210.0" text="%lblConPass">
                            <font>
                               <Font name="Arial" size="23.0" />
                            </font>
@@ -160,7 +160,7 @@
          <children>
             <FlowPane alignment="CENTER" prefHeight="71.0" prefWidth="1860.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#handleSignUpSupervisor" prefHeight="40.0" prefWidth="218.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="Sign Up">
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSignUpSupervisor" prefHeight="40.0" prefWidth="218.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="%lblSignUp">
                      <font>
                         <Font size="15.0" />
                      </font>
