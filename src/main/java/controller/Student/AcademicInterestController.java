@@ -1,15 +1,21 @@
 package controller.Student;
 
+import app.Navigatior;
+import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.AnchorPane;
 import model.dto.Student.AcademicInterestDto;
+import repository.StudentApplicant.StudentApplicantRepository;
+
 import static service.Student.StudentApplicantService.processAcademicInterest;
 
 public class AcademicInterestController {
-
+    @FXML
+    private AnchorPane addPane;
     @FXML
     private RadioButton rbEAR;
 
@@ -94,7 +100,14 @@ public class AcademicInterestController {
         AcademicInterestDto dto = new AcademicInterestDto(dept, dept1, dept2, dept3);
 
         // Call the service to process the DTO
-        processAcademicInterest(dto);
+       if( processAcademicInterest(dto)){
+
+        if(StudentApplicantRepository.UpdateApplicationStatus(SESSION.getLoggedUser().getId())){
+            System.out.println("Tabela u be update!");
+
+        }}
+        Navigatior.navigate(addPane,Navigatior.STUDENT_DASHBOARD);
+
     }
 
     private String getSelectedToggleText(ToggleGroup group) {
