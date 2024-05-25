@@ -136,6 +136,10 @@ Faqja e Studentit është vendi ku studentët mund të aplikojnë për programe 
 - **Controller i Studentit**
 - **Controller i Mbikëqyrësit**
 
+## Karakteristikat dhe Funksionaliteti
+[Skema e Bazës së të Dhënave](https://app.diagrams.net/#G1J_zUl-6mRDqbe9moUFwYFSVLEMnivZeo#%7B%22pageId%22%3A%22nEYQcJPKxuH7Vw90xdpM%22%7D)
+
+
 ## Përfundimi
 
 ### Tools të nevojshëm:
