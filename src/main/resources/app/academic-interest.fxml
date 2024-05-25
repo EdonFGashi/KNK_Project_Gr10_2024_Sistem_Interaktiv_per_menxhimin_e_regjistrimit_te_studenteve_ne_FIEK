@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="794.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.AcademicInterestController">
    <children>
-      <Pane layoutX="2.0" layoutY="32.8" prefHeight="102.0" prefWidth="1220.0" style="-fx-background-color: #3f6196;" AnchorPane.topAnchor="32.8">
+      <Pane layoutX="2.0" layoutY="32.8" prefHeight="102.0" prefWidth="1220.0" style="-fx-background-color: linear-gradient(to right, #19316C 2.8%, #01B3C9 97.8%);" AnchorPane.topAnchor="32.8">
          <children>
             <Label layoutX="121.0" layoutY="25.0" text="Academic Interest" textFill="WHITE">
                <font>
