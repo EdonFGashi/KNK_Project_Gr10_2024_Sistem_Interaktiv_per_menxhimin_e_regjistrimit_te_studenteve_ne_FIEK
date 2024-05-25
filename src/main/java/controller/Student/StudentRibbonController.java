@@ -45,6 +45,7 @@ public class StudentRibbonController {
     @FXML
     private void initialize(){
         Navigatior.navigate(addPane,Navigatior.STUDENT_DASHBOARD);
+        SESSION.setCurrentPage("Navigatior.STUDENT_DASHBOARD");
      try {
         if(SESSION.isToggleShqip()){
             this.imgTranslate.setImage(new Image(new FileInputStream("src/main/resources/Images/language-en.png")));
@@ -84,6 +85,7 @@ public class StudentRibbonController {
     @FXML
     private void handleGoToProfile(ActionEvent ae){
         Navigatior.navigate(addPane,Navigatior.STUDENT_PROFILE);
+        SESSION.setCurrentPage("Navigatior.STUDENT_PROFILE");
     }
 
 
@@ -91,11 +93,13 @@ public class StudentRibbonController {
     @FXML
     void handleInfoIconClicked(MouseEvent event) {
         Navigatior.navigateNewStage(Navigatior.HELP_STUDENT);
+        SESSION.setCurrentPage("Navigatior.HELP_STUDENT");
     }
 
     @FXML
     private void handleLogoClicked(MouseEvent me){
         Navigatior.navigate(addPane,Navigatior.STUDENT_DASHBOARD);
+        SESSION.setCurrentPage("Navigatior.STUDENT_DASHBOARD");
     }
     @FXML
     private void handleStartAnimation(MouseEvent me){
@@ -107,6 +111,7 @@ public class StudentRibbonController {
     @FXML
     private void handleProfileClick(MouseEvent me){
         Navigatior.navigate(addPane,Navigatior.STUDENT_PROFILE);
+        SESSION.setCurrentPage("Navigatior.STUDENT_PROFILE");
     }
 
 
@@ -118,6 +123,7 @@ public class StudentRibbonController {
     private void handleChangeLanguage(MouseEvent me){
         SESSION.switchLanguage();
         Navigatior.navigate(me,Navigatior.STUDENT_RIBBON);
+        SESSION.setCurrentPage("Navigatior.STUDENT_RIBBON");
     }
 
     @FXML
@@ -126,6 +132,7 @@ public class StudentRibbonController {
     @FXML
     private void handleLogOut(ActionEvent ae){
         Navigatior.navigateNewStage(Navigatior.DASHBOARD);
+        SESSION.setCurrentPage("Navigatior.DASHBOARD");
         SESSION.setLoggedAdmin(null);
         Navigatior.closeStageAfterDelay(ae, Duration.millis(10));
     }
