@@ -134,9 +134,9 @@
          <children>
             <FlowPane alignment="CENTER" prefHeight="119.0" prefWidth="1488.0">
                <children>
-                  <FlowPane alignment="CENTER" prefHeight="63.0" prefWidth="524.0">
+                  <FlowPane alignment="CENTER" prefHeight="63.0" prefWidth="732.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="210.0" text="%lblConPass">
+                        <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="220.0" text="%lblConPass">
                            <font>
                               <Font name="Arial" size="23.0" />
                            </font>

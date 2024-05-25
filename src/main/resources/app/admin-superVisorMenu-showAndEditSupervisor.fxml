@@ -20,7 +20,7 @@
             <DropShadow />
          </effect>
          <children>
-            <TextField fx:id="txtSearch" layoutX="38.0" layoutY="26.0" prefHeight="38.0" prefWidth="335.0" promptText="\%ptKerko" style="-fx-background-radius: 15;" />
+            <TextField fx:id="txtSearch" layoutX="38.0" layoutY="26.0" prefHeight="38.0" prefWidth="335.0" promptText="%ptKerko" style="-fx-background-radius: 15;" />
             <Button layoutX="394.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="38.0" prefWidth="59.0" style="-fx-background-radius: 20; -fx-background-color: #A5CEF2;" />
             <ImageView fx:id="imgSearch" fitHeight="17.0" fitWidth="22.0" layoutX="413.0" layoutY="37.0" onMouseClicked="#handleSearchClick" pickOnBounds="true" preserveRatio="true" />
          </children>
@@ -41,30 +41,30 @@
                   <Font name="Tahoma" size="16.0" />
                </font>
             </Label>
-            <Button fx:id="btnEdit" layoutX="39.0" layoutY="384.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="50.0" prefWidth="114.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="\%btnEdit" textAlignment="CENTER">
+            <Button fx:id="btnEdit" layoutX="39.0" layoutY="384.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="50.0" prefWidth="114.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="%btnEdit" textAlignment="CENTER">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="215.0" layoutY="384.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="50.0" prefWidth="114.0" style="-fx-background-radius: 20px; -fx-background-color: AA4A44; -fx-font-weight: bold;" text="\%btnDelete" textAlignment="CENTER">
+            <Button layoutX="215.0" layoutY="384.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="50.0" prefWidth="114.0" style="-fx-background-radius: 20px; -fx-background-color: AA4A44; -fx-font-weight: bold;" text="%btnDelete" textAlignment="CENTER">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
             <TextField fx:id="txtEmail" layoutX="36.0" layoutY="169.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" />
-            <Label layoutX="39.0" layoutY="207.0" prefHeight="50.0" prefWidth="142.0" text="\%lblFirstName">
+            <Label layoutX="39.0" layoutY="207.0" prefHeight="50.0" prefWidth="142.0" text="%lblFirstName">
                <font>
                   <Font name="Tahoma" size="16.0" />
                </font>
             </Label>
             <TextField fx:id="txtFirstName" layoutX="36.0" layoutY="251.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" />
-            <Label layoutX="39.0" layoutY="288.0" prefHeight="50.0" prefWidth="142.0" text="\%lblLastName">
+            <Label layoutX="39.0" layoutY="288.0" prefHeight="50.0" prefWidth="142.0" text="%lblLastName">
                <font>
                   <Font name="Tahoma" size="16.0" />
                </font>
             </Label>
             <TextField fx:id="txtLastName" layoutX="36.0" layoutY="331.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" />
-            <Button fx:id="btnResetPassword" layoutX="94.0" layoutY="526.0" mnemonicParsing="false" onAction="#handleResetPassword" prefHeight="50.0" prefWidth="177.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="\%btnResetPassword" textAlignment="CENTER">
+            <Button fx:id="btnResetPassword" layoutX="94.0" layoutY="526.0" mnemonicParsing="false" onAction="#handleResetPassword" prefHeight="50.0" prefWidth="177.0" style="-fx-background-radius: 20px; -fx-background-color: #A5CEF2; -fx-font-weight: bold;" text="%btnResetPassword" textAlignment="CENTER">
                <font>
                   <Font size="15.0" />
                </font>
@@ -82,8 +82,8 @@
                      <columns>
                         <TableColumn fx:id="columnId" editable="false" prefWidth="111.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-size: 40px; -fx-font-family: Arial; -fx-border-color: white;" text=" Id" />
                         <TableColumn fx:id="columnEmail" editable="false" prefWidth="178.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="Email" />
-                        <TableColumn fx:id="columnFirstName" editable="false" minWidth="0.0" prefWidth="210.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="\%lblFirstName" />
-                        <TableColumn fx:id="columnLastName" editable="false" prefWidth="204.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="\%lblLastName" />
+                        <TableColumn fx:id="columnFirstName" editable="false" minWidth="0.0" prefWidth="210.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="%lblFirstName" />
+                        <TableColumn fx:id="columnLastName" editable="false" prefWidth="204.0" style="-fx-background-radius: 8px 8px 0px 0px; -fx-background-inset: 0 0 0 0; -fx-background-color: transparent; -fx-font-family: Arial; -fx-border-color: white; -fx-alignment: center;" text="%lblLastName" />
                      </columns>
                   </TableView>
                </children>

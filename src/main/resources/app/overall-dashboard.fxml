@@ -13,12 +13,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="800.0" prefWidth="1530.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Overall.DashboardController">
    <children>
-      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1528.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);">
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1528.0" style="-fx-background-color: linear-gradient(to right, #19316C 2.8%, #01B3C9 97.8%) linear-gradient(to right, #19316C 2.8%, #01B3C9 97.8%);">
          <top>
-            <AnchorPane prefHeight="76.0" prefWidth="710.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5);" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="76.0" prefWidth="710.0" style="-fx-background-color: linear-gradient(to right, #19316C 2.8%, #01B3C9 97.8%) linear-gradient(to right, #19316C 2.8%, #01B3C9 97.8%);" BorderPane.alignment="CENTER">
                <children>
                   <Text fill="WHITE" layoutX="716.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="%txtUP" textAlignment="CENTER">
                      <font>
@@ -38,7 +37,7 @@
                      </image>
                   </ImageView>
                   <Text fill="WHITE" layoutX="1297.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 0.7; -fx-font-weight: 700;" text="+383 38 244 183 " />
-                  <ImageView fitHeight="23.0" fitWidth="15.0" layoutX="1164.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;">
+                  <ImageView fitHeight="23.0" fitWidth="15.0" layoutX="1282.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;">
                      <image>
                         <Image url="@../../../../Images/phone.png" />
                      </image>
@@ -48,7 +47,7 @@
                         <Image url="@../../../../Images/info-icon.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="changeLanguageIcon" fitHeight="34.0" fitWidth="31.0" layoutX="1466.0" layoutY="36.0" onMouseClicked="#handleChangeLanguage" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="changeLanguageIcon" fitHeight="34.0" fitWidth="31.0" layoutX="1461.0" layoutY="23.0" onMouseClicked="#handleChangeLanguage" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../Images/language-icon.png" />
                      </image>
@@ -59,13 +58,13 @@
          <right>
             <AnchorPane fx:id="middle_anchor" prefHeight="1140.0" prefWidth="1528.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fx:id="mainImage" fitHeight="751.0" fitWidth="1445.0" layoutX="41.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="mainImage" fitHeight="698.0" fitWidth="1363.0" layoutX="41.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../Images/fieku.png" />
                      </image>
                   </ImageView>
                   <HBox layoutX="110.0" layoutY="20.0" prefHeight="41.0" prefWidth="404.0" />
-                  <Button fx:id="buttoni_qasja" layoutX="653.0" layoutY="477.0" mnemonicParsing="false" onAction="#handleQasja" onMouseEntered="#buttoni_qasja_hover" onMouseExited="#buttoni_qasja_exit" prefHeight="77.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5); -fx-opacity: 0.5;">
+                  <Button fx:id="buttoni_qasja" layoutX="653.0" layoutY="477.0" mnemonicParsing="false" onAction="#handleQasja" onMouseEntered="#buttoni_qasja_hover" onMouseExited="#buttoni_qasja_exit" prefHeight="77.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to right, #19316C 2.8%, #01B3C9 97.8%) linear-gradient(to right, #19316C 2.8%, #01B3C9 97.8%); -fx-opacity: 0.5;">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -89,7 +88,6 @@
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <HBox layoutX="108.0" layoutY="114.0" prefHeight="100.0" prefWidth="200.0" />
                   <Pagination fx:id="pagPagination" layoutX="328.0" layoutY="95.0" prefHeight="274.0" prefWidth="795.0" stylesheets="@../CSS/pagination.css" />
                   <Text fill="WHITE" layoutX="261.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" text="%txtTitle" textAlignment="CENTER" wrappingWidth="929.5601196289062">
                      <font>
