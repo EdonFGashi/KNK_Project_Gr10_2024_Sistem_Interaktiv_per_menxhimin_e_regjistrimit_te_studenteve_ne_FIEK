@@ -93,7 +93,7 @@ public class EducationalExperienceController {
     void initialize() {
         addTextFieldListeners();
         this.setTextFields();
-        calculateTotalPoints();  // Thirrni fillimisht për të llogaritur totalin nëse ka të dhëna të parafurnizuara
+        calculateTotalPoints();  
         txtAllPoints.setDisable(true);
     }
 
@@ -104,14 +104,14 @@ Navigatior.navigate(addpane,Navigatior.PERSONAL_INFO);
 
     @FXML
     void handleContinue(ActionEvent event) {
-//        if (!allFieldsAreFilled()) {
-//            Alert alert = new Alert(Alert.AlertType.WARNING);
-//            alert.setTitle("Warning");
-//            alert.setHeaderText(null);
-//            alert.setContentText("Please fill in all fields before continuing!");
-//            alert.showAndWait();
-//            return;
-//        }
+       if (!allFieldsAreFilled()) {
+           Alert alert = new Alert(Alert.AlertType.WARNING);
+           alert.setTitle("Warning");
+           alert.setHeaderText(null);
+           alert.setContentText("Please fill in all fields before continuing!");
+           alert.showAndWait();
+           return;
+       }
 if(this.Save){
         String ShkMesme = txtSchoolName.getText();
         int Matematike = Integer.parseInt(txtMath.getText());
