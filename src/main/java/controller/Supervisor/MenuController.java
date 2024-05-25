@@ -117,6 +117,10 @@ public class MenuController {
     private void handleHoverOption4(MouseEvent me){
 
     }
+    @FXML
+    void handleChangeLanguage(MouseEvent event) {
+
+    }
 
     private void resetActiveSection(){
         this.hboxOption1.setStyle("");

@@ -32,7 +32,7 @@
                   </FlowPane>
                   <FlowPane alignment="CENTER" prefHeight="63.0" prefWidth="228.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#handleSearchSupervisorByEmail" prefHeight="40.0" prefWidth="117.0" text="%btnSearchByEmail" />
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="117.0" text="%btnSearchByEmail" />
                      </children>
                   </FlowPane>
                </children>
@@ -101,7 +101,7 @@
                   </FlowPane>
                   <FlowPane alignment="CENTER" layoutX="406.0" layoutY="13.0" prefHeight="63.0" prefWidth="363.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#handleSaveInformationSupervisor" prefHeight="40.0" prefWidth="117.0" text="%btnSave">
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="117.0" text="%btnSave">
                            <FlowPane.margin>
                               <Insets left="50.0" right="50.0" />
                            </FlowPane.margin>
@@ -135,7 +135,7 @@
                   <FlowPane alignment="CENTER" prefHeight="63.0" prefWidth="339.0">
                      <children>
                         <FlowPane alignment="CENTER" prefHeight="71.0" prefWidth="1860.0" />
-                        <Button mnemonicParsing="false" onAction="#handleResetPasswordSupervisor" prefHeight="40.0" prefWidth="117.0" text="%btnResetPassword">
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="117.0" text="%btnResetPassword">
                            <padding>
                               <Insets right="5.0" />
                            </padding>

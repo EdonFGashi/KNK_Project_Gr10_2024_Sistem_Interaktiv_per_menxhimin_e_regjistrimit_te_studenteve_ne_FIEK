@@ -129,11 +129,11 @@ public class LoginController extends ComunicativeController {
 //        this.logoPaneLoginPage.setTranslateX(-60);
 //        this.logoPaneLoginPage.setTranslateY(50);
 
-        anchorPane.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                handleLogin(new ActionEvent());
-            }
-        });
+//        anchorPane.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+//            if (event.getCode() == KeyCode.ENTER) {
+//                handleLogin(new ActionEvent());
+//            }
+//        });
 
     }
 
@@ -218,7 +218,7 @@ public class LoginController extends ComunicativeController {
         stage.setMaximized(true);
         Navigatior.navigate(stage, fxmlPath);
         Navigatior.closeStageAfterDelay(event, Duration.millis(1));
-
+        System.out.println("Erdh deri para navigatorit");
     }
 
     @FXML
