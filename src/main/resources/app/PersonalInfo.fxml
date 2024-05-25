@@ -18,7 +18,7 @@
     <children>
         <HBox layoutX="1.0" layoutY="33.0" prefHeight="102.0" prefWidth="1220.0" style="-fx-background-color: linear-gradient(to right, #19316C 2.8%, #01B3C9 97.8%);" AnchorPane.bottomAnchor="664.8000000000001" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
          <children>
-            <Label alignment="BOTTOM_CENTER" prefHeight="84.0" prefWidth="567.0" text="Personal Information" textFill="WHITE">
+            <Label alignment="BOTTOM_CENTER" prefHeight="84.0" prefWidth="567.0" text="%lblPersonalInfo" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="36.0" />
                </font>
@@ -49,50 +49,50 @@
                         <TextField fx:id="txtName" editable="false" layoutX="269.0" layoutY="10.0" prefHeight="38.0" prefWidth="315.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField fx:id="txtLastName" editable="false" layoutX="154.0" layoutY="64.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <TextField fx:id="txtNationality" editable="false" layoutX="154.0" layoutY="64.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label prefHeight="30.0" prefWidth="215.0" text="Personal Number:">
+                        <Label prefHeight="30.0" prefWidth="215.0" text="%lblPersonalNr">
                             <font>
                                 <Font name="Tahoma" size="16.0" />
                             </font>
                         </Label>
-                        <Label prefHeight="30.0" prefWidth="227.0" text="First Name:" GridPane.rowIndex="1">
+                        <Label prefHeight="30.0" prefWidth="227.0" text="%lblFirstName" GridPane.rowIndex="1">
                             <font>
                                 <Font name="Tahoma" size="16.0" />
                             </font>
                         </Label>
-                        <Label prefHeight="23.0" prefWidth="195.0" text="Last Name:" GridPane.rowIndex="2">
+                        <Label prefHeight="23.0" prefWidth="195.0" text="%lblLastName" GridPane.rowIndex="2">
                             <font>
                                 <Font name="Tahoma" size="16.0" />
                             </font>
                         </Label>
-                        <Label layoutX="10.0" layoutY="140.0" prefHeight="23.0" prefWidth="195.0" text="Nationality:" GridPane.rowIndex="3">
+                        <Label layoutX="10.0" layoutY="140.0" prefHeight="23.0" prefWidth="195.0" text="%txtNationality" GridPane.rowIndex="3">
                             <font>
                                 <Font name="Tahoma" size="16.0" />
                             </font>
                         </Label>
-                        <Label layoutX="10.0" layoutY="187.0" prefHeight="23.0" prefWidth="195.0" text="City:" GridPane.rowIndex="4">
+                        <Label layoutX="10.0" layoutY="187.0" prefHeight="23.0" prefWidth="195.0" text="%txtCity" GridPane.rowIndex="4">
                             <font>
                                 <Font name="Tahoma" size="16.0" />
                             </font>
                         </Label>
                         <TextField fx:id="txtCity" editable="false" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label layoutX="10.0" layoutY="209.0" prefHeight="23.0" prefWidth="195.0" text="Country:" GridPane.rowIndex="5">
+                        <Label layoutX="10.0" layoutY="209.0" prefHeight="23.0" prefWidth="195.0" text="%txtCountry" GridPane.rowIndex="5">
                             <font>
                                 <Font name="Tahoma" size="16.0" />
                             </font>
                         </Label>
                         <TextField fx:id="txtCountry" editable="false" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label prefHeight="23.0" prefWidth="222.0" text="Gendre:" GridPane.rowIndex="6">
+                        <Label prefHeight="23.0" prefWidth="222.0" text="%txtGender" GridPane.rowIndex="6">
                             <font>
                                 <Font name="Tahoma" size="16.0" />
                             </font>
                         </Label>
-                        <Label prefHeight="23.0" prefWidth="222.0" text="Birthday:" GridPane.rowIndex="7">
+                        <Label prefHeight="23.0" prefWidth="222.0" text="%txtBirthDate" GridPane.rowIndex="7">
                             <font>
                                 <Font name="Tahoma" size="16.0" />
                             </font>
                         </Label>
                         <DatePicker fx:id="selectBirthday" prefHeight="34.0" prefWidth="324.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                        <RadioButton fx:id="rbuttonFemale" mnemonicParsing="false" prefHeight="30.0" prefWidth="117.0" text="Female" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                        <RadioButton fx:id="rbuttonFemale" mnemonicParsing="false" prefHeight="30.0" prefWidth="134.0" text="%rbtnFemale" GridPane.columnIndex="1" GridPane.rowIndex="6">
                             <font>
                                 <Font size="16.0" />
                             </font>
@@ -100,7 +100,7 @@
                                 <Insets left="20.0" />
                             </GridPane.margin>
                         </RadioButton>
-                        <RadioButton fx:id="rdbuttonMale" mnemonicParsing="false" text="Male" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                        <RadioButton fx:id="rdbuttonMale" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="%rbtnMale" GridPane.columnIndex="1" GridPane.rowIndex="6">
                             <GridPane.margin>
                                 <Insets left="250.0" />
                             </GridPane.margin>
@@ -111,17 +111,17 @@
                   <TextField fx:id="txtPersonalNumber" prefHeight="34.0" prefWidth="337.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" />
                     </children>
                 </GridPane>
-                <Button fx:id="btnGenerateinfo" layoutX="644.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleGenerateInfo" prefHeight="50.0" prefWidth="212.0" style="-fx-background-radius: 30; -fx-background-color: #3f7bb0; -fx-font-weight: bold;" text="Generate Information" textFill="WHITE">
+                <Button fx:id="btnGenerateinfo" layoutX="644.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleGenerateInfo" prefHeight="50.0" prefWidth="251.0" style="-fx-background-radius: 30; -fx-background-color: #3f7bb0; -fx-font-weight: bold;" text="%btnGenerateInformation" textFill="WHITE">
                     <font>
                         <Font size="18.0" />
                     </font>
                 </Button>
-              <Button fx:id="btnGoback" layoutX="662.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleGoback" prefHeight="50.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #3f7bb0; -fx-font-weight: bold;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
+              <Button fx:id="btnGoback" layoutX="662.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleGoback" prefHeight="51.0" prefWidth="158.0" style="-fx-background-radius: 30; -fx-background-color: #3f7bb0; -fx-font-weight: bold;" text="%btnBack" textFill="WHITE" AnchorPane.bottomAnchor="13.0">
                   <font>
                       <Font size="24.0" />
                   </font>
               </Button>
-              <Button fx:id="btmnext" layoutX="865.0" layoutY="518.0" mnemonicParsing="false" onMouseClicked="#handleNext" prefHeight="51.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #387a43; -fx-font-weight: bold;" text="Continue" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
+              <Button fx:id="btmnext" layoutX="828.0" layoutY="518.0" mnemonicParsing="false" onMouseClicked="#handleNext" prefHeight="51.0" prefWidth="196.0" style="-fx-background-radius: 30; -fx-background-color: #387a43; -fx-font-weight: bold;" text="%btnContinue" textFill="WHITE" AnchorPane.bottomAnchor="13.0">
                   <font>
                       <Font size="24.0" />
                   </font>
