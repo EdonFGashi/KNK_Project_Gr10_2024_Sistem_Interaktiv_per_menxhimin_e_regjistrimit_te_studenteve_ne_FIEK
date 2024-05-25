@@ -89,7 +89,7 @@
                               <Font name="Tahoma" size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtAllPoints" editable="true" layoutX="241.0" layoutY="256.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <TextField fx:id="txtAllPoints" editable="false" layoutX="241.0" layoutY="256.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                         <Label prefHeight="23.0" prefWidth="222.0" text="Success in Grade 10" GridPane.rowIndex="7">
                            <font>
                               <Font name="Tahoma" size="16.0" />
