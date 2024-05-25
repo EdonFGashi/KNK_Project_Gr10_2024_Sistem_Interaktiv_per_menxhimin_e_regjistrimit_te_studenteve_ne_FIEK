@@ -149,7 +149,7 @@ Faqja e Studentit është vendi ku studentët mund të aplikojnë për programe 
 
 1. Klononi:
    ```bash
-   git clone https://github.com/EdonFGashi/KNK_Project_Gr10_2024_Sistem_Interaktiv_per_menxhimin_e_regjistrimit_te_studenteve_ne_FIEK)](https://github.com/EdonFGashi/KNK_Project_Gr10_2024_Sistem_Interaktiv_per_menxhimin_e_regjistrimit_te_studenteve_ne_FIEK
+   git clone https://github.com/EdonFGashi/KNK_Project_Gr10_2024_Sistem_Interaktiv_per_menxhimin_e_regjistrimit_te_studenteve_ne_FIEK
 
 ### Punuan:
 - Jon Kuqi
