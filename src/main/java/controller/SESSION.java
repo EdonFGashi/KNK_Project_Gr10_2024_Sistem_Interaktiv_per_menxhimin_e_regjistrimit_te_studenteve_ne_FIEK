@@ -24,6 +24,10 @@ public class SESSION {
     private static int admin_reset_PasswordId = 0;
     private static String admin_reset_type = "";
     private static String admin_student_lastSearch = "";
+
+
+
+    private static String CurrentPage = "";
 //    Temporary
     private static int user;
     private static String UserLevel = "";
@@ -244,4 +248,10 @@ public class SESSION {
     public static void setLastMenuOption(int lastMenuOption) {
         SESSION.lastMenuOption = lastMenuOption;
     }
-}
+    public static String getCurrentPage() {
+        return CurrentPage;
+    }
+
+    public static void setCurrentPage(String currentPage) {
+        CurrentPage = currentPage;
+    }}
