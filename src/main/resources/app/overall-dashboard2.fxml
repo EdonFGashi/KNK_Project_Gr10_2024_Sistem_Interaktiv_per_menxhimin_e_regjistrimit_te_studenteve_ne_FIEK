@@ -40,7 +40,7 @@
                   <Image url="@../../../../Images/phone.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="infoimg" fitHeight="26.0" fitWidth="24.0" layoutX="1461.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="infoimg" fitHeight="26.0" fitWidth="24.0" layoutX="1461.0" layoutY="5.0" onMouseClicked="#handleInfo" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Images/info-icon.png" />
                </image>

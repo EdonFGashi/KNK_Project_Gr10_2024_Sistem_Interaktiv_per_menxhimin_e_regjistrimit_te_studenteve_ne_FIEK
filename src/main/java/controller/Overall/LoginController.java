@@ -138,7 +138,7 @@ public class LoginController extends ComunicativeController {
     }
 
     @FXML
-    private void handleChangeLanguage(ActionEvent ae){
+    private void handleChangeLanguage(MouseEvent ae){
         SESSION.switchLanguage();
         Navigatior.navigate(ae, Navigatior.LOGIN);
     }
