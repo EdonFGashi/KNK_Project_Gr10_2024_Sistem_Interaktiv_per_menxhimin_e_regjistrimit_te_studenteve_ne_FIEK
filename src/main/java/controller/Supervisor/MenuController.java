@@ -65,7 +65,7 @@ public class MenuController {
         this.option2Navigate = Navigatior.SUPERVISOR_PROFILE;
         this.option3Navigate = Navigatior.SUPERVISOR_STATISTICS;
         try {
-            this.imgMain.setImage(new Image(new FileInputStream("Images/studentMenu.png")));
+            this.imgMain.setImage(new Image(new FileInputStream("Images/supervisorMenu.png")));
             this.imgOption1.setImage(new Image(new FileInputStream("Images/showAndEdit.png")));
             this.imgOption2.setImage(new Image(new FileInputStream("Images/application.png")));
             this.imgOption3.setImage(new Image(new FileInputStream("Images/statistics.png")));
