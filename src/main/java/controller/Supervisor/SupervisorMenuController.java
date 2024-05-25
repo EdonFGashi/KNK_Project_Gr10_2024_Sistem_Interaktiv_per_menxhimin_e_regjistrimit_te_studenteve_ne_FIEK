@@ -26,6 +26,9 @@ public class SupervisorMenuController {
     @FXML
     private HBox addPane;
 
+    @FXML
+    private ImageView imgTranslate;
+
 
     private final String cssForActiveSection = "-fx-background-color: #A5CEF2; -fx-background-radius:10px;";
 

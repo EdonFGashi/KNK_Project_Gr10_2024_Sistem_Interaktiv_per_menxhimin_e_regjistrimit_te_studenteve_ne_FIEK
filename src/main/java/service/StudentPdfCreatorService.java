@@ -114,7 +114,7 @@ public class StudentPdfCreatorService {
             PdfPTable tablePerBorderLart1 = new PdfPTable(1);
             tablePerBorderLart1.setWidthPercentage(100);
             tablePerBorderLart1.setSpacingBefore(10f);
-            tablePerBorderLart1.addCell(border(1f, BaseColor.GRAY));
+            tablePerBorderLart1.addCell(border(3f, BaseColor.GRAY));
 
             PdfPTable tablePerBorderLart2 = new PdfPTable(1);
             tablePerBorderLart2.setWidthPercentage(100);
@@ -142,7 +142,7 @@ public class StudentPdfCreatorService {
             PdfPTable tablePerBorderPosht2 = new PdfPTable(1);
             tablePerBorderPosht2.setWidthPercentage(100);
             tablePerBorderPosht2.setSpacingBefore(4f);
-            tablePerBorderPosht2.addCell(border(1f, BaseColor.GRAY));
+            tablePerBorderPosht2.addCell(border(3f, BaseColor.GRAY));
 
 
             //Pershkrimi i dokumentit

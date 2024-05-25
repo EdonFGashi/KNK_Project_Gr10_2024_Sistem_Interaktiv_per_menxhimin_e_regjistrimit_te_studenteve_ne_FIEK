@@ -51,7 +51,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <Label layoutX="71.0" layoutY="226.0" text="%lblWelcome" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="223.0" text="%lblWelcome" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -63,17 +63,19 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <HBox layoutX="111.0" layoutY="256.0" prefHeight="123.0" prefWidth="148.0" />
+      <HBox layoutX="22.0" layoutY="290.0" prefHeight="50.0" prefWidth="287.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="285.0" text="%%lblSignUpInfo" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
+         </children></HBox>
       <Button layoutX="125.0" layoutY="377.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: linear-gradient(to bottom, #19316C 2.8%, #01B3C9 97.8%); -fx-background-radius: 10;" text="%btnBack" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <ImageView fx:id="imgIcon" fitHeight="164.0" fitWidth="199.0" layoutX="86.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="errorMessageLabel" layoutX="420.0" layoutY="340.0" prefWidth="180.0" textFill="RED" visible="false" />
-      <Label layoutX="104.0" layoutY="225.0" prefHeight="124.0" prefWidth="148.0" text="%lblSignUpInfo" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>
