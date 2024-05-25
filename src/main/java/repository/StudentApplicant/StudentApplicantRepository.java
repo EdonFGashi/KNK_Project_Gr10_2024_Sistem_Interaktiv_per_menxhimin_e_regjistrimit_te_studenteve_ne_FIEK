@@ -1,6 +1,7 @@
 package repository.StudentApplicant;
 
 import controller.SESSION;
+import model.UserStudent2;
 import model.dto.Student.*;
 import service.DBConnector;
 
@@ -8,10 +9,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 import static controller.SESSION.*;
 
@@ -52,12 +53,6 @@ public class StudentApplicantRepository {
         } catch (SQLException e) {
             System.out.println("Gabim gjatë ruajtjes së të dhënave: " + e.getMessage());
             return false;
-        } finally {
-            try {
-                conn.close();
-            } catch (SQLException e) {
-                System.out.println("Gabim gjatë mbylljes së lidhjes me bazën e të dhënave: " + e.getMessage());
-            }
         }
     }
 
@@ -103,7 +98,7 @@ public class StudentApplicantRepository {
 
                 statementAplikimi.setInt(1, findShkollaIdByUserId(dto.getUserId(),conn));
                 statementAplikimi.setInt(2, deptId);
-                statementAplikimi.setNull(3, SESSION.getAplicantAfatId());
+                statementAplikimi.setInt(3, SESSION.getAplicantAfatId());
                  System.out.println("Afat id:"+SESSION.getAplicantAfatId());
 
                 int affectedRowsAplikimi = statementAplikimi.executeUpdate();
@@ -117,12 +112,6 @@ public class StudentApplicantRepository {
             } catch (SQLException e) {
                 System.out.println("Gabim gjatë ruajtjes së të dhënave në tblAplikimi: " + e.getMessage());
                 return false;
-            } finally {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    System.out.println("Gabim gjatë mbylljes së lidhjes me bazën e të dhënave: " + e.getMessage());
-                }
             }
         }
 
@@ -167,7 +156,7 @@ public class StudentApplicantRepository {
 
             statementAplikimi.setInt(1, findShkollaIdByUserId(dto.getUserId(),conn));
             statementAplikimi.setInt(2, deptId);
-            statementAplikimi.setNull(3, SESSION.getAplicantAfatId());
+            statementAplikimi.setInt(3, SESSION.getAplicantAfatId());
 
 
             int affectedRowsAplikimi = statementAplikimi.executeUpdate();
@@ -181,12 +170,6 @@ public class StudentApplicantRepository {
         } catch (SQLException e) {
             System.out.println("Gabim gjatë ruajtjes së të dhënave në tblAplikimi: " + e.getMessage());
             return false;
-        } finally {
-            try {
-                conn.close();
-            } catch (SQLException e) {
-                System.out.println("Gabim gjatë mbylljes së lidhjes me bazën e të dhënave: " + e.getMessage());
-            }
         }
     }
 
@@ -275,6 +258,7 @@ public class StudentApplicantRepository {
             ps.setString(8, studentAplikant.getGender());
             ps.setDate(9, studentAplikant.getBirthDate());
             ps.executeUpdate();
+            System.out.println("tbluser");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
@@ -282,7 +266,7 @@ public class StudentApplicantRepository {
     }
     
     
-    public static void saveAcademicInterest(AcademicInterestDto dto) {
+    public static boolean saveAcademicInterest(AcademicInterestDto dto) {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -302,6 +286,7 @@ public class StudentApplicantRepository {
 
             
             String query = "INSERT INTO tblAplikimi (shkollaId, deptIdPrioritet1, deptIdPrioritet2, deptIdPrioritet3,deptIdPrioritet4, afatId) VALUES (?, ?, ?, ?, ?,?)";
+
             ps = conn.prepareStatement(query);
             ps.setInt(1, findShkollaIdByUserId(SESSION.getLoggedUser().getId(),conn));
             ps.setInt(2, deptId);
@@ -309,19 +294,14 @@ public class StudentApplicantRepository {
             ps.setInt(4, deptIdPrioritet2);
             ps.setInt(5, deptIdPrioritet3);
             ps.setInt(6, SESSION.getAplicantAfatId());
-
+            System.out.println(SESSION.getAplicantAfatId());
             ps.executeUpdate();
+
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) rs.close();
-                if (ps != null) ps.close();
-                if (conn != null) conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            return false;
         }
+        return true;
     }
 
     private static int getDepartmentId(Connection conn, String departmentName, String level) throws SQLException {
@@ -336,6 +316,63 @@ public class StudentApplicantRepository {
             }
         }
         return -1; // Kthe -1 nëse departamenti nuk u gjet
+    }
+
+    public static UserStudent2 getUserById(int userId) {
+       Connection conn = DBConnector.getConnection();
+
+        String query = "SELECT * FROM tblUserStudent WHERE userId = ?";
+        try (PreparedStatement statement = conn.prepareStatement(query)) {
+            statement.setInt(1, userId);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                int userIdResult = resultSet.getInt("userId");
+                String numriPersonal = resultSet.getString("numriPersonal");
+                String emri = resultSet.getString("emri");
+                String mbiemri = resultSet.getString("mbiemri");
+                String nacionaliteti = resultSet.getString("nacionaliteti");
+                String qyteti = resultSet.getString("qyteti");
+                String shteti = resultSet.getString("shteti");
+                String gjinia = resultSet.getString("gjinia");
+                LocalDate dataLindjes = resultSet.getDate("dataLindjes").toLocalDate();
+
+                return new UserStudent2(userIdResult, numriPersonal, emri, mbiemri, nacionaliteti, qyteti, shteti, gjinia, dataLindjes);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null; // Kthe null nëse nuk gjen përdoruesin me këtë ID
+    }
+
+
+    public static boolean UpdateApplicationStatus(int userId) {
+        String selectQuery = "SELECT * FROM tblApplicationStatus WHERE UserID = ?";
+        String updateQuery = "UPDATE tblApplicationStatus SET SubmissionStatus = ?, EditTime = ? WHERE UserID = ?";
+
+        try ( Connection conn = DBConnector.getConnection();
+             PreparedStatement selectStmt = conn.prepareStatement(selectQuery);
+             PreparedStatement updateStmt = conn.prepareStatement(updateQuery)) {
+
+            // Kontrollo nëse ekziston një regjistrim me UserID të dhënë
+            selectStmt.setInt(1, userId);
+            ResultSet resultSet = selectStmt.executeQuery();
+
+            if (resultSet.next()) {
+                // Përditëso vlerën e kolonës SubmissionStatus në "Submitted"
+                updateStmt.setString(1, "Submitted");
+                updateStmt.setTimestamp(2, Timestamp.valueOf(LocalDateTime.now())); // Vendos kohën aktuale për EditTime
+                updateStmt.setInt(3, userId);
+
+                int rowsUpdated = updateStmt.executeUpdate();
+
+                return rowsUpdated > 0; // Kthe true nëse është përditësuar të paktën një rresht
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false; // Kthe false nëse UserID nuk ekziston ose ndodhi një gabim
     }
 }
 

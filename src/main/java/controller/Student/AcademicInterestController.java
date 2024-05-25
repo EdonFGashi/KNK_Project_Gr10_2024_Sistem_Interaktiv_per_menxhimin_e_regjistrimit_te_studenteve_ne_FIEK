@@ -1,14 +1,21 @@
 package controller.Student;
 
+import app.Navigatior;
+import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.AnchorPane;
 import model.dto.Student.AcademicInterestDto;
+import repository.StudentApplicant.StudentApplicantRepository;
+
 import static service.Student.StudentApplicantService.processAcademicInterest;
 
 public class AcademicInterestController {
-
+    @FXML
+    private AnchorPane addPane;
     @FXML
     private RadioButton rbEAR;
 
@@ -76,11 +83,31 @@ public class AcademicInterestController {
         String dept2 = getSelectedToggleText(tgDept2);
         String dept3 = getSelectedToggleText(tgDept3);
 
+        // Check for duplicate selections
+        if (hasDuplicateSelection(dept, dept1, dept2, dept3)) {
+            // Create an Alert with the error type
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            // Set the alert title
+            alert.setTitle("Error");
+            // Set the alert message
+            alert.setContentText("Duplicate selection is not allowed in the same radio button group!");
+            // Show the alert
+            alert.showAndWait();
+            return;
+        }
+
         // Create and populate the DTO
         AcademicInterestDto dto = new AcademicInterestDto(dept, dept1, dept2, dept3);
 
         // Call the service to process the DTO
-        processAcademicInterest(dto);
+       if( processAcademicInterest(dto)){
+
+        if(StudentApplicantRepository.UpdateApplicationStatus(SESSION.getLoggedUser().getId())){
+            System.out.println("Tabela u be update!");
+
+        }}
+        Navigatior.navigate(addPane,Navigatior.STUDENT_DASHBOARD);
+
     }
 
     private String getSelectedToggleText(ToggleGroup group) {
@@ -88,10 +115,20 @@ public class AcademicInterestController {
         return selectedRadioButton != null ? selectedRadioButton.getText() : null;
     }
 
+    private boolean hasDuplicateSelection(String... departments) {
+        // Check if any duplicate selections are found
+        for (int i = 0; i < departments.length; i++) {
+            for (int j = i + 1; j < departments.length; j++) {
+                if (departments[i] != null && departments[i].equals(departments[j])) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     @FXML
     void handleBack(ActionEvent event) {
-
+        // Add functionality for handling back button action
     }
-
 }

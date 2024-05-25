@@ -89,7 +89,7 @@
                               <Font name="Tahoma" size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtAllPoints" editable="true" layoutX="241.0" layoutY="256.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <TextField fx:id="txtAllPoints" editable="false" layoutX="241.0" layoutY="256.0" prefHeight="38.0" prefWidth="293.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                         <Label prefHeight="23.0" prefWidth="222.0" text="Success in Grade 10" GridPane.rowIndex="7">
                            <font>
                               <Font name="Tahoma" size="16.0" />
@@ -128,12 +128,12 @@
                         <Font name="Tahoma" size="16.0" />
                      </font>
                   </Label>
-                  <Button layoutX="659.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 30;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
+                  <Button fx:id="btnBack"  layoutX="659.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 30;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Button>
-                  <Button layoutX="875.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleContinue" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #387a43; -fx-background-radius: 30;" text="Continue" textFill="WHITE">
+                  <Button fx:id="btnContinue"  layoutX="875.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleContinue" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #387a43; -fx-background-radius: 30;" text="Continue" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>

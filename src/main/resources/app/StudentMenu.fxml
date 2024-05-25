@@ -12,7 +12,7 @@
     <children>
         <AnchorPane prefHeight="800.0" prefWidth="1520.0">
             <children>
-                <AnchorPane layoutY="2.0" prefHeight="800.0" prefWidth="350.0" style="-fx-background-color: linear-gradient(to bottom,#385178, #3f6196,#4d71a8, #77a5ed); -fx-background-radius: 30;" AnchorPane.topAnchor="2.0">
+                <AnchorPane layoutY="2.0" prefHeight="800.0" prefWidth="350.0" style="-fx-background-color: linear-gradient(to right, #19316C 2.8%, #01B3C9 97.8%);" AnchorPane.topAnchor="2.0">
                     <children>
                         <HBox fx:id="hbxPersinfo" layoutX="16.0" layoutY="368.0" onMouseClicked="#handleOptionClick1" prefHeight="62.0" prefWidth="314.0">
                             <children>

@@ -16,17 +16,14 @@
 
 <AnchorPane fx:id="addPane" prefHeight="800.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.PersonalInfoControler">
     <children>
-        <HBox layoutX="1.0" layoutY="33.0" prefHeight="102.0" prefWidth="1220.0" style="-fx-background-color: #3f6196;" AnchorPane.bottomAnchor="664.8000000000001" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
-            <children>
-                <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="482.0" style="-fx-background-color: #3f6196;" text="Personal Information" textFill="WHITE">
-                    <HBox.margin>
-                        <Insets left="50.0" top="15.0" />
-                    </HBox.margin>
-                    <font>
-                        <Font size="36.0" />
-                    </font>
-                </Button>
-            </children>
+        <HBox layoutX="1.0" layoutY="33.0" prefHeight="102.0" prefWidth="1220.0" style="-fx-background-color: linear-gradient(to right, #19316C 2.8%, #01B3C9 97.8%);" AnchorPane.bottomAnchor="664.8000000000001" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
+         <children>
+            <Label alignment="BOTTOM_CENTER" prefHeight="84.0" prefWidth="567.0" text="Personal Information" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+            </Label>
+         </children>
         </HBox>
         <AnchorPane layoutX="47.0" layoutY="177.0" prefHeight="582.0" prefWidth="1084.0" style="-fx-background-color: white; -fx-background-radius: 10;" AnchorPane.leftAnchor="47.0">
             <effect>
@@ -114,9 +111,9 @@
                   <TextField fx:id="txtPersonalNumber" prefHeight="34.0" prefWidth="337.0" style="-fx-background-radius: 15;" GridPane.columnIndex="1" />
                     </children>
                 </GridPane>
-                <Button fx:id="btnGenerateinfo" layoutX="644.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleGenerateInfo" prefHeight="50.0" prefWidth="185.0" style="-fx-background-radius: 30; -fx-background-color: #3f7bb0; -fx-font-weight: bold;" text="Generate Information" textFill="WHITE">
+                <Button fx:id="btnGenerateinfo" layoutX="644.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleGenerateInfo" prefHeight="50.0" prefWidth="212.0" style="-fx-background-radius: 30; -fx-background-color: #3f7bb0; -fx-font-weight: bold;" text="Generate Information" textFill="WHITE">
                     <font>
-                        <Font size="15.0" />
+                        <Font size="18.0" />
                     </font>
                 </Button>
               <Button fx:id="btnGoback" layoutX="662.0" layoutY="518.0" mnemonicParsing="false" onMouseClicked="#handleGoback" prefHeight="50.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #3f7bb0; -fx-font-weight: bold;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="vboxMainPane" nodeOrientation="LEFT_TO_RIGHT" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.StudentRibbonController">
+   <children>
+      <HBox style="-fx-background-radius: 0 0 5 5; -fx-background-color: linear-gradient(to right, #19316C 2.8%, #01B3C9 97.8%);">
+         <children>
+            <HBox alignment="CENTER_LEFT" maxHeight="70.0" minHeight="70.0" prefHeight="70.0" prefWidth="278.0" spacing="12.0">
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <children>
+                  <AnchorPane fx:id="anchorLogo" onMouseClicked="#handleLogoClicked" onMouseEntered="#handleStartAnimation" prefHeight="70.0" prefWidth="98.0">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </AnchorPane>
+                  <ImageView fx:id="imgGoBack" fitHeight="38.0" fitWidth="37.0" onMouseClicked="#handleBackClick" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <image>
+                        <Image url="@../Images/backArrow.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" minHeight="70.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="67.0" prefWidth="1920.0" spacing="60.0" style="-fx-background-radius: 0.5;">
+               <padding>
+                  <Insets bottom="10.0" left="30.0" right="20.0" top="10.0" />
+               </padding>
+               <children>
+                  <AnchorPane prefHeight="54.0" prefWidth="74.0">
+                     <children>
+                        <ImageView fx:id="imgInfoIcon" fitHeight="25.0" fitWidth="26.0" layoutX="54.0" layoutY="1.0" onMouseClicked="#handleInfoIconClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Images/info-icon.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="imgTranslate" fitHeight="37.0" fitWidth="35.0" layoutX="5.0" layoutY="16.0" onMouseClicked="#handleChangeLanguage" pickOnBounds="true" preserveRatio="true">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <HBox alignment="CENTER" onMouseClicked="#handleProfileClick" prefHeight="50.0" prefWidth="123.0">
+                     <children>
+                        <MenuButton mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: none; -fx-font-weight: bold; -fx-font-size: 13;" text="%mbProfile" textFill="WHITE">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#handleGoToProfile" text="%mtGoToProfile" />
+                              <MenuItem mnemonicParsing="false" onAction="#handleChangeLanguage" text="%mtChangeLanguage" />
+                              <MenuItem mnemonicParsing="false" onAction="#handleSignOut" text="%mtSignOut" />
+                           </items>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </MenuButton>
+                        <ImageView fx:id="imgProfileIcon" fitHeight="24.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </HBox>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </HBox>
+         </children>
+      </HBox>
+      <AnchorPane fx:id="addPane" prefHeight="790.0" prefWidth="1718.0">
+         <VBox.margin>
+            <Insets left="-5.0" />
+         </VBox.margin>
+      </AnchorPane>
+   </children>
+</VBox>

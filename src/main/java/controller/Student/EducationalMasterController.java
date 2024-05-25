@@ -3,6 +3,7 @@ package controller.Student;
 import controller.SESSION;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
@@ -13,6 +14,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import model.dto.Student.MasterApplicantDto;
 import model.dto.Student.StudentApplicantDto;
+import repository.StudentApplicant.StudentApplicantRepository;
+import service.Student.StudentApplicantService;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -77,17 +80,30 @@ public class EducationalMasterController {
 
     @FXML
     void handleContinue(ActionEvent event) {
+        if (!allFieldsAreFilled()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill in all fields before continuing!");
+            alert.showAndWait();
+            return;
+        }
+
         String faculty = txtFaculty.getText();
         Double firstYear = Double.parseDouble(txtFirstYear.getText());
         Double secondYear = Double.parseDouble(txtSecYear.getText());
         Double thirdYear = Double.parseDouble(txtThirdYear.getText());
-        String deptName=this.getValue();
+        String deptName = this.getValue();
 
-        // e shtove SESSION para getLoggedUser()
-        MasterApplicantDto dto = new MasterApplicantDto(SESSION.getLoggedUser().getId(),faculty,firstYear,secondYear,thirdYear,imageFile1,imageFile2,deptName);
+        MasterApplicantDto dto = new MasterApplicantDto(SESSION.getLoggedUser().getId(), faculty, firstYear, secondYear, thirdYear, imageFile1, imageFile2, deptName);
 
         try {
-            service.Student.StudentApplicantService.processAndSaveMasterData(dto);
+           if( StudentApplicantService.processAndSaveMasterData(dto)){
+               if(StudentApplicantRepository.UpdateApplicationStatus(SESSION.getLoggedUser().getId())) {
+                   System.out.println("Tabela u be update!");
+
+               }
+               }
             // Trego një mesazh suksesi
         } catch (Exception e) {
             e.printStackTrace();
@@ -99,18 +115,16 @@ public class EducationalMasterController {
     @FXML
     void handleFile1(ActionEvent event) {
         imageFile1 = chooseImage(imgIdeentification);
-
     }
 
     @FXML
     void handleFile2(ActionEvent event) {
         imageFile2 = chooseImage(imgBachelorDegree);
-
     }
 
     private File chooseImage(ImageView imageView) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Zgjidh një Foto");
+        fileChooser.setTitle("Choose an Image");
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
         File selectedFile = fileChooser.showOpenDialog(null);
@@ -125,5 +139,12 @@ public class EducationalMasterController {
         return selectedFile;
     }
 
-
+    private boolean allFieldsAreFilled() {
+        return !txtFaculty.getText().isEmpty() &&
+                !txtFirstYear.getText().isEmpty() &&
+                !txtSecYear.getText().isEmpty() &&
+                !txtThirdYear.getText().isEmpty() &&
+                imageFile1 != null &&
+                imageFile2 != null;
+    }
 }

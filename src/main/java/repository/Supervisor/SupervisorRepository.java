@@ -258,11 +258,16 @@ public class SupervisorRepository {
 //    }
 
     public static KonkurimetShowDto getKonkurimetSearch(String search){
-
+        //Nese je asistent Blendi zine qe se ki pa
         int mbikqyresiId = SESSION.getLoggedSupervisor().getMbikqyresiId();
         int studentiId = Integer.parseInt(search);
         int aplikimiId = getAplikimiId(search);
         int piket = getPiket(Integer.toString(aplikimiId));
+        System.out.println("Derenni");
+        System.out.println(studentiId);
+        System.out.println(aplikimiId);
+        System.out.println(piket);
+        System.out.println(search);
 
         KonkurimetShowDto konkurimet = new KonkurimetShowDto(mbikqyresiId, studentiId, aplikimiId, piket);
 

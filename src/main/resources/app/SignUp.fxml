@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="700.0" style="-fx-background-color: #435778;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Overall.SignUpController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="700.0" style="-fx-background-color: #0e4c75;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Overall.SignUpController">
    <children>
-      <AnchorPane layoutX="364.0" layoutY="38.0" prefHeight="405.0" prefWidth="306.0" style="-fx-background-color: #3f7bb0;">
+      <AnchorPane layoutX="364.0" layoutY="38.0" prefHeight="405.0" prefWidth="306.0" style="-fx-background-color: linear-gradient(to bottom, #19316C 2.8%, #01B3C9 97.8%);">
          <children>
             <TextField fx:id="txtUsername" layoutX="72.0" layoutY="109.0" prefHeight="27.0" prefWidth="147.0" promptText="%txtUsername" style="-fx-color: #fff; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;">
                <font>
@@ -51,7 +51,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <Label layoutX="103.0" layoutY="206.0" text="%lblWelcome" textFill="WHITE">
+      <Label layoutX="71.0" layoutY="226.0" text="%lblWelcome" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -63,20 +63,17 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <HBox layoutX="111.0" layoutY="256.0" prefHeight="123.0" prefWidth="148.0">
-         <children>
-            <Label prefHeight="124.0" prefWidth="148.0" text="%lblSignUpInfo" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="System Italic" size="12.0" />
-               </font>
-            </Label>
-         </children>
-      </HBox>
-      <Button layoutX="141.0" layoutY="379.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 10;" text="%btnBack" textFill="WHITE">
+      <HBox layoutX="111.0" layoutY="256.0" prefHeight="123.0" prefWidth="148.0" />
+      <Button layoutX="125.0" layoutY="377.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #3f7bb0; -fx-background-radius: 10;" text="%btnBack" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ImageView fx:id="imgIcon" fitHeight="164.0" fitWidth="199.0" layoutX="81.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgIcon" fitHeight="164.0" fitWidth="199.0" layoutX="86.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="errorMessageLabel" layoutX="420.0" layoutY="340.0" prefWidth="180.0" textFill="RED" visible="false" />
+      <Label layoutX="104.0" layoutY="225.0" prefHeight="124.0" prefWidth="148.0" text="%lblSignUpInfo" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -32,6 +32,8 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import static controller.SESSION.setLoggedUserEmail;
+
 public class LoginController extends ComunicativeController {
     @FXML
     private ImageView imgUpLogo;
@@ -188,10 +190,11 @@ public class LoginController extends ComunicativeController {
             } else if (Objects.equals(LoginService.login(loginDto), "student")) {
 
                 SESSION.setLoggedUser(UserService.getUserByEmail(this.userEmail.getText()));
+                setLoggedUserEmail(SESSION.getLoggedUser().getEmail());
                 SESSION.setLoginPenalty(false);
                 System.out.println("Id"+SESSION.getLoggedUser().getId());
 //                Navigatior.navigateNewStage(Navigatior.STUDENT_DASHBOARD);
-                navigateToNewStage(event, Navigatior.STUDENT_DASHBOARD);
+                navigateToNewStage(event, Navigatior.STUDENT_RIBBON);
 
             }
             else {

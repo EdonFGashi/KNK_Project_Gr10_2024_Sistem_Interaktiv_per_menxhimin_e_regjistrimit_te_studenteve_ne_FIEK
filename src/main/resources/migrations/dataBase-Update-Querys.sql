@@ -14,7 +14,7 @@ CREATE VIEW UserStudentRegisteredView AS
 SELECT
     s.userId AS userStudentUserId,
     s.numriPersonal,
-    s.email,
+    us.email,
     s.emri,
     s.mbiemri,
     s.nacionaliteti,
@@ -22,15 +22,15 @@ SELECT
     s.shteti,
     s.gjinia,
     s.dataLindjes,
-    s.salt,
-    s.passwordHash,
+    us.salt,
+    us.passwordHash,
     r.generatedEmail,
     r.generatedId,
     r.emriDepartamentit,
     r.niveli
 FROM tblUserStudent s
-JOIN tblRegisteredStudents r ON s.userId = r.userId;
-
+JOIN tblRegisteredStudents r ON s.userId = r.userId
+JOIN tblUser us ON s.userId = us.userId;
 
 
 
@@ -226,10 +226,14 @@ CREATE TABLE tblArkiva (
                            data DATE NOT NULL
 );
 
-ALTER TABLE tblArkiva;
-INSERT INTO tblArkiva (nrSerik, idStudentit, data) VALUES ('489548', '220756100002', '2004-01-04');
-SELECT * FROM tblArkiva ORDER BY documentId DESC LIMIT 1;
-SELECT * FROM tblArkiva;
 
---
+
+--25-05-2024 Erza
+  CREATE TABLE tblApplicationStatus (
+    UserID INT PRIMARY KEY,
+    SubmissionStatus VARCHAR(255),
+    EditTime DATETIME,
+    ApplicationName VARCHAR(255),
+    FOREIGN KEY (UserID) REFERENCES tblUser(UserID)
+);
 

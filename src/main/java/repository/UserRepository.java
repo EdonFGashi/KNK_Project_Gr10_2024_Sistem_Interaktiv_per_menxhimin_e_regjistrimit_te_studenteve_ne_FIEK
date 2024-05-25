@@ -1,7 +1,8 @@
 package repository;
 import model.User;
+import model.dto.Admin.ChangePasswordOnDb;
 import model.dto.Overall.CreateUserDto;
-import model.dto.Student.ApplicationStatusDto;
+import model.ApplicationStatus;
 import model.dto.Student.EditUserProfileDto;
 import service.DBConnector;
 
@@ -33,7 +34,7 @@ public class UserRepository {
             pst.execute();
             System.out.println("Katishtu");
             pst.close();
-            conn.close();
+
             System.out.println("Kati u shtu");
             return true;
         }catch (Exception e){
@@ -80,7 +81,7 @@ public class UserRepository {
 
 
     public static boolean savePersonalDetails(EditUserProfileDto data) {
-        String query = "UPDATE tblAdmin SET username = ?, email = ? WHERE email = ?";
+        String query = "UPDATE tblUser SET username = ?, email = ? WHERE email = ?";
 
         Connection connection = DBConnector.getConnection();
         try {
@@ -99,7 +100,7 @@ public class UserRepository {
         }
     }
 
-    public static void saveApplicationStatus(ApplicationStatusDto applicationStatus) {
+    public static void saveApplicationStatus(ApplicationStatus applicationStatus) {
         Connection conn = DBConnector.getConnection();
         String sql = "INSERT INTO tblApplicationStatus (UserID, SubmissionStatus, EditTime, ApplicationName) VALUES (?, ?, ?, ?)";
 
@@ -110,8 +111,51 @@ public class UserRepository {
             pstmt.setTimestamp(3, java.sql.Timestamp.valueOf(applicationStatus.getEditTime()));
             pstmt.setString(4, applicationStatus.getApplicationName());
             pstmt.executeUpdate();
+            System.out.println("U rujten ne dashboard");
         } catch (Exception e) {
             System.out.println("Nuk u ruajten te dhenat!");
+        }
+    }
+
+    public static ArrayList<ApplicationStatus> getApplicationsForUser(int userID) {
+        Connection conn = DBConnector.getConnection();
+        String sql = "SELECT * FROM tblApplicationStatus WHERE UserID = ?";
+        ArrayList<ApplicationStatus> applications = new ArrayList<>();
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, userID);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                ApplicationStatus application = new ApplicationStatus(
+                        rs.getInt("UserID"),
+                        rs.getString("SubmissionStatus"),
+                        rs.getTimestamp("EditTime").toLocalDateTime(),
+                        rs.getString("ApplicationName")
+                );
+                applications.add(application);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Nuk u morën të dhënat e aplikimeve!");
+        }
+        return applications;
+    }
+
+    public static boolean changePassword(ChangePasswordOnDb changeData){
+        String query = "UPDATE tblUser SET passwordHash = ? WHERE email = ?";
+
+        Connection connection = DBConnector.getConnection();
+        try {
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setString(1, changeData.getNewPassword());
+            pst.setString(2, changeData.getEmail());
+
+            int rowsAffected = pst.executeUpdate();
+            pst.close();
+            return rowsAffected > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 }

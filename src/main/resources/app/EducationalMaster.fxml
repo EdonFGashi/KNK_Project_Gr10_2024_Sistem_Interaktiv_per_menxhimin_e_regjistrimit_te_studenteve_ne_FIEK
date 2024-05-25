@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -16,16 +15,13 @@
 
 <AnchorPane fx:id="addPane" prefHeight="800.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.EducationalMasterController">
    <children>
-      <HBox layoutX="1.0" layoutY="33.0" prefHeight="102.0" prefWidth="1220.0" style="-fx-background-color: purple;" AnchorPane.bottomAnchor="664.8000000000001" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
+      <HBox layoutX="1.0" layoutY="33.0" prefHeight="102.0" prefWidth="1220.0" style="-fx-background-color: linear-gradient(to right, #19316C 2.8%, #01B3C9 97.8%);" stylesheets="@../CSS/on-focus.css" AnchorPane.bottomAnchor="664.8000000000001" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="78.0" prefWidth="621.0" style="-fx-background-color: purple;" text="Educational Experience&amp;Interest" textFill="WHITE">
-               <HBox.margin>
-                  <Insets left="50.0" top="15.0" />
-               </HBox.margin>
+            <Label prefHeight="99.0" prefWidth="636.0" text="      Educational Experience&amp;Interest" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="36.0" />
                </font>
-            </Button>
+            </Label>
          </children>
       </HBox>
       <AnchorPane layoutX="47.0" layoutY="177.0" prefHeight="582.0" prefWidth="1084.0" style="-fx-background-color: white; -fx-background-radius: 10;" AnchorPane.leftAnchor="47.0">
@@ -78,24 +74,24 @@
                   <ChoiceBox fx:id="choiceBoxDept" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                </children>
             </GridPane>
-            <Button layoutX="662.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleBack"  prefHeight="50.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #3f7bb0; -fx-font-weight: bold;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
+            <Button layoutX="662.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="50.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #3f7bb0; -fx-font-weight: bold;" text="Back" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button layoutX="865.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleContinue"  prefHeight="51.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #387a43; -fx-font-weight: bold;" text="Continue" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
+            <Button layoutX="865.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleContinue" prefHeight="51.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #387a43; -fx-font-weight: bold;" text="Continue" textFill="WHITE" AnchorPane.bottomAnchor="13.199999999999932">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
             <ImageView fx:id="imgBachelorDegree" fitHeight="160.0" fitWidth="165.0" layoutX="672.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgIdeentification" fitHeight="175.0" fitWidth="165.0" layoutX="662.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="btnChooseFile1" layoutX="896.0" layoutY="132.0" mnemonicParsing="false" onAction="#handleFile1" prefHeight="50.0" prefWidth="113.0" style="-fx-background-color: purple; -fx-background-radius: 20;" text="ChooseFile" textFill="WHITE">
+            <Button fx:id="btnChooseFile1" layoutX="896.0" layoutY="132.0" mnemonicParsing="false" onAction="#handleFile1" prefHeight="38.0" prefWidth="114.0" style="-fx-background-color: purple; -fx-background-radius: 20;" text="ChooseFile" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnChooseFile2" layoutX="904.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleFile2" prefHeight="50.0" prefWidth="113.0" style="-fx-background-color: purple; -fx-background-radius: 20;" text="ChooseFile" textFill="WHITE">
+            <Button fx:id="btnChooseFile2" layoutX="904.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleFile2" prefHeight="38.0" prefWidth="114.0" style="-fx-background-color: purple; -fx-background-radius: 20;" text="ChooseFile" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>

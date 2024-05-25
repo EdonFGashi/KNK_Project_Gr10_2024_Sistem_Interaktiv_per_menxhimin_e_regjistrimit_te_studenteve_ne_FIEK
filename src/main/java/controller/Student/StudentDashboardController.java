@@ -6,17 +6,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.Afat;
 import model.User;
-import model.dto.Student.ApplicationStatusDto;
+import model.ApplicationStatus;
 import service.Student.StudentApplicantService;
 import service.Student.UserService;
 
@@ -31,22 +28,23 @@ public class StudentDashboardController {
     @FXML
     private AnchorPane addPane;
     @FXML
+    private Label lblNjoftim;
+    @FXML
     private ChoiceBox<String> choiseChoseAfat;
 
     @FXML
     private ChoiceBox<String> choiseChoseLevel;
 
     @FXML
-    private TableColumn<ApplicationStatusDto, String> columnApplicationName;
+    private TableColumn<ApplicationStatus, String> columnApplicationName;
     @FXML
-    private TableColumn<ApplicationStatusDto, LocalDateTime> columnLastEdited;
+    private TableColumn<ApplicationStatus, LocalDateTime> columnLastEdited;
     @FXML
-    private TableColumn<ApplicationStatusDto, String> columnStatus;
+    private TableColumn<ApplicationStatus, String> columnStatus;
+
     @FXML
-    private TableColumn<ApplicationStatusDto, Button> columnedit;
-    @FXML
-    private TableView<ApplicationStatusDto> tableStudent;
-    private ObservableList<ApplicationStatusDto> applicationStatusList = FXCollections.observableArrayList();
+    private TableView<ApplicationStatus> tableStudent;
+    private ObservableList<ApplicationStatus> applicationStatusList;
 
     @FXML
     private Button btnFilloAplikimin;
@@ -57,6 +55,7 @@ public class StudentDashboardController {
 
     @FXML
     private void initialize() {
+
         // Add options to ChoiceBox
         this.choiseChoseLevel.setItems(nivelet);
 
@@ -97,13 +96,8 @@ public class StudentDashboardController {
         choiseChoseLevel.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> updateFilloAplikiminButtonState());
         choiseChoseAfat.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> updateFilloAplikiminButtonState());
 
-        // Configure table columns
-        columnApplicationName.setCellValueFactory(new PropertyValueFactory<>("applicationName"));
-        columnLastEdited.setCellValueFactory(new PropertyValueFactory<>("editTime"));
-        columnStatus.setCellValueFactory(new PropertyValueFactory<>("submissionStatus"));
-
-        // Load existing applications for the user
         loadExistingApplications();
+        // Load existing applications for the user
 
     }
 
@@ -133,16 +127,20 @@ public class StudentDashboardController {
         return afat.getNiveli() + " - " + heraDescription;
     }
     private void updateFilloAplikiminButtonState() {
-        btnFilloAplikimin.setDisable(choiseChoseLevel.getValue() == null || choiseChoseAfat.getValue() == null);
-    }
+        boolean shouldDisable = choiseChoseLevel.getValue() == null || choiseChoseAfat.getValue() == null || "Submitted".equals(btnFilloAplikimin.getText());
+        btnFilloAplikimin.setDisable(shouldDisable);
+        if (shouldDisable) {
+            System.out.println("Button should be disabled. Current text: " + btnFilloAplikimin.getText());
+        }}
     @FXML
     void handleFilloAplikimin(ActionEvent event) {
+        if(btnFilloAplikimin.getText().equals("Fillo Aplikimin")){
         User user = SESSION.getLoggedUser();// Assuming this method gets the user ID from session
-        int userID=1;
-        String applicationName = choiseChoseLevel.getValue() + " - " + choiseChoseAfat.getValue();
+        int userID=user.getId();
+        String applicationName = choiseChoseLevel.getValue() + " - " + choiseChoseAfat.getValue().substring(5);
 
 
-        ApplicationStatusDto appStatus = new ApplicationStatusDto(userID, "processing", LocalDateTime.now(), applicationName);
+        ApplicationStatus appStatus = new ApplicationStatus(userID, "processing", LocalDateTime.now(), applicationName);
 
         try {
             UserService.saveAplicStatus(appStatus);
@@ -150,7 +148,7 @@ public class StudentDashboardController {
         } catch (Exception e) {
             e.printStackTrace();
             // Handle exception (e.g., show error message to user)
-        }
+        }}
         Navigatior.navigate(addPane,Navigatior.STUDENT_MENU);
     }
 
@@ -158,8 +156,70 @@ public class StudentDashboardController {
         // Fetch and load existing applications for the user
         // This is a placeholder. You need to implement the method to fetch data from the database.
         // Example:
-        // List<ApplicationStatusDto> applications = applicationStatusService.getApplicationsForUser(SESSION.getUserID());
-        // applicationStatusList.setAll(applications);
+        // Configure table columns
+        columnApplicationName.setCellValueFactory(new PropertyValueFactory<ApplicationStatus, String>("applicationName"));
+        columnLastEdited.setCellValueFactory(new PropertyValueFactory<ApplicationStatus, LocalDateTime>("editTime"));
+        columnStatus.setCellValueFactory(new PropertyValueFactory<ApplicationStatus, String>("submissionStatus"));
+        User user = SESSION.getLoggedUser();
+        int userID = user.getId();
+        this.applicationStatusList=UserService.getApplicationsForUser(userID);
+        System.out.println(applicationStatusList);
+        this. tableStudent.setItems(applicationStatusList);
+        updateButtonTextBasedOnTable();
 
-        tableStudent.setItems(applicationStatusList);
-    }}
+    }
+    private void updateButtonTextBasedOnTable() {
+        if (tableStudent.getItems().isEmpty()) {
+            btnFilloAplikimin.setText("Fillo Aplikimin");
+            btnFilloAplikimin.setDisable(true);
+        } else {
+            boolean isSubmitted = false;
+            for (ApplicationStatus application : tableStudent.getItems()) {
+                if ("Submitted".equals(application.getSubmissionStatus())) {
+                    lblNjoftim.setText("Your Application was Submitted successfully!");
+                    btnFilloAplikimin.setText("Submitted");
+                    btnFilloAplikimin.setDisable(true);
+                    isSubmitted = true;
+                    break;
+                }
+            }
+            if (!isSubmitted) {
+                btnFilloAplikimin.setText("Vazhdo Aplikimin");
+                btnFilloAplikimin.setDisable(false);
+            }
+            selectValuesForChoiceBoxesBasedOnTableContent();
+        }
+        updateFilloAplikiminButtonState();
+    }
+
+
+    private void selectValuesForChoiceBoxesBasedOnTableContent() {
+        for (ApplicationStatus application : tableStudent.getItems()) {
+            String applicationName = application.getApplicationName();
+            // Për të gjetur vlerën e nivelit dhe afatit nga emri i aplikacionit
+            String[] parts = applicationName.split(" - ");
+            String level = parts[0]; // Niveli
+            String afatDescription = parts[1]; // Afati (afati i parë ose i dytë)
+
+            // Vërejtje: Kontrolloni nëse këto vlera përputhen me listat tuaja të niveleve dhe afateve
+            choiseChoseLevel.setValue(level);
+            choiseChoseAfat.setValue(afatDescription);
+
+            // Ruaj nivelin në SESSION
+            SESSION.setDeptLevel(level);
+
+            // Gjej dhe ruaj ID-në e afatit në SESSION
+            for (Map.Entry<String, Integer> entry : afatStringToIdMap.entrySet()) {
+                if (entry.getKey().contains(afatDescription)) {
+                    SESSION.setAplicantAfatID(entry.getValue());
+                    break;
+                }
+            }
+
+            choiseChoseLevel.setDisable(true);
+            choiseChoseAfat.setDisable(true);
+            break; // Ndalo pasi të gjeni një aplikacion me tekst "Vazhdo Aplikimin"
+        }
+    }
+
+}

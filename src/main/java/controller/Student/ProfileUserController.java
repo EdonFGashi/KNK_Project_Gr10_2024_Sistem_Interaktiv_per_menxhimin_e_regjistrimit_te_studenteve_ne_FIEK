@@ -40,14 +40,14 @@ public class ProfileUserController {
     private void initialize(){
         System.out.println("U lexu initialize");
         try {
-            this.imgProfilePhoto.setImage(new Image(new FileInputStream("woman.png")));
+            this.imgProfilePhoto.setImage(new Image(new FileInputStream("Images/woman.png")));
         }catch(Exception e){
             System.out.println("Image not found!");
         }
         this.cancel();
 
-        if(SESSION.getLoggedAdmin() != null) {
-            UserProfileDto user = UserService.getProfileInfo(SESSION.getLoggedUserEmail());
+        if(SESSION.getLoggedUser() != null) {
+            UserProfileDto user = UserService.getProfileInfo(SESSION.getLoggedUser().getEmail());
 
             if (user != null) {
                 this.txtUsername.setText(user.getUsername());
@@ -72,7 +72,7 @@ public class ProfileUserController {
 
     @FXML
     private void handleSave(ActionEvent ae){
-        String  oldEmail = SESSION.getLoggedAdmin().getEmail();
+        String  oldEmail = SESSION.getLoggedUser().getEmail();
         EditUserProfileDto editUserProfileDto = new EditUserProfileDto(
                 oldEmail,
                 this.txtUsername.getText().trim(),
