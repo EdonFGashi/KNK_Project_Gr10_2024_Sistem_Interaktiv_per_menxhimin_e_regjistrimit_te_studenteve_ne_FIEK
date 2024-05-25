@@ -132,6 +132,7 @@ public class StudentDashboardController {
     }
     @FXML
     void handleFilloAplikimin(ActionEvent event) {
+        if(btnFilloAplikimin.getText().equals("Fillo Aplikimin")){
         User user = SESSION.getLoggedUser();// Assuming this method gets the user ID from session
         int userID=user.getId();
         String applicationName = choiseChoseLevel.getValue() + " - " + choiseChoseAfat.getValue().substring(5);
@@ -145,7 +146,7 @@ public class StudentDashboardController {
         } catch (Exception e) {
             e.printStackTrace();
             // Handle exception (e.g., show error message to user)
-        }
+        }}
         Navigatior.navigate(addPane,Navigatior.STUDENT_MENU);
     }
 
@@ -188,6 +189,8 @@ public class StudentDashboardController {
                 // Vërejtje: Kontrolloni nëse këto vlera përputhen me listat tuaja të niveleve dhe afateve
                 choiseChoseLevel.setValue(level);
                 choiseChoseAfat.setValue(afat);
+                choiseChoseLevel.setDisable(true);
+                choiseChoseAfat.setDisable(true);
                 break; // Ndalo pasi të gjeni një aplikacion me tekst "Vazhdo Aplikimin"
             }
         }
