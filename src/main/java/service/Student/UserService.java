@@ -3,6 +3,8 @@ package service.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.User;
+import model.dto.Admin.ChangePasswordOnDb;
+import model.dto.Overall.ChangePasswordDto;
 import model.dto.Overall.CreateUserDto;
 //import model.dto.Overall.LoginUserDto;
 import model.dto.Overall.UserDto;
@@ -106,4 +108,35 @@ public class UserService {
     public static ObservableList<ApplicationStatus> getApplicationsForUser(int userID) {
          return FXCollections.observableArrayList(UserRepository.getApplicationsForUser(userID));
     }
+
+
+
+
+    public static void changePassword(ChangePasswordDto changeData) throws InvalidPassword{
+        User user = UserRepository.getByEmail(changeData.getEmail());
+
+        if(user == null){
+            throw new InvalidPassword("User is not found");
+        }
+
+        if(!user.getPasswordHash().equals(PasswordHasher.generateSaltedHash(changeData.getCurrentPassword(),user.getSalt()))){
+            throw new InvalidPassword("Invalid Current Password");
+        }
+        if(changeData.getNewPassword().length() < 8){
+            throw new InvalidPassword("Password too short");
+        }
+        if(!changeData.getNewPassword().equals(changeData.getConfirmPassword())){
+            throw new InvalidPassword("New and Confirm do not match");
+        }
+        if(changeData.getCurrentPassword().equals(changeData.getNewPassword())) {
+            throw new InvalidPassword("Cannot be the old Password");
+        }
+
+        String saltedHashed = PasswordHasher.generateSaltedHash(changeData.getNewPassword(),user.getSalt());
+
+        if(!UserRepository.changePassword(new ChangePasswordOnDb(user.getEmail(), saltedHashed))){
+            throw new InvalidPassword("Database Connection failed");
+        };
+    }
+
 }

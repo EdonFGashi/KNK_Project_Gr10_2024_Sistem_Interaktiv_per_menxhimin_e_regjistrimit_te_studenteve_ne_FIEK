@@ -1,5 +1,6 @@
 package repository;
 import model.User;
+import model.dto.Admin.ChangePasswordOnDb;
 import model.dto.Overall.CreateUserDto;
 import model.ApplicationStatus;
 import model.dto.Student.EditUserProfileDto;
@@ -80,7 +81,7 @@ public class UserRepository {
 
 
     public static boolean savePersonalDetails(EditUserProfileDto data) {
-        String query = "UPDATE tblAdmin SET username = ?, email = ? WHERE email = ?";
+        String query = "UPDATE tblUser SET username = ?, email = ? WHERE email = ?";
 
         Connection connection = DBConnector.getConnection();
         try {
@@ -138,5 +139,23 @@ public class UserRepository {
             System.out.println("Nuk u morën të dhënat e aplikimeve!");
         }
         return applications;
+    }
+
+    public static boolean changePassword(ChangePasswordOnDb changeData){
+        String query = "UPDATE tblUser SET passwordHash = ? WHERE email = ?";
+
+        Connection connection = DBConnector.getConnection();
+        try {
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setString(1, changeData.getNewPassword());
+            pst.setString(2, changeData.getEmail());
+
+            int rowsAffected = pst.executeUpdate();
+            pst.close();
+            return rowsAffected > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }
