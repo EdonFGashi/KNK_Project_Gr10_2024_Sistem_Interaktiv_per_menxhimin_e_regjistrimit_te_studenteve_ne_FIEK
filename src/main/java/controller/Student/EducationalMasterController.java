@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import model.dto.Student.MasterApplicantDto;
 import model.dto.Student.StudentApplicantDto;
+import repository.StudentApplicant.StudentApplicantRepository;
 import service.Student.StudentApplicantService;
 
 import java.io.File;
@@ -79,14 +80,14 @@ public class EducationalMasterController {
 
     @FXML
     void handleContinue(ActionEvent event) {
-        if (!allFieldsAreFilled()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText(null);
-            alert.setContentText("Please fill in all fields before continuing!");
-            alert.showAndWait();
-            return;
-        }
+//        if (!allFieldsAreFilled()) {
+//            Alert alert = new Alert(Alert.AlertType.WARNING);
+//            alert.setTitle("Warning");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Please fill in all fields before continuing!");
+//            alert.showAndWait();
+//            return;
+//        }
 
         String faculty = txtFaculty.getText();
         Double firstYear = Double.parseDouble(txtFirstYear.getText());
@@ -97,7 +98,12 @@ public class EducationalMasterController {
         MasterApplicantDto dto = new MasterApplicantDto(SESSION.getLoggedUser().getId(), faculty, firstYear, secondYear, thirdYear, imageFile1, imageFile2, deptName);
 
         try {
-            StudentApplicantService.processAndSaveMasterData(dto);
+           if( StudentApplicantService.processAndSaveMasterData(dto)){
+               if(StudentApplicantRepository.UpdateApplicationStatus(SESSION.getLoggedUser().getId())) {
+                   System.out.println("Tabela u be update!");
+
+               }
+               }
             // Trego një mesazh suksesi
         } catch (Exception e) {
             e.printStackTrace();

@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import model.dto.Student.PHDApplicantDto;
+import repository.StudentApplicant.StudentApplicantRepository;
 import service.Student.StudentApplicantService;
 
 import java.io.File;
@@ -87,14 +88,14 @@ public class EducationalPHDController2 {
 
     @FXML
     void handleApply(ActionEvent event) {
-        if (!allFieldsAreFilled()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText(null);
-            alert.setContentText("Please fill in all fields before continuing!");
-            alert.showAndWait();
-            return;
-        }
+//        if (!allFieldsAreFilled()) {
+//            Alert alert = new Alert(Alert.AlertType.WARNING);
+//            alert.setTitle("Warning");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Please fill in all fields before continuing!");
+//            alert.showAndWait();
+//            return;
+//        }
 
         String Fakulteti = txtFaculty.getText();
         Double Mesatarjaviti1 = Double.parseDouble(txtfirstYGrade.getText());
@@ -104,7 +105,11 @@ public class EducationalPHDController2 {
         PHDApplicantDto dto = new PHDApplicantDto(SESSION.getLoggedUser().getId(), Fakulteti, Mesatarjaviti1, Mesatarjaviti2, imageFile1, imageFile2, imageFile3, deptName);
 
         try {
-            StudentApplicantService.processAndSavePHDData(dto);
+            if(StudentApplicantService.processAndSavePHDData(dto)){
+                if(StudentApplicantRepository.UpdateApplicationStatus(SESSION.getLoggedUser().getId())) {
+                    System.out.println("Tabela u be update!");
+                }
+                }
             // Trego një mesazh suksesi
         } catch (Exception e) {
             e.printStackTrace();

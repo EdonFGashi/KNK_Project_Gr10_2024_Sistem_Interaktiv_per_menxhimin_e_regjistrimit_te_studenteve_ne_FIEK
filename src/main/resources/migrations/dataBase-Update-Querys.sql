@@ -228,5 +228,12 @@ CREATE TABLE tblArkiva (
 
 
 
---
+--25-05-2024 Erza
+  CREATE TABLE tblApplicationStatus (
+    UserID INT PRIMARY KEY,
+    SubmissionStatus VARCHAR(255),
+    EditTime DATETIME,
+    ApplicationName VARCHAR(255),
+    FOREIGN KEY (UserID) REFERENCES tblUser(UserID)
+);
 
