@@ -89,9 +89,9 @@ public class KonkurimetService {
     public static String gjeneroEmail(String emri, String mbiemri){
         int numriStudenteveMeEmerTeNjejt = StudentRepository.numriStudenteveMeEmerTeNjejt(emri, mbiemri);
         String email = "";
-        email += emri;
+        email += emri.toLowerCase();
         email += ".";
-        email += mbiemri;
+        email += mbiemri.toLowerCase();
         if(numriStudenteveMeEmerTeNjejt == 0){
 
         } else if (numriStudenteveMeEmerTeNjejt > 0) {
