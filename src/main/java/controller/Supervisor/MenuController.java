@@ -70,11 +70,21 @@ public class MenuController {
         }
 
         Navigatior.navigate(this.addPane, Navigatior.SUPERVISOR_GRADE_POINTS);
-        this.txtMenuName.setText("Supervisor Menu");
 
-        this.txtOption1.setText("Test Grading");
-        this.txtOption2.setText("Profile");
-        this.txtOption3.setText("Sign Out");
+
+
+        if(SESSION.isToggleShqip()){
+            this.txtMenuName.setText("Menu e Mbikqyrësit");
+            this.txtOption1.setText("Vleresimi Provimit");
+            this.txtOption2.setText("Profili");
+            this.txtOption3.setText("Shkyqu");
+        }else {
+            this.txtMenuName.setText("Supervisor Menu");
+            this.txtOption1.setText("Test Grading");
+            this.txtOption2.setText("Profile");
+            this.txtOption3.setText("Sign Out");
+        }
+
         this.option1Navigate = Navigatior.SUPERVISOR_GRADE_POINTS;
         this.option2Navigate = Navigatior.SUPERVISOR_PROFILE;
         try {
