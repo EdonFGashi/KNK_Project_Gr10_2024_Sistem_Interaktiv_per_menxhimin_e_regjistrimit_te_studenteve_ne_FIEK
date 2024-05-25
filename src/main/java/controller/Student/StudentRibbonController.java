@@ -111,7 +111,7 @@ public class StudentRibbonController {
 
     @FXML
     private void handleSignOut(ActionEvent ae){
-        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
+        Navigatior.navigateNewMaxStage(Navigatior.DASHBOARD);
         SESSION.setLoggedUser(null);
          Navigatior.closeStageAfterDelay(ae, Duration.millis(100));
     }
