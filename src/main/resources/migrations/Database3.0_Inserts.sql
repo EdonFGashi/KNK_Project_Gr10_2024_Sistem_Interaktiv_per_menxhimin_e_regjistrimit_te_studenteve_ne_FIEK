@@ -382,3 +382,4 @@ INSERT INTO tblPerson (numriPersonal, emri, mbiemri, nacionaliteti, qyteti, shte
                                                                                                              ('100262', 'Albatrix', 'Kaçanolli', 'Kosovar', 'Drenas', 'Kosova', 'M', '2003-04-03'),
                                                                                                              ('100129', 'Orges', 'Elshani', 'Kosovar', 'Prizren', 'Kosova', 'M', '2004-08-11'),
                                                                                                              ('100145', 'Florent', 'Shala', 'Kosovar', 'Gjakov', 'Kosova', 'M', '2002-02-14');
+

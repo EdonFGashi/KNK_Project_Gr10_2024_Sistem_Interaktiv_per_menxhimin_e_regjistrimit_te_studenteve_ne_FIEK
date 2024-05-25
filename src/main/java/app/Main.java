@@ -29,51 +29,8 @@ public class Main extends Application {
 
         // Per me testu Dashboardin
 //        Navigatior.navigate(stage,Navigatior.DASHBOARD);
-//        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
-        //Navigatior.navigateNewStage(Navigatior.LOGIN);
-
-        StudentPdfCreatorService.generatePdf(
-                10000000,
-                26045,
-                LocalDate.now(),
-                "22075548",
-                "Ermal",
-                "Guraziu",
-                "2024-05-28",
-                "Prizeren",
-                "",
-                2025,
-                "I lodht",
-                "Studim i LGBT",
-                "Universiteti Virgjeries",
-                "Vertetim per studimet e Ardhme nga i juaji Joni. Hala 1 euro borxh mi ki",
-                "Jon Kuçi",
-                "C:\\Users\\jonku\\Desktop\\"
-        );
-
-
-
-    }
-
-    public static void main(String[] args) {
-        StudentPdfCreatorService.generatePdf(
-                10000000,
-                26045,
-                LocalDate.now(),
-                "22075548",
-                "Ermal",
-                "Guraziu",
-                "2024-05-28",
-                "Prizeren",
-                "I pa rregullt",
-                2025,
-                "I lodht",
-                "Studim i LGBT",
-                "Universiteti Virgjeries",
-                "Vertetim per studimet e Ardhme nga i juaji Joni. Hala 1 euro borxh mi ki",
-                "Jon Kuçi",
-                "C:\\Users\\jonku\\Desktop\\"
-        );
+        Navigatior.navigateNewStage(Navigatior.DASHBOARD);
+//        Navigatior.navigateNewStage(Navigatior.LOGIN);
 
     }
 }
