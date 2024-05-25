@@ -37,13 +37,18 @@ private static void validateData(StudentApplicantDto dto) {
     }
 }
 
-    public static boolean processAndSaveMasterData(MasterApplicantDto dto)  {
-        // Validate data
+public static boolean processAndSaveMasterData(MasterApplicantDto dto)  {
+    validateMasterData(dto);
+    return StudentApplicantRepository.saveMasterData(dto);
+}
 
-
-        // Save data to repository
-        return StudentApplicantRepository.saveMasterData(dto);
+private static void validateMasterData(MasterApplicantDto dto) {
+    if (dto.getFirstYear() < 6.0 || dto.getFirstYear() > 10.0 ||
+            dto.getSecondYear() < 6.0 || dto.getSecondYear() > 10.0 ||
+            dto.getThirdYear() < 6.0 || dto.getThirdYear() > 10.0) {
+        throw new IllegalArgumentException("Invalid data values");
     }
+}
 
 
     public static boolean processAndSavePHDData(PHDApplicantDto dto)  {
