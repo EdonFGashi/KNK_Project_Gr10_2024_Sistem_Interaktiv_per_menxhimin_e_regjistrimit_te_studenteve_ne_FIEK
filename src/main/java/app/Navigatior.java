@@ -6,7 +6,6 @@ Kontrolleri i ribbonit edhe i menus duhet me pas ni pane qe me e mbush masane,
 Navigatior.navigate(pane qe mbushet, edhe pane qe vjen) -> shembulli tek Admini qysh e kum ba
 
 Metodat niher spi fshij amo besoj e ndreqi ni menyr qysh me u en kahmos.
-
 */
 
 import controller.Admin.NjoftimPaneController;
@@ -55,7 +54,6 @@ interface AdminPages{
 
     public final static String ADMIN_MENU = "admin-Menu.fxml";
 
-
     public final static String ADMIN_STUDENTMENU_STATISTICS = "admin-studentsMenu-statistics.fxml";
     public final static String ADMIN_STUDENTMENU_SHOWANDEDIT = "admin-studentMenu-showAndEditStudent.fxml";
     public final static String ADMIN_STUDENTMENU_KONKURIMET = "admin-studentMenu-konkurimet.fxml";
@@ -67,7 +65,6 @@ interface AdminPages{
 
     public final static String ADMIN_INBOX = "admin-inbox.fxml";
     public final static String ADMIN_NJOFTIM_MODULE = "admin-inbol-njoftimPane.fxml";
-
 
 }
 interface StudentPages{
@@ -164,11 +161,7 @@ public class Navigatior implements AdminPages, StudentPages, SupervisorPages, Ov
 
         Locale locale;
 
-//        if(Locale.getDefault() == null) {
-//            locale = Locale.of("sq");
-//        }else {
-//            locale = Locale.getDefault();
-//        }
+
 
         if(SESSION.isToggleShqip()){
             locale = Locale.of("sq");

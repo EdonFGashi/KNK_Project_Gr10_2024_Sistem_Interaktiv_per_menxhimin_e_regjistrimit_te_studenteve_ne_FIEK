@@ -166,8 +166,22 @@ public class DashboardController {
                 "-fx-background-color:  linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5)");
     }
 
+
     @FXML
     public void buttoni_qasja_exit(MouseEvent event) {
+
+        buttoni_qasja.setStyle("-fx-opacity: 0.5;" +
+                "-fx-background-color:  linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5)");
+    }
+
+    @FXML
+    public void teksti_qasja_hover(MouseEvent event) {
+        buttoni_qasja.setStyle("-fx-opacity: 0.9;" +
+                "-fx-background-color:  linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5)");
+    }
+
+    @FXML
+    public void teksti_qasja_exit(MouseEvent event) {
 
         buttoni_qasja.setStyle("-fx-opacity: 0.5;" +
                 "-fx-background-color:  linear-gradient(to bottom, #0a84ff, #00a5ff, #00c0ff, #00d7f7, #12ebe5)");

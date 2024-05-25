@@ -90,7 +90,7 @@ public class StudentRibbonController {
 
     @FXML
     void handleInfoIconClicked(MouseEvent event) {
-
+        Navigatior.navigateNewStage(Navigatior.HELP_STUDENT);
     }
 
     @FXML
