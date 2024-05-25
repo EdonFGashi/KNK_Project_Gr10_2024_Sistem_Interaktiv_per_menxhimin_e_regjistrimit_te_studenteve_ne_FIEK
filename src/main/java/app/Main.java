@@ -23,7 +23,7 @@ public class Main extends Application {
 
         // Sistem plotesisht funksional per menagjimin e studenteve
         // Fully functional system for menaging students
-
+        stage.setMaximized(true);
         Navigatior.navigate(stage,Navigatior.DASHBOARD);
     }
 }

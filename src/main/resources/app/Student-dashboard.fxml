@@ -45,7 +45,7 @@
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Hyperlink layoutX="840.0" layoutY="456.0" text="%linkReturntoLoginPage">
+                  <Hyperlink layoutX="840.0" layoutY="456.0" text="%linkReturntoLoginPage" visible="false">
                      <font>
                         <Font size="18.0" />
                      </font>

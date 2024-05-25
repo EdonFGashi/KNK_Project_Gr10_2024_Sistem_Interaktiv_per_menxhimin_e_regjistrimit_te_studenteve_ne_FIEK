@@ -25,14 +25,6 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </AnchorPane>
-                  <ImageView fx:id="imgGoBack" fitHeight="38.0" fitWidth="37.0" onMouseClicked="#handleBackClick" pickOnBounds="true" preserveRatio="true">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <image>
-                        <Image url="@../Images/backArrow.png" />
-                     </image>
-                  </ImageView>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" minHeight="70.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="67.0" prefWidth="1920.0" spacing="60.0" style="-fx-background-radius: 0.5;">
@@ -62,7 +54,6 @@
                         <MenuButton mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: none; -fx-font-weight: bold; -fx-font-size: 13;" text="%mbProfile" textFill="WHITE">
                            <items>
                               <MenuItem mnemonicParsing="false" onAction="#handleGoToProfile" text="%mtGoToProfile" />
-                              <MenuItem mnemonicParsing="false" onAction="#handleChangeLanguage" text="%mtChangeLanguage" />
                               <MenuItem mnemonicParsing="false" onAction="#handleSignOut" text="%mtSignOut" />
                            </items>
                            <cursor>
