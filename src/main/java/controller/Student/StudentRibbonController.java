@@ -94,7 +94,7 @@ public class StudentRibbonController {
 
     @FXML
     private void handleLogoClicked(MouseEvent me){
-        Navigatior.navigateNewMaxStage(Navigatior.DASHBOARD);
+        Navigatior.navigate(addPane,Navigatior.STUDENT_DASHBOARD);
     }
     @FXML
     private void handleStartAnimation(MouseEvent me){
