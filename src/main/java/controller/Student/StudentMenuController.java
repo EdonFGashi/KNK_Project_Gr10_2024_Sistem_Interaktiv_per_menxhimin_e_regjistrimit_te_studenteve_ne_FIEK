@@ -62,6 +62,7 @@ public class StudentMenuController {
     private void initialize() {
         String menu = SESSION.getDeptLevel();
 
+
         switch (menu) {
             case "BSC" -> {
                 this.txtPrsinfo.setText("Personal Information");
@@ -110,30 +111,24 @@ public class StudentMenuController {
         }
 
         Navigatior.navigate(hboxaddPane,personalinfoNavigate);
-        this.hbxPersinfo.setStyle(activeSection);
+
 
     }
 
 
     @FXML
     void handleOptionClick1(MouseEvent me) {
-        this.resetActiveSection();
-        this.hbxPersinfo.setStyle(activeSection);
-        Navigatior.navigate(this.hboxaddPane,personalinfoNavigate);
+
     }
 
     @FXML
     void handleOptionClick2(MouseEvent event) {
-        this.resetActiveSection();
-        this.hboxEducation.setStyle(activeSection);
-        Navigatior.navigate(this.hboxaddPane,EducationExperienceNavigate);
+
     }
 
     @FXML
     void handleOptionClick3(MouseEvent event) {
-        this.resetActiveSection();
-        this.hboxAcademic.setStyle(activeSection);
-        Navigatior.navigate(this.hboxaddPane,AcademinInterestNavigate);
+
     }
 
     private void resetActiveSection(){
