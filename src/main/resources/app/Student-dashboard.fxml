@@ -14,9 +14,9 @@
 
 <AnchorPane fx:id="addPane" prefHeight="790.0" prefWidth="1535.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Student.StudentDashboardController">
    <children>
-      <AnchorPane fx:id="addPane2" prefHeight="860.0" prefWidth="1535.0">
+      <AnchorPane fx:id="addPane2" prefHeight="790.0" prefWidth="1535.0">
          <children>
-            <AnchorPane layoutX="190.0" layoutY="130.0" minHeight="0.0" prefHeight="530.0" prefWidth="1156.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+            <AnchorPane layoutX="195.0" layoutY="74.0" minHeight="0.0" prefHeight="530.0" prefWidth="1156.0" style="-fx-background-color: white; -fx-background-radius: 10;">
                <effect>
                   <DropShadow />
                </effect>
@@ -64,7 +64,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <Label fx:id="lblNjoftim" layoutX="416.0" layoutY="682.0" prefHeight="90.0" prefWidth="801.0">
+            <Label fx:id="lblNjoftim" layoutX="416.0" layoutY="621.0" prefHeight="90.0" prefWidth="801.0">
                <font>
                   <Font size="36.0" />
                </font>
